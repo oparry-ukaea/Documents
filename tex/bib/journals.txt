@@ -1,0 +1,53 @@
+[1]  A. Murari, W. Arter, D. Mazon, M. Gelfusa, V. Ferat, and JET-EFDA Contributors. Symmetry based analysis of macroscopic instabilities in Tokamak plasmas. Physical Review Letters, (submitted JET-EFDA PR(11)07), 2011. 
+[2]  W. Arter. A Solution to the Magnetohydrodynamic Trigger Problem. Physical Review Letters, (submitted CCFE-R(11)13), 2011. 
+[3]  W. Arter. Reduced MHD and Astrophysical Fluid Dynamics. In N. Brummell, A.S. Brun, M.S. Miesch, and Y. Ponty, editors, IAU Symposium 271. Astrophysical Dynamics: from Stars to Galaxies, pages 355-360. C.U.P., 2011. 
+[4]  W. Arter. The Equivalence between Magnetoconvection and Reduced Magnetohydrodynamics. Proceedings of the Royal Society. Series A, Submitted, 2011. 
+[5]  W. Arter. Symmetry Constraints on the Dynamics of Magnetically Confined Plasma. Physical Review Letters, 102(19):195004, 2009. 
+[6]  W. Arter. Symmetry Constraints on the Dynamics of Magnetically Confined Plasma. Physical Review Letters, 102(19):195004, 15 May 2009. 
+[7]  W. Arter and M.J. Loughlin. Radiation transport analyses for IFMIF design by the Attila software using a Monte-Carlo source model. Fusion Engineering and Design, 84(1):89-96, 2009. 
+[8]  W. Arter, J.M. Archer, N.J. Brealey, P. Kirby, J.G. Morgan, and D.I. Shepherd. Comparing Computational Electromagnetics Software For Antenna Design. In Loughborough Antennas and Propagation Conference (LAPC2006), page Paper 24. Loughborough University, 2006. 
+[9]  W. Arter, J.W. Eastwood, and N.J. Brealey. Constitutive relations in the EMX software. In Ninth International Conference on Electromagnetics in Advanced Applications (ICEAA '05). ICEAA, 2005. 
+[10]  W. Arter and J. Simkin. Comparison of schemes for computational electromagnetics. In Ninth International Conference on Electromagnetics in Advanced Applications (ICEAA '05). ICEAA, 2005. 
+[11]  J.W. Eastwood, W. Arter, M. Hook, and N.J. Brealey. Practical multipaction assessment using Monte-Carlo/PIC modelling. In Sixth International Vacuum Electronics Conference IVEC 2005, Proceedings WPP 246, pages 103-104. ESA, 2005. 
+[12]  W. Arter, N.J. Brealey, P. Kirby, J.G. Morgan, and D.I. Shepherd. Utility of the CLASP software. In Fifth IEE International Conference on Computation in Electromagnetics (CEM 2004), pages 21-22. IEE, 2004. 
+[13]  W. Arter, J.W. Eastwood, and N.J. Brealey. Fundamental features of the EMX software. In Fifth IEE International Conference on Computation in Electromagnetics (CEM 2004), pages 189-190. IEE, 2004. 
+[14]  W. Arter, J.W. Eastwood, and N.J. Brealey. Device modelling using the EMX software. In Eighth International Conference on Electromagnetics in Advanced Applications (ICEAA '03), pages 167-170. ICEAA, 2003. 
+[15]  W. Arter, S. Earl, J. Simpson, and R. Walton. Refined analysis of antenna coupling using the INSTANT software. In Twelfth International Conference on Antennas and Propagation (ICAP 2003), volume 1, pages 393-396. IEE, 2003. 
+[16]  R. Walton, W. Arter, S. Earl, P. Kirby, and J. Simpson. Effects of ray refinement within the INSTANT software when applied to large-scale abitrarily shaped perfectly conducting bodies. In Fourth International Conference on Computation in Electromagnetics (CEM 2002), pages Paper 3, Session 4. IEE, 2002. Obtainable from IEE as Conference Publication 02/063. 
+[17]  W. Arter, P. Kirby, S. Earl, J.K.R. Smith, R. Walton, and J.L. Simpson. Refined analysis of antenna interactions using the INSTANT software. In B. Michielsen and F. Decavele, editors, Journes Europennes sur les Mthodes Numriques en Electromagntisme (JEE 02), pages 289-290. ONERA, 2002. 
+[18]  W. Arter, J.W. Eastwood, and N.J. Brealey. A Parallel Elliptic Solver for the EMX Software. Computer Physics Communications, 144:23-28, 2002. 
+[19]  W. Arter, P. Kirby, J.K.R. Smith, and J.L. Simpson. Analysis of antenna interactions using the INSTANT software. In Eleventh International Conference on Antennas and Propagation (ICAP 2001), volume 2, pages 736-740. IEE, 2001. 
+[20]  J.W. Eastwood, N.J. Brealey, W. Arter, and R.A. Bond. Pic software for vacuum electronic device design. In IEEE Electron Devices Society, editor, Abstracts, International Vacuum Electronics Conference 2000, 2000. Paper 19.3. 
+[21]  J.W. Eastwood and W. Arter. 3DPIC simulation of relativistic magnetrons. In IEEE Electron Devices Society, editor, Abstracts, International Vacuum Electronics Conference 2000, 2000. 
+[22]  W. Arter and J.W. Eastwood. Characterization of relativistic magnetron behavior by 3-D PIC simulation. IEEE Transactions on Plasma Science, 26(3):714-725, 1998. 
+[23]  W. Arter and J. Eastwood. The modelling of relativistic magnetrons. In IEE, editor, IEE Colloquium on High Frequency Simulation: Part Two (Digest No: 1997/374), pages 3/1-3/4, London, 1997. IEE. 
+[24]  J.W. Eastwood, W. Arter, N.J. Brealey, and R.W. Hockney. Body-fitted PIC software for electromagnetic problems: The time domain code PIC3D. In IEE, editor, Third International Conference on Computation in Electromagnetics, pages 26-31, London, 1996. IEE. 
+[25]  W. Arter, J.W. Eastwood, N.J. Brealey, and R.W. Hockney.  Body-fitted PIC software for electromagnetic problems: The preprocessing program PEGGIE. In IEE, editor, Third International Conference on Computation in Electromagnetics, pages 271-276, London, 1996. IEE. 
+[26]  J.W. Eastwood, W. Arter, N.J. Brealey, and R.W. Hockney. Body-fitted electromagnetic PIC software for use on parallel computers. Computer Physics Communications, 87:155-178, 1995. 
+[27]  W. Arter and J.W. Eastwood. Particle-mesh schemes for advection dominated flows. Journal of Computational Physics, 117:194-204, 1995. 
+[28]  W. Arter. Three-dimensional modelling of drift-wave turbulence. Computer Physics Communications, 88:59-75, 1995. 
+[29]  W. Arter. Numerical simulation of magnetic fusion plasmas. Reports on Progress in Physics, 58:1-59, 1995. 
+[30]  W. Arter, J.W. Eastwood, N.J. Brealey, and R.W. Hockney.  Electromagnetic modelling in arbitrary geometry by PIC methods on MIMD computers. In R. Gruber and M. Tomassini, editors, Proceedings of 6th Joint EPS-APS Intl. Conf. on the Physics of Computing PC '94, pages 297-300, Geneva, 1994. EPS. 
+[31]  W. Arter. Particle-mesh modelling of drift-wave turbulence. Computer Physics Communications, 79:381-408, 1994. 
+[32]  J.W. Eastwood, R.W. Hockney, and W. Arter. General geometry PIC for MIMD computers . In IEEE International Conference on Plasma Science, page 167. IEEE, 1993. 
+[33]  J.W. Eastwood and W. Arter. Electromagnetic PIC modelling in arbitrary geometry. In 8th Annual Review of Progress in Applied Computational Electromagnetics, pages 583-590. Applied Computational Electromagnetics Society, 1992. 
+[34]  W. Arter and J.W. Eastwood. Discretising reactive boundary conditions for Maxwell's equations. In G. Cohen, L. Halpern, and P. Joly, editors, Mathematical and Numerical Aspects of Wave Propagation Phenomena, pages 719-721. S.I.A.M., 1991. 
+[35]  W. Arter. The use of upwind schemes at high Reynolds number - a cautionary note. Computer Physics Communications, 66:207-210, 1991. 
+[36]  W. Arter. Topological magnetoconvection. In H.K. Moffatt and A. Tsinober, editors, Topological Fluid Mechanics, pages 669-678. Cambridge, 1990. 
+[37]  W. Arter. Phenomenological modelling of Mirnov oscillations. Physics of Fluids, 31(7):2051-2053, 1988. 
+[38]  W. Arter and A.C. Newell. Numerical simulation of Rayleigh-Benard convection in shallow tanks. Physics of Fluids, 31:2474-2485, 1988. 
+[39]  W. Arter and J.W. Eastwood. The effect of aliasing error upon numerical solutions of the hydrodynamic and magnetohydrodynamic equations. Transport Theory and Statistical Physics, 16:433-446, 1987. 
+[40]  W. Arter. Local models of magnetohydrodynamics. Physics Letters, 122A:253-256, 1987. 
+[41]  J.W. Eastwood and W. Arter. Spurious behaviour of numerically computed fluid flow. I.M.A. Journal of Numerical Analysis, 7:205-222, 1987. 
+[42]  J.W. Eastwood and W. Arter. Reduced MHD modelling of tearing mode interactions in tokamaks. Physics of Fluids, 30:2774-2783, 1987. 
+[43]  W. Arter, A. Bernoff, and A.C. Newell. Wavenumber selection of convection rolls in a box. Physics of Fluids, 30:3840-3842, 1987. 
+[44]  W. Arter and D.N. Edwards. Nonlinear studies of Mirnov oscillations in the DITE tokamak: evidence for a strange attractor. Physics Letters, 114A:84-89, 1986. 
+[45]  J.W. Eastwood and W. Arter. EPIC - beyond the ultimate difference scheme. In K.W. Morton and M.J. Baines, editors, Numerical Methods for Fluid Dynamics II, pages 581-593. O.U.P., 1986. 
+[46]  J.W. Eastwood and W. Arter. Interpretation of disruptions in tokamak simulations. Physical Review Letters, 57:2528-2531, 1986. 
+[47]  W. Arter. Nonlinear Rayleigh-Benard convection with square planform. Journal of Fluid Mechanics, 152:391-418, 1985. 
+[48]  W. Arter. Magnetic flux transport by a convecting layer including dynamical effects. Geophysical & Astrophysical Fluid Dynamics, 31:311-344, 1985. 
+[49]  W. Arter. Nonlinear convection in an imposed horizontal magnetic field. Geophysical & Astrophysical Fluid Dynamics, 25:259-292, 1983. 
+[50]  W. Arter. Magnetic flux transport by a convecting layer - topological, geometrical and compressible phenomena. Journal of Fluid Mechanics, 132:25-48, 1983. 
+[51]  W. Arter. Ergodic streamlines in three-dimensional convection. Physics Letters, 97A:171-174, 1983. 
+[52]  W. Arter, D.J. Galloway, and M.R.E. Proctor. New results on the mechanism of magnetic flux pumping by three-dimensional convection. Monthly Notices of the Royal Astronomical Society, 201:57P-61P, 1982. 
+

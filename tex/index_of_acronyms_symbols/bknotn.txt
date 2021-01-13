@@ -1,0 +1,493 @@
+% Scan of Brunton and Kutz symbol table etc converted to text`
+
+Common Optimization Techniques, Equations,
+
+Symbols, and Acronyms
+Most Common Optimization Strategies
+Least-Squares (discussed in Chapters 1 and 4) minimizes the sum of the squares of the
+residuals between a given fitting model and data. Linear least-squares, where the residuals
+are linear in the unknowns, has a closed form solution which can be computed by taking the
+derivative of the residual with respect to each unknown and setting it to zero. It is commonly
+used in the engineering and applied sciences for fitting polynomial functions. Nonlinear
+least-squares typically requires iterative refinement based upon approximating the nonlinear
+least-squares with a linear least-squares at each iteration.
+Gradient Descent (discussed in Chapters 4 and 6) is the industry leading, convex
+optimization method for high-dimensional systems. It minimizes residuals by computing
+the gradient of a given fitting function. The iterative procedure updates the solution by
+moving downhill in the residual space. The NewtonRaphson method is a one-dimensional
+version of gradient descent. Since it is often applied in high-dimensional settings, it is prone
+to find only local minima. Critical innovations for big data applications include stochastic
+gradient descent and the backpropagauon algorithm which makes the optimization
+amenable to computing the gradient itself.
+Alternating Descent Method (ADM) (discussed in Chapter 4) avoids computations of the
+gradient by optimizing in one unknown at a time. Thus all unknowns are held constant while
+a line search (non-convex optimization) can be performed in a single variable. This variable
+is then updated and held constant while another of the unknowns is updated. The iterative
+procedure continues through all unknowns and the iteration procedure is repeated until a
+desired level of accuracy is achieved.
+Augmented Lagrange Method (ALM) (discusvd in Chapters 3 and 8) is a class of algorithms
+for solving constrained optimization problems. They are similar to penalty methods in that
+they replace a constrained optimization problem by a senes of unconstrained problems and
+add a penalty term to the objective which helps enforce the desired constraint. ALM adds
+another term designed to mimic a Lagrange multiplier, The augmented Lagrangian is not
+the same as the method of Lagrange multipliers.
+Linear Program and Simplex Method are the workhorse algorithms for convex optimization.
+A linear program has an objective function which is linear in the unknown and the
+constraints consist of linear inequalities and equalities. By computing its feasible region,
+which is a convex polytope, the linear programming algorithm finds a point in the
+polyhedron where this function has the smallest (or largest) value if such a point exrsts. The
+simplex method is a specific iterative technique for linear programs which aims to take a
+given basic feasible solution to another basic feasible solution for which the objective
+function is smaller, thus producing an iterative procedure for optimizing,
+
+xiii
+xiv
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+Most Common Equations and Symbols
+Linear Algebra
+Linear System of Equations
+Ax = b.
+The matrix A e and vector b e IRP are generally known, and the vector x e is unknown.
+
+Eigenvalue Equation
+(0.2)
+The columns of the
+T are the eigenvectors of A e C,nxn corresponding fo the
+eigenvalue Xk,: AEk. Xk$k. The matrix A is a diagonal matrix containing these
+eigenvalues, in the simple case with n distinct eigenvalues.
+
+Change of Coordinates
+x = Va.
+The vector x e IR'Z may be written as a G
+
+(0.3)
+
+in the coordinate system given by the columns
+
+Measurement Equation
+Y  Cx.
+
+-me vector y e RP is a measurement of the state x e IRn by the measurement matrix C e IRI)
+xn
+
+Singular Value Decomposition
+X = UEV* UEV*
+
+(0.5)
+
+The matrix X e C.nxm may be decomposed into the product of three matrices U G C RX n e
+cnxm and V e cmxm The matrices U and V are unitary, so that = = 1 and
+=1
+where * denotes complex conjugate transpose. The columns of
+U (resp. V) are orthogonal, called left (resp. right) singular vectors. The matrix E contains
+decreasing, nonnegative diagonal entries called singular values.
+Often, X is approximated with a low-rank matrix = V*, where U and V contain the
+first r n columns of U and V, respectively, and E contains the first r x r block of E. Ihe matrix
+U is often denoted Il-I in the context of spatial modes, reduced order models, and sensor
+placement.
+
+Regression and Optimization
+Overdetermined and Underdetermined Optimization for Linear Systenzs
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+The state of the system is x G the inputs (actuators) are u e Rq, and the outputs (sensors)
+are y e RP. The matrices A, B, C, D define the dynamics, the effect of actuation, the sensing
+strategy, and the effect of actuation feed-through, respectively.
+xvi
+
+argmin (Il Ax blf2 -f- ig(x))
+
+x
+
+is
+
+to
+ese
+
+).3)
+
+(0.6a)
+
+x argming(x) subject to IlAx  b112 e , (0.6b)
+
+1.1)
+
+2)
+
+or
+
+Here g(x) is a regression penalty (with penalty parameter X for overdetermined systems).
+For over- and underdetermined linear systems of equations, which result in either no
+solutions or an infinite number of solutions of Ax b, a choice of constraint or penalty, which
+is also known as regularization, must be made in order to produce a solutions
+
+Overdetermined and Underdetermined Optimization for Nonlinear Systems
+argmin (f (A, x, b) + Xg(x))
+
+or
+
+(0.7a)
+
+x
+
+argmin g (x) subject to f (A, x, b) 
+
+(0.7b)
+
+x
+
+This generalizes the linear system to a nonlinear system f G) with regularization g G). These
+over- and underdetermined systems are often solved using gradient descent algorithms.
+
+nns
+
+).4)
+.trix
+
+0.5)
+txn
+
+Compositional Optimization for Neural Networks
+f2(A2, (fl (Al, x))  ) -b Xg(Aj))
+
+argmin (fM(AM,
+
+Each Ak denotes the weights connecting the neural network from the kth to (k + l)th
+layer. It is typically a massively underdetermined system which is regularized by g(Aj).
+Composition and regularization are critical for generating expressive representations of the
+data as well as preventing overfitting.
+
+Dynamical Systems and Reduced Order Models
+Nonlinear Ordinary Differential Equation (Dynamical System)
+
+-nxn
+
+s of
+ains
+
+[tain
+
+k of
+iels,
+
+f(x(t), t; B).(0.9)
+dt
+The vector x(t) e
+is the state of the system evolving in time t,  are parameters, and fis
+the vector field. Generally, f is Lipschitz continuous to guarantee existence and uniqueness
+of solutions.
+Linear InputOutpuf System
+x  Ax + Bu
+dt y  cx + Du. (0.10b)
+
+Nonlinear Map (Discrete-Time Dynamical System)
+
+(0.10a)
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+Xk+l = F(Xk).
+The state of the system at the kth iteration is e Rn , and F is a possibly nonlinear mapping.
+Often, this map defines an iteration forward in time, so that Xk = x(kAt); in this case the
+flow map is denoted F At.
+
+Koopman Operator Equation (Discrete-Time)
+(0.12)
+The linear Koopman operator ICt advances measurement functions of the state g(x) with
+the flow Ft. Eigenvalues and eigenvectors of are i and p(x), respectively. The operator 'Ct
+operates on a Hilbert space of measurements.
+
+Nonlinear Partial Differential Equation
+ut N(u, ux, unr,
+
+(0.13)
+
+fie state of the PDE is u, the nonlinear evolution operator is N, subscripts denote partial
+differentiation, and x and t are the spatial and temporal variables, respectively. 'Ihe PDE is
+parameterized by values in 6. The state u of the PDE may be a continuous function u(x, t),
+or it may be discretized at several spatial locations, u(t) [u t) u(x.2, t) u(xn, e
+
+Galerkin Expansion
+r
+
+me continuous Galerkin expansion is:
+
+14)
+The functions ak (t) are temporal coefficients that capture the time dynamics, and (x) are
+spatial modes. For a high-dimensional discretized state. the Galerkjn expansion becomes:
+u(t) Ek= 1 The spatial modes e may be the columns of V = .
+Wii
+
+Complete Symbols
+Dimensions
+Reference to
+track
+x State of a system, x e JR'?
+Snapshot of data at time tk
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+Data sample j e Z {1, 2, . m} (Chapters 5 and 6) x Reduced
+state, i e IV , so that x
+Estimated state of a system y
+Vector of measurements, y e RP
+Data label j Z {1, 2.
+. m} (Chapters 5 and 6)
+Estimated
+output
+measurement
+z
+Transformed state, x = Tz (Chapters 8 and 9)
+K
+Number of nonzero entries in a K -sparse vector s
+m
+Number of data snapshots (i.e.. columns of X)
+n Dimension of the state, x e IR'I p Dimension of the
+measurement or output variable, y e R P q Dimension of the
+input variable, u e IV
+Rank of uncated S VD, or other low-rank approximation
+
+11)
+ear
+:his
+
+12)
+
+Scalars
+
+vith
+ator
+
+s Frequency in Laplace domain t
+Time
+
+learning rate in gradient
+
+descent
+At
+L 13)
+
+Ax
+
+note
+
+Time step
+
+Spatial variable
+Spatial step
+5 Singular value
+Eigenvalue
+X Sparsity parameter for sparse optimization (Section 7.3)
+
+vely.
+
+con-
+
+Lagrange multiplier (Sections. 3.7, 8.4, and 11.4)
+Threshold
+
+Vectors a Vector of mode amplitudes of x in basis V, a e
+IR r b Vector of measurements in linear system Ax = b
+b Vector of DMD mode amplitudes (Section 7.2)
+Q Vector containing potential function for PDE-FIND
+r Residual error vector
+
+are
+mes:
+
+s Sparse vector, s e IR" u Control variable
+(Chapters 8, 9, and 10) u PDE state vector
+(Chapters 11 and 12) w Exogenous inputs
+Disturbances to system
+Measurement noise
+Error vector
+xviji
+
+Vectors,
+continued
+
+Bifurcation parameters
+Eigenvector of Koopman operator (Sections 7.4 and 7.5)
+Sparse vector of coefficients (Section 7.3)
+DMD mode
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+POD mode
+Vector of PDE measurements for PDE-FIND
+Matrix for system of equations or dynamics
+Matrices
+A. Reduced dynamics on r-dimensional POD subspace
+ Matrix representation of linear dynamics on the state x
+Ax Matrix representation of linear dynamics on the observables y
+Matrices for continuous-time state-space system
+Matrices for discrete-time state-space system
+(Ad, Bd. Cd, Bd)
+
+B
+
+C
+C
+F
+G
+H
+H"
+
+I
+K
+
+L
+P
+Q
+Q
+R
+R
+
+S
+T
+T
+U
+
+
+V
+
+Matrices for state-space system in new coordinates z Tl x
+Matrices for reduced state-space system with rank r
+Actuation input matrix
+Linear measurement matrix from state to measurements
+Controllability matrix
+Discrete Fourier transform
+Matrix representation of linear dynamics on the states and inputs
+Hankel matrix
+Time-shifted Hankel matrix
+Identity matrix
+Matrix form of Koopman operator (Chapter 7)
+Closed-loop control gain (Chapter 8)
+Kalman
+K filter estimator gain
+LQR control gain
+Low-rank portion of matrix X (Chapter 3) Observabifity
+matrix
+O matrix that acts on columns of X
+Unitary
+Weight matrix for state penalty in LQR (Sec. 8.4)
+Orthogonal matrix from QR factorization
+Weight matrix for actuation penalty in LQR (Sec. 8.4) Upper
+triangular matrix from QR factorization
+Sparse portion of matrix X (Chapter 3)
+Matrix of eigenvectors (Chapter 8)
+Change of coordinates (Chapters 8 and 9)
+Left singular vectors of X, U e
+Left singular vectors of economy SVD of X, U e Rnxm
+Left singular vectors (POD modes) of truncated SVD of X, U e
+Right singular vectors of X, V G IRmxm
+Right singular vectors of truncated SVD of X, V e k m x r
+xix
+
+Matrices, continued
+Matrix of singular values of X, E G
+Matrix of singular values of economy SVD of X, E e
+Matrix of singular values of truncated SVD of X, E G IR rxr
+
+W Eigenvectors of A
+Wc
+Controllability
+Gramian
+Observability Gramian
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+X
+X'
+
+Data manix, X e IR?) X '"
+Time-shifted data man-ix, X' e
+
+Y
+
+Projection of X man-ix onto orthogonal basis in randomized SVD (Sec. 1.8)
+
+Y
+
+Data matrix of observables, Y = g(X), Y e (Chapter 7)
+Shifted data matrix of observables. Y/ = g(X'), Y' e
+
+Y/
+
+(Chapter 7)
+
+Z
+
+Sketch matrix for randomized SVD, Z e
+(Sec. 1.8)
+Measurement matrix times sparsifying basis, = CW (Chapter 3)
+Matrix of candidate functions for SINDy (Sec. 7.3)
+Matrix of derivatives of candidate functions for SINDy (Sec. 7.3) x
+Matrix of coefficients of candidate functions for SINDy (Sec. 7.3)
+Matrix of nonlinear snapshots for DEIM (Sec. 12.5)
+A Diagonal matrix of eigenvalues
+Input snapshot matrix, Y G IRqxm
+Matrix of DMD modes,
+x'vz -l w
+Orthonormal basis (e.g., Fourier or POD modes)
+inputs
+Tensors
+(A, B, M) N-way array tensors of size Il x 12 x
+
+ x lN
+
+Norms
+Co pseudo-norm of a vector x the number of nonzero elements in x
+t 1 norm of a vector x given by
+Ef=l
+l!xlll 82 norm of a vector x given
+by
+2-norm of a matrix X given by
+llX112 =
+Frobenius norm of a matrix X
+given by
+Nuclear norm of a matrix X given by X = trace
+(for m n)
+Inner product. For functions, (f (x), g(x)) f(x)g* (x)dx.
+product. For vectors, (u, v) = u* v.
+
+Operators, Functions, and Maps
+F Fourier transform
+F Discrete-time dynamical system map
+Discrete-time flow map of dynamical system through time t f
+Continuous-time dynamical system
+Gabor transform
+
+Inner
+
+Common Optimization Techniques, Equations, Symbols, and Acronyms
+
+Operators, Functions, and Maps, continued
+G Transfer function from inputs to outputs (Chapter 8) g
+Scalar measurement function on x g Vector-valued
+measurement functions on x J Cost function for control
+Z Loss function for support vector machines (Chapter 5)
+Koopman operator (continuous time)
+Koopman operator associated with time t flow map
+C Laplace transform
+L Loop transfer function (Chapter 8)
+L Linear partial differential equation (Chapters 11 and 12)
+N Nonlinear partial differential equation
+O
+
+S
+T
+
+Order of magnitude
+Sensitivity function (Chapter 8)
+
+Complementary sensitivity function (Chapter 8)
+Wavelet transform
+Incoherence between measurement matrix C and basis IV
+K Condition number p
+Koopman eigenfunction V
+Gradient operator
+* Convolution operator

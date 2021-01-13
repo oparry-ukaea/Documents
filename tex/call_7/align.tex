@@ -1,0 +1,58 @@
+\begin{itemize}
+\item This task focuses upon the suitability of available numerical 
+algorithms (or the development of new algorithms) for matrix preconditioning in the
+context of Exascale targeted plasma modelling. As stated in the Fusion Modelling System
+Science Plan, elements of this work package FM-WP1 together with FM-WP4 will also
+surround the ``coupling technology'' that will be required to connect the 
+edge/pedestal region of the plasma (addressed
+by FM-WP2) and the neutral gas/impurity model (FM-WP3).
+
+\item The ideal numerical algorithms for forming the Exascale edge plasma codes of 
+the future will have preferably at least the following properties:
+\begin{itemize}
+\item[P1] Accurate solution of hyperbolic problems.
+\item[P2] Ability to deliver efficient and accurate solutions of corresponding 
+elliptic problems.
+\item[P3] Accurate modelling of highly anisotropic dynamics. 
+\item[P4] Accurate representation of first wall geometry (face normals to
+within~$0.1^{0}$), and correspondingly of complex magnetic field geometries.
+\item[P5] Accurate representation of velocity (phase) space.
+\item[P6] Preservation of conservation properties of the underlying equations.
+\item[P7] Scalability to likely Exascale architectures:
+\begin{itemize}
+\item[a] interaction between models of different dimensionality,
+\item[b] interaction between particle and fluid models,
+\item[c] dynamic construction of surrogates.
+\end{itemize}
+\item[P8] Performance portability to allow rapid deployment upon emerging hardware.
+\end{itemize}
+
+\item It is unlikely that any algorithm will have all the above, and part of the exercise
+will be to rank the importance of these properties.
+
+\item 
+The availability of appropriate matrix preconditioning may influence the choice
+of numerical scheme, eg.\ ref~\cite{Ya16ToCG} and therefore have a profound impact upon
+almost all areas of the project.
+
+\item Options have been tentatively 
+identified for initial investigation as follows:
+\begin{enumerate}
+\item Spectral/hp element, combined with Discontinuous Galerkin, to meet P1,P3
+\item Multigrid methods for P2
+\item For Exascale (P7):
+\begin{enumerate}
+\item matrix-based approaches, hierarchical geometric structures,
+\item kinetic enslavement~\cite{taitano}, multi-index Monte-Carlo methods
+\end{enumerate}
+The above items require solution of linear systems of equations $A{\bf x} = {\bf b}$
+for field values~${\bf x}$, hence
+are expected to benefit from appropriate matrix preconditioning, ie.\
+algorithms which are mathematically equivalent to forming the
+matrix product $M=C^{-1}A$ so that $M{\bf x}=C^{-1}{\bf b}$ is easier to solve,
+typically because iteration proceeds faster as $M$ is closer to a diagonal matrix.
+It may help to note that in the comoving system of coordinates (Lagrangian formulation), 
+transport operators reduce to the identity.
+
+\end{enumerate}
+\end{itemize}

@@ -1,0 +1,49 @@
+Uncertainty quantification~(UQ)
+is a topic of interest to nuclear engineers (where it may
+feed into probabilistic risk assessment studies of safety), chemical engineers,
+systems engineers, control engineers, meteorologists, and probably many others,
+see the book by Smith~\cite{smithUQ}.
+This means that there is widespread literature available, but
+unfortunately it also means that the nomenclature is not standardised.
+This report will follow Smith's text as far as possible as to definitions.
+Smith defines UQ as: ``The synergy between statistics, applied mathematics
+and domain sciences required to quantify uncertainties in inputs and
+Quantities of Interest~(QoI) when models are too computationally complex to
+permit sole reliance on sampling-based methods." Implicit in Smith's definition
+is thus the  production of a surrogate, which immediately highlights differences
+in nomenclature in that both the COSSAN~\cite{Pa14Open} and Dakota~\cite{dakota6} packages describe
+themselves as performing UQ analysis without necessarily using a surrogate.
+For \nep,  surrogates will preferably have an underlying physics basis,
+and unless explicitly stated, numerical errors due to the discretisation and to round-off
+in finite precision computer arithmetic will be neglected.
+
+The material on UQ in the present report will be ordered by application to the
+workflow in a generic, large scientific-modelling package as presented by Habib Najm
+at the Workshop on ``Data Assimilation and Uncertainty Quantification at
+the Exascale", 24-25 September 2020 drawing extensively from ref~\cite{Hu18Glob}.
+The first stage of the workflow is to understand the behaviour of the full model,
+assumed to be dependent on a large number of parameters~$d$, giving 
+rise to the so-called  `curse of dimensionality', see \Sec{stage1}.
+%and produce a surrogate, the second and the third to use the surrogate.
+It is notable that Najm prefers to proceed to
+use only a small number of techniques of global sensitivity analysis,
+concentrating on sparse sampling and does \emph{not} first
+examine sensitivity to small changes in input (ie.\ local sensitivity analysis).
+The second stage is to produce a surrogate dependent only on of order~ten or so
+parameters, and the third is to use such surrogates to compute uncertainty in QoI,
+which may include solutions with optimal properties.
+It will of course be seen that sampling techniques remain important because thay are needed
+both for the first and third stages.
+
+Before proceeding, it is worth remarking that two different kinds of uncertainty
+are distinguished, namely aleatory and epistemic uncertainties, less confusingly
+referred to as `irreducible' and `reducible' uncertainty.
+The first have been referred to as the ``unknown unknowns", and the second as the
+``known unknowns", in that the latter could be determined simply by further measurement.
+Patelli~et~al~\cite{Pa14Open} argue for more of a continuum of ignorance, because for example
+certain measurements may be available some but not all of the time.
+
+This report will begin by describing the mathematical basis of methods used in UQ, ordered
+by the above stages in \Sec{maths}.
+It will proceed in \Sec{impl} to outline how the mathematics might be implemented in the
+\nep\ software, and a brief summary is provided in \Sec{summ}.

@@ -1,0 +1,21 @@
+There is one objective, namely to help determine the most appropriate matrix
+preconditioners for systems of equations arising in Exascale plasma
+modelling. These systems are built largely by discretising transport operators
+applied to spectral element bases and exploiting static condensation,
+although discretised elliptic operators typically also appear.
+It is expected that the complete
+model system consisting of both elliptics and non-elliptics should be solved
+close-coupled as suggested by the physics. Comparison with
+loose-coupled solution is expected, see eg.\ ref~\cite{Fe19gene}
+and if close-coupling appears infeasible,
+then appropriate preconditioning techniques should be identified for loose-coupling.
+
+Appropriateness will be determined by
+\begin{itemize}
+\item Robustness, perhaps as shown by mathematical proofs establishing convergence
+for relevant matrices.
+\item Efficiency, measured by number of iterations required and complexity of each iteration
+for solution of whole system.
+\item Suitability for the Exascale in terms of scaling and ease of implementation.
+\end{itemize}
+ 

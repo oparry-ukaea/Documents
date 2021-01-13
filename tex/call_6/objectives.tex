@@ -1,0 +1,298 @@
+
+One of the key-aims of \nep \   work under FM-WP2~\cite{sciplan} is to explore options for 
+scalable, Exascale targeted closed form models, based upon a fluid treatment of 
+hot, thermonuclear plasma at the edge of a tokamak device (complementary to a 
+gyroaveraged treatment). The fluid model must capture the physics of the plasma in 
+regions including the separatrix but away from the metal surfaces of the device. 
+Such a model is necessary to form a core building block of a full, ``actionable'' 
+simulation of the tokamak exhaust region including all relevant Multi-physics phenomena 
+(around bulk plasma species, impurities and neutrals). To be suitable for analysing 
+ITER data and for designing the commercial powerplants of the future, the eventual 
+code must be performant and scalable to Exascale class hardware, must be easy to 
+deploy upon different architectures, must be actionable (including treatment of uncertainty)
+item and must couple efficiently to the infrastructure developed under 
+work package FM-WP3 (Neutral Gas and Impurity Model). In the long term, we also 
+anticipate that this model will be coupled to a 5-D gyroaveraged model for the bulk 
+plasma that comes into direct contact with plasma facing components of the device. 
+The model and its instantiation in the eventual code must therefore take all of 
+these requirements into account.
+
+The desired properties of the ideal referent fluid model include the following:
+
+\begin{itemize}
+\item[\textbf{PR1}] Ability to capture the physics (including both electrons and ions) 
+of the bulk plasma using fluid theory. It should be borne in mind that the electrons 
+and ions have very disparate length and time scales; the model must be able to 
+exploit Exascale computing technology to resolve this computational challenge at 
+scale. Given that future Exascale architectures are not well defined, it is strongly 
+advised that ``performance portability'' be built into the code base.
+
+\item[\textbf{PR2}] The model must be agile, modular and easy to adapt. This is to ensure 
+that it can be coupled to a gyroaveraged model that might be used for other parts 
+of the plasma that are eg.\ in direct contact with metal surfaces and to allow 
+new physics to be added in a simple, agile way. Solutions around coupling methodology 
+and technology should therefore be considered, as should the use of Domain Specific 
+Language (DSL) and code-generator technologies.
+
+\item[\textbf{PR3}] Later in the project, the model will likely be coupled to a particle 
+model for neutral and impurity species. As per the gyroaveraged model in PR2, this must also 
+be taken into account in the design of the model/algorithm; this will require close 
+cooperation/co-design with other team members in order to design the particle data 
+structures accordingly.
+
+\item[\textbf{PR4}] If a moments-based approach is to be used, closure eg.\ \cite{Ca10Tran,Vo91Flui} as well 
+as additional terms such as those describing collisions must be treated correctly. 
+The uncertainty resulting from the choice of closure must also eventually be quantified 
+and incorporated into the Uncertainty Quantification (UQ) propagation through the 
+entire \nep \   edge code/workflow (to ensure that the infrastructure is actionable). 
+A comparative analysis of different closure terms is highly encouraged.
+
+\item[\textbf{PR5}] The fluid model within the eventual \nep \   edge code should also 
+deliver adequate modelling of 3-D turbulence at edge plasma relevant scales (ie.\  
+ideally to be capable of exploiting extreme scalability to directly expose turbulence 
+phenomena in the edge and not just parametrize the impact of turbulence). We would 
+therefore like the bidder to outline their vision for achieving this end-goal.
+\end{itemize}
+
+In addition to the above overarching requirements, the baseline deliverables for 
+this call are further specified in the following sections. For each, the bidder 
+is requested to provide a clear description of what they will deliver and a plan 
+for how they intend to deliver it, including a timeline (taking into account the 
+funding available for each financial year specified in section 2.4.2).
+%Creativity and ambition for delivering beyond core scope is encouraged.
+
+The task package itself is divided into tasks, each with a set of objectives as 
+outlined below. The baseline anticipated outputs and results for each task are 
+summarised in section 2.1. 
+
+\begin{itemize}
+\item[1.3.1]\textbf{Task 1: Delivery of System 2-2, 2-D elliptic solver in complex geometry}
+
+The ideal numerical algorithms for building the Exascale edge plasma codes of the 
+future will encode functionality that delivers efficient and accurate solutions 
+of tokamak plasma relevant elliptic problems. The baseline option, which does 
+not preclude a consideration of others, has been tentatively identified as ``high 
+order'' spectral/hp elements (which it is believed will scale favourably to the Exascale 
+hardware due to the compute dense nature of the high order methods~\cite{pappeqs}). An important 
+outcome of this stage of the project will be to confirm that high order spectral/hp 
+methods are indeed the optimal solution for the eventual code. The bidder should 
+therefore indicate how they intend to address this question by working closely 
+with the successful bidder to Call~T/NA078/20, potentially by also coding up a lower order 
+solver (ideally Hybridised Discontinuous Galerkin (HDG)) within the same \Papp \ 
+(or as an additional derivative \Papp ), or by making careful quantified comparisons 
+with existing codes/infrastructure. The bidder may also wish to consider a) how 
+the impact of state-of-the-art in pre-conditioners will affect the efficacy of 
+the different methods and b) whether a ``hybrid'' approach might prevail where 
+HDG and Galerkin using spectral/hp elements are operative upon different parts 
+of the same grid.
+
+The main objective of this task is to produce an implementation of the model equations 
+(primarily using a high order spectral/hp method), geometry and boundary conditions described 
+as System~2-2, entitled ``2-D elliptic solver in complex geometry'' of the document
+``Equations for \exc/\nep \ \Papp s"~\cite{pappeqs} that will: 
+
+\begin{itemize}
+\item[$\bullet$] deliver an ``as accurate as possible solution" that will provide an early indication 
+as to whether or not the eventual code based upon this method/solver/library combination will 
+cater for problem sizes predicted to deliver an ``actionable solution" on Exascale hardware, 
+while giving a ``significant" performance improvement over software using second order representations
+without mesh adaptation.
+ 
+\item[$\bullet$] For estimating the likely achievable accuracy, performance and tractable problem sizes/resolution
+etc.\ on the eventual Exascale platform, the bidder should indicate how they intend to use the \nep \ \papp(s),
+scientific literature, information from trustworthy websites,  analytic theory/solutions, and profiling tools that
+perform eg.\  roofline analysis, to identify a viable solution and steer the development towards it.
+They should outline their vision (and proposed timeline) for achieving the capability requirements
+PR1-5 specified above and in the \exc\ \nep\  Science Plan.
+
+
+%\item[$\bullet$] Captures as much as possible the scaling characteristics of the full model 
+%being targeted in the long term. 
+\end{itemize}
+
+\item[1.3.2]\textbf{Task 2: Delivery of System 2-3, 1-D fluid solver with simplified 
+physics with UQ and realistic boundary conditions}
+
+As stated in the Fusion Modelling System Science Plan~\cite{sciplan}: 
+
+\begin{itemize}
+\item[$\bullet$] Uncertainty quantification (eg.\ via intrusive or ensemble-based methods) 
+will be embedded across all areas of the project to ensure~numerical predictions 
+are ``actionable''. 
+
+\item[$\bullet$] Identifying, quantifying and mitigating uncertainty and the computational 
+overhead of adequately modelling each will be a core theme within the project. 
+
+\item[$\bullet$] The overall aim of the project is to build a hierarchy of models that are 
+capable of representing edge plasma behaviour to within a specific level of uncertainty.
+\end{itemize}
+
+The main objective of this task is to develop a 1-D fluid solver with simplified 
+physics but with UQ and realistic boundary conditions. The aim is to produce an 
+implementation of the model equations, geometry and boundary conditions described 
+as System~2-3 entitled ``1-D simplified fluid solver with UQ'' of document~\cite{pappeqs} 
+that: 
+
+\begin{itemize}
+\item[$\bullet$] Delivers an accurate and efficient solution together with a proposal for 
+how the method should be extended to higher order \Papp s and the eventual \nep \   
+code(s). 
+
+\item[$\bullet$] The bidder should indicate how they intend to assess ``accuracy" and ``efficiency",
+together with performance and achievable problem size at Exascale as per Task 1.3.1.
+
+\end{itemize}
+
+\item[1.3.3]\textbf{Task 3: Delivery of System 2-4, 1-D plasma model incorporating velocity
+space effects}
+
+As stated in the Fusion Modelling System Science Plan: 
+
+\begin{itemize}
+\item[$\bullet$] There may be an inadequate number of collisions for the species to equilibrate, 
+leaving significant tails in the particle velocity distributions. 
+
+\item[$\bullet$] Ideas around the discretisation of the velocity (phase) space dependence 
+include techniques suitable for dealing with infinite coordinates, such as moment-based 
+methods using truncated series and/or mapped finite elements perhaps combined with 
+spherical harmonics. 
+
+\item[$\bullet$] The ideal numerical algorithms for forming the Exascale edge plasma codes 
+of the future will have preferably at least the following properties: 
+
+\begin{enumerate}
+\item Accurate solution of hyperbolic problems. 
+\item Accurate representation of velocity~(phase) space. 
+\end{enumerate}
+
+\item[$\bullet$] Options, which do not preclude consideration of others, have been tentatively 
+identified for initial investigation as follows: spectral/hp elements (high order 
+finite elements).
+\end{itemize}
+
+The objective of this task is to produce an implementation of the model equations, 
+geometry and boundary conditions described as System~2-4 entitled ``1-D plasma 
+model incorporating velocity space effects'' of the document~\cite{pappeqs} that: 
+
+\begin{itemize}
+\item[$\bullet$] delivers an accurate and efficient solution together with further indications 
+around expected performance at higher spatial order and in the eventual code(s). 
+
+\item[$\bullet$] The bidder should indicate how they intend to assess ``accuracy" and ``efficiency",
+together with performance and achievable problem size at Exascale as per Task 1.3.1.
+\end{itemize}
+
+\item[1.3.4]\textbf{Task 4: Delivery of System 2-5, Spatially 1-D multispecies plasma
+model }
+
+As stated in the Fusion Modelling System Science Plan: 
+
+\begin{itemize}
+\item[$\bullet$] Plasma electron and ion species can to an extent be treated as separate 
+fluids with different temperatures. 
+
+\item[$\bullet$] The plasma in a fusion reactor\ldots will in general contain two main ionic 
+species (Deuterium and Tritium), neutral fuel particles and ionised Helium ash 
+(or alpha particles), as well as impurity ions originating from the wall. 
+
+\item[$\bullet$] Existing simulations show that attempting to include the\ldots extra physics 
+can significantly add to execution cost overhead or a breakdown of scaling, eg.\ 
+when stability/accuracy issues are addressed, a large reduction in allowable timestep 
+can ensue. 
+
+\item[$\bullet$] Each plasma species will contribute different levels of uncertainty, and 
+a different scaling and performance overhead to the workflow. 
+
+\item[$\bullet$] The ideal numerical algorithms for forming the Exascale edge plasma codes 
+of the future will have at least the following properties: 
+
+\begin{enumerate}
+\item Accurate solution of hyperbolic problems. 
+\item Accurate representation of velocity~(phase) space. 
+\end{enumerate}
+
+\item[$\bullet$] Options, which do not preclude consideration of others, have been tentatively 
+identified for initial investigation as follows: High order spectral/hp finite 
+elements.
+\end{itemize}
+
+The objective of this task is to produce an implementation of the model equations, 
+geometry and boundary conditions described as System~2-5 entitled ``Spatially 
+1-D multispecies plasma model'' of document~\cite{pappeqs} that: 
+
+\begin{itemize}
+\item[$\bullet$] Delivers an accurate and efficient solution together with information that 
+will inform the roadmap to higher spatial order and increased complexity (full physics).
+\item[$\bullet$] The bidder should indicate how they intend to assess ``accuracy" and ``efficiency",
+together with performance and achievable problem size at Exascale as per Task 1.3.1.
+\end{itemize}
+
+\item[1.3.5]\textbf{Task 5: Delivery of System 2-6, 2-D plasma model incorporating velocity
+space effects}
+
+As stated in the Fusion Modelling System Science Plan:
+
+\begin{itemize}
+\item[$\bullet$] Work will initially focus upon coupling the turbulent plasma periphery to 
+the surrounding neutral gas and partially ionized impurities that exist between 
+the plasma and plasma facing components (co-design with work package FM-WP3). 
+
+\item[$\bullet$] There may be an inadequate number of collisions for the species to equilibrate, 
+leaving significant tails in the particle velocity distributions. 
+
+\item[$\bullet$] The overall aim \ldots is to build a hierarchy of models that are capable of 
+representing edge plasma behaviour to within a specific level of uncertainty\ldots 
+
+\item[$\bullet$] The plasma fluid referent model may involve replacing kinetic models by 
+moment-based or fluid models. 
+
+\item[$\bullet$] The ideal numerical algorithms for forming the Exascale edge plasma codes 
+of the future will have at least the following properties: 
+
+\begin{enumerate}
+\item Accurate* solution of hyperbolic problems. 
+\item Accurate* representation of velocity~(phase) space. 
+\item Accurate* representation of first wall geometry. 
+\end{enumerate}
+*See final bullet in this section.
+
+\item[$\bullet$] Options, which do not preclude consideration of others, have been tentatively 
+identified for initial investigation as follows: 
+
+\begin{enumerate}
+\item Spectral/hp high order finite elements. 
+\item Nekmesh for mesh generation.
+\end{enumerate}
+\end{itemize}
+
+The objective of this task is to produce an implementation of the nominal model 
+equations, geometry and boundary conditions described as System~2-6 entitled 
+``Spatially 2-D plasma model incorporating velocity space effects'' of the
+document~\cite{pappeqs} that: 
+
+\begin{itemize}
+\item[$\bullet$] Delivers an accurate and efficient solution and information/guidance for 
+the roadmap to the final full spatial 3-D code. 
+
+\item[$\bullet$] The bidder should indicate how they intend to assess ``accuracy" and ``efficiency",
+together with performance and achievable problem size at Exascale as per Task 1.3.1.
+\end{itemize}
+
+\end{itemize}
+
+Building upon previous tasks within this call, the bidder is free to propose a 
+more complex model above and beyond that described by the nominal equations for 
+System 2-6 in~\cite{pappeqs} (including functionality from the preceding \Papp s where useful) 
+as long as they deem this could be useful for increasing impact or quality or for 
+de-risking or accelerating the \nep \   roadmap described at a high level in~\cite{sciplan} 
+(to be agreed by UKAEA).
+
+An option exists to exploit this \Papp \ to explore the adoption of DSL/code generator 
+solutions, allowing the model to easily adapted (requiring co-design with others 
+on the \nep \   team). The bidder is free to offer ownership of scope around DSL 
+research and roadmap for \nep \   (as RO for developing the most important referent 
+model within the project), or equally to indicate their willingness to work closely 
+with UKAEA and others charged with this task. In either case, they should state 
+their ideas and plans for how as a team, the project will eventually achieve a 
+``separation of concerns'' within the final codebase. 
+

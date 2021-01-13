@@ -1,0 +1,57 @@
+For each \Papp, bidders should describe their approach (including their initial 
+thoughts around provisional selection for algorithm and library options), programming 
+language preference etc.\ (which will be down selected in negotiation with UKAEA) 
+and should indicate how their solution will in the eventual \nep \   code deliver: 
+
+\begin{enumerate}
+\item Trustworthiness, achieved through rigorous Verification and Validation procedures. 
+\item Code sustainability, software remains capable of significant development. 
+\item Easy deployment and usage by users with different levels of \nep \ expertise.
+\item Good performance as measured by both strong and weak scalings. 
+\item Performance portability across a range of candidate Exascale architectures. 
+\item Actionable solutions, achieved through Uncertainty Quantification.
+\item The ability to generate surrogate models derived from the code (eg.\ through 
+Model Order Reduction).
+\end{enumerate}
+
+As a baseline, all \Papp s should target $x86$ (and ideally IBM POWER and ARM CPU) 
+architectures (multi-core and multiple node) for scalability to first generation 
+Exascale hardware. Bidders should feel free to also target other Exascale candidate 
+architectures (eg.\ GPGPU) and demonstrate a willingness to explore the use of 
+novel hardware as it becomes available to the \exc \   project as part of the 
+novel test bed programme. If a bidder determines there is insufficient resource 
+to do so (or if they do not possess the relevant skills), they should instead indicate 
+that they are willing to work closely with other \nep \   team members who have 
+demonstrated skills in accelerator exploitation. In order to target the chosen 
+architecture(s), bidders should indicate whether they intend to deploy MPI and 
+OpenMP or some other parallelisation technology (ideally with a focus upon
+performance portability) -- including a clear explanation as to why
+(and be prepared to negotiate with UKAEA).
+
+As Responsible Officer (RO) for developing the ``referent Plasma Fluid model'' 
+(see section 1.3) and associated infrastructure, the successful bidder to this 
+call will be expected to work closely with all members of the \exc \   \nep \   
+community.  In particular, the RO is required to work closely 
+with the successful bidder to Call~T/NA078/20 in order to co-design the optimal numerical 
+scheme and meshing technology for instantiating the referent fluid model eventually 
+within an Exascale performant framework. They will be expected to help UKAEA rapidly 
+lay down a code/platform and development infrastructure that is optimal for team-distributed 
+software engineering and to help build team cohesion. 
+
+%To this end, all partners in the \exc \   \nep \   project will be expected to 
+%sign up to a ``project charter'' -- a live document that they will jointly develop 
+%with the rest of the team. The aim of the charter will be to ensure that common 
+%standards for software and documentation are laid down and adhered to by all parties 
+%and that all contributors work closely together in order to meet the goals of the 
+%programme -- to develop a roadmap, knowledge, skills and an emerging coherent 
+%infrastructure that will allow the UK to instantiate a state of the art, Exascale 
+%performant modelling and simulation capability for the ITER era. A draft charter 
+%is provided with this call. The bidder is encouraged to comment upon this draft 
+%and should indicate how they intend to ensure that the deliverables of this call 
+%are compliant with the charter, (to be maintained by UKAEA) and how they intend 
+%to help ensure that the team as a whole converges upon a consensus for the programme 
+%(ideally indicating where they have done similar for other large scale/complex 
+%projects in the past). The bidder should budget appropriately for T\&S, to ensure 
+%that they have adequate resource for working closely with partners distributed 
+%across the UK, for face to face meetings, hackathon events etc.
+

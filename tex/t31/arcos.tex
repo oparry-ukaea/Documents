@@ -1,0 +1,63 @@
+\subsection{Arcos}\label{sec:arcos}
+
+The US Department of Energy (DOE) develops a suite of software for studying Earth Sciences.
+Among these are Amanzi \cite{Mo14Aman,amanzi_repo} and The Advanced Terrestrial Simulator (ATS)\footnote{``formerly sometimes known as the Arctic Terrestrial Simulator'' \cite{ats_repo}} \cite{ats_repo}, a pair of codes which have been developed since 2012.
+Amanzi solves for flow and reactive transport in porous media, to allow modelling of mineral and contaminant flow through rock and soil.
+ATS adds the capability to solve effects from ecosystem hydrology, such as thermal processes, evapo-transpiration, surface energy balances, and vegetation modelling \cite{ats_repo}.
+Both Amanzi and ATS are written in C++, using modern software engineering standards, and make extensive use of third party libraries such as Trilinos, PETSc and Hypre.
+Both are open source and available on GitHub \cite{amanzi_repo,ats_repo}.
+
+\paragraph{Framework}
+To enable multiphysics simulations with Amanzi and ATS, the Arcos framework \cite{Co16Mana} was developed to couple the codes.
+Arcos is a management system with three components, a process tree, a dependency graph, and a state/data manager.
+
+The process tree formally describes the coupling hierarchy of the equation system to be solved.
+Each leaf node is an equation, while each internal node couples children together to form systems of equations.
+Each node provides the same interface to its parents, so that equations and systems of equations may be grouped recursively into a hierarchy.
+This approach merely formalizes the natural structure existing in most multiphysics systems and codes.
+However, using an explicit, general and dynamically-formed structure means much of the coupling can be automated.
+It also allows domain specialists to focus on developing single components without fear of side effects in other parts of the model hierarchy.
+
+The nodes in the process tree only perform administrative work;
+actual computational work on the equations is delegated to \emph{evaluators}.
+These evaluators manage one of three kinds of variable, namely
+1) independent variables, user-provided functions of the coordinates,
+2) primary dependent variables, functions of independent variables for which an equation has to be solved; and
+3) secondary dependent variables, functions of other dependent variables.
+The evaluators are stored in a directed, acyclic graph (DAG) that describes the relationship between variables.
+Independent and primary dependent variables are leaf nodes in the DAG.
+All other nodes represent secondary dependent variables, with the directed edges pointing to their dependencies.
+
+While evaluators perform work, they do not store any data (beyond simple metadata).
+Instead, evaluators access data via the data/state manager, which stores data and controls access to it.
+This abstracts the physical equations away from the data management, allowing each component to be developed by the relevant expert.
+
+\paragraph{Modularity}
+Arcos' approach is extremely fine-grained.
+Unlike most scientific software which is modular at the level of equations, Arcos is modular at the level of terms in an equation.
+This has the following advantages.
+Firstly, models become more easily interchangeable - for example, pressure depends on temperature and density (in non-isothermal models), or just density (in isothermal models). The evaluator representing pressure will either have or not have an edge in the DAG pointing to temperature, depending on the model.
+However, other parts of the framework depending on pressure will not need to know whether the model is isothermal.
+This allows for tight coupling of models, with optimization via lazy evaluation of variables.
+The dependency graph also means that programmers do not need to manually track and edit code to account for dependencies in different models, reducing bugs and code duplication.
+This also makes it relatively easy to implement new models at any part of the hierarchy.
+
+The fine-granularity also means that Amanzi/ATS is very amenable to unit testing.
+Unit testing is difficult in less granular codes, as to test an equation, it must often also be initialized with a mesh, a solver and other components.
+As the evaluators in Arcos represent a single term, not an equation, and as they hold no data themselves, they are far easier to isolate and test. 
+In addition to a unit testing suite, Amanzi/ATS developers also provide a suite of integrated tests, which double as example problems to aid new users. 
+
+\paragraph{Performance portability}
+It is difficult to make statements about performance given the range of models covered by Arcos.
+However, the Arcos framework has a number of features that are favourable for performance portability.
+Firstly, by using well-supported solver libraries like Trilinos, Arcos leverages improvements in numerical algorithms with minimal efforts.
+Secondly, by having a fine-grained heterogeneous structure, Arcos is a good candidate to take advantage of emerging ``coarse task'' runtime environments.
+Finally, the nature of evaluators -- stateless functors with no side effects -- makes Arcos a good candidate for use across a variety of platforms. 
+Evaluators abstract what is done to data from how and where it is done, making it a good framework in which to implement multiple parallelization paradigms (e.g. MPI, OpenMP, CUDA etc.) without intrusion onto the physics code. 
+
+\paragraph{Summary}
+The distinctive features of the Arcos framework are its use of a formal structure to describe the equation hierarchy, and its very fine-grained modularity, where every term in an equation is treated as an independent object.
+This enables a number of features that are desirable in ExCALIBUR.
+Firstly, the formal graph structure automatically handles dependences in an equation hierarchy, making it easier to implement different models without introducing bugs or code repetition.
+Secondly, it enables a separation of concerns, with domain specialists able to modify code sections in isolation.
+Finally, the framework enables performance portability, as the heterogeneous code structure is well-placed to exploit emerging exascale technologies.

@@ -1,0 +1,47 @@
+\subsection{Software design patterns for Call 6 Proxyapps}\label{sec:call6}
+
+%Description of proxyapps
+
+The Contract Ref.\ T/NA083/20 specifies the creation of five proxyapps to
+mirror the development of the referent fluid model.
+This model will capture the physics in the tokamak edge, including the
+separatrix but away from the core and from the metal surfaces of the device.
+It is to include the multi-physics phenomena relevant to the tokamak exhaust
+(bulk plasma species, impurities and neutrals).  
+The code itself must be performant and scalable to Exascale, easy to deploy
+upon different architectures, and actionable (i.e.\ include treatment of
+uncertainty quantification, UQ).  
+Moreover it must couple efficiently to the neutral gas and impurity model, and
+the 5D gyro-averaged model developed in other work packages.
+
+The five proxyapps are largely independent, focussing on separate aspects, namely:
+\begin{enumerate}
+	\item 2D elliptic solver in complex geometry
+	\item 1D simplified fluid model with UQ and realistic boundary conditions
+	\item 1D model incorporating velocity space effects
+	\item 1D multispecies plasma model
+	\item 2D model incorporating velocity space effects
+\end{enumerate}
+
+%Context of proxyapp
+
+The two proxyapps focussing on velocity space effects (proxyapps 3 and 5) will draw on work on
+kinetic solvers, and will be written in a high-level language such as Python or Julia.
+For each of the remaining proxyapps, two versions will be developed for
+comparison, one in BOUT++ \cite{BOUT++} and one in Nektar++.
+As mentioned above, Nektar++ is a framework for solving PDEs with spectral/hp, which will be extended as part of Call 1 to include terms relevant for plasma physics.
+In contrast, BOUT++ is a framework for solving plasma and fluid-like equations in curvilinear coordinates using finite-difference approaches,
+but lacks the complex meshing and finite element approaches of Nektar++.
+
+Proxyapps 2 and 4 above investigate the feasibility of including new physics
+(namely realistic sheath boundary conditions and multiple species). 
+For this, new terms will be added to the existing BOUT++ physics modules, SD1D
+and Hermes-3.
+Owing to BOUT++'s domain specific language, these additions will be relatively
+straightforward (from a software development perspective).
+
+The remaining proxyapp (number 1) will be implemented by coupling BOUT++ to
+elliptic solvers provided by PETSc and Hypre.
+BOUT++ uses the strategy pattern (see section \ref{sec:strategy} below) to implement different elliptic solvers.
+BOUT++ also makes use of the template method (section \ref{sec:template}) and abstract factories (section \ref{sec:abstract_factory}).
+

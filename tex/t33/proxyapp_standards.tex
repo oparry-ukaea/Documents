@@ -1,0 +1,54 @@
+The US Department of Energy's Exascale Computing Project (ECP) \cite{ECP_website} has curated a suite of proxyapps \cite{ECP_proxyapp_website}
+to benchmark performance for exascale.
+Along with this, ECP have developed guidance for quality standards and best practices that proxyapps must meet in order to merit inclusion in the suite.
+Each term in the guidance is designated ether required or recommended,
+with the expectation that the guidance becomes stricter over time, with
+recommendations becoming requirements.
+
+These standards are available online \cite{ECP_proxyapp_standards_website},
+and are concise and readable.
+The standards have also been adopted by the ExCALIBUR Benchmarking working
+group as a basis for the rules to use within ExCALIBUR.
+We therefore give a condensed description.
+
+The guidelines require that a stable release of the source code must be
+publicly available.
+This perhaps presents a problem for nuclear software, as private repositories
+or any other form of limited access are not deemed acceptable.
+
+Proxyapps should be limited in size to $\lesssim 10,000$ lines of code, aiming
+to encapsulate repeated code or pass it off to libraries.
+At the same time, the proxyapp should be self-contained, with minimal
+dependencies handled through a package manager (Spack is recommended).
+
+The guidelines recommend three running modes.
+Firstly, a (required) testing mode to verify correct compilation and kernel
+performance (with execution time recommended to be on the order of seconds).
+This mode should also include an ``automatable'' regression test to check the
+final output against a known reference result.
+Two further production modes are recommended to allow tracking of weak and
+strong scaling for 
+(1) current workloads; and 
+(2) anticipated exascale workloads.
+
+The guidelines place a strong emphasis on documentation.
+There are basic requirements for a general description of the proxyapp, 
+its algorithm, and what aspect of the parent app it imitates, 
+and for documentation of the build and testing process.
+In addition, it is required that documentation should describe where the
+proxyapp is -- and is not -- representative of its parent.
+It is also recommended that documentation should detail which ``simple''
+optimizations have \emph{not} been applied to the proxyapp, as doing so would
+not feasible in the parent.
+
+Finally, the proxyapp must include a ``figure of merit'' that can be used to
+compare performance under different conditions. 
+This might be based on the system being modelled (e.g.\ accuracy of a solution)
+or on what the proxyapp is stressing (e.g., run time, computational power or
+memory). 
+In any case, the figure of merit should be representative of the performance of
+the parent application.
+If possible, it is recommended that the proxyapp provides a performance model
+of expected outcomes of the test in different scenarios.
+
+

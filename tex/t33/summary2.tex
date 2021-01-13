@@ -1,0 +1,55 @@
+The role of software design patterns is probably best summed up by Barr~\cite[\S\,7]{barr},
+who argues that even the simplest ones such as {\it Singleton} are a useful start to creating a common language
+for documenting and communicating code details. The Go4/GoF {\it Strategy} pattern is singled out as making it
+much easier to extend software capabilities. The same pattern is also mentioned by
+Hewitt~\cite[\S\,7]{hewitt} as a way
+of producing more flexible and reusable software, and Rouson~et~al~\cite{rousonxiaxu} show a scientific
+application to the choice of discrete time integration scheme. Hewitt~\cite[\S\,8]{hewitt} also
+describes use of the {\it Proxy}
+(particularly) and the {\it Facade} patterns as a very useful way of saving time
+when developing software, for much the same reasons given in \Sec{gang4},
+and uses {\it Builder} to help describe another (specification) concept.
+When it comes to scientific application
+however, Rouson~et~al take most Go4 design patterns only as an inspiration for developing their own 
+{\it Abstract Calculus} and {\it Puppeteer} patterns.
+
+It becomes clearer how design patterns fit into the landscape of software reuse~\cite[\S\,15]{sommerville},
+although it is perhaps more appropriate to think of a hierarchy rather than a landscape. At the top level of a given 
+piece of software, there might
+be a framework which calls other code that in turns uses lower-level libraries which may be written specially for the
+project, from open-source repositories or provided by the machine vendor. The middle-level code is
+where design patterns come into
+play, and perhaps more as abstractions, ie.\ `concept reuse'~\cite[7.3.1]{sommerville}. This would seem
+to sum up best the use of the design pattern concept by Rouson~et~al~\cite{rousonxiaxu}.
+
+In the context of reuse, Sommerville also mention components and component frameworks,
+ie.\ `collections of objects and object classes 
+that operate together to provide related functions and services', but these do not seem to have found
+much application in scientific programming~\cite[\S\,1.4]{rousonxiaxu}. (`Component' is also used to mean
+a stand-alone piece of software such as might form an element of a workflow, as in VECMAtk, and further as an
+addition to the C++ Standard Template Library.) It would of course be helpful to be able to reuse
+the work of the ComPat and VECMAtk projects, but the results obtained so far in application to fusion (\Sec{compat} and\Sec{vecmatk})
+have been disappointing because of load-balancing issues, and it is not immediately evident how to remedy this situation
+within their general framework. The preferred way to proceed is perhaps to examine more problem-specific
+formulations using the \nep\ \papp s.
+
+Given the lack of design patterns for scientific work, arguably the most important practical aspect of
+patterns as far as \nep\ is concerned, is the concept reuse aspect when
+it extends to concepts like Resource acquisition is initialization~(RAII). Such concepts are invoked 
+as a means to avoid deficiencies in C++, which in the case of RAII, is a lack of ability to monitor memory
+leakage. Thread-safety is another issue, and as prefigured in \Sec{intro} associated patterns have
+become part of languages like Rust~\cite{Rustwebsite}, but which are sadly not in common use on HPC.
+However these `safety-first' concepts need to feed into instructions as to how the main \nep\ software
+is coded, particularly when C++ is used.
+
+Regarding prototyping, as might be expected on the basis of previous comments, little use has been made of
+design patterns in scientific applications and more generally, little further literature was found on how best to
+deal with the specific needs of prototyping scientific software beyond the work of Dubey and McInnes~\cite{Du16Idea}.
+It is worth remarking  that as Dubey and McInnes themselves explain, their document~\cite{Du16Idea}
+is not meant to be definitive for scientific prototyping work, instead more as an approach to be tested for its 
+suitability by different groups for different projects.  In the context of the
+\nep\ project, their approach could be used separately to develop each of the \papp s. There is a higher
+level to \nep, however, whereby the experience gained by producing each \papp\ feeds into the design
+and development of subsequent ones. Thus there might be added a second loop on the right of \Fig{DubeyFigs}(b) indicating
+changes to the way the software is designed, developed, validated and integrated in the light of experience,
+and feeding into aspects of the model definition.

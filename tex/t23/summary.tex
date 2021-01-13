@@ -1,0 +1,32 @@
+Examination of the literature and conference attendance described here,
+plus the Birmingham meeting~\cite{y1re111a,y1re111b,y1re121} have indicated
+a gap in the knowledge of how to transition efficiently between
+a fluid representation and a particle representation and vice versa, particularly when spectral
+elements are used to represent the fluid. 
+
+Concerning particle methods, there are several potentially disruptive approaches that need
+evaluating before producing a detailed software design. These are
+\begin{enumerate}
+\item Use of Quasi-Monte-Carlo techniques and related sampling techniques
+\item Particle or kinetic enslavement
+\item Timestep-robust particle tracking
+\end{enumerate}
+
+The aforementioned points require further research and literature analysis, for which
+indicative references have been provided in \Sec{taskwork}.
+
+There are also practical issues concerning storage and use of a phase-fluid that overlap with other tasks.
+Although many older PIC codes successfully used 32-bit precision,
+the use of greatly reduced precision in representing particles is expected to
+increase `noise' to unacceptable levels.
+Hence, for any usage of particles, particularly
+when fluid approximations are being employed for the main species, it is likely that
+the major memory cost will be storage of the particles. Hence the demands of particle
+storage will determine how \emph{all} field data is assigned to memory.
+
+Other issues relating to use of a phase-fluid approach
+seem worthy of examination. It seems that spectral/hp
+element might be efficiently used in velocity as well as physical space, and 
+therefore evaluating performance here ought to
+form part of the general assessment of the performance of spectral elements.
+

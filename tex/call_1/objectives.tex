@@ -1,0 +1,50 @@
+Simple geometrical models of first wall power deposition exhibit a 
+dependence proportional to $\sin{\theta}$ where $\theta$ is the
+angle between the surface normal and the direction of the particle
+flux. Assuming the particle flux is directed within
+magnetic-flux surfaces along the lines of magnetic
+field, to maintain peak power deposition within acceptable
+limits, $\theta$ must be $2^o$ or less. Therefore,
+to be useful, a grid generator must be capable of producing
+discrete representations of plasma facing component~(PFC) or
+flux surfaces so that their surface normals have
+an accuracy much better than $2^o$, say to~$0.1^o$.
+Even given an accurately generated mesh, since particle flux
+is believed to be strongly anisotropic, it is necessary to
+establish to what extent numerical effects lead to
+unphysical transport normal to the field direction,
+and what methods if necessary are required to ameliorate
+these effects.
+
+Edge plasmas present a numerical scheme with many challenges
+found in both viscous and nearly inviscid computational fluid
+dynamics, together with some which are not, namely
+application to large particle sources, sonic outflow to engineered
+surfaces, and velocity-phase space effects. It is necessary
+that a candidate scheme be shown to be capable of meeting all these
+challenges, preferably directly or by interfacing to other schemes that
+employ say a particle representation.
+
+The above leads to the additional objective to produce an implementation of the model equations,
+geometry and boundary conditions described in  Section~2.1,
+entitled `2-D model of anisotropic heat transport' of the 
+document ``Equations for \exc/\nep \ \Papp s"~\cite{pappeqs} that will:
+\begin{itemize}
+\item[$\bullet$] deliver an ``as accurate as possible solution" that will provide an early indication 
+as to whether or not the eventual code based upon this method/solver/library combination will 
+cater for problem sizes predicted to deliver an ``actionable solution" on Exascale hardware, 
+while giving a ``significant" performance improvement over software using second order representations
+without mesh adaptation.
+ 
+\item[$\bullet$] For estimating the likely achievable accuracy, performance and tractable problem sizes/resolution
+etc.\ on the eventual Exascale platform, the bidder should indicate how they intend to use the \nep \ \papp(s),
+scientific literature, information from trustworthy websites,  analytic theory/solutions, and profiling tools that
+perform eg.\  roofline analysis, to identify a viable solution and steer the development towards it.
+They should outline their vision (and proposed timeline) for achieving the capability requirements
+specified in the \exc\ \nep\  Science Plan~\cite{sciplan}.
+%\item delivers an accurate and efficient solution, and
+%\item captures the scaling characteristics of the full models being targeted
+%in the long term 
+\end{itemize}
+Subject to prior agreement with UKAEA, the bidder may substitute model equations presenting equal or
+greater relevant challenges to those described above, for implementation in the \Papp.

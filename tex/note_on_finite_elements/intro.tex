@@ -1,0 +1,29 @@
+Most scientists are trained at university in the finite difference~(fd)
+method of approximating solutions to partial differential equations.
+This permits focus on the properties of fd schemes and physics
+in simple configurations such as cuboids or circular cylinders.
+However, in their later career scientists almost inevitably come across
+more complex geometrical figures, and 
+%either through ignorance or arrogance
+seek to adapt their fd knowledge to this situation,
+typically re-inventing some (very) old and wobbly wheels in the process.
+
+This note in \Sec{meshing} explains in simple terms why in general the finite element
+approach should be preferred to idiosyncratic adaptations,
+even though it implies the need to
+learn about importing CAD generated geometry, meshing tools and implicit solvers.
+One caveat is that the nomenclature for the various approaches listed
+is not fully standardised, however it should hopefully be evident
+from the description in each section, which idea is being explored.
+
+The note goes on in \Sec{sem} to describe
+other distinctive features of the finite element
+approach, namely the global nature of the approximation and the 
+need to invert large sparse matrices efficiently.
+These are discussed with particular emphasis on
+spectral elements.
+
+%Note that this note does \emph{not} pursue in detail the further advantages
+%of the finite element
+%approach, that it defines an approximation for the solutions interior
+%to arbitrarily shaped ``elements", as well as methods for computing them.

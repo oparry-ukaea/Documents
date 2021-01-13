@@ -1,0 +1,79 @@
+\subsection{BOUT++}\label{sec:bout}
+
+
+BOUT++ \cite{bout431,boutwebsite,boutrepo} describes itself as
+\begin{quote}
+a framework for writing fluid and plasma simulations in curvilinear geometry. The design is modular, with a variety of numerical methods and time-integration solvers available that can be chosen at runtime. BOUT++ is primarily designed and tested with reduced plasma fluid models in mind, but it can evolve any number of equations, with equations appearing in a readable form. The code is opensource, licensed under the LGPL, and is available from https://github.com/boutproject/BOUT-dev
+\end{quote}
+
+\paragraph{Framework}
+
+BOUT++ is a multi-block finite difference / volume PDE solver written in C++, with parallelisation using MPI and/or OpenMP.
+GPU acceleration is under development.
+There are optional dependencies on a variety of third-party libraries such as FFTW, SUNDIALS, PETSc, SLEPc. I/O is via netCDF or HDF5. 
+
+The core of BOUT++ is a library of functions relevant to plasma simulation in 3-D curvilinear geometry, such as differential operators, definitions of tokamak domains and magnetic geometries (e.g. single/double null), and common boundary conditions. 
+BOUT++ also provides routines for integrating equations in time and for inverting elliptic operators.
+
+As a library, BOUT++ does \emph{not} specify the equations to be solved.
+These are specified by the user in defining their ``PhysicsModel'', a class that provides ``init'' (initialization) and ``rhs'' (right-hand side) functions.
+The class is then passed to BOUT++, that is, the user cedes control of the workflow to the library.
+
+In addition to the core library, the BOUT++ project also provides Python utilities for grid generation, post-processing and plotting in tokamak geometries.
+
+\paragraph{Domain-specific language}
+The BOUT++ library routines provide a domain-specific language (DSL), allowing the user to specify equation systems in a human-readable fashion.
+For example, the wave equation (for amplitude $f$ and velocity $g$ and unit wavespeed) may be written in the user's physics model as
+\begin{align*}
+  \mathtt{ddt(f) = Grad\_par(g);}\\
+  \mathtt{ddt(g) = Grad\_par(f);}
+\end{align*}
+This allows physics models to be implemented in BOUT++ with minimal effort, allowing rapid prototyping.
+It also means there is a very low bar to entry for new users/non-programmers, and physics models may be implemented with no knowledge of the underlying numerics -- for better or worse!
+
+\paragraph{Performance}
+BOUT++ is a versatile framework that may be run across the spectrum of computing system sizes, from laptops to large HPC systems.
+BOUT++ is currently deployed on Archer (UK Tier-1) and Marconi (Tier-0), among others, and scales to ${\cal O}(1000)$ cores for typical problem sizes.
+
+Two of the three dimensions are parallelized with MPI, while all dimensions are parallelized with OpenMP (recasting the 3-D arrays local to an MPI rank as a flat vector).
+The MPI parallelization in one of the dimensions and the OpenMP parallelization were retrofitted -- the anisotropy of plasma in strong magnetic fields meant that in early simulations the resolution used in all-but-one of the dimensions was not sufficiently large to merit parallelization.
+
+\paragraph{Software sustainability and community}
+BOUT++ is freely available via the public Github repository \cite{boutrepo}, and is licensed under the LGPL. Development is done in public, with regular feedback from community members.
+%
+BOUT++ uses a development model similar to gitflow, with a stable \texttt{master} branch and a development \texttt{next} branch. \texttt{next} forms the basis for major and minor releases, so new features are introduced into \texttt{next}, while bugfixes are introduced into both \texttt{master} and \texttt{next}.
+Both these branches are protected, and new code only enters via a pull request, which requires code review and approval from a maintainer before being merged.
+Travis CI is used to automatically run a comprehensive suite of both unit and system (integrated) tests on every push to the Github repository. Creation and update of pull requests triggers additional tests. Several build configurations are tested, including optimised builds, different compilers and Linux distributions, and linking against various optional third party libraries.
+
+New releases are recorded on Zenodo, allowing each release to have a citable Digital Object Identifier (DOI).
+Having a DOI for each version is important for reproducibility of scientific results, but producing an accompanying paper for releases simply to obtain a DOI may be an incommensurate amount of work, or not deemed of sufficient interest to be publishable.
+Reproducibility is further aided by the output of each run recording the git commit hash and the state of the repository (``clean'' or ``modified'').
+
+Documentation is automatically built from doxygen comments in the source code and hosted online at ReadTheDocs \cite{boutreadthedocs}, while bug reports and community feedback can be done via the Github issue tracker or the BOUT++ Slack workspace.
+
+Hands-on training led by the maintainers is provided for new users at annual workshops, where users can also present their research and discuss new and future code development and features. Research and code development can also be presented at the monthly user meetings, held via video conference.
+
+\paragraph{Summary}
+
+BOUT++ is a versatile, easy-to-use and reasonably-performative framework.
+It successfully implements a ``separation of concerns'' between the roles of user and developer.
+For users, the DSL allows models to be written in human-readable form, with simple access to complicated geometry-dependent operators.
+Different numerical methods for discretization and time-integration may be selected at run-time.
+This means there is a low barrier to entry for prototyping models, and for running simulations on Tier-0/Tier-1 HPC systems.
+For developers, the source code is freely available on the repository, along with contribution guidelines.
+There is also an active community of developers around the repository, Slack channel and BOUT++ User Group meetings.
+
+Not all features of BOUT++ are appropriate for ExCALIBUR projects however.
+BOUT++ emphasizes flexibility rather than performance. 
+One example of this is in the domain specific language where BOUT++ favours a clear interface for the DSL, over optimal performance for any one set of systems.
+Requiring that operators (such as \texttt{Grad\_par(g)} above) are independent objects means that the right-hand side functions are concatenations of objects, each being relatively small kernels of work. 
+Joining these into a single loop would require introducing a global index and an outer loop, so operators would be written \texttt{Grad\_par(g)[i]}.
+While this could be circumvented with code generation techniques, this has not yet been implemented, and BOUT++ developers favour the cleaner interface to raw performance.
+
+There is also an issue with political control of the users' physics models. 
+The library nature of BOUT++ allows users to develop sophisticated models (e.g. STORM (from CCFE), Hermes and SD1D (from the University of York), plus other models from other individuals/institutions), which themselves require infrastructure like repositories, testing and contribution guidelines. 
+These models have varying degrees of independence from the core BOUT++ framework.  
+Hermes and SD1D are developed by the core BOUT++ developers; STORM is developed in collaboration with BOUT++ developers; in contrast, the source code for physics modules belonging to other institutions are not usually available to BOUT++ core developers.
+    Yet all of these may be presented in papers or at conferences as being ``BOUT++''.
+    This is a reputational risk to the BOUT++ project.
+    It has been mitigated to some extent by bringing some physics modules into the main repository and testing them, and by endeavouring to collaborate as widely as possible.

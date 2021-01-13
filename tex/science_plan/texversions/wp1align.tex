@@ -1,0 +1,127 @@
+\textbf{FM-WP1} will focus upon the suitability of available numerical 
+algorithms (or the development of new algorithms)
+for Exascale targeted plasma modelling. As stated above, elements of this work 
+package together with FM-WP4 will also
+surround the ``coupling technology'' that will be required to connect the 
+edge/pedestal region of the plasma (addressed
+by FM-WP2) and the neutral gas/impurity model (FM-WP3). An agile approach will 
+be adopted around the legacy codes that
+might be necessary for helping to develop a roadmap for the FM-WP1 referent 
+models, e.g. through community workshops
+(the first being in Feb 2020).
+
+The ideal numerical algorithms for forming the Exascale edge plasma codes of 
+the future will have (but will not be
+restricted to) the following properties:
+
+
+\bigskip
+
+
+\bigskip
+
+\liststyleWWNumviii
+\begin{enumerate}
+\item %
+%Added prefix P to indicate desirable property
+%Wayne Arter
+%November 30, 2019 3:24 PM
+Accurate solution of hyperbolic problems.
+\item Ability to deliver efficient and accurate solutions of corresponding 
+elliptic problems.
+\item Accurate modelling of highly anisotropic dynamics. 
+\item Accurate representation of first wall geometry (face normals to within 
+0.1ฐ\textsubscript{ญญ}), and
+correspondingly of complex magnetic field geometries.
+\item Accurate representation of velocity (phase) space.
+\item Preservation of conservation properties of the underlying equations.
+\item Scalability to likely Exascale architectures:
+\end{enumerate}
+\liststyleWWNumxiii
+\begin{enumerate}
+\item interaction between models of different dimensionality,
+\item interaction between particle and fluid models,
+\item dynamic construction of surrogates.
+\end{enumerate}
+\liststyleWWNumviii
+\begin{enumerate}
+\item Performance portability to allow rapid deployment upon emerging hardware.
+\end{enumerate}
+
+\bigskip
+
+It is difficult at this state to rank the importance of these properties, or to 
+identify the cost associated with
+achieving each in a timely fashion -- a clearer understanding of immediate 
+needs and achievable SMART deliverables will
+emerge as the project matures via extensive community engagement and team 
+building across the UK partners -- this
+exercise will start in Feb 2020 via an open workshop. 
+
+
+\bigskip
+
+It is clear however that the choice of geometrical representation and numerical 
+scheme will have a profound impact upon
+almost all areas of the project. Options will be identified by means of 
+literature and code surveys and consultation
+with UKRI and industry experts. Research will be commissioned where necessary 
+to eliminate unsuitable choices as early
+as possible. Relatively small development tasks will initially be undertaken to 
+test remaining candidate methods for
+accuracy, stability and HPC scalability potential. \ This task, along with 
+FM-WP4 will have a prioritised start to
+provide initial inputs into FM-WP2 and FM-WP3 developments and work to be 
+defrayed in year 2. Tasks FM-WP1-3 will
+incorporate numerical, finite element and other plasma physics libraries of 
+suitable quality and exascale
+applicability.
+
+
+\bigskip
+
+Options, which do not preclude consideration of others, have been tentatively 
+identified for initial investigation as
+follows:
+
+
+\bigskip
+
+\liststyleWWNumix
+\begin{enumerate}
+\item Spectral/hp {element
+}\href{https://en.wikipedia.org/wiki/Spectral_element_method}{\textstyleInternet
+link{{[14]}}}{,
+combined }with Discontinuous {Galerkin
+}\href{https://www.sciencedirect.com/topics/engineering/discontinuous-galerkin}{
+\textstyleInternetlink{{[15]}}}{,
+to }meet P1,P3 and possibly P5 above.
+\item Multigrid methods for P2.
+\item Nekmesh for P4.
+\item For Exascale (P7):
+
+\begin{enumerate}
+\item matrix-based approaches, hierarchical geometric structures,
+\item kinetic enslavement, multi-index Monte-Carlo methods,
+\item physics based Neural Network approaches.
+\end{enumerate}
+\item {MUSCLE 2 etc. as referenced in
+}\href{https://royalsocietypublishing.org/doi/10.1098/rsta.2018.0144}{\textstyle
+Internetlink{{[16]}}}{,
+MUI
+}\href{https://www.sciencedirect.com/science/article/pii/S0021999115003228}{\tex
+tstyleInternetlink{{[17]}}}{,
+ADIOS
+}\href{https://www.olcf.ornl.gov/center-projects/adios/}{\textstyleInternetlink{
+{[18]}}}{
+etc. for code }coupling P6, P6,7.
+\end{enumerate}
+
+\bigskip
+
+As per the algorithm requirements, these will be ranked via the community 
+workshop planned for Feb 2020. Activities for
+defrayment will then be defined around SMART deliverables together with an 
+integrated delivery plan for the entire
+project.
+

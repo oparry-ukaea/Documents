@@ -1,0 +1,131 @@
+% ---------- JOREK Sub-section
+\subsection{JOREK}\label{sec:jorek}
+
+
+JOREK \cite{JOREK,Huysmans2007,Czarny2008} describes itself as
+\begin{quote}
+The nonlinear extended magnetohydrodynamics (MHD) code JOREK resolves realistic toroidal X-point 
+geometries with a $C^1$~continuous flux-surface aligned grid including main 
+plasma, scrape-off layer and divertor region. It is based on robust fully 
+implicit numerics, and includes sheath boundary conditions, resistive wall 
+effects, two-fluid effects and neoclassical flows, and particle models.
+
+The well-established physics and numerics community around JOREK has strong 
+connections to the relevant experiments, ITER Organization and the respective 
+ITPA Topical Groups.
+\end{quote}
+
+%\paragraph{Features}
+%
+%List of main features:
+%\begin{itemize}
+%    \item Fortran code
+%    \item IO: HDF5
+%    \item Fully implicit schemes
+%    \item $G^1$~continuous Finite-elements
+%    \item wide variety of physics applications
+%    \item regression test suite - automated on ITER cluster
+%    \item Documentation via wiki
+%    \item Visualisation using .vtk (eg. Paraview, Visit)
+%    \item Infrastructure on ITER platform
+%\end{itemize}
+
+\paragraph{Numerics}
+
+JOREK is an implicit finite-element code written in Fortran, with 
+parallelisation using MPI and OpenMP. It uses a 2-D grid of bi-cubic Bezier 
+elements in the poloidal plane, and Fourier harmonics in the toroidal 
+direction. The fully implicit timestepping scheme leads to a linearised
+system which is solved by using pre-conditioned GMRES,
+with a pre-conditioner built by solving independently each individual Fourier 
+harmonic matrix. The code has dependency on a sparse-matrix solver, which at 
+present can be one of MUMPS~\cite{MUMPS}, PASTIX~\cite{PASTIX} or STRUMPACK~\cite{STRUMPACK}.
+The time-step solver includes the options of Euler, Crank-Nicolson and Gear schemes.
+
+The 2-D poloidal grid is made of quadrangular bi-cubic Bezier elements, which 
+are aligned to the magnetic flux-surfaces, and which can be extended to 
+arbitrary wall surfaces, applicable to any tokamak \cite{Pamela2019}. A coupled 
+free-boundary module of JOREK-STARWALL \cite{Hoelzl2012,Artola2018,Artola2020} 
+is also available to look at resistive-wall effects, and disruptions of a VDE 
+nature (Vertical-Displacement-Event). New geometrical representations are also 
+under development for Stellarators.
+
+The I/O of JOREK is done using HDF5 format. A large number of post-processing 
+tools are also available to look at various aspects of simulation results, like 
+fast-camera imaging, Infra-Red thermography for wall and divertor fluxes, 
+line-profiles, integrals etc.
+
+\paragraph{HPC}
+
+The JOREK code typically requires an HPC architecture to run advanced cases. 
+Although simple, small test-cases can be run on a laptop, high-resolution 
+requires several thousands of cores on HPC clusters.
+
+\paragraph{Physics}
+
+There are a number of physics models addressing a wide range of tokamak 
+applications. The base models are reduced- and full-MHD models. Extended models 
+include
+\begin{enumerate}
+    \item two-temperature fluid models
+    \item two-fluid (diamagnetic) model
+    \item neutrals fluid model: applied to disruption mitigation and divertor 
+detachment
+    \item impurity fluid model: applied to disruption mitigation
+    \item kinetic particles pusher: applied to runaway electrons, impurity 
+transport
+    \item relativistic electron fluid model: applied to runaway electrons
+    \item coupled fluid-particles model: applied to TAE's, detachment, ITG 
+turbulence
+\end{enumerate}
+
+\paragraph{Development}
+
+The JOREK code is hosted at ITER, using the integrated platform for code 
+developments. The main features used from the platform are
+\begin{enumerate}
+    \item Jira: used to raise, discuss, resolve and track issues from the 
+community, addressing both physics and numerical aspects of the code
+    \item Bitbucket: used to manage git branches, merges and pull-requests
+    \item Bamboo: used to schedule automated regression tests for 
+pull-requests
+\end{enumerate}
+
+
+\paragraph{Community}
+
+The principal coordinator of the JOREK community is Matthias Hoelzl, based in 
+Garching, Germany. The main (initial) author of the code is Guido Huijsmans, 
+based at CEA, France, and at Eindhoven University, the Netherlands. There are a 
+number of code-developer and code-users throughout Europe, Asia and the USA.
+
+Communication is organised via a wiki linked to the 
+website~\cite{JOREK} which is restricted to a team of registered users and developers.
+Meetings of team members typically occur several times per month, to 
+present and discuss various projects and developments. A general meeting is 
+held once per year for one week. There are several mailing lists, eg.\ one for the 
+entire community, and a helpdesk which includes only expert developers.
+The restricted JOREK wiki includes a variety of code documentation, ranging from physics 
+equations and other material useful for developers, to user-guides for various 
+aspects of the code etc.
+
+
+\paragraph{Pros}
+
+\begin{itemize}
+  \item High standards of software development
+  \item Well-organised community
+  \item Wide range of applications
+  \item New physics models relatively straightforward to implement
+\end{itemize}
+
+\paragraph{Cons}
+
+\begin{itemize}
+  \item Scaling: like all fully-implicit codes, JOREK requires the solving of 
+large sparse matrices, which necessitates large amounts of memory
+  \item At present only one type of finite~element is available
+  \item Performance dictates new developments, at the detriment of modularity
+\end{itemize}
+
+

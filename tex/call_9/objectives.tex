@@ -1,0 +1,40 @@
+The overarching objective of this task is to help the codesign of \nep \ code
+base for Exascale hardware and software. It is widely accepted that 
+Exascale HPC systems will use compute nodes with heterogenous 
+designs formed into hardware architectures and programming models that vary significantly 
+between vendors. It follows that ensuring \nep \ 
+performance portability requires extra resource, with ``separation of 
+concerns" the favoured option to minimise effort.
+
+Three classes of approach to performance portability are recognised:  
+\begin{enumerate}
+\item Domain Specific Languages~(DSLs), which offer an abstraction level suitable for 
+the domain specialist to express specialised algorithms, and that generate automatically 
+the code for different target hardware. Representative examples of this class are: PSyclone, GridTools and~PyOP2.
+\item Low level programing models, which focus on performance portability at the numerical 
+kernel level. Representative examples of this class are: Kokkos, RAJA, OneAPI/SYCL and~starPU.
+\item Intermediate level frameworks or libraries 
+which use generic mathematical abstraction and algorithms, and that cover multiple 
+hardware architectures internally. Representative examples of this class are: PETSc and Trilinos.
+\end{enumerate}
+
+A special challenge for \nep \ is the need to use concurrently both high-order finite elements
+and particle representations. Other challenges may be identified as the project progresses.
+
+
+Specific objectives are : 
+\begin{enumerate}
+\item Provision of an in-depth and continuously updated analysis of the available and upcoming 
+hardware and the associated software solutions for performance portability.
+
+\item For the algorithms of interest, bearing in mind
+the challenge of the dual high-order finite element/particle representation,
+evaluations and tests of selected approaches to performance portability.
+
+\item An understanding of the relationships between the data layouts, 
+communication patterns needed by a given code component and the abstractions offered 
+by the different classes and approaches described above.
+
+\item Design patterns for software consistent with the above analysis, evaluations and understanding.
+\end{enumerate}
+

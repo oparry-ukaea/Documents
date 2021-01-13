@@ -1,0 +1,30 @@
+The outputs of the software will be used in procurements of
+first wall hardware that may involve tens if not hundreds of millions
+of pounds. Two things are therefore essential, (1) that the numerical
+results have quantified accuracy regarding both round-off and truncation
+error, and (2) that the robustness of the simulation results with
+respect to small changes in the modelling parameters be established.
+The latter is particularly challenging not only because of the 
+complexity of the physical models but also the likely presence of turbulence.
+
+The former~(1) will largely be dealt with in other calls, but must be
+borne in mind when treating~(2). Three approaches appear to be recognised
+to UQ, namely non-intrusive, semi-intrusive
+(which sadly appears to be admit at least two different definitions)
+and intrusive. At the Exascale, even non-intrusive UQ may have challenges
+as the ensemble of calculations may generate potentially unmanageable
+amounts of data, one of the answers to which is Model Order Reduction,
+the subject of a separate call.
+
+Semi-intrusive and intrusive techniques for UQ are required
+which are efficient in the case of both relatively small (less
+than approx.~$10$) numbers of parameters
+and also large numbers of parameters that give
+rise to the so-called  `curse of dimensionality'.
+Generally, different techniques will be required in
+the two limits, and for example one approach, Inverse Regression, involve
+first identification of a small number of important parameters
+from the larger set. There could be benefits if the same basis
+functions were used in both probability space and physical space
+(including velocity space).
+

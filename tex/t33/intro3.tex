@@ -1,0 +1,35 @@
+This report has the goal of consolidating earlier work regarding software
+design patterns \cite{y2re332} by attempting an initial identification of
+specific patterns to be applied in the forthcoming \nep\ \papp s, and also
+summarizing some other general design concerns.
+
+Section \ref{sec:proxypat} identifies patterns relevant to
+specific core \nep\ \papp s.
+It is noted that two of these \papp s are to be based on pre-existing
+object-oriented (C++) frameworks and the task is made easier by the explicit
+identification of some of the relevant patterns in those frameworks'
+accompanying documentation.
+Those are the \papp s that are to treat continuous fields; an additional part
+describes one of the \papp s designed to treat particles, which at the time 
+of writing is intended to be based on a procedural code written in Fortran.  
+Further insight into the use of design patterns in Fortran, and more generally the
+construction of complex modular frameworks, can be 
+gleaned from the study of existing codes; to this purpose, a discussion of 
+the \F{SMARDDA} simulation framework is included.
+Following sketches of the \papp s, a shortlist of relevant design patterns is
+given.
+
+Section \ref{sec:overarchpat} presents some overarching concerns
+relevant to the initial \papp\ ecosystem as a whole, viewed here as a
+fledgling multiphysics ecosystem and keeping in sight the likely structure of
+exascale target hardware.
+The first annex \ref{sec:gamestruct} demonstrates one tangentially relevant approach
+to handling a complex software ecosystem.
+As in earlier work, a general dearth of published material treating patterns in
+scientific programming is noted, indicating that room is left for more definite
+strategies for the overall \nep \ framework, once the initial implementations
+of the \papp s become available.
+
+A second  annex \ref{sec:proxyapp_standards} contains a precis of a set of standards
+for scientific \papp s and a framework for benchmarking the same proposed by
+the US Department of Energy's Exascale Computing Project.

@@ -1,0 +1,50 @@
+This report has arranged the statistical and applied mathematical techniques of UQ 
+according to a likely \nep\ workflow for device optimisation.
+Other workflows have been considered, see \Sec{impl} where a need is
+recorded to treat code validation against theoretical models 
+including comparison with experiment.
+
+Other authors arrange the subject of UQ rather differently,
+thus the textbook of Smith~\cite{smithUQ} treats additional topics under the headings
+of ``Model Calibration" and ``Parameter Selection", which loosely correspond to Stages 1~and~2
+respectively, ``Uncertainty Propagation" which corresponds to Stage~2
+and ``Model Discrepancy" which corresponds to Stage~3.
+Regarding the COSSAN software~\cite{Pa14Open}, there is a toolbox arrangement.
+Thus sampling (grouped with interval/subset methods under the heading of ``Reliability"),
+meta-modelling, sensitivity and optimisation are treated under separate headings.
+Under each heading there is found a range of possible tools or methods, partly to provide a check,
+but also because newer methods may be worth exploration, or 
+because the best method may be problem dependent.
+For instance, for sparse system identification, SLSQT (see \Sec{sparsereg})
+proved very successful for Brunton~et~al~\cite{Br16Disc}, but selecting an
+appropriate threshold value for SLSQT may not as easy in other applications.
+Each software tool may employed in different combinations with the others at different stages,
+eg.\ optimisation may be used both in Stage~2, to fit surrogate models better, and in Stage~3
+in conjunction with sampling to treat uncertainty, to improve a design.
+
+The nub of UQ is finding an affordable, good surrogate for the full model.
+The applicability of a lower-dimensional surrogate model 
+often results from the fact that a physical system, in normal operation, behaves `smoothly'
+ie.\  the sensitivity of its output function to changes in input parameters is rather low. 
+The work of Trefethen~\cite{To15Cont,Ha17Cheb,Tr20Priz} indicates that
+approximately~$80$\,\% of functions encountered in practice (most
+likely meaning related to use of the matlab$^{TM}$ software) may be
+efficiently and accurately approximated as sums of products of functions
+of a single variable, suggesting they are representable by say, of order~$100$-$1000d$ samples
+if there are $d$~parameters.
+%However, it is not necessarily obvious which functions fall into the awkward~$20\,\%$.
+Nonlinear systems exhibiting bifurcation self-evidently do not behave smoothly, particularly
+when deterministic chaos arises as an infinite sequence of bifurcations, and
+lack of smoothness also may arise due to a failure of numerics, such as
+the overfitting of functions by polynomial interpolation known as the Runge phenomenon.
+
+Unfortunately there appears to be no easy way to determine whether an arbitrary
+output function can be approximated succinctly over the whole range of interest.
+A good approach is to start by examining local approximations and seeking to patch
+them together to cover the whole ranges, so called `Machine Learning
+ROMs'~\cite[\S\,12.7]{bruntonkutz}. Techniques
+of this kind, eg.\ also `Reservoir Computing'~\cite{Pa18Hybr}  are currently
+the subject of much research, for which it is expected that the
+timing of the appearance of the Milestone Reports~M2.4.2 and~M2.5.2  reports
+will be such as to permit them to provide a more complete description.
+

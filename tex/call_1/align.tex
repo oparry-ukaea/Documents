@@ -1,0 +1,111 @@
+%The  successful bidder will work closely with other community members 
+%(especially UKAEA and the successful bidder to Grant Call~T/NA083/20) to produce
+%a roadmap to reach the long-term goals of the project. The bidder 
+%should indicate how they intend to help drive co-design of all the constituent 
+%elements of \nep \   in support of the Fusion Modelling System use case goals 
+%and also the \exc \   overarching pillars.
+
+This task will focus upon the suitability of a) available libraries and 
+b) numerical algorithms (or possibly the development of new algorithms and/or 
+libraries) for the project with a particular focus upon methods for modelling 
+anisotropic heat transport. %in the tokamak plasma edge in close proximity to a 
+%complex, 3-D first wall.
+Summarising the requirements from the Fusion Modelling System Science Plan, of 
+particular note for this task is that:
+
+%\item This workpackage will focus upon the suitability of available numerical 
+%algorithms (or the development of new algorithms)
+%for Exascale targeted plasma modelling, especially anisotropic
+%heat transport. As stated in the Fusion Modelling System
+%Science Plan, elements of this work package together with FM-WP4 will also
+%surround the ``coupling technology'' that will be required to connect the 
+%edge/pedestal region of the plasma (addressed
+%by FM-WP2) and the neutral gas/impurity model (FM-WP3).
+%An agile approach will be adopted around the legacy codes that
+%might be necessary for helping to develop a roadmap for the FM-WP1 referent models.
+\begin{itemize}
+\item  ``\ldots there are a large range of effects in the 
+tokamak plasma edge that prevent the plasma from isotropising to a Maxwellian 
+distribution \ldots the strong 
+imposed and directed magnetic field leads to anisotropy since charged particles 
+move rapidly in tight, spiral orbits (gyro-orbits) along the closed field lines 
+and only slowly normal to the field", and
+
+
+\item the ideal numerical algorithms for forming the Exascale edge plasma codes of 
+the future will have preferably at least the following properties:
+\begin{itemize}
+\item[{\bf P1}] Accurate solution of hyperbolic problems.
+\item[{\bf P2}] Ability to deliver efficient and accurate solutions of corresponding 
+elliptic problems.
+\item[{\bf P3}] Accurate modelling of highly anisotropic dynamics. 
+\item[{\bf P4}] Accurate representation of first wall geometry (face normals to
+within~$0.1^{0}$), and correspondingly of complex magnetic field geometries.
+\item[{\bf P5}] Accurate representation of velocity (phase) space.
+\item[{\bf P6}] Preservation of conservation properties of the underlying equations.
+\item[{\bf P7}] Scalability to likely Exascale architectures:
+
+\begin{itemize}
+\item[a)] interaction between models of different dimensionality,
+\item[b)] interaction between particle and fluid models,
+\item[c)] dynamic construction of surrogates.
+\end{itemize}
+
+\item[{\bf P8}] Performance portability to allow rapid deployment upon emerging hardware.
+\end{itemize}
+
+\item It is unlikely that any algorithm will have all of the above; part of the exercise
+will therefore be to rank the importance of these properties.
+
+%It is difficult at this state to rank the importance of these properties, or to 
+%identify the cost associated with
+%achieving each in a timely fashion -- a clearer understanding of immediate 
+%needs and achievable SMART deliverables will
+%emerge as the project matures via extensive community engagement and team 
+%building across the UK partners -- this
+%exercise will start in Feb 2020 via an open workshop. 
+
+\item It should also be stressed that 
+the choice of geometrical representation and numerical 
+scheme will have a profound impact upon
+almost all areas of the project.
+
+%Options will be identified by means of 
+%literature and code surveys and consultation
+%with UKRI and industry experts. Research will be commissioned where necessary 
+%to eliminate unsuitable choices as early
+%as possible. Relatively small development tasks will initially be undertaken to 
+%test remaining candidate methods for
+%accuracy, stability and HPC scalability potential. \ This task, along with 
+%FM-WP4 will have a prioritised start to
+%provide initial inputs into FM-WP2 and FM-WP3 developments and work to be 
+%defrayed in year 2. Tasks FM-WP1-3 will
+%incorporate numerical, finite element and other plasma physics libraries of 
+%suitable quality and exascale
+%applicability.
+
+\item Options have been tentatively 
+identified for initial investigation as
+follows:
+\begin{enumerate}
+\item Spectral/hp element methods
+used with Galerkin and/or Discontinuous Galerkin schemes
+to meet {\bf P1},{\bf P3} and possibly {\bf P5} above.
+\item Nekmesh to meet {\bf P4} above.
+\end{enumerate}
+
+\item A critical ``feature" of the fluid referent model prioritised for implementation is
+\begin{enumerate}
+\item 2-D model of anisotropic heat transport.
+\end{enumerate}
+\end{itemize}
+
+Elements of work package FM-WP1 together with work managed though FM-WP4 will 
+inevitably surround the ``coupling technology" that will be required to 
+connect the edge/pedestal region of the plasma (addressed by work managed under 
+FM-WP2) and the neutral gas/impurity model (via FM-WP3) -- see Science Plan~\cite{sciplan}. 
+Any libraries or algorithms selected must therefore be suitable for the 
+Exascale targeted close coupling of models (potentially including both fluid 
+and particle-based approaches) that will be essential to deliver a performant 
+and actionable infrastructure in the long term.
+

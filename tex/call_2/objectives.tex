@@ -1,0 +1,31 @@
+Sheath formation leads to the need to model the sheath plasma using particles,
+typically with the Particle-in-Cell~(PIC) approach, while being able to treat adjacent
+plasma as a fluid.
+In fact it may be easier at the Exascale to use a particle representation
+for at least some ionised species throughout most of the edge plasma volume,
+and possibly efficient because the distribution function in velocity may not be
+smooth  at the `trapped-passing' boundary.
+Indeed, the need to mix particle as well as fluid models
+gives rise to an objective  to be able to move between representations without
+introducing excessive error in time, as well as space.
+
+Neutrals are generically less likely than charged species to thermalize.
+They circulate into hotter and denser regions and collide with charged species.
+Since the neutrals are generally far from thermal equilibrium, it is natural
+to represent them using a particle model throughout the volume,
+with an objective to calculate their interaction with plasma without
+significant violation of mass, momentum and energy conservation on either side.
+
+All the above effects and objectives require use of particle methods
+associated until now with well-known deficiencies concerning (i) the very short
+gyro-orbit timescale for plasma, (ii) a slow rate of convergence due to
+the Monte-Carlo sampling which they represent, and (iii) the need to use
+many more particles than grid points which makes implicit treatments
+very expensive.
+\emph{N.B. Discussion in this note implies usage of particles to model kinetic effects,
+not schemes such as SPH designed to model advection of classical fluids.
+Exploration of the concept of phase-fluid, whereby extra dimensions represent the velocity-space
+dependence at a position in full detail, is not expected in response to this part of the call.}
+
+
+

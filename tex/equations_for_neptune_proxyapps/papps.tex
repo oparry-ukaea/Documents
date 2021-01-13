@@ -1,0 +1,102 @@
+%The description of the \papp s in the Science Plan is inevitably
+%terse and that in the document ``Equations for \exc/\nep \ \papp s"~\cite{pappeqs}
+%is inevitably focussed on the mathematics.
+%This appendix elucidates
+%thinking behind their choice and the priorities for their implementation.
+
+The overall thinking behind the \papp s is to explore potential `roadblocks' to the Exascale as
+early and in as simple a context as is possible, beginning with algorithmic
+roadblocks. \nep \ is directed towards producing `actionable' code as the basis
+for large procurements, whereas
+more physics-focussed software projects conducted by the
+worldwide nuclear fusion have already advanced to greater complexity,
+minimising the risk that unexpected problems will appear in the full model.
+%is minimised by competing fusion software projects that will have `rushed in'
+%to greater complexity, cf.\ the business adage that ``it is better to be second first".)
+
+The numbering of \papp s below corresponds to the Science Plan.
+\begin{itemize}
+\item[2-1] 2-D model of anisotropic heat transport. It is important to determine early the
+degree of anisotropy that high-order elements can treat without special coding. If this 
+is unsatisfactorily small, then there are implications for geometry input as well as
+algorithmic developments that are best addressed as early as possible.
+\item[2-2] 2-D elliptic solver in complex geometry. One of the indicated elliptic solvers is
+Grad-Shafranov to produce high order (`spectrally') accurate magnetic fields for
+use in many other \papp s. Since Sovinec~\cite{Ho14Solv} has already produced a spectral element
+Grad-Shafranov code, the corresponding \nep\ development should mainly serve to
+identify practical issues concerning implementing high order fe models. The second
+solver additionally presents a chance to explore comparatively novel meshing techniques developed under
+Activity~A2.1, and later the preconditioning techniques of A2.7.
+\item[2-3] 1-D fluid solver with simplified physics but with UQ and realistic boundary conditions.
+This will determine the capability of spectral/hp element to handle sonic outflow
+boundary conditions needed to represent sheaths, together with large source terms, as well
+as identifying practical issues concerning intrusive UQ. This software is already
+potentially useful in its own right for example in modelling MAST-U divertor,
+and other workers might be drawn in to add additional physical effects to this end.
+\item[2-4] Spatially 1-D plasma model incorporating velocity space effects. From the
+numerical analytic point-of-view, this is a key demonstration of spectral/hp element capability to
+handle particle interactions. % within the \emph{volume}.
+However, again this could be a basis for divertor modelling,
+to explore sheath effects depending on fieldline incidence on surface, and with minor
+modification the spread of particle energy around tile edges and corners as performed
+by Gunn~et~al~\cite{Gu19Stud,De19Phys} for ITER application.
+\item[2-5] Spatially 1-D multispecies plasma model. Multispecies
+throws up a surprising
+number of issues concerning data definitions (eg.\ changes to the Coulomb
+logarithm), structures to deal with different number of species, and perhaps most
+significantly, complicated inter-species interaction terms both within
+and at the domain boundaries. This is also an opportunity to mix fluid and
+\emph{kinetic} representations of \emph{different} species  within the \emph{volume}.
+\item[2-6] Spatially 2-D plasma model incorporating velocity space effects. 
+With the 1-D multispecies fluid work's having made the generalisation to 2-D
+straightforward, the challenge here is to start writing a complex \papp \
+in production mode, incorporating the research put into design, documentation,
+code generation and benchmarking. There is an opportunity to study species
+with both fluid and \emph{kinetic} representations depending on location relative
+to the wall. Again this is potentially a useful tool in its
+own right, capable of revealing deficiencies in previous 2-D modelling work.
+\item[2-7] Interaction between models of different dimensionality.
+This should verify that the design has the right data structures to handle additional further
+complexity beyond intrusive and ensemble-based UQ and model order reduction. The hopefully 
+burgeoning \nep \ community
+could develop this into a design tool with a capability both to explore a large
+area of tokamak edge parameter space quickly in 0-D or 1-D and also to focus on
+relatively small but critical 2-D features, such as tile edges.
+\item[2-8] Spatially 3-D plasma \emph{kinetic} models.
+These will represent the full fluid model
+produced by the 5-year \nep \ project, incorporating features of 2-D fluid and
+\emph{kinetic} work in a 3-D code.
+\end{itemize}
+\begin{itemize}
+\item[3-1] 2-D particle-based model of neutral gas \& impurities with critical physics.
+This will be a $2d3v$~code (ie.\ spatially 2-D distribution of particles
+with $3$~velocity components)
+designed from the outset to interact with a high-order finite-element fluid model of plasma.
+It gives an opportunity to check out ideas on optimal usage of particles.
+\item[3-2] 2-D moment-based model of neutral gas \& impurities.
+Constructing a 2-D fluid code of neutral gas from the Nektar++ software should be
+a valuable educational exercise, whilst providing scope for cross-validating the 2-D particle model.
+\item[3-3] Interaction with 2-D plasma model when available.
+Building on the 1-D multispecies fluid work, the challenge here is to incorporate
+in the fluid code of \Papp \ PA2-6, particle effects from PA3-1, which will in
+the higher dimensional space be more subject to lack of numerical
+resolution or `noise'. Should PA3-3 be accelerated, it could usefully 
+treat both plasma and neutrals via particle models.
+\item[3-4] 3-D model of neutral gas \& impurities.
+This is now at full dimensional complexity, incorporating selected ideas 
+on optimal usage of particles.
+\item[3-5] Interaction with 3-D plasma model.
+This will represent the full model produced by the 5-year \nep \ project,
+a coupling of fluid and \emph{kinetic} software developed under the FM-WP2 work-package as PA2-8,
+incorporating features of \Papp s 3-1 to 3-4, and allowing for additional input from PA3-6.
+\item[3-6] Staged introduction of additional neutral gas/impurity physics.
+It is expected that the \nep \ community will join in to supplement
+the software with a wide-ranging capability to treat a wide range of additional 
+nuclear, atomic and molecular effects.
+\end{itemize}
+
+
+%Note: Work extending beyond Y3 is deliberately vague on the subject of gyrokinetics, as no
+%widely accepted model for the tokamak edge appears to be available as of early~Y2,
+%and even should one appear, it might not be suitable for use in~Y3 in~\nep.
+

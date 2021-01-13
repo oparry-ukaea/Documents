@@ -1,0 +1,74 @@
+The work of ref~\cite{Hu18Glob} is important for \nep\ in that simultaneous use is made
+of both a 2-D and a 3-D fluid model, referred to as MFMC~(Multi-Fidelity Monte-Carlo, \Sec{mfmc}).
+Samples from different planes are used to produce a low-fidelity 2-D model with stochastic parameters
+as described in ref~\cite[\S\,4.1]{Hu18Glob}, using Bayesian Inference as described in \Sec{Bayes}.
+There is an important physical underpinning that the flow modelled by Huan et al~\cite{Hu18Glob}
+is primarily in a single direction, variation in which is neglected to produce
+the 2-D model. This is encouraging for \nep, as similar arguments relating to
+variation along the magnetic field are used to justify use of 2-D edge codes for
+the tokamak scrape-off layer~(SOL).
+
+Indeed, for SOL application, it is conceivable that multi-fidelity work involving 1-D
+fluid models may be efficient, when it is remembered that the so-called `Onion-skin' models~\cite{St97Code},
+have found a good deal of utility in SOL physics. The `onion' is the plasma
+imagined to consist of separate skins, ie.\ layers delineated by equilibrium flux surfaces.
+Typically experiment provides boundary conditions at the wall for transport along
+the flux tubes of which each such layer may be supposed to be composed. Thanks to the axisymmetry 
+of the magnetic field it is only necessary to consider a 1-D problem for each tube. The solutions
+of these 1-D problems for the different layers are then combined to produce a 2-D
+`onion-skin' solution for which agreement to within~$20$\,\% of an explicitly 2-D fluid  model
+is obtained in many cases~\cite{St97Code}.
+
+
+The 3-D fluid models of \nep\ approximate in turn 5-D gyro-averaged or 6-D full phase-space dynamics.
+These more complex models may be needed particularly when the plasma collisionality
+is low, but then there is a change in physical emphasis in that the influence of the
+boundaries may be directly transmitted throughout the low collisionality region.
+For the spatially~5-D/6-D models, even at higher collisionality,
+theoretical analysis produces series of correction terms to be added into the fluid models.
+These are in addition to other physical effects such as plasma-neutral particle interaction,
+radiative loss etc., all adding up to a substantial additional challenge for usage of MFMC in \nep.
+
+The works of Najm and collaborators~\cite{Hu18Glob, Ge19Prog} have delivered a workflow 
+primarily aimed at producing at an optimal design under uncertainty:
+\begin{enumerate}
+\item Global sensitivity analysis, to identify key parameters, see \Sec{stage1}
+\item Forward UQ using adaptive sparse sampling, see \Sec{stage2}
+\item PCE surrogate for inverse UQ and OUU, see \Sec{stage3}
+\end{enumerate}
+%\item Full and reduced fidelity models randomly sampled (MFMC, possibly also MLMC) to produce 
+%PCE surrogate for the QoIs and/or 
+%\begin{enumerate}
+%\I Surrogate propounded as a reduced fidelity model with PCE for parameters only
+%\I Surrogate is MCMC sampled using Bayesian inference to compute PCE
+%\end{enumerate}
+%\item PCE reduced by use of LASSO to give sparse PCE surrogate
+%\item Surrogate subject to adaptive sparse sampling (also MLMC if stochastic) to evaluate Sobol indices
+%\item Surrogate subject to OUU to produce optimal design 
+%\end{enumerate}
+
+Whilst the above workflow has very sophisticated components, it does not cover all \nep\ applications.
+For instance, the physicist seeking to gain better understanding of the SOL may not
+be immediately interested in a particular optimisation. Such usage might require
+only relatively simple scans in one or two parameters to compare with theory, for which
+a local sensitivity approach (ie.\ examining the effect of small changes to other parameters
+one at a time) could provide adequate UQ.
+
+More demanding is to improve understanding of the often highly nonlinear
+dynamics of the SOL, where it is possible for small-scale structures such as internal layers
+or local hot-spots to form. An example of the former might be the radiative fronts
+which develop as the plasma detaches from the first walls, where it could conceivably
+be critical for the numerical solution to resolve these fronts. One approach to reduce
+the uncertainty as to whether the discrete representation is adequate is `bifurcation-tracking'
+whereby a branch of solutions is followed from where it emerges by initial linear 
+instability on well-characterised physical scales, into the nonlinear regime.
+The physicist user may thus, after examining surrogate behaviour, want \nep\ to produce
+many more higher fidelity solutions. These solutions could usefully provide feed-back that
+the parameters of the
+surrogate require modification, and hence this user's particular workflow might become very involved
+as it seeks to `home in' on detachment processes.
+
+Hence there are different potential workflows aimed at optimising designs, improving physical
+understanding, and indeed to produce optimal surrogates for use in device control~\cite{bruntonkutz}.
+The final decisions as to what should be implemented in \nep, await the production
+of the Milestone Reports~M2.4.2 and~M2.5.2 scheduled for August~2021.

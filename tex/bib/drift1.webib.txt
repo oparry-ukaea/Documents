@@ -1,0 +1,4214 @@
+
+
+@STRING{advp="Adv. Phys."}
+@STRING{ajp="Am. J. Phys."}
+@STRING{ao="Appl. Opt."}
+@STRING{ap="Ann. Phys."}
+@STRING{apj="Astrophys. J."}
+@STRING{apl="Appl. Phys. Lett."}
+@STRING{baps="Bull. Am. Phys. Soc."}
+@STRING{cpc="Computer Phys. Comm."}
+@STRING{cppcf="Comments Plasma Phys. Controlled Fusion"}
+@STRING{cpp="Contrib. Plasma Phys."}
+@STRING{el="Europhys. Lett."}
+@STRING{fed="Fusion Eng. Design"}
+@STRING{fst="Fusion Science and Tech."}
+@STRING{ft="Fusion Tech."}
+@STRING{ieeens="IEEE Trans. Nucl. Sci."}
+@STRING{ieeeps="IEEE Trans. Plasma Sci."}
+@STRING{ijimw="Int. J. Infrared Millimeter Waves"}
+@STRING{ip="Infrared Phys."}
+@STRING{jap="J. Appl. Phys."}
+@STRING{jchp="J. Chem. Phys."}
+@STRING{jcop="J. Comput. Phys."}
+@STRING{jcp="J. Comput. Phys."}
+@STRING{jetp="Sov. Phys. - JETP"}
+@STRING{jfe="J. Fusion Energy"}
+@STRING{jfm="J. Fluid Mech."}
+@STRING{jgr="J. Geophys. Res."}
+@STRING{jjap="Jap. J. Appl. Phys."}
+@STRING{jmp="J. Math. Phys."}
+@STRING{jns="J. Nonlinear Sci."}
+@STRING{jne="J. Nucl. Energy"}
+@STRING{jnec="J. Nucl. Energy, Part~C"}
+@STRING{jnm="J. Nucl. Mater."}
+@STRING{josa="J. Opt. Soc. Am."}
+@STRING{jpa="J. Phys.~A: Math. Gen."}
+@STRING{jpd="J. Phys.~D: Appl. Phys."}
+@STRING{jpp="J. Plasma Phys."}
+@STRING{jpsj="J. Phys. Soc. Jpn"}
+@STRING{jsp="J. Stat. Phys."}
+@STRING{jvst="J. Vac. Sci. Technol."}
+@STRING{nedf="Nucl. Eng. Design/Fusion"}
+@STRING{nf="Nucl. Fusion"}
+@STRING{nim="Nucl. Instrum. Methods"}
+@STRING{nimpr="Nucl. Instrum. Methods Phys. Research"}
+@STRING{njp="New J. Phys."}
+@STRING{nt/f="Nucl. Tech./Fusion"}
+@STRING{phy="Physica"}
+@STRING{phbl="Phys. Bl."}
+@STRING{phya="Physica~A"}
+@STRING{phyd="Physica~D"}
+@STRING{pf="Phys. Fluids"}
+@STRING{pfa="Phys. Fluids~A"}
+@STRING{pfb="Phys. Fluids~B"}
+@STRING{php="Phys. Plasmas"}
+@STRING{pl="Phys. Lett."}
+@STRING{pla="Phys. Lett.~A"}
+@STRING{pnas="Proc. Nat. Acad. Sci. USA"}
+@STRING{pp="Plasma Phys."}
+@STRING{ppcf="Plasma Phys. Controlled Fusion"}
+@STRING{pr="Phys. Rev."}
+@STRING{pra="Phys. Rev.~A"}
+@STRING{pre="Phys. Rev.~E"}
+@STRING{prl="Phys. Rev. Lett."}
+@STRING{prep="Phys. Rep."}
+@STRING{ps="Physica Scripta"}
+@STRING{psst="Plasma Sources Sci. Technol."}
+@STRING{rmp="Rev. Mod. Phys."}
+@STRING{rsi="Rev. Sci. Instrum."}
+@STRING{sjpp="Sov. J. Plasma Phys."}
+@STRING{spd="Sov. Phys.-Dokl."}
+@STRING{sptp="Sov. Phys.-Tech. Phys."}
+@STRING{spu="Sov. Phys.-Usp."}
+@STRING{spjetp="Sov. Phys. - JETP"}
+@STRING{znf="Z. Naturforsch."}
+
+
+%-----------------------------     A      ---------------------------------
+
+@article{Achterberg:1980,
+  author =	 {A. Achterberg},
+  title =	 {Drift waves in a medium $\beta$ plasma with velocity
+                  gradients },
+  journal =	 pp,
+  year =	 1980,
+  volume =	 22,
+  pages =	 {377--288},
+  month =	 {}
+}
+
+@article{Adrian:1979,
+  author =	 {R. J. Adrian},
+  title =	 { },
+  journal =	 pf,
+  year =	 1979,
+  volume =	 22,
+  pages =	 {2065},
+  month =	 {}
+}
+
+@article{Alcock:1969,
+  author =	 "M. W. Alcock and B. Keen",
+  title =	 "Experimental observation of the drift dissipative
+                  instability in an afterglow plasma",
+  journal =	 pra,
+  year =	 1971,
+  volume =	 3,
+  pages =	 "1087-1096"
+}
+
+@article{Aliev:1992,
+  author =	 {Yu. M. Aliev and V. Yu. Bychenkov and
+                  M. S. Jovanovic and A. A. Frolov},
+  title =	 {The kinetic theory of the nonlinear low-frequency
+                  response of a collisionless plasma to high-frequency
+                  electromagnetic radiation},
+  journal =	 jpp,
+  year =	 1992,
+  volume =	 48,
+  pages =	 {167--176},
+  month =	 {}
+}
+
+@article{Andre:1974,
+  author =	 {Jean-Claude Andr\`e},
+  title =	 {Irreversible interaction between cumulants in
+                  homogeneous, isotropic, two-dimensional turbulence
+                  theory},
+  journal =	 pf,
+  year =	 1974,
+  volume =	 17,
+  pages =	 {15--21},
+  month =	 {}
+}
+
+
+@Article{Antar:etal:2001,
+  author = 	 {G. Y. Antar and S. I. Krasheninnikov and P. Devynck and  R. P. Doerner and  E. M. Hollmann and J. A. Boedo
+and  S. C. Luckhardt and R. W. Conn },
+  title = 	 {Experimental Evidence of Intermittent Convection in the Edge of Magnetic Confinement Device},
+  journal = 	 prl,
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {87},
+  OPTnumber = 	 {},
+  pages = 	 {065001},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  abstract = 	 {Probe measurements in the PISCES linear device indicate the presence of plasma radially far from where it is produced. We show that this is mainly caused by large-scale structures of plasma with high radial velocity. Data from the Tore Supra tokamak show striking similarities in the shape of these intermittent events as well as the fluctuation density probability distribution and frequency spectrum. The fact that intermittent, large-scale events are so similar in linear devices and tokamaks indicates the universality of convective transport in magnetically confined plasmas. }
+}
+
+
+@InProceedings{Antoni:IAEA:2004,
+  author = 	 {V. Antoni and R. Cavazzana and  E. Martines and  G. Serianni and E. Spada and  M. Spolaore and N. Vianello and  J. R. Drake and  H. Bergsåker and P.R. Brunsell and M. Cecconello and G. Regnoli and  A. Alfier and L.
+Apolloni and M. Bagatin and W. Baker and O. Barana and F. Basso and D. Bettella and P. Bettini and T. Bolzonella and
+D. Bonfiglio and A. Buffa and A. Canton and S. Cappello and L. Carraro and M. Cavinato and G. Chitarin and A.
+Cravotta and F. D'Angelo and S. Dal Bello and M. Dalla Palma and A. De Lorenzi and L. De Pasqual and D.
+Desideri and D.F. Escande and P. Fiorentin and P. Franz and L. Frassinetti and G. Gadani and E. Gaio and L. Garzotti and
+E. Gazza and L. Giudicotti and F. Gnesotto and L. Grando and S.C. Guo and P. Innocente and R. Lorenzini and A.
+Luchetta and G. Malesani and G. Manduchi and G. Marchiori and D. Marcuzzi and L. Marrelli and P. Martin and S.
+Martini and A. Masiello and F. Milani and M. Moresco and A. Murari and P. Nielsen and S. Ortolani and R.
+Paccagnella and R. Pasqualotto and S. Peruzzo and R. Piovan and P. Piovesan and N. Pomaro and M.E. Puiatti and G.
+Rostagni and F. Sattin and V. Schmidt and P. Scarin and P. Sonato and G. Spizzo and C. Taliercio and D. Terranova and
+V. Toigo and M. Valisa and N. P. Zaccaria and P. Zanca and B. Zaniol and L. Zanotto and E. Zilli and G. Zollino and M.
+Zuin},
+  title = 	 {Turbulent transport and plasma flow in the Reversed Field Pinch},
+  booktitle = 	 {20th IAEA Fusion Energy Conference},
+  OPTcrossref =  {},
+  OPTkey = 	 {},
+  pages = 	 {EX/8-4Ra},
+  year = 	 {2004},
+  OPTeditor = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {Vienna},
+  OPTmonth = 	 {},
+  organization = {IAEA},
+  publisher = {IAEA},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+@Article{Auburn_Plasma_Device:2004,
+  author =	 {E. Wallace and E. Thomas and A. Eadon and J.D. Jackson},
+  title =	 {Design and initial operation of the Auburn Linear Experiment for Instability Studies: A new plasma experiment for studying shear driven flows},
+  journal =	 rsi,
+  year =	 {2004},
+  OPTkey =	 {},
+  volume =	 {75},
+  number =	 {12},
+  pages =	 {5160 - 5165},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {The Auburn Linear Experiment for Instability Studies (ALEXIS) is a new plasma physics experiment that is designed to investigate the role of spatially nonuniform ExB drifts using a cylindrical plasma column. This article discusses the design and construction of the ALEXIS device and preliminary measurements of the electric and magnetic field configuration of the device.}
+}
+
+
+
+%------------------------------     B       --------------------------------
+
+
+
+
+@Article{Balescu:2003,
+  author = 	 {R. Balescu},
+  title = 	 {Drift-wave turbulence and zonal flow generation},
+  journal = 	 {Phys. Rev. E},
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {68},
+  OPTnumber = 	 {},
+  pages = 	 {046409},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTabstract = 	 {}
+}
+
+
+@Article{Bak:Tang:Wiesenfeld:1988,
+  author =	 {Per Bak and C. Tang and K. Wiesenfeld},
+  title =	 {Self-Organized Criticality},
+  journal =	 {Phys. Rev. A},
+  year =	 {1988},
+  OPTkey =	 {},
+  volume =	 {38},
+  number =	 {1},
+  pages =	 {364-374 },
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {Selbstorganisierte Kritikalitaet}
+}
+
+@BOOK{Bachelier:1900,
+  author =	 {Bachelier, Louis},
+  title =	 {Th{\'e}orie de la Sp{\'e}culation},
+  series =	 {Annales de l'{\'E}cole normale sup{\'e}rieure},
+  address =	 {Paris},
+  year =	 1900,
+}
+
+@article{Balk:Zakharov:Nazarenko:1990,
+  author =	 {A.M. Balk and S.V. Nazarenko and V.E. Zakharov},
+  title =	 {On the Nonlocal Turbulence of Drift Type Waves},
+  journal =	 pla,
+  year =	 1990,
+  volume =	 146,
+  pages =	 {217-221},
+  month =	 {May}
+}
+
+
+
+@Article{Balkovsky:Falkovich:Fouxon:2001,
+  author = 	 {E. Balkovsky and G. Falkovich and A. Fouxon},
+  title = 	 {Intermittent distribution of inertial particles in turbulent flows},
+  journal = 	 prl,
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume =	 {86},
+  OPTnumber = 	 {},
+  pages =	 {2790-2793},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {We consider inertial particles suspended in an incompressible turbulent flow. Because of particles' inertia their flow is compressible, which leads to fluctuations of concentration significant for heavy particles. We show that the statistics of these fluctuations is independent of details of the velocity statistics, which allows us to predict that the particles cluster on the viscous scale of turbulence and describe the probability distribution of concentration fluctuations. We discuss the possible role of the clustering in the physics of atmospheric aerosols, in particular, in cloud formation. 
+}
+}
+
+@article{Barret:Allen:1983,
+  author =	 {P. J. Barrett and G. R. Allen},
+  title =	 {Measurement of growth rate of plasma drift wave
+                  excited by slow electrons},
+  journal =	 pf,
+  year =	 1983,
+  volume =	 26,
+  pages =	 {795-796}
+}
+
+@Article{Beck:2002a,
+  author =	 {Christian Beck},
+  title =	 {Nonextensive Methods in turbulence and particle
+                  physics},
+  journal =	 {Physica A},
+  year =	 {2002},
+  OPTkey =	 {},
+  volume =	 {305},
+  OPTnumber =	 {},
+  pages =	 {209-217},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@Article{Beck:2002b,
+  author =	 {Christian Beck},
+  title =	 {Generalized statistical mechanics and fully
+                  developed turbulence},
+  journal =	 {Physica A},
+  year =	 {2002},
+  OPTkey =	 {},
+  volume =	 {306},
+  OPTnumber =	 {},
+  pages =	 {189-198},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+@Book{book:Beran,
+  author = 	 {J. Beran},
+  ALTeditor = 	 {},
+  title = 	 {Statistics for long-memory processes},
+  publisher = 	 {Chapman and Hall,},
+  year = 	 {1994},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {New York},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTabstract = 	 {}
+}
+ @Article{Berning:Spatschek:2000,
+  author = 	 {M. Berning and K.H. Spatschek},
+  title = 	 {Bifurcations and Transport Barriers in the Resistive-g Paradigm},
+  journal = 	 {Phys. Rev. E.},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {62},
+  OPTnumber = 	 {},
+  pages = 	 {1162-1174},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The so called resistive-g (resistive pressure-gradient-driven turbulence) paradigm is a widely accepted and frequently investigated model for nonlinear plasma dynamics. The parameter dependences of the generated transport barriers as well as third order bifurcations will be discussed numerically and analytically in the present paper. First, using a Galerkin representation, bifurcating states (from the conductive states in a rectangular cell) are investigated for the cases when only one unstable mode dominates. The dependence of the bifurcation properties on the aspect ratio of the domain is discussed, leading to the conclusion that for vanishing (or small) magnetic shear the so called L-H-ELM (low-high-edge localized mode) transitions do not occur for small aspect ratios of the domain. Including reasonable magnetic shear, the small-aspect-ratio cut-off disappears, and transport barriers may exist in a broad parameter range. Secondly, for small aspect ratios, interesting codimension-2 bifurcations occur. When unfolding the dynamics up to third order, e.g. a weakly nonlinear interaction of convection cells is observed. The analytical result are confirmed by numerical simulations.}
+}
+
+
+
+
+@article{Bessenrodt-Weberpals:1990,
+  author =	 {M. Bessenrodt-Weberpals and other},
+  title =	 {Isotope studies of the edge plasma in ASDEX},
+  journal =	 {J. Nucl. Mater.},
+  year =	 1990,
+  volume =	 {176&177},
+  pages =	 {538--542}
+}
+
+
+@article{Beyer:Benkadda:Garbet:Diamond:2000,
+  author = 	 {P. Beyer and S.  Benkadda and X.  Garbet and P. H.  Diamond},
+  title = 	 {Nondiffusive transport in tokamaks: Three-dimensional structure of bursts and the role of zonal flows},
+  journal = 	 prl,
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {85},
+  number = 	 {23},
+  pages = 	 {4892-4895},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Large scale transport events are studied in simulations of resistive ballooning turbulence in a tokamak plasma. The spatial structure of the turbulent flux is analyzed, indicating radially elongated structures (streamers) at the low field side which are distorted by magnetic shear at different toroidal positions. The interplay between self-generated zonal flows and transport events is investigated, resulting in significant modifications of the frequency and the amplitude of bursts. The propagation of bursts is studied in the presence of a transport barrier generated by a strong shear flow.}
+}
+
+
+@Article{Bian:Garcia:2003,
+  author = 	 {N.H. Bian and O.E. Garcia},
+  title = 	 {Confinement and dynamical regulation in two-dimensional convective turbulence},
+  journal = 	 php,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {10},
+  number = 	 {12},
+  pages = 	 {4696-4707},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {In this work the nature of confinement improvement implied by the self-consistent generation of mean flows in two-dimensional convective turbulence is studied. The confinement variations are linked to two distinct regulation mechanisms which are also shown to be at the origin of low-frequency bursting in the fluctuation level and the convective heat flux integral, both resulting in a state of large-scale intermittency. The first one involves the control of convective transport by sheared mean flows. This regulation relies on the conservative transfer of kinetic energy from tilted fluctuations to the mean component of the flow. Bursting can also result from the quasi-linear modification of the linear instability drive which is the mean pressure gradient. For each bursting process the relevant zero-dimensional model equations are given. These are finally coupled in a minimal model of convection in fluids and plasmas. The results of the modeling are used to discuss confinement scaling and intermittency, and in a heuristic way, more complex issues such as criticality and transport avalanches.}
+}
+
+@article{Biskamp:Camargo:Scott:1994,
+  author =	 {Dieter Biskamp and Suzanna J. Camargo and Bruce
+                  D. Scott},
+  title =	 {Spectral Properties and statistics of resistive
+                  drift-wave turbulence},
+  journal =	 pla,
+  year =	 1994,
+  volume =	 186,
+  pages =	 {239-244}
+}
+
+@article{Biskamp:Kaifen:1985,
+  author =	 {Dieter Biskamp and He Kaifen},
+  title =	 {Three-drift-wave interaction at finite parallel
+                  wavelength: bifurcations and transition to
+                  turbulence},
+  journal =	 pf,
+  year =	 1985,
+  volume =	 28,
+  pages =	 {2172--2180},
+  month =	 {July}
+}
+
+@article{Biskamp:Zeiler:1995,
+  author =	 {Dieter Biskamp and A. Zeiler},
+  title =	 {Nonlinear Instability Mechanism in 3D Collisional
+                  Drift-Wave Turbulence},
+  journal =	 prl,
+  year =	 1995,
+  volume =	 74,
+  pages =	 {706-709}
+}
+
+@Article{Black:Scholes:1973,
+  author =	 {F. Black and M. Scholes},
+  title =	 {The pricing of options and corporate liabilities.},
+  journal =	 {J. Political Economy},
+  year =	 {1973},
+  OPTkey =	 {},
+  volume =	 {81},
+  number =	 {18},
+  pages =	 {637--654},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@Article{Boedo:etal:2003,
+  author = 	 {J.A. Boedo and D.L. Rudakov and R.J. Colchin and  R.A. Moyer and  S. Krasheninnikov and  D.G. Whyte and G.R. McKee and 
+ G. Porter and  M.J. Schaffer and P.C. Stangeby and  W.P. West and  S.L. Allen and A.W. Leonard},
+  title = 	 {Intermittent convection in the boundary of DIII-D},
+  journal = 	 {J. Nucl. Mater. },
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {813},
+  number = 	 {19},
+  pages = 	 {313-316},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  abstract = 	 {Intermittent plasma objects (IPOs) featuring higher pressure than the surrounding plasma, and responsible for ~50% of the E * BT radial transport, are observed in the scrape-off layer (SOL) and edge of the DIII-D tokamak. The skewness (i.e., asymmetry of fluctuations from the average) of probe and BES intermittent data suggest IPO formation at or near the last closed flux surface (LCFS) and the existence of hole-IPO pairs. The particle content of the IPOs at the LCFS is linearly dependent on the discharge density, however, when normalized to the local averaged density, it is fairly insensitive to density variations. It is also shown that the IPOs thermalize with the background plasma within 1 cm of the LCFS. The IPOs appear in the SOL of both L and H mode discharges carrying ~50% of the total SOL radial E * BT transport at all radii. However, the total flux and the IPO contribution, are highly reduced in H-mode conditions due to the increased confinement}
+}
+
+
+@article{Bofetta:Rago:Celani:1997,
+  author =	 {G. Bofetta and V. Rago and A. Celani},
+  title =	 {Transient anomalous dispersion in random walkers},
+  journal =	 pla,
+  year =	 1997,
+  volume =	 235,
+  pages =	 {15-18}
+}
+
+
+
+
+
+
+@article{Bofetta:deLillo:Gamba:2004,
+  author = 	 {G. Bofetta and F. {de Lillo} and A. Gamba},
+  title = 	 {Large scale inhomogeneity of inertial particles in turbulent flows },
+  journal = 	 pf,
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {16},
+  OPTnumber = 	 {},
+  pages = 	 {L20 - L23 },
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Bracco:etal:1999,
+  author = 	 {A. Bracco and P. H. Chavanis and A.  Provenzale and E. A. Spiegel },
+  title = 	 {Particle aggregation in a turbulent Keplerian flow},
+  journal = 	 pf,
+  year = 	 {1999},
+  OPTkey = 	 {},
+  volume = 	 {11},
+  OPTnumber = 	 {},
+  pages = 	 {2280-2287},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {For the problem of planetary formation one seeks a mechanism to gather small dust particles together into larger solid objects. Here we describe a scenario in which turbulence mediates this process by aggregating particles into anticyclonic regions. If, as our simulations suggest, anticyclonic vortices form as long-lived coherent structures, the process becomes more powerful because such vortices trap particles effectively. Even if the turbulence is decaying, following the upheaval that formed the disk, there is enough time to make the dust distribution quite lumpy. }
+}
+
+@Article{Bracco:etal:2004,
+  author = 	 {Annalisa Bracco and Jost {von Hardenberg} and  Antonello Provenzale and  Jeffrey B. Weiss and Jim C. McWilliams},
+  title = 	 {Dispersion and Mixing in Quasigeostrophic Turbulence},
+  journal = 	 prl,
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {92},
+  OPTnumber = 	 {},
+  pages = 	 {084501},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The dynamics of passive Lagrangian tracers in three-dimensional quasigeostrophic turbulence is studied numerically and compared with the behavior of two-dimensional barotropic turbulence. Despite the different Eulerian properties of the two flows, the Lagrangian dynamics of passively advected tracers in three-dimensional quasigeostrophic turbulence is very similar to that of barotropic turbulence. In both systems, coherent vortices play a major role in determining the mixing and dispersion properties. This work indicates that recent results on particle dynamics in barotropic, two-dimensional turbulence carry over to more realistic baroclinic flows, such as those encountered in the large-scale dynamics of the atmosphere and ocean. ©2004 The American Physical Society
+}
+}
+
+@incollection{Braginskii:1965,
+  booktitle =	 "Reviews of Plasma Physics",
+  publisher =	 "Consultants Bureau",
+  address =	 "New York",
+  editor =	 "M. A. Leontovich",
+  author =	 {S. I. Braginskii},
+  title =	 {Transport processes in a plasma},
+  year =	 1965
+}
+
+@Article{Broadbent:Hammersley:1957,
+  author =	 {S. R. Broadbent and J. M. Hammersley },
+  title =	 {Percolation Processes, I. Crystals and Mazes},
+  journal =	 {Proc. Cambridge Philos. Soc. },
+  year =	 {1957},
+  OPTkey =	 {},
+  volume =	 {53},
+  OPTnumber =	 {},
+  pages =	 {629},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {Introduced Percolation}
+}
+
+@Article{Burrell:1999,
+  author =	 {Keith H. Burrell},
+  title =	 {Tests of causality: Experimental evidence that
+                  sheared ExB flow alters turbulence and transport in
+                  tokamaks},
+  journal =	 pp,
+  year =	 {1999},
+  OPTkey =	 {},
+  volume =	 {6},
+  number =	 {12},
+  pages =	 {4418 - 4435},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+
+@Article{Brummel:Clune:Toomre:2002,
+  author = 	 {N. H. Brummel and T. L. Clune and J. Toomre},
+  title = 	 {Penetration and overshooting in turbulent compressible convection},
+  journal = 	 {Astrophys. Jour.},
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {570},
+  number = 	 {2},
+  pages = 	 {825-854},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {We present the results of a series of high-resolution, three-dimensional numerical experiments that investigate the nature of turbulent compressible convective motions extending from a convection zone into a stable layer below. In such convection, converging flows in the near-surface cellular convecting network create strong down owing plumes that can traverse the multiple scale heights of the convection zone. Such structures can continue their downward motions beyond the convecting region, piercing the stable layer, where they are decelerated by buoyancy braking. If these motions mix entropy to an adiabatic state below the convection zone, the process is known as penetration; otherwise it is termed overshooting. We find that in three-dimensional turbulent compressible convection at the parameters studied, motions generally overshoot a significant fraction of the local pressure scale height but do not establish an adiabatic penetrative region, even at the highest Peclet numbers considered. This is mainly due to the low filling factor of the turbulent plumes. The scaling of the overshooting depth with the relative stability S of the two layers is affected by this lack of true penetration. Only an S-1 dependence is exhibited, reflecting the existence of a thermal adjustment region without a nearly adiabatic penetration zone. Rotation about a vertical axis decreases the depth of overshooting, owing to horizontal mixing induced by the rotation. For rotation about an inclined axis, turbulent rotational alignment of the strong downflow structures decreases the overshooting further at mid-latitudes, but the laminar effects of cellular roll solutions take over at low latitudes. Turbulent penetrative convection is quite distinct from its laminar counterpart and from the equivalent motions in a domain conned by impenetrable horizontal boundaries. Although overshooting would not be so deep in the solar case, the lack of true penetration extending the adiabatic region may explain why helioseismic inferences show little evidence of the expected abrupt change between the convection zone and the radiative interior. These results may also provide insight into how overshooting motions can provide a coupling between the solar convection zone and the tachocline. }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------       C       --------------------------------------
+@article{Califano:1996,
+  author =	 "Francesco Califano",
+  title =	 "A numerical algorithm for geophysical and
+                  astrophysical inhomogeneous fluid flows",
+  journal =	 "Computer Physics Communication",
+  volume =	 "99",
+  pages =	 "29-42",
+  year =	 "1996"
+}
+
+@Article{Callen:Kissick:1997,
+  author =	 {J D Callen and M W Kissick},
+  title =	 {Evidence and concepts for non-local transport},
+  journal =	 {Plasma Phys. Control. Fusion},
+  year =	 {1997},
+  OPTkey =	 {},
+  volume =	 {39},
+  OPTnumber =	 {},
+  pages =	 {B173 - B188},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@article{Carreras:Newman:Diamond:Liang:1994,
+  author =	 "B. A. Carreras and D. Newman and P. H. Diamond and
+                  Y.-M. Liang",
+  title =	 "Dynamics of low to high (``L`` to ``H``) confinement
+                  bifurcation: Poloidal flow and ion pressure gradient
+                  evolution",
+  journal =	 pp,
+  volume =	 "1",
+  pages =	 "4014-4021",
+  year =	 "1994"
+}
+
+@article{Carreras:etal:1996,
+  author =	 "B. A. Carreras and C. Hidalgo and E. S\'{a}nchez and
+                  M.A. Pedrosa and R. Balb\'{i}n and
+                  Garc\'{i}a-Cort\'{e}s and B. {van Milligen} and
+                  D. E. Newman and V. E. Lynch",
+  title =	 "Fluctuation induced Flux at the plasma edge in
+                  toroidal devices",
+  journal =	 "Phys. Plasmas",
+  volume =	 "3",
+  pages =	 "2664-2672",
+  year =	 "1996"
+}
+
+@article{Carreras:etal:1998,
+  author =	 "B. A. Carreras and B. Ph. {van Milligen} and
+                  M. A. Pedrosa and R. Balb\'{i}n and D. E. Newman and
+                  E. S\'{a}nchez and M. Frances and
+                  Garc\'{i}a-Cort\'{e}s and J. Bleuel and M. Endler
+                  and C. Ricardi and S. Davies and G. F. Matthews and
+                  E. Martines and V. Antoni and A. Latten and
+                  T. Klinger",
+  title =	 "Self-similarity of the plasma edge fluctuations",
+  journal =	 "Phys. Plasmas",
+  volume =	 "5",
+  pages =	 "3632-3643",
+  year =	 "1998"
+}
+
+@Article{Carreras:Lynch:LaBombard:2001,
+  author =	 {B. A. Carreras and V. E. Lynch and B LaBombard},
+  title =	 {Structure and properties of the electrostatic
+                  fluctuations in the far scrape-off layer region of
+                  Alctor C-Mod},
+  journal =	 {Phys. Plasmas},
+  year =	 {2001},
+  OPTkey =	 {},
+  volume =	 {8},
+  number =	 {8},
+  pages =	 {3702 - 3707},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+
+
+
+
+@Article{Castellanos:2005,
+  author =	 {O. F. Castellanos and E. Anabitarte and J. M. Sentyes and C. Hidalgo and
+M. A. Pedrosa},
+  title =	 {Parallel flows and turbulence in a linear plasma
+machine},
+  journal =	 ppcf,
+  year =	 {2005},
+  OPTkey =	 {},
+  volume =	 {47},
+  number =	 {},
+  pages =	 {2067–2074},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {Experimental evidence of parallel flows dynamically coupled to radial turbulent
+transport is reported in a linear plasma machine (SLPM). Probability density
+functions (PDFs) for parallel flows and transport are different. PDFs for
+transport show clear non-gaussian features with large and sporadic bursts and
+PDFs of parallel flows are rather gaussian. Plasma profiles of parallel Mach
+number (in the range 0.1–0.3) show gradients dM||/dr comparable to 1/Ln.
+Experimental results show that the dynamical coupling between transport and
+flows shows differences at different plasma radii. The degree of coupling also
+shows variations with plasma heating conditions. These findings suggest that,
+although turbulence can be considered as quasi-bidimensional in magnetized
+plasmas, parallel dynamics still play an important role in the regulation of radial}
+}
+
+
+
+
+
+@Article{Celani:Lanotte:Mazzino:Vergassola:2001,
+  author = 	 {A. Celani and A. Lanotte and A. Mazzino and M. Vergassola},
+  title = 	 {Fronts in passive scalar turbulence},
+  journal = 	 pf,
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {13},
+  OPTnumber = 	 {},
+  pages = 	 {1768 - 1783},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Champeaux:Diamond:2001,
+  author =	 "S. Champeaux and P. H. Diamond",
+  title =	 " Streamer and zonal flow generation from envelope
+                  modulations in drift wave turbulence",
+  journal =	 pla,
+  volume =	 "288",
+  pages =	 "214-219",
+  year =	 "2001"
+}
+
+@article{Charney:1948,
+  author =	 "J. G. Charney",
+  title =	 "On the scale of atmospheric motion ",
+  journal =	 "Geofysiske Publikasjoner",
+  volume =	 "17 (2)",
+  pages =	 "3 -- 17",
+  year =	 "1948"
+}
+
+@Book{book:Crank,
+  author = 	 {J. Crank},
+  ALTeditor = 	 {},
+  title = 	 {The Mathematics of Diffusion},
+  publisher = 	 {Oxford University Press},
+  year = 	 {1975},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTaddress = 	 {},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTabstract = 	 {}
+}
+
+
+@Book{Chu:Hendel:1970,
+  ALTauthor = 	 {},
+  editor = 	 {T. K. Chu and H. W. Hendel},
+  title = 	 {Feedback and Dynamic Control of Plasmas },
+  publisher = 	 {American Institute of Physics},
+  year = 	 {1970},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTaddress = 	 {},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Connor:Wilson:2000,
+  author = 	 {J. W. Connor and H. R. Wilson},
+  title = 	 {A review of theories of the L-H transition},
+  journal = 	 ppcf,
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {42},
+  OPTnumber = 	 {},
+  pages = 	 {R1-R74},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {After a general discussion of the experimental characteristics of the L-H transition and consideration of basic theoretical principles underlying models for it, this paper reviews the various theories of the L-H transition available in the literature, providing some background information on each theory and expressing the transition criteria in forms suitable for comparison with experiment. Some conclusions on the relevance of these models for explaining the experimental data on the transition are drawn.}
+}
+
+
+
+
+
+@InProceedings{Conway:2004,
+  author = 	 {G.G. Conway and B. D. Scott and J. Schirmer and M. Reich and A. Kendl and {the Asdex Upgrade Team}},
+  title = 	 {},
+  booktitle = 	 {Proc. 31st EPS Conference on Plasma Physics (28.6. - 2.7. 2004, London)},
+  OPTcrossref =  {},
+  OPTkey = 	 {},
+  OPTpages = 	 {},
+  year = 	 {2004},
+  OPTeditor = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {London},
+  OPTmonth = 	 {},
+  OPTorganization = {},
+  publisher = {European Physical Society},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Crotinger:Dupree:1992,
+  author =	 "J.A. Crotinger and Th. H. Dupree",
+  title =	 "Trapped structures in drift wave turbulence",
+  journal =	 "Phys. Fluids B",
+  volume =	 "4",
+  pages =	 "2854-2870",
+  year =	 "1992"
+}
+
+%---------------------       D       ---------------------------------------
+@article{Diamond:Kim:1991,
+  author =	 {P. H. Diamond and Y.-B. Kim},
+  title =	 {Theory of mean poloidal flow generation by
+                  turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1991,
+  volume =	 3,
+  pages =	 {1626-1633}
+}
+
+@article{Diamond:Rosenbluth:1981,
+  author =	 {P. H. Diamond and Marshall N. Rosenbluth},
+  title =	 {Theory of the renormalized dielectric for
+                  electrostatic drift wave turbulence in tokamaks},
+  journal =	 {Phys. Fluids},
+  year =	 1981,
+  volume =	 24,
+  pages =	 {1641-1649}
+}
+
+@Article{Diamond:Hahm:1995,
+  author = 	 {P.H. Diamond and T. S. Hahm},
+  title = 	 {On the dynamics of turbulent transport near marginal stability},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {1995},
+  OPTkey = 	 {},
+  volume = 	 {2},
+  OPTnumber = 	 {},
+  pages = 	 {3640},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  abstract = 	 {A general methodology for describing the dynamics of transport near marginal stability is formulated. Marginal stability is a special case of the more general phenomenon of self-organized criticality. Simple, one field models of the dynamics of tokamak plasma self-organized criticality have been constructed, and include relevant features such as sheared mean flow and transport bifurcations. In such models, slow mode (i.e., large-scale, low-frequency transport events) correlation times determine the behavior of transport dynamics near marginal stability. To illustrate this, impulse response scaling exponents (z) and turbulent diffusivities (D) have been calculated for the minimal (Burgers') and sheared flow models. For the minimal model, z=1 (indicating ballistic propagation) and D~(S)1/3, where S is the noise strength. With an identically structured noise spectrum and flow with shearing rate exceeding the ambient decorrelation rate for the largest-scale transport events, diffusion is recovered with z=2 and D~(S)3/5. This indicates a qualitative change in the dynamics, as well as a reduction in losses. These results are consistent with recent findings from dimensionless scaling studies. Several tokamak transport experiments are suggested.}
+}
+
+@article{Dimits:1990,
+  author =	 {A. M. Dimits},
+  title =	 {Saturation of drift instabilities by $E\times B$
+                  advection of resonant electrons},
+  journal =	 {Phys. Fluids B},
+  year =	 1990,
+  volume =	 2,
+  pages =	 {1768--1774}
+}
+
+@phdthesis{DrEickermann,
+  author =	 "{Th. Eickermann}",
+  title =	 "Nichtlineare Dynamik driftartiger Moden in schwach
+                  ionisierten Plasmen",
+  school =	 {Heinrich-Heine Universit\"at, D\"usseldorf},
+  year =	 "1994"
+}
+
+@article{Drake:Antonsen:1984,
+  author =	 "J.F. Drake and T. M. Antonsen, Jr.",
+  title =	 "Nonlinear reduced fluid equations for toroidal
+                  plasmas",
+  journal =	 "Phys. Fluids",
+  volume =	 "27",
+  page =	 "898-908",
+  year =	 "1984"
+}
+
+@article{Drake:Guzdar:Hassam:Huba:1984,
+  author =	 "J.F. Drake and P.N. Guzdar and A. B. Hassam and
+                  J.D. Huba",
+  title =	 "Nonlinear mode coupling theory of the
+                  lower-hybrid-drift instability",
+  journal =	 "Phys. Fluids",
+  volume =	 "27",
+  page =	 "1148-1159",
+  year =	 "1984"
+}
+
+
+
+
+
+@Article{Dux:2003,
+  author = 	 {Ralph Dux},
+  title = 	 {Chapter 11: Impurity Transport in Asdex Upgrade},
+  journal = 	 {Fusion Science and Technology},
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {44},
+  OPTnumber = 	 {},
+  pages = 	 {708 - 715},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Einstein:1905,
+  author =	 {Albert Einstein},
+  title =	 {\"Uber die von der molekularkinetischen Theorie der
+                  W\"arme geforderte Bewegung von in ruhenden
+                  Fl\"ussigkeiten suspendierten Teilchen},
+  journal =	 {Annalen der Physik},
+  year =	 {1905},
+  OPTkey =	 {},
+  volume =	 {17},
+  OPTnumber =	 {},
+  pages =	 {549 - 560},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {Brownsche Bewegung und Statistik}
+}
+
+%---------------------     E         ---------------------------------------
+@article{Elhmaidi:Provenzale:Babiano:1993,
+  author =	 {Dalila Elhma{\H{\i}}di and Antonello Provenzale and
+                  Armando Babiano},
+  title =	 {Elementary Topology of two-dimensional turbulence
+                  from Lagrangian viewpoint and single particle
+                  dispersion},
+  journal =	 {J. Fluid Mech.},
+  year =	 {1993},
+  volume =	 {257},
+  pages =	 {553--558}
+}
+
+@article{Ellis:Motley:1974,
+  author =	 {R. F. Ellis and R. W. Motley},
+  title =	 {Current driven collisional drift instability},
+  journal =	 {Phys. Fluids.},
+  year =	 {1974},
+  volume =	 {17},
+  pages =	 {583--593}
+}
+
+@article{Ellis:Marden-Marshall:Majeski:1980,
+  author =	 {R. F. Ellis and E. Marden-Marshall and R. Majeski},
+  title =	 {Collisional drift instability of a weakly ionized
+                  argon plasma},
+  journal =	 {Plasma Physics},
+  year =	 {1980},
+  volume =	 {22},
+  pages =	 {113--132}
+}
+
+@techreport{Endler:1994,
+  author =	 "Michael Endler",
+  title =	 {Experimentelle Untersuchung und Modellierung
+                  elektrostatischer Fluktuationen in den
+                  Absch\"alschichten des Tokamaks ASDEX und des
+                  Stellarators Wendelstein 7-AS},
+  institution =	 {Max-Planck-Institut f\"ur Plasmaphysik},
+  year =	 "1994",
+  number =	 "IPP III/197"
+}
+
+@article{Endler:Niedermeyer:etal:1995,
+  author =	 {M. Endler and H. Niedermeyer and L. Giannone and
+                  E. Holzauer and A. Rudyj and G. Theimer and N. Tsois
+                  and Asdex-Team},
+  title =	 {Measurements and Modelling of Electrostatic
+                  Fluctuations in the Scrape-Off Layer of ASDEX},
+  journal =	 {Nucl. Fusion},
+  volume =	 {35},
+  pages =	 {1307-1339},
+  year =	 {1995}
+}
+
+
+@article{Endler:toappear,
+  author =	 {M. Endler and other},
+  title =	 {Turbulent Fluctuations in the scrape-off layer of
+                  the ASDEX tokamak and the W7-AS stellarator},
+  journal =	 {J. Nucl. Mater.},
+  year =	 {to appear}
+}
+
+@article{Engelmann:1995,
+  author =	 {F. Engelmann},
+  title =	 {Report on the 2nd European Fusion Physics Workshop},
+  journal =	 {Plasma Phys. and Contr. Fusion},
+  year =	 {1995},
+  volume =	 {37},
+  pages =	 {1039--1054}
+}
+
+
+
+
+
+@Article{Ertel:1942,
+  author = 	 {H. Ertel},
+  title = 	 {Ein neuer hydrodynamischer Wirbelsatz},
+  journal = 	 {Meteorologische Zeitschrift},
+  year = 	 {1942},
+  OPTkey = 	 {},
+  volume = 	 {59},
+  number = 	 {9},
+  pages = 	 {277-281},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+%---------------------     F         ---------------------------------------
+  
+
+@Article{Falkovich:Gawdzki:Vergassola:2001,
+  author = 	 { G. Falkovich and K. Gawdzki and M. Vergassola},
+  title = 	 {Particles and fields in fluid turbulence},
+  journal = 	 {Rev. Mod. Phys.},
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume =	 {73},
+  OPTnumber = 	 {},
+  pages =	 {913},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {The understanding of fluid turbulence has considerably progressed in recent years. The application of the methods of statistical mechanics to the description of the motion of fluid particles, i.e., to the Lagrangian dynamics, has led to a new quantitative theory of intermittency in turbulent transport. The first analytical description of anomalous scaling laws in turbulence has been obtained. The underlying physical mechanism reveals the role of statistical integrals of motion in nonequilibrium systems. For turbulent transport, the statistical conservation laws are hidden in the evolution of groups of fluid particles and arise from the competition between the expansion of a group and the change of its geometry. By breaking the scale-invariance symmetry, the statistically conserved quantities lead to the observed anomalous scaling of transported fields. Lagrangian methods also shed new light on some practical issues, such as mixing and turbulent magnetic dynamo. }
+}
+
+
+
+
+@article{Farge:Kevlahan:Perrier:Goirand:1996,
+  author =	 {Marie Farge and Nicholas Kevlahan and Valerie
+                  Perrier and Eric Goirand},
+  title =	 {Wavelets and Turbulence},
+  journal =	 {Proceedings of the IEEE},
+  year =	 {1996},
+  volume =	 {84},
+  pages =	 {639--669}
+}
+
+%---------------------     G         ---------------------------------------
+@article{Gang:Diamond:Crotinger:Koniges:1991,
+  author =	 {F. Y. Gang and P. H. Diamond and J.A. Crotinger and
+                  A. E. Koniges},
+  title =	 {Statistical dynamics of dissipative drift wave
+                  turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1991,
+  volume =	 3,
+  pages =	 {955--968},
+  month =	 {April}
+}
+@ARTICLE{Garbet:etal:2003,
+    author = {{Garbet}, X. and {Garzotti}, L. and {Mantica}, P. and {Nordman}, H. and 
+	{Valovic}, M. and {Weisen}, H. and {Angioni}, C.},
+    title = "{Turbulent Particle Transport in Magnetized Plasmas}",
+    journal = prl,
+    year = 2003,
+    month = jul,
+    volume = 91,
+    pages = {35001-+},
+    adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003PhRvL..91c5001G&amp;db_key=PHY},
+    adsnote = {Provided by the NASA Astrophysics Data System},
+    abstract={Particle transport in magnetized plasmas is investigated with a fluid model of drift wave turbulence. An analytical calculation shows that magnetic field curvature and thermodiffusion drive an anomalous pinch. The curvature driven pinch velocity is consistent with the prediction of turbulence equipartition theory. The thermodiffusion flux is found to be directed inward for a small ratio of electron to ion pressure gradient, and it reverses its sign when increasing this ratio. Numerical simulations confirm that a turbulent particle pinch exists. It is mainly driven by curvature for equal ion and electron heat sources. The sign and relative weights of the curvature and thermodiffusion pinches are consistent with the analytical calculation. }
+}
+
+
+
+
+@Article{Garbet:Waltz:1996,
+  author = 	 {X. Garbet and R. Waltz},
+  title = 	 {Action at distance and Bohm scaling of turbulence in tokamaks},
+  journal = 	 php,
+  year = 	 {1996},
+  OPTkey = 	 {},
+  volume =	 {3},
+  number =	 {5},
+  pages =	 {1898-1907},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {Abstract: Recent transport experiments in tokamaks have suggested the concept of ''action at distance'' in which the local turbulence depends on gradients at a distance larger than the correlation length. Furthermore, the scaling of the ion thermal diffusivity is not always consistent with local gyro-Bohm-like transport but rather scales worse than Bohm-like. This work is an attempt to reconcile these observations with simplified numerical simulations of toroidal ion temperature gradient (ITG) mode turbulence using a fast two-dimensional (2-D) inhomogeneous full radius turbulence code. It is found that action at a distance is possible, but only at weak damping rates, since the propagation range is given simply by the curvature drift group velocity divided by the average damping rate. The correlation lengths always scale linearly with the gyroradius. It is found that Bohm scaling or worse is possible when the gradients are close to the ITG threshold and the radial modes keep the turbulence level small enough to avoid destroying the slow to form global eigenmodes. In contrast to local ITG ballooning modes, the global eigenmode growth rates decrease with increasing gyroradius from the effect of larger diamagnetic rotational shear. This behavior results in an increase of the correlation time with increasing gyroradius, when the gradients are close to the thresholds. Thus, at sufficiently large relative gyroradius, the breaking of gyro-Bohm scaling can result from increased stability not mixing length.}
+}
+
+@Article{Garbet:Laurent:Samain:Chinardet:1994,
+  author = 	 {X. Garbet and L. Laurent and A. Samain and J. Chinardet},
+  title = 	 {Radial Propagation of Turbulence in Tokamaks},
+  journal = 	 nf,
+  year = 	 {1994},
+  OPTkey = 	 {},
+  volume = 	 {34},
+  number = 	 {7},
+  pages =	 {963-974},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {It is shown in this paper that turbulence propagation can be due to toroidal or non-linear mode coupling. An analytical analysis indicates that the toroidal coupling acts through convection while the non-linear effects induce diffusion. Numerical simulations suggest that the toroidal propagation is usually the faster process, except perhaps in some highly turbulent regimes. A consequence is the possibility of non-local effects on the fluctuation level and the associated transport.}
+}
+
+
+@Article{Garcia:Carreras:2005,
+  author = 	 {L. Garcia and B. A. Carreras},
+  title = 	 {Avalanche properties in a transport model based on critical-gradient fluctuation dynamics},
+  journal = 	 php,
+  year = 	 {2005},
+  OPTkey = 	 {},
+  volume =	 {12},
+  OPTnumber = 	 {},
+  pages =	 {092305 },
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {A simple one-dimensional transport model based on critical-gradient fluctuation dynamics is applied to describe some of the properties of plasma-turbulence-induced transport. This model combines avalanche-like transport with diffusion. The particle flux is self-regulated by the stability properties of the fluctuations. A high-gradient edge region emerges where transport dynamics is close to marginal stability. In steady state, the core remains at the subcritical gradient. The avalanches change from quasiperiodic events triggered mostly near the edge region to intermittent transport events depending on the noise level of the particle source. }
+}
+
+@article{Garbet:1997,
+  author =	 {Xavier Garbet},
+  title =	 {Towards a full self-consistent numerical simulation
+                  of tokamak plasma turbulence},
+  journal =	 {Plasma Phys. Control Fusion},
+  year =	 1997,
+  volume =	 39,
+  pages =	 {B91--B102}
+}
+
+@article{Goodman:1992,
+  author =	 {Simon Goodman},
+  title =	 {Strong turbulence equations derived from kinetic
+                  theory},
+  journal =	 {Phys. Fluids B},
+  year =	 1992,
+  volume =	 4,
+  pages =	 {329--335},
+  month =	 {February}
+}
+
+@article{Grauer:1998,
+  author =	 {Rainer Grauer},
+  title =	 {An Energy estimate for a perturbed Hasegawa-Mima
+                  equation},
+  journal =	 {Nonlinearity},
+  year =	 1998,
+  volume =	 {11},
+  pages =	 {659-666}
+}
+
+@article{Guercan:2005,
+  author =	 {{\"O}. D. G{\"u}rcan and Pat. H. Diamond and T. S. Hahm and Z. Lin },
+  title =	 {Dynamics of turbulence spreading in magnetically confined plasmas},
+  journal =	 php,
+  year =	 2005,
+  volume =	 12,
+  pages =	 {032303}
+}
+
+
+@article{Guzdar:Drake:Dimits:Hassam:1991,
+  author =	 {P. N. Guzdar and J. F. Drake and A. M. Dimits and
+                  A. B. Hassam},
+  title =	 {Transport barrier in ion temperature gradient driven
+                  turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1991,
+  volume =	 3,
+  pages =	 {1381-1385}
+}
+
+@article{Guzdar:Drake:McCarthy:Hassam:Liu:1993,
+  author =	 {P. N. Guzdar and J. F. Drake and D. McCarthy and
+                  A. B. Hassam and C. S. Liu},
+  title =	 {Three-dimensional fluid simulations of the nonlinear
+                  drift-resistive ballooning modes in tokamak edge
+                  plasmas},
+  journal =	 {Phys. Fluids B},
+  year =	 1993,
+  volume =	 5,
+  pages =	 {3712-3727}
+}
+
+%------------------------   H      -----------------------------------------
+
+@Article{Hahm:Diamond:Lin:Itoh:Itoh:2004,
+  author = 	 {T. S. Hahm and P. H. Diamond and Z. Lin and  K. Itoh  and {S.-I.} Itoh},
+  title = 	 {Turbulence spreading into the linearly stable zone and
+transport scaling},
+  journal = 	 ppcf,
+  year = 	 2004,
+  OPTkey = 	 {},
+  volume = 	 {46},
+  OPTnumber = 	 {},
+  pages = 	 {A323 - A333},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {We study the simplest problem of turbulence spreading corresponding to the
+spatio-temporal propagation of a patch of turbulence from a region where it
+is locally excited to a region of weaker excitation or even local damping.
+A single model equation for the local turbulence intensity, I (x , t ), includes the
+effects of local linear growth and damping, spatially local nonlinear coupling
+to dissipation and spatial scattering of turbulence energy induced by nonlinear
+coupling. In the absence of dissipation, front propagation into the linearly stable
+zone occurs with the property of rapid progression at small t, followed by slower
+sub-diffusive progression at late times. The turbulence radial spreading into the
+linearly stable zone reduces the turbulent intensity in the linearly unstable zone
+and introduces an additional dependence on the    i /a to the turbulent
+intensity and the transport scaling. These are in broad, semi-quantitative
+agreement with a number of global gyrokinetic simulation results with zonal
+flows and without zonal flows. Front propagation stops when the radial flux
+of fluctuation energy from the linearly unstable region is balanced by local
+dissipation in the linearly stable region.
+}
+}
+
+
+@Article{Hallatschek:Biskamp:2001,
+  author = 	 {K. Hallatschek and D.  Biskamp},
+  title = 	 {Transport control by coherent zonal flows in the core/edge transitional regime},
+  journal = 	 prl,
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {86},
+  number = 	 {7},
+  pages = 	 {1223-1226},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {3D Braginskii turbulence simulations show that the energy flux in the core/edge transition region of a tokamak is strongly modulated-locally and on average-by radially propagating, nearly coherent sinusoidal or solitary zonal flows. Their primary drive is the anomalous transport together with the Stringer-Winsor term. The transport modulation and the flow excitation are due to wave-kinetic effects studied for the first time in turbulence simulations. The flow amplitudes and the transport sensitively depend on the magnetic curvature acting on the flows, which can be influenced, e.g., by shaping the plasma cross section.}
+}
+
+
+
+@article{Hansen:1997,
+  author =	 "Adam E. Hansen and Elsebeth Schr{\"o}der and Preben
+                  Alstr{\o}m and Jacob Sparre Andersen and Mogens
+                  T. Levinsen",
+  title =	 "Fractal Particle Trajectories in Capillary Waves:
+                  Imprint of Wavelength",
+  journal =	 prl,
+  year =	 "1997",
+  volume =	 "79",
+  pages =	 "1845"
+}
+
+@article{Hansen:Schroeder:Alstroem:Andersen:Levinsen:1997,
+  author =	 "Adam E. Hansen and Elsebeth Schr{\"o}der and Preben
+                  Alstr{\o}m and Jacob Sparre Andersen and Mogens
+                  T. Levinsen",
+  title =	 "Fractal Particle Trajectories in Capillary Waves:
+                  Imprint of Wavelength",
+  journal =	 prl,
+  year =	 "1997",
+  volume =	 "79",
+  pages =	 "1845"
+}
+
+@article{Hasegawa:1985,
+  author =	 {Akira Hasegawa},
+  title =	 {Self-organization proccesses in continous media},
+  journal =	 {Adv. Physics},
+  year =	 1985,
+  volume =	 34,
+  pages =	 {1-42}
+}
+@article{Hasegawa:MacLennan:Kodama:1979,
+    author = {{Hasegawa}, A. and {Maclennan}, C.~G. and {Kodama}, Y.},
+    title = "{Nonlinear behavior and turbulence spectra of drift waves and Rossby waves}",
+    journal = {Physics of Fluids},
+    year = 1979,
+    month = nov,
+    volume = 22,
+    pages = {2122-2129},
+    adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1979PhFl...22.2122H&amp;db_key=INST},
+    adsnote = {Provided by the NASA Astrophysics Data System},
+    abstract = {  Spectrum cascade in drift wave turbulence in a magnetized plasma as well as Rossby wave turbulence in an atmospheric pressure system are studied based on a three-wave decay process derivable from the model equation applicable to both cases. The decay in the three-way interaction occurs to smaller and larger values of /k/ (Kz wavenumber). In a region of large wavenumbers this leads to the dual cascade; the energy spectrum cascades to smaller /k/ and the enstrophy spectrum to larger /k/, similar to the case of two-dimensional Navier-Stokes turbulence. In a small wavenumber region a resonant three-wave decay process dominates the cascade process, and an anisotropic spectrum develops. As a consequence of the cascade, zonal flows in the direction perpendicular to the direction of inhomogeneity appear which presents a potential implication for the particle confinement in a turbulent plasma. }	 	 
+}
+
+
+@article{Hasegawa:Mima:1977,
+  author =	 {Akira Hasegawa and Kunioki Mima},
+  title =	 {Stationary Spectrum of Strong Turbulence in
+                  Magnetized Nonuniform Plasma},
+  journal =	 prl,
+  year =	 1977,
+  volume =	 39,
+  pages =	 {205},
+  month =	 {January}
+}
+
+@article{Hasegawa:Mima:1978,
+  author =	 {Akira Hasegawa and Kunioki Mima},
+  title =	 {Pseudo-three-dimensional turbulence in magnetized
+                  nonuniform plasma},
+  journal =	 {Phys. Fluids},
+  year =	 1978,
+  volume =	 21,
+  pages =	 {87--92},
+  month =	 {January}
+}
+
+@article{Hasegawa:Wakatani:1983,
+  author =	 {Akira Hasegawa and M. Wakatani},
+  title =	 {Plasma Edge Turbulence},
+  journal =	 prl,
+  year =	 1983,
+  volume =	 50,
+  pages =	 {682-686},
+}
+
+@article{Hasegawa:Wakatani:1987,
+  author =	 {Akira Hasegawa and M. Wakatani},
+  title =	 {Self-Organization of Electrostatic Turbulence in a
+                  Cylindrical Plasma},
+  journal =	 prl,
+  year =	 1987,
+  volume =	 59,
+  pages =	 {1581},
+}
+
+@article{Hassam:1991,
+  author =	 "A. B. Hassam and T. M. Antonsen and J. F. Drake and
+                  C. S. Liu",
+  title =	 "Spontaneous Poloidal Spin-Up Of Tokamaks And The
+                  Transition To H-Mode",
+  journal =	 prl,
+  year =	 "1991",
+  volume =	 "66",
+  pages =	 "309-"
+}
+
+@Article{Hassam:1992,
+  author =	 {A. B. Hassam},
+  title =	 {Nonlinear stabilization of the Rayleigh-Taylor
+                  instability by external velocity shear},
+  journal =	 {Phys. Fluids B},
+  year =	 {1992},
+  OPTkey =	 {},
+  volume =	 {4},
+  OPTnumber =	 {},
+  pages =	 {485},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+
+@Article{Hassam:Drake:1993,
+  author = 	 {A. B. Hassam and J. F. Drake},
+  title = 	 {SPONTANEOUS POLOIDAL SPIN-UP OF TOKAMAK PLASMAS - REDUCED EQUATIONS, PHYSICAL-MECHANISM, AND SONIC REGIMES},
+  journal = 	 pfb,
+  year = 	 {1993},
+  OPTkey = 	 {},
+  volume = 	 {5},
+  number = 	 {11},
+  pages = 	 {4022-4029},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {A theoretical description of the spontaneous (Stringer) poloidal spin-up of tokamak plasmas is given. A set of reduced equations is derived to investigate various aspects of the phenomenon. A simple physical description of the instability mechanism is given. The theory of the instability is extended to show that the spin-up persists even under conditions where the growth rate is sonic. A nonlinear evolution equation for unstable poloidal rotation is obtained which shows that the instability mechanism loses its efficacy when the poloidal speed exceeds the poloidal sound speed, thus resulting in nonlinear saturation of the rotation at this level.}
+}
+
+@Article{Hassam:1999,
+  author =	 {A. B. Hassam},
+  title =	 {Velocity shear stabilization of interchange modes in
+                  elongated plasma configurations},
+  journal =	 {Phys. Plasmas},
+  year =	 {1999},
+  OPTkey =	 {},
+  volume =	 {6},
+  OPTnumber =	 {},
+  pages =	 {3772},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@Article{Hawley:2003,
+  author = 	 {John F. Hawley},
+  title = 	 {Accretion disks: The magnetohydrodynamic powerhouse},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {10},
+  number = 	 {5},
+  pages = 	 {1946-1953},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Hazeltine:Meiss:1985,
+  author =	 {R. D. Hazeltine and J. D. Meiss},
+  title =	 {Shear Alfv\'en Dynamics of Toroidally Confined
+                  Plasma},
+  journal =	 {Phys. Rep.},
+  year =	 1985,
+  volume =	 121,
+  pages =	 {1-164},
+}
+
+@Article{Hesthaven:Nielsen:Pecseli:Rasmussen:1995,
+  author = 	 {J. S. Hesthaven and A. H. Nielsen and H. L. P\'{e}cseli and Jens Juul Rasmussen},
+  title = 	 {The Euler-Lagrangian transformation in two-dimensional random flows},
+  journal = 	 {Journal of Atmospheric and Terrestrial Physics},
+  year = 	 {1995},
+  OPTkey = 	 {},
+  volume = 	 {57},
+  number = 	 {3},
+  pages = 	 {215 - 223},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Hidalgo:etal:2000,
+  author = 	 {C. Hidalgo and M. A.  Pedrosa and E. Sanchez and R. Balbin and A. Lopez-Fraguas and B.   van Milligen and C. Silva and H.  Fernandes and C. A. F. Varandas and C. Riccardi and R. Carrozza and M. Fontanesi and B. A. Carreras and L. Garcia},
+  title = 	 {Generation of sheared poloidal flows via Reynolds stress and transport
+   barrier physics},
+  journal = 	 ppcf,
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {42},
+  OPTnumber = 	 {},
+  pages = 	 {A153 - A160},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Hidalgo:2002,
+  author =	 {C. Hidalgo and B. Goncalves and M. A. Pedrosa and
+                  J. Castellano and K. Erents and A. L. Fraguas and
+                  M. Hron and J. A. Jimenez and G. F. Matthews and
+                  B. van Milligen and C. Silva},
+  title =	 {Empirical similarity in the probability density
+                  function of turbulent transport in the edge plasma
+                  region in fusion plasmas},
+  journal =	 {Plasma Phys. Contr. Fusion},
+  year =	 {2002},
+  OPTkey =	 {},
+  volume =	 {44},
+  number =	 {8},
+  pages =	 {1557 - 1564},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {The probability density function (PDF) of turbulent transport has been investigated in the plasma edge region of tokamak (JET) and stellarator (TJ-II) fusion devices. PDFs can be re-scaled using a functional form, PDF(Gamma(ExB)) = L-1 g(Gamma(ExB)/L), where L is directly related with the level of fluctuations in the turbulent flux. This kind of re-scaling holds at different timescales in which the functional form of the PDF changes. The empirical similarity in the PDF of turbulent transport in the edge region in both the JET tokamak and the TJ-II stellarator supports the view that turbulent transport displays universality in fusion plasmas. These results emphasize the importance of the statistical description of transport processes in fusion plasmas as an alternative approach to the traditional way to characterize transport based on the computation of effective transport coefficients (i.e. diffusion coefficients) and on average quantities (i.e. average correlation lengths).}
+}
+
+@Article{Hidalgo:etal:2003,
+  author = 	 {C. Hidalgo and B. Goncalves and C. Silva and M.A. Pedrosa and K. Erents and M. Hron and G. F. Matthews},
+  title = 	 {Experimental investigation of dynamical coupling between turbulent
+   transport and parallel flows in the JET plasma-boundary region},
+  journal = 	 prl,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {91},
+  OPTnumber = 	 {},
+  pages = 	 {065001},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+
+@incollection{Hintz:1994,
+  booktitle =	 "Contributions to High-Temperature Plasma Physics",
+  publisher =	 "Akademie Verlag",
+  editor =	 "Karl H. Spatschek and J{\"u}rgen Uhlenbusch",
+  author =	 {E. Hintz and other},
+  title =	 {Properties of the Edge Plasma in Textor - with Ohmic
+                  Heating - and the Role of Light Impurities },
+  year =	 1994,
+  pages =	 {315--346}
+}
+
+@article{Horton:1976,
+  author =	 {Wendell Horton},
+  title =	 {Spectral Distribution of Drift-Wave Fluctuations in
+                  Tokamaks},
+  journal =	 prl,
+  year =	 1976,
+  volume =	 37,
+  pages =	 {1269--1272},
+  month =	 {November}
+}
+
+@article{Horton:1985,
+  author =	 {Wendell Horton},
+  title =	 {Onset of Stachasticity and the Diffusion
+                  Approximation in Drift Waves},
+  journal =	 {Plasma Phys. Contr. Fusion},
+  year =	 1985,
+  volume =	 27,
+  pages =	 {937-956}
+}
+
+@article{Horton:1986,
+  author =	 {Wendell Horton},
+  title =	 {Statistical properties and correlation functions for
+                  drift waves},
+  journal =	 {Phys. Fluids},
+  year =	 1986,
+  volume =	 29,
+  pages =	 {1491-1503}
+}
+
+@article{Horton:1989,
+  author =	 {Wendell Horton},
+  title =	 {??},
+  journal =	 {Phys. Fluids},
+  year =	 1989,
+  volume =	 31,
+  pages =	 {326}
+}
+
+@article{Horton:Liu:1984,
+  author =	 {Wendell Horton and Jixing Liu},
+  title =	 {Drift waves in rotating plasmas},
+  journal =	 {Phys. Fluids},
+  year =	 1984,
+  volume =	 27,
+  pages =	 {2067-2075}
+}
+
+@article{Horton:1999,
+  author =	 {Wendell Horton},
+  title =	 {Drift waves and Transport},
+  journal =	 {Reviews of Modern Physics},
+  year =	 1999,
+  volume =	 71,
+  pages =	 {735-778}
+}
+
+@Article{Huld:Nielsen:Pecseli:Rasmussen:1991,
+  author =	 {T. Huld and A. H. Nielsen and H. L. P\'ecseli and
+                  Jens Juul Rasmussen},
+  title =	 {Coherent Structures an 2-dimensional Plasma
+                  Turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 {1991},
+  OPTkey =	 {},
+  volume =	 {3},
+  number =	 {7},
+  pages =	 {1609 - 1625},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@Article{Hugill:2000,
+  author = 	 {J. Hugill},
+  title = 	 {Edge turbulence in tokamaks and the L-mode to H-mode transition},
+  journal = 	 ppcf,
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {42},
+  OPTnumber = 	 {},
+  pages = 	 {R75-R91},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Experimental data on the transition from the low to high confinement mode in tokamaks is briefly reviewed, concentrating on those cases where the transition is made by a slow change in external parameters. The first H-modes, which occurred after the sudden application of neutral beam heating, appeared to result from a bifurcation of the edge transport. However, slow transitions produced, for example, by ohmic heating do not have the character of a bifurcation but appear to result from a slow and reversible change in the characteristics of the edge turbulence, which becomes increasingly intermittent as the high confinement mode is approached. The experimental results are interpreted in the light of various models of the transition process and of the type III or transition edge localized modes that accompany it. The evidence is mainly against the bifurcation hypothesis but nonlinear processes are clearly involved. The implications for the next generation of tokamaks intended to reach thermonuclear ignition are discussed}
+}
+
+@Article{Huld:Iizuka:Pecseli:Rasmussen:1988,
+  author =	 {T. Huld and S. Iizuka and H. L. P\'ecseli and Jens
+                  Juul Rasmussen},
+  title =	 {EXPERIMENTAL INVESTIGATION OF FLUTE-TYPE
+                  ELECTROSTATIC TURBULENCE},
+  journal =	 {Plasma Phys. Contr. Fusion},
+  year =	 {1988},
+  OPTkey =	 {},
+  volume =	 {30},
+  number =	 {10},
+  pages =	 {1297 - 1318},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  I  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@Article{Ippolito:Myra:Krasheninnikov:2002,
+  author = 	 {D. A. D'Ippolito and  J. R. Myra and S. I. Krasheninnikov},
+  title = 	 {Cross-field blob transport in tokamak scrape-off-layer plasmas},
+  journal = 	 {Phys. Plasmas },
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {9},
+  OPTnumber = 	 {},
+  pages = 	 {222-233},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  abstract = 	 {Recent measurements show that nondiffusive, intermittent transport of particles can play a major role in the scrape-off-layer (SOL) of fusion experiments. A possible mechanism for fast convective plasma transport is related to the plasma filaments or "blobs" observed in the SOL with fast cameras and probes. In this paper, physical arguments suggesting the importance of blob transport [S. I. Krasheninnikov, Phys. Lett. A 283, 368 (2001)] have been extended by calculations using a three-field fluid model, treating the blobs as coherent propagating structures. The properties of density, temperature and vorticity blobs, and methods of averaging over ensembles of blobs to get the average SOL profiles, are illustrated. The role of ionization of background neutrals in sustaining the density blob transport is also discussed. Many qualitative features of the experiments, such as relatively flat density profiles and transport coefficients increasing toward the wall, are shown to emerge naturally from the blob transport paradigm}
+}
+
+
+@Article{Isichenko:1992,
+  author =	 {M. B. Isichenko},
+  title =	 {Percolation, statistical topography, and transport
+                  in random media},
+  journal =	 {Revs. Mod. Phys.},
+  year =	 {1992},
+  OPTkey =	 {},
+  volume =	 {64},
+  number =	 {4},
+  pages =	 {961 - 1043},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@Article{Isichenko:Yankov:1997,
+  author =	 {M. B. Isichenko and V. V. Yankov },
+  title =	 { },
+  journal =	 {Phys. Plasmas},
+  year =	 {1997},
+  volume =	 {2}
+}
+
+@Article{Ivonin:Pavlenko:Persson:1999,
+  author =	 {Igor A. Ivonin and Vladimir P. Pavlenko and Hans
+                  Persson},
+  title =	 {Investigation of the turbulent equipartition
+                  establishment in tokamaks},
+  journal =	 {Phys. Plasmas},
+  year =	 {1999},
+  OPTkey =	 {},
+  volume =	 {6},
+  number =	 {8},
+  pages =	 {3163-3173},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {Turbulent Equipartition in Tokamaks}
+}
+
+
+%--------------------------------------- J ----------------------------------------
+@Article{Jullien:2003,
+  author = 	 {Marie-Caroline Jullien},
+  title = 	 {Dispersion of passive tracers in the direct enstrophy cascade: Experimental observations},
+  journal = 	 {Phys. Fluids },
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume =	 {15},
+  number =	 {8},
+  pages =	 {2228-2237},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {The paper reports a statistical analysis of the separation of pairs in the enstrophy cascade, in a two-dimensional flow. The flow is produced experimentally, using electromagnetic forcing. Two regimes of separation are found. At early times (i.e., within two integral times) the separation process is exponential, following Lin's law [J. T. Lin, J. Atmos. Sci. 29, 394 (1972)]. In this range of time, the probability density functions (PDFs) of separations are self-similar in time, developing stretched exponential tails, and one may define a Lagrangian correlation time. Above two integral times, an algebraic regime takes place, with exponential tails for the PDFs of the separations, and self-similar Lagrangian correlation functions. The present work thus confirms the existence of two regimes, by analyzing a number of statistical quantities including the Lagrangian PDF and the temporal Lagrangian correlation functions which so far, were left undetermined for the Batchelor regime.}
+}
+
+%------------------       K      --------------------------------------------
+@article{K41,
+  author =	 {A. N. Kolmogorov},
+  title =	 {The local structure of turbulence in incompressible
+                  viscous fluid for very large Reynolds numbers},
+  journal =	 {Dokl. Akad. Nauk},
+  year =	 1941,
+  volume =	 30,
+  pages =	 {301--305}
+}
+
+@Book{Kadomtsev:1965,
+  author = 	 {B.B. Kadomtsev},
+  editor = 	 { Rusbridge },
+  title = 	 {Plasma Turbulence},
+  publisher = 	 {Academic Press},
+  year = 	 {1965},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {New York},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Kadomtsev:Timofeev:1962,
+  author =	 "B. B. Kadomtsev and A. V. Timofeev",
+  title =	 "??",
+  journal =	 "Sov. Phys. Dokl.",
+  year =	 "1962",
+  volume =	 "7",
+  pages =	 "826"
+}
+@book{Kapitaniak:1996,
+  author = "T. Kapitaniak",
+  title = "Controlling chaos",
+  publisher = 	 {Academic Press},
+  address = 	 {New York},
+   year = "1996"
+ }
+
+@article{Kaufman:1960,
+  author =	 {Allan N. Kaufman},
+  title =	 {Plasma Viscosity in a Magnetic Field},
+  journal =	 {Phys. Fluids},
+  year =	 1960,
+  volume =	 3,
+  pages =	 {610--616}
+}
+
+@Article{Kraichnan:1967,
+  author =	 {R. H. Kraichnan},
+  title =	 {Inertial Ranges in 2-Dimensional Turbulence},
+  journal =	 {Phys. Fluids},
+  year =	 {1967},
+  OPTkey =	 {},
+  volume =	 {10},
+  number =	 {7},
+  pages =	 {1417},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+@Article{Kraichnan:Montgomery:1980,
+  author =	 {R.H. Kraichnan and David Montgomery},
+  title =	 {Two-dimensional turbulence},
+  journal =	 {Rep. Prog. Phys.},
+  year =	 {1980},
+  volume =	 {43},
+  pages =	 { 547-619}
+}
+
+
+@article{Kim:Diamond:etal:2003, 
+  author = 	 {E. J. Kim and P. H. Diamond and M.  Malkov and T. S.  Hahm and K.  Itoh  and S. I. Itoh  and S.  Champeaux  and I. Gruzinov and O.  Gurcan and C.  Holland  and M. N.  Rosenbluth and A. Smolyakov},
+  title = 	 {Non-perturbative models of intermittency in drift-wave turbulence: towards a probabilistic theory of anomalous transport},
+  journal = 	 {Nucl. Fusion},
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {43},
+  number = 	 {9},
+  pages = 	 {961-968},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+@Article{Kim:Hahm:Diamond:2001,
+  author = 	 {E. J. Kim and T. S. Hahm and P. H. Diamond},
+  title = 	 {Eddy viscosity and laminarization of sheared flow in three dimensional reduced magnetohydrodynamic turbulence},
+  journal = 	 php,
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {8},
+  number = 	 {8},
+  pages = 	 {3576-3582},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The effect of Alfven waves on turbulent momentum transport is studied in three-dimensional reduced magnetohydrodynamic turbulence. A strong external uniform magnetic field B-0 is assumed to be present orthogonal to both background shear flow and its inhomogeneity. Energy is injected into the fluid and/or magnetic field on small scales. It is shown analytically that eddy viscosity is reduced as 1/B-0(2) for a strong B-0, due to the cancellation of the Reynolds stress by Maxwell stress. The sign of eddy viscosity is found to depend on the detailed properties of forcings. Specifically, it is positive for fluid forcing but depends on the anisotropy of the forcing in the case of magnetic forcing. Furthermore, it is indicated that a magnetic field tends to laminarize a mean shear flow. The possible implication of these results for the dynamics of the zonal flows in tokamaks is discussed in view of the cancellation of stresses.}
+}
+
+@article{Kono:Miyashita:1988,
+  author =	 {M. Kono and E. Miyashita},
+  title =	 {Modon formation in the nonlinear development of the
+                  collisional drift wave instability},
+  journal =	 {Phys. Fluids},
+  year =	 1988,
+  volume =	 31,
+  pages =	 {326--331}
+}
+
+@article{Kroniges:Crotinger:Diamond:1992,
+  author =	 "A.E. Kroniges and J.A. Crotinger and P.H. Diamond",
+  title =	 "Structure formation and transport in dissipative
+                  drift-wave turbulence",
+  journal =	 "Phys. Fluids B",
+  volume =	 "4",
+  pages =	 "2785-2793",
+  year =	 "1992"
+}
+
+@Article{Kuo:1963,
+  author =	 {H. L. Kuo},
+  title =	 {Perturbations of plane Couette flow in a stratified
+                  fluid and origin of cloud streets},
+  journal =	 {Phys. Fluids},
+  year =	 {1963},
+  OPTkey =	 {},
+  volume =	 {6},
+  OPTnumber =	 {},
+  pages =	 {195},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  OPTabstract =	 {}
+}
+
+%--------------------     L     ---------------------------------------------
+
+
+
+@Article{LAPD:1991,
+  author =	 {W. Gekelman and H. Pfister and Z. Lucky and J. Bamber and D. Leneman and J. Maggs },
+  title =	 {Design, Construction, and Properties of the Large Plasma Research Device - The {LAPD} at  {UCLA}},
+  journal =	 rsi,
+  year =	 {1991},
+  OPTkey =	 {},
+  volume =	 {62},
+  number =	 {12},
+  pages =	 {2875-2883},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {The large plasma research device (LAPD), a large, linear plasma research device designed to study space plasma processes, has been constructed at UCLA over the past four years. The LAPD has a 0.5 x 0.5 m2 oxide-coated cathode as a source which produces a 10-m-long plasma column with densities up to the mid 10(12)/cm3 range. The linear machine is surrounded by a set of 68 magnet coils which can generate an axial magnetic field of up to 3000 G. The vacuum chamber has 128 radial ports to ensure excellent access for probes and antennas. An internal probe drive capable of moving a set of probes to any position within the plasma column is described in a companion paper. This machine is a scientific instrument in its own right and was designed to be versatile enough to study a large variety of phenomena. The techniques employed in the design and construction are sufficiently useful to be discussed here so that others can benefit from our experience.}
+}
+
+
+
+
+
+
+
+@article{Laedke:Spatschek:1985,
+  author =	 "E.W. Laedke and K.H. Spatschek",
+  title =	 "??",
+  journal =	 pla,
+  volume =	 "113",
+  year =	 "1985",
+  pages =	 "259"
+}
+
+@article{Laedke:Spatschek:1988,
+  author =	 "E.W. Laedke and K.H. Spatschek",
+  title =	 "Drift vortices in inhomogeneous plasmas: Stationary
+                  states and stability criteria",
+  journal =	 "Phys. Fluids",
+  volume =	 "31",
+  year =	 "1988",
+  pages =	 "1492-1489"
+}
+
+
+
+@Article{Large:McWilliams:Doney:1994,
+  author = 	 {W. G. Large and J. C. McWilliams and S. C. Doney},  
+  title = 	 {Oceanic Vertical Mixing - a Review and a Model with a Nonlocal Boundary-Layer Parameterization},
+  journal = 	 {Rev. Geophys.},
+  year = 	 {1994},
+  OPTkey = 	 {},
+  volume = 	 {32},
+  number = 	 {4},
+  pages = 	 {363-403},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {If model parameterizations of unresolved physics, such as the variety of upper ocean mixing processes, are to hold over the large range of time and space scales of importance to climate, they must be strongly physically based. Observations, theories, and models of oceanic vertical mixing are surveyed, Two distinct regimes are identified: ocean mixing in the boundary layer near the surface under a variety of surface forcing conditions (stabilizing, destabilizing, and wind driven), and mixing in the ocean interior due to internal waves, shear instability, and double diffusion (arising from the different molecular diffusion rates of heat and salt). Mixing schemes commonly applied to the upper ocean are shown not to contain some potentially important boundary layer physics. Therefore a new parameterization of oceanic boundary layer mixing is developed to accommodate some of this physics. It includes a scheme for determining the boundary layer depth h, where the turbulent contribution to the vertical shear of a bulk Richardson number is parameterized. Expressions for diffusivity and nonlocal transport throughout the boundary layer are given. The diffusivity is formulated to agree with similarity theory of turbulence in the surface layer and is subject to the conditions that both it and its vertical gradient match the interior values at h. This nonlocal ''K profile parameterization'' (KPP) is then verified and compared to alternatives, including its atmospheric counterparts. Its most important feature is shown to be the capability of the boundary layer to penetrate well into a stable thermocline in both convective and wind-driven situations. The diffusivities of the aforementioned three interior mixing processes are modeled as constants, functions of a gradient Richardson number (a measure of the relative importance of stratification to destabilizing shear), and functions of the double-diffusion density ratio, R(rho). Oceanic simulations of convective penetration, wind deepening, and diurnal cycling are used to determine appropriate values for various model parameters as weak functions of vertical resolution. Annual cycle simulations at ocean weather station Papa for 1961 and 1969-1974 are used to test the complete suite of parameterizations. Model and observed temperatures at all depths are shown to agree very well into September, after which systematic advective cooling in the ocean produces expected differences. It is argued that this cooling and a steady salt advection into the model are needed to balance the net annual surface heating and freshwater input. With these advections, good multiyear simulations of temperature and salinity can be achieved. These results and KPP simulations of the diurnal cycle at the Long-Term Upper Ocean Study (LOTUS) site are compared with the results of other models. It is demonstrated that the KPP model exchanges properties between the mixed layer and thermocline in a manner consistent with observations, and at least as well or better than alternatives.}
+}
+
+
+
+
+
+
+
+@Article{Larichev:Reznik:1976,
+  author =	 "V.D. Larichev and G.M. Reznik ",
+  title =	 "Two-dimensional solitary Rossby waves ",
+  journal =	 "DANS (Doklady Akad. Nauk SSR.",
+  volume =	 "231",
+  year =	 "1976",
+  pages =	 "12-13",
+  keyword =	 ",Shallow water model"
+}
+
+@Article{Lechte:Niedner:Stroth:2002,
+  author = 	 {C. Lechte and S. Niedner and U. Stroth },
+  title = 	 {Comparison of turbulence measurements and simulations of the low-temperature plasma in the torsatron TJ-K},
+  journal = 	 njp,
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {4},
+  OPTnumber = 	 {},
+  pages = 	 {Art. No. 34},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {A toroidal low-temperature plasma is used for comparative turbulence studies. Measurements are carried out with Langmuir probe arrays in the entire plasma cross section. The data are closely compared with drift-Alfven turbulence simulations. Although the parameters in a low-temperature plasma are very different from those in fusion plasmas, the dimensionless parameters governing the drift-wave physics are comparable. Hence this study can also give insight into high-temperature plasma turbulence. In order to identify relevant characteristic signatures of different turbulence-driving mechanisms, simulations were carried out for a wide range of plasma parameters. The simulation results are compared with first measurements.}
+}
+
+@article{Lee:1984,
+  author =	 {W.W. Lee and J. A. Krommes and C. Oberman and
+                  R. A. Smith},
+  title =	 {Nonlinear evolution of drift instabilities},
+  journal =	 {Phys. Fluids},
+  year =	 1984,
+  volume =	 27,
+  pages =	 {2652-2663},
+  month =	 {April}
+}
+
+@Book{Levy:1937,
+  author =	 {P. L\'evy},
+  title =	 {Theorie de L'Addition des Variables Aleatoires},
+  publisher =	 {Gauthier-Villars},
+  year =	 {1937},
+  OPTkey =	 {},
+  OPTvolume =	 {},
+  OPTnumber =	 {},
+  OPTseries =	 {},
+  address =	 {Paris},
+  OPTedition =	 {},
+  OPTmonth =	 {},
+  OPTnote =	 {},
+  abstract =	 {Levy Flights}
+}
+
+@article{Liang:Diamond:Wang:Newman:Terry:1993,
+  author =	 {Y.-M. Liang and P.H. Diamond and X.-H. Wang and
+                  D.E. Newman and P.W. Terry},
+  title =	 {A two-nonlinearity model of dissipative drift wave
+                  turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1993,
+  volume =	 5,
+  pages =	 {1128--1139},
+  month =	 {April}
+}
+
+@article{Liewer:1985,
+  author =	 {Paulett C. Liewer},
+  title =	 {Measurements of Microturbulence in Tokamaks and
+                  Comparisons With Theories of Turbulence and
+                  Anomalous Transport},
+  journal =	 {Nucl. Fusion},
+  year =	 1985,
+  volume =	 55,
+  pages =	 {543--621}
+}
+
+@Article{Lin:Hahm:2002,
+  author = 	 {Z. Lin and S. Ethier and T. S. Hahm and W. M. Tang},
+  title = 	 {Size Scaling of Turbulent Transport in Magnetically Confined Plasmas},
+  journal = 	 prl,
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {88},
+  OPTnumber = 	 {},
+  pages = 	 {195004-1},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+Turbulence Spreading and Transport Scaling in Global Gyrokinetic Particle Simulation, Z. Lin and T. S. Hahm, Phys. Plasmas 11, 1099-1108 (March 2004).
+
+@Article{Lin:Hahm:2004,
+  author = 	 {Z. Lin and T. S. Hahm},
+  title = 	 {Turbulence Spreading and Transport Scaling in Global Gyrokinetic Particle Simulation},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {11},
+  OPTnumber = 	 {},
+  pages = 	 {1099 - 1108},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {An intriguing observation in magnetically confined plasma experiments and in global gyrokinetic particle simulations of toroidal ion temperature gradient turbulence is that the fluctuations are microscopic, while the resulting turbulent transport is not gyro-Bohm [Z. Lin , Phys. Rev. Lett. 88, 195004 (2002)]. A possible resolution to this puzzle is identified as turbulence spreading from the linearly active (unstable) region to the linearly inactive (stable) region. Large scale gyrokinetic simulations found that transport driven by microscopic fluctuations is diffusive and local, whereas the fluctuation intensity is determined by nonlocal effects. Fluctuations are found to spread from the linearly active region to the linearly inactive region. This turbulence spreading reduces the fluctuation intensity in the unstable region, especially for a smaller device size, and thus introduces a nonlocal dependence in the fluctuation intensity. The device size dependence of the fluctuation intensity, in turn, is responsible for the observed gradual transition from Bohm to gyro-Bohm transport scaling. }
+}
+
+
+
+@Article{Lu:1995,
+  author = 	 {E. T. Lu},
+  title = 	 {AVALANCHES IN CONTINUUM DRIVEN DISSIPATIVE SYSTEMS},
+  journal = 	 prl,
+  year = 	 {1995},
+  OPTkey = 	 {},
+  volume =	 {74},
+  number =	 {13},
+  pages =	 {2511-2514},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {We show that continuum driven dissipative systems can have behavior analogous to that of cellular automata sandpile models. We discuss the conditions for this behavior, and argue that a system which can be shown to satisfy these criteria will exhibit a broad power law distribution of discrete energy dissipating avalanches. We give a one-dimensional example of such a system, and show that such behavior does result when these conditions are met. We then show that the statistical behavior of this system can be approximated by a much simpler cellular automaton. Finally, we argue that a general prescription for showing how certain real physical systems can be understood in this manner.}
+}
+
+@Article{Lu:etal:2004,
+  author = 	 {Rong-Hua Lu and Ge-Sheng Pan and  Zhi-Jiang Wang and Yi-Zhi Wen and  Chang-Xuan Yu and  Shu-De Wan and  Wan-dong Liu and  Jun Wang and  Min Xu and  De-Long Xiao and Yi Yu },
+  title = 	 {Magnetic fluctuations in the plasma of KT-5C tokamak},
+  journal = 	 pla,
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {333},
+  OPTnumber = 	 {},
+  pages = 	 {298},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {A newly developed moveable magnetic probe array was installed on KT-5C tokamak. The profiles of radial and poloidal magnetic fluctuations of the plasma have been measured for (0.5<r/a<1.1). The experimental results indicate that there is a radial gradient which is greater than relative electrostatic fluctuations and the magnetic fluctuations contribute a little to losses. A strong coherence between fluctuations of 4 mm nearby two points suggests that the magnetic fluctuations have quite a long correlation length.}
+}
+
+@Article{Luce:Petty:deHaas:1992,
+  author = 	 {T. C. Luce and C. C. Petty and J. C. M. de Haas},
+  title = 	 {Inward energy transport in tokamak plasmas},
+  journal = 	 prl,
+  year = 	 {1992},
+  OPTkey = 	 {},
+  volume = 	 {68},
+  OPTnumber = 	 {},
+  pages = 	 {52-55},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Article{Lynov:Nielsen:Pecseli:Rasmussen:1991,
+  author = 	 {J.P. Lynov and A.H. Nielsen and  H.L. P\'{e}cseli and J.J. Rasmussen},
+  title = 	 {Studies of the Eulerian-Lagrangian transformation in two-dimensional random flows},
+  journal = 	 {J. Fluid Mech.},
+  year = 	 {1991},
+  OPTkey = 	 {},
+  volume = 	 {224},
+  OPTnumber = 	 {},
+  pages = 	 {485-505 },
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+%---------------------       M            -----------------------------------
+
+
+@Article{Mandelbrot:1974,
+  author = 	 {B. Mandelbrot},
+  title = 	 {Intermittent turbulence in self similar cascades: Divergence of high moments and dimension of the carrier.},
+  journal = 	 {J. Fluid Mech.},
+  year = 	 {1974},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  pages = 	 {62 -331},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+
+
+@article{Manfredi:Dendy:1996,
+  author =	 {G. Manfredi and R. O. Dendy},
+  title =	 {Test-Particle Transport in Strong Electrostatic
+                  Drift Turbulence With Finite Larmor Radius Effects},
+  journal =	 prl,
+  year =	 1996,
+  volume =	 76,
+  pages =	 {4360}
+}
+@article{Manfredi:Dendy:1997,
+  author =	 {G. Manfredi and R. O. Dendy},
+  title =	 {Transport Properties of Energetic Particles in a
+                  Turbulent Electrostatic Field},
+  journal =	 {Phys. Plasmas},
+  year =	 1997,
+  volume =	 4,
+  pages =	 {628 - 635}
+}
+@Article{Manfredi:Roach:Dendy:2001,
+  author = 	 {G. Manfredi and C. M. Roach and R. O. Dendy},
+  title = 	 {Zonal flow and streamer generation in drift turbulence},
+  journal = 	 {Plasma Phys. Control. Fusion },
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {43},
+  OPTnumber = 	 {},
+  pages = 	 {825-837},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The relative importance of poloidally extended zonal flows (k = 0, kr0) and radially extended streamers (k0, kr = 0) in regulating drift turbulent energy transport is a central question in tokamak physics. Both forms of nonlinear structure can be described within the framework of the Hasegawa-Mima equation, as extended by Smolyakov et al (Smolyakov A I, Diamond P H and Malkov M 2000 Phys. Rev. Lett. 84 491), although streamers have not previously been analysed in this context. Here we present results obtained by comparing analytical weak-turbulence calculations with numerical simulations using a spectral code. The analytical results are obtained with a four-wave model, incorporating a drift wave (k2) coupled to both sidebands (k2±k1) by a zonal flow or streamer (k1). Fully nonlinear studies of this four-wave system have been carried out, and we find that analytical expressions derived from wave coupling models provide a good guide to the spectral code results. Instability conditions are found and growth rates computed, showing that zonal flows are more unstable than streamers, at least at this level of description. Typically, we find that the streamer growth rate is lower than that of the zonal flow by a factor of order sk1. Insofar as our Hasegawa-Mima model contains many of the core physics elements of more sophisticated approaches, these results are of wider importance to the numerical modelling of drift turbulence in tokamaks.}
+}
+
+@article{Marcus:Kundu:Lee:2000,
+  author =	 {P. S. Marcus and T. Kundu and Changhoon Lee},
+  title =	 {Vortex dynamics and zonal flows},
+  journal =	 {Phys. Plasmas},
+  year =	 2000,
+  volume =	 7,
+  pages =	 {1630 - 1640}
+}
+@Book{book:Mathieu:Scott,
+  author =	 {Jean Mathieu and Julian Scott},
+  title = 	 {Turbulent Flow},
+  publisher = 	 {Cambridge University Press},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTaddress = 	 {},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Article{Marquardt:1963,
+  author = 	 {D.W. Marquardt},
+  title = 	 {An Algorithm for Least-Squares Estimation of Nonlinear Parameters},
+  journal = 	 {Journal of the Society for Industrial and Applied Mathematics},
+  year = 	 {1963},
+  OPTkey = 	 {},
+  volume = 	 {11},
+  OPTnumber = 	 {},
+  pages = 	 {431--441},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+@article{Mazzucato:1982,
+  author =	 {E. Mazzucato},
+  title =	 {Spectrum of Small-Scale Density Fluctuations in
+                  Tokamaks},
+  journal =	 prl,
+  year =	 1982,
+  volume =	 48,
+  pages =	 {1828-1830}
+}
+@article{McCormick:1992,
+  author =	 {K. McCormick and G. Kyriakakis and J. Neuhauser and
+                  E. Kakoulidis and J. Schweimzer and N. Tsois},
+  title =	 {Particle and energy transport scalings in the ASDEX
+                  scrape-off layer},
+  journal =	 {Jour. Nucl. Mater.},
+  year =	 1992,
+  volume =	 {196-198},
+  pages =	 {264-270}
+}
+
+
+
+@Article{McKee:etal:2003,
+  author = 	 {G. R. McKee and  R. J. Fonck and M. Jakubowski and K. H. Burrell and K.  Hallatschek and R. A. Moyer and D. L. Rudakov and W.  Nevins and  and G. D. Porter and P.  Schoch and X.  Xu},
+  title = 	 {Experimental characterization of coherent, radially-sheared zonal flows in the DIII-D tokamak},
+  journal = 	 php,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {10},
+  number = 	 {5},
+  pages = 	 {1712-1719 },
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The application of time-delay-estimation techniques to two-dimensional measurements of density fluctuations, obtained with beam emission spectroscopy in DIII-D [J. L. Luxon, Nucl. Fusion 42, 614 (2002)] plasmas, has provided temporally and spatially resolved measurements of the turbulence flow-field. Features that are characteristic of self-generated zonal flows are observed in the radial region 0.85less than or equal tor/aless than or equal to1.0. These features include a coherent oscillation (approximately 15 kHz) in the poloidal flow of density fluctuations that has a long poloidal wavelength, possibly m=0, narrow radial extent (k(r)rho(I)<0.2), and whose frequency varies monotonically with the local temperature. The approximate effective shearing rate, dv(theta)/dr, of the flow is of the same order of magnitude as the measured nonlinear decorrelation rate of the turbulence, and the density fluctuation amplitude is modulated at the frequency of the observed flow oscillation. Some phase coherence is observed between the higher wavenumber density fluctuations and low frequency poloidal flow fluctuations, suggesting a Reynolds stress contribution. These characteristics are consistent with predicted features of zonal flows, specifically identified as geodesic acoustic modes, observed in 3-D Braginskii simulations of core/edge turbulence.}
+}
+
+@Article{Meiss:Horton:1983,
+  author = 	 {J. D. Meiss and W. Horton},
+  title = 	 {Solitary drift waves in the presence of magnetic shear},
+  journal = 	 {Phys. Fluids},
+  year = 	 {1983},
+  volume = 	 {26},
+  pages = 	 {990--997}
+}
+@Article{Meleshko:vanHeijst:1994,
+  author = 	 {V. V. Meleshko and G.J.F. van Heijst},
+  title = 	 {On Chaplygin's investigations of two-dimensional vortex
+structures in an inviscid fluid},
+  journal = 	 {J. Fluid Mech.},
+  year = 	 {1994},
+  volume = 	 {272},
+  pages = 	 {157-182}
+}
+@incollection{Messiaen:Vandenplas:1994,
+  booktitle =	 "Contributions to High-Temperature Plasma Physics",
+  publisher =	 "Akademie Verlag",
+  editor =	 "Karl H. Spatschek and J{\"u}rgen Uhlenbusch",
+  author =	 {A. M. Messiaen and P. E. Vandenplas},
+  title =	 {Review of Heating and Confinement on Textor During
+                  1985 - 1993 },
+  year =	 1994,
+  pages =	 {315--346}
+}
+@Article{Miyato:Hamaguchi:Wakatani:2002,
+  author = 	 {N. Miyato and S. Hamaguchi and M. Wakatani},
+  title = 	 {Nonlinear behaviour of resistive drift-Alfven instabilities in a magnetized cylindrical plasma},
+  journal = 	 {Plasma Phys. Contr. Fusion},
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {44},
+  number = 	 {8},
+  pages = 	 {1689 - 1705},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+@Article{Miyato:Kishimoto:Li:2004,
+  author = 	 {Naoaki Miyato and Yasuaki Kishimoto and Jiquan Li},
+  title = 	 {Global structure of zonal flow and electromagnetic ion temperature
+gradient driven turbulence in tokamak plasmas},
+  journal = 	 php,
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {11},
+  number = 	 {12},
+  pages = 	 {5557-5564},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Global characteristics of the coupled system of zonal flows and electromagnetic ion temperature
+gradient driven turbulence in tokamak plasmas are investigated using a global electromagnetic
+Landau fluid code. Zonal flow behavior changes with the safety factor q. In a lowq region stationary
+zonal flows are excited and they suppress the turbulence effectively. Coupling between zonal flows
+and poloidally asymmetric pressure perturbations due to a geodesic curvature makes the zonal flows
+oscillatory in a high q region. Energy transfer from the oscillatory zonal flows to the turbulence via
+the poloidally asymmetric pressure perturbations is identified. Therefore in the high q region where
+the zonal flows are oscillatory, the zonal flows cannot quench the turbulence and turbulent transport
+is not suppressed completely. As for the zonal flow behavior, it is favorable for confinement
+improvement to make the low q region where the stationary zonal flows are dominant in tokamak
+plasmas.}
+}
+
+
+
+
+
+
+@incollection{Mikhailovsky:1983,
+  booktitle =	 "Handbook of Plasma Physics I",
+  publisher =	 "Noth-Holland",
+  editor =	 "M. N. Rosenbluth and R. Z. Sagdeev",
+  author =	 {A. B. Mikhailovsky},
+  title =	 {Instabilities in inhomogeneous plasma},
+  address =	 "Amsterdam",
+  year =	 1983,
+  pages =	 {588-610}
+}
+@Article{Milovanov:2001,
+  author = 	 {A. V. Milovanov},
+  title = 	 {Stochastic dynamics from the fractional Fokker-Planck-Kolmogorov
+   equation: Large-scale behavior of the turbulent transport
+   coefficient},
+  journal = 	 {Phys. Rev. E},
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {63},
+  OPTnumber = 	 {},
+  pages = 	 {047301},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Mima:Hasegawa:1978,
+  author =	 {Kunioki Mima and Akira Hasegawa},
+  title =	 {Nonlinear instability of electromagnetic drift
+                  waves},
+  journal =	 {Phys. Fluids},
+  year =	 1978,
+  volume =	 21,
+  pages =	 {81--86},
+  month =	 {January}
+}
+
+@Article{Misguish:et:al:1987,
+  author = 	 {J. H. Misguich and R. Balescu and H.L. P\'{e}cseli and  T. Mikkelsen and  S.E. Larsen and  Qiu Xiaoming},
+  title = 	 {Diffusion Theory of charged Particles in turbulent Magnetoplasma},
+  journal = 	 {Plasma Phys. and Contr. Fusion},
+  year = 	 {1987},
+  OPTkey = 	 {},
+  volume = 	 {29},
+  OPTnumber = 	 {},
+  pages = 	 {825-856.},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Morrison:Hazeltine:1984,
+  author =	 {P. J. Morrison and R. D. Hazeltine},
+  title =	 {Hamiltonian formulation of reduced
+                  magnetohydrodynamics},
+  journal =	 {Phys. Fluids},
+  year =	 1984,
+  volume =	 27,
+  pages =	 {886--897},
+  month =	 {April}
+}
+@article{Muhm:1992,
+  author =	 {Axel Muhm and A. M. Phukov and K. H. Spatschek and
+                  V. Tsytovich},
+  title =	 {Interaction of regular structures with small-scale
+                  fluctuations in drift-wave turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1992,
+  volume =	 4,
+  pages =	 {336--348}
+}
+
+%------------------------       N       -------------------------------------
+@Article{Narain:1998,
+  author = {U. Narain and  P. Agarwal and R.K.Sharma},
+  title = 	 {On MHD fluxes in the solar convection zone},
+  journal = 	 {Astron. Astrophys.},
+  year = 	 {1998},
+  OPTkey = 	 {},
+  volume = 	 {335},
+  OPTnumber = 	 {},
+  pages = 	 {719-723},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {TEP in the Sun}
+}
+@article{Nedospasov:1992,
+  author =	 "A. V. Nedospasov",
+  title =	 "Edge turbulence in tokamaks",
+  journal =	 "J. Nucl. Mater.",
+  volume =	 "196-198",
+  pages =	 "90-100",
+  year =	 "1992"
+}
+@article{Newman:Carreras:Diamond:Hahm:1996,
+  author =	 "D.E. Newman and B. A. Carreras and P.H. Diamond and
+                  T. S. Hahm",
+  title =	 "The dynamics of marginality and self-organized
+                  criticality as a paradigm for turbulent transport",
+  journal =	 "Phys. Plasmas",
+  volume =	 "3",
+  pages =	 "1858-1866",
+  year =	 "1996"
+}
+@Article{Newmann:Carreras:1998,
+  author = 	 { D. E. Newman and B. A. Carreras  and D.  Lopez-Bruna and P. H.  Diamond and V. B. Lebedev},
+  title = 	 {Dynamics and control of internal transport barriers in reversed shear discharges},
+  journal = 	 php,
+  year = 	 1998,
+  OPTkey = 	 {},
+  volume = 	 {5},
+  number = 	 {4},
+  pages = 	 {938-952},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Transitions to an enhanced confinement regime in tokamak plasmas with negative central magnetic shear have been observed in a number of devices. A simple model incorporating the nonlinear coupling between the turbulent fluctuations and the sheared radial electric field is added to a transport model in order to investigate the dynamics of the transition to this enhanced confinement mode. In this model, by incorporating; both the instability growth rate profiles and particle and/or power deposition profiles, a rich variety of transition dynamics is uncovered. Transition dynamics and their concomitant thresholds are examined within the context of these models. In the course of investigating these transitions, potential methods for triggering and controlling these enhanced confinement regimes have been discovered and are discussed.}
+}
+
+@article{Newman:Terry:Diamond:Liang:1993,
+  author =	 "D.E. Newman and P.W. Terry and P.H. Diamond and
+                  Y.-M. Liang",
+  title =	 "The dynamics of spectral transfer in a model of
+                  drift wave turbulence with two nonlinearities",
+  journal =	 "Phys. Fluids B",
+  volume =	 "5",
+  pages =	 "1140",
+  year =	 "1993"
+}
+@article{Newman:Terry:Diamond:Liang:Craddock:Koniges:Crotinger:1994,
+  author =	 "D.E. Newman and P.W. Terry and P.H. Diamond and
+                  Y.-M. Liang and G.G. Craddock and A.E. Koniges and
+                  J.A. Crotinger",
+  title =	 "The dynamics of long wavelenght electrostatic
+                  turbulence in tokamaks",
+  journal =	 "Phys. Plasmas",
+  volume =	 "1",
+  pages =	 "1592",
+  year =	 "1994"
+}
+@article{Nezlin:Chernikov:1995,
+  author =	 "M. V. Nezlin and G. P. Chernikov",
+  title =	 "Analogy between Drift Vortices in Plasma and
+                  Geophysical Hydrodynamics",
+  journal =	 "Plasma Phys. Reports",
+  volume =	 "21",
+  pages =	 "922-944",
+  year =	 "1995"
+}
+@article{Niedner:Scott:Stroth:2002,
+  author = 	 {Sven Niedner and Bruce Scott and Ullrich Stroth},
+  title = 	 {Statistical properties of drift wave turbulence in low-temperature plasmas},
+  journal = 	 {Plasma Phys. Contr. Fusion},
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {44},
+  number = 	 {4},
+  pages = 	 {307 -- 408},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Phase relation between density and potential measured for low and high plasma beta and compared to drift alfven simulations}
+}
+
+
+
+
+@InProceedings{proc:Nielsen:1997,
+  author = 	 {A.H. Nielsen and J.A. {van de Konijnenberg} and Rob {de Nijs} and Jens {Juul Rasmussen} and Bjarne Stenum},
+  title = 	 {Particle trapping in forced shear flow},
+  booktitle = 	 { 22. General assembly of the European Geophysical Society, Vienna (AT), 21-25 Apr 1997.},
+  OPTcrossref =  {},
+  OPTkey = 	 {},
+  pages = 	 { C565},
+  year = 	 {1997},
+  OPTeditor = 	 {},
+  volume = 	 {15},
+  OPTnumber = 	 {},
+  series = 	 {Ann. Geophys. Suppl. 2},
+  OPTaddress = 	 {},
+  OPTmonth = 	 {},
+  OPTorganization = {},
+  OPTpublisher = {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Nielsen:Pecseli:Rasmussen:1996,
+  author =	 "Anders H. Nielsen and Hans L. P\'{e}cseli and Jens
+                  Juul Rasmussen",
+  title =	 "Turbulent transport in low-$\beta$ Plasmas ",
+  journal =	 "Phys. Plasmas",
+  year =	 "1996",
+  volume =	 "3",
+  pages =	 "1530-1544"
+}
+@Article{Nielsen:Rasmussen:1997,
+  author = 	 {Anders H. Nielsen and Jens Juul Rasmussen },
+  title = 	 {Formation and temporal evolution of the Lamb-dipole},
+  journal = 	 {Phys. Fluids},
+  year = 	 {1997},
+  volume = 	 {9},
+  number = 	 {4},
+  pages = 	 { 982-991}
+}
+@Article{Nycander:Yankov:1995,
+  author = 	 {J. Nycander and V. V. Yankov},
+  title = 	 {Anomalous pinch flux in tokamaks driven by the longitudinal adiabatic invariant},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {1995},
+  OPTkey = 	 {},
+  volume = 	 {2},
+  OPTnumber = 	 {},
+  pages = 	 {2874-2876},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Article{Nycander:Yankov:1996,
+  author = 	 {J. Nycander and V. V. Yankov},
+  title = 	 {Turbulent Equipartition and Up-Gradient Transport},
+  journal = 	 {Phys. Scripta },
+  year = 	 {1996},
+  OPTkey = 	 {},
+  volume = 	 {T63},
+  OPTnumber = 	 {},
+  pages = 	 {174-181},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+
+
+@Article{ODwywer:Williams:LaCasce:Speer:2000,
+  author = 	 {J. O'Dwyer and R. G.  Williams and J. H. LaCasce and K. G. Speer},
+  title = 	 { Does the PV distribution constrain the spreading of floats in the North Atlantic? },
+  journal = 	 {J. Phys. Oceanogr.},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume =	 {30},
+  OPTnumber = 	 {},
+  pages =	 {721-732},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Okubo:1970,
+  author = 	 {A. Okubo},
+  title = 	 {Horizontal dispersion of floatable particles in the vicinity of
+velocity singularities such as covergences},
+  journal = 	 {Deep-Sea Res.},
+  year = 	 {1970},
+  OPTkey = 	 {},
+  volume = 	 {17},
+  OPTnumber = 	 {},
+  pages = 	 {445},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Okubo Weiss Criterion}
+}
+
+%---------------------------      O      ---------------------------------
+
+
+
+
+
+@article{Ottaviani:1992,
+  author =	 {M. Ottaviani},
+  title =	 {Scaling Laws of Test Particle Transport in
+                  Two-Dimensional Turbulence},
+  journal =	 {Europhys. Lett.},
+  year =	 1992,
+  volume =	 20,
+  pages =	 {111-116}
+}
+@article{Ottaviani:Romanelli:Benzi:Briscolini:Santangelo:Succi:1990,
+  author =	 {M. Ottaviani and F. Romanelli and R. Benzi and
+                  M. Briscolini and P. Santangelo and S. Succi},
+  title =	 {Numerical simulations of ion temperature
+                  gradient-driven turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1990,
+  volume =	 2,
+  pages =	 {67-74}
+}
+
+%---------------------------      P      ---------------------------------
+@article{Pakyari:Pavlenko:1996,
+  author =	 {Alireza Pakyari and Vladimir P. Pavlenko},
+  title =	 {Toroidal $\eta_{i}$-mode global vortices in a
+                  rotating plasma},
+  journal =	 {Phys. Plasmas},
+  year =	 1996,
+  volume =	 3,
+  pages =	 {3661-3667}
+}
+@article{Pao:1965,
+  author =	 {Y. H. Pao},
+  title =	 {Structure of turbulent velocity and scalar fields at
+                  large wavenumbers},
+  journal =	 {Phys. Fluids},
+  year =	 1965,
+  volume =	 8,
+  pages =	 {1063-1075}
+}
+
+
+
+@Article{Parail:etal:1999,
+  author = 	 {V. V. Parail and Y. F.  Baranov and C. D.  Challis and G. A.  Cottrell and B.  Fischer and C.  Gormezano and G. T. A.  Huysmans and 
+X.  Litaudon and A. C. C.  Sips  and F. X. Soldner and E. M.  Springmann and A.  Taroni and D. J.  Ward},
+  title = 	 {Predictive modelling of JET optimized shear discharges},
+  journal = 	 nf,
+  year = 	 {1999},
+  OPTkey = 	 {},
+  volume =	 {39},
+  OPTnumber = 	 {},
+  pages =	 {429-439},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {Transport analysis of high performance JET plasmas with optimized magnetic shear (OMS) has revealed many interesting features which cannot be explained by the existing JET empirical transport model (Erba, M., et al., Plasma Phys. Control. Fusion 39 (1997) 261). TRANSP analysis shows that transport coefficients in OMS plasmas are often reduced in the plasma core (Cottrell, G.A., et al., in Controlled Fusion and Plasma Physics (Proc. 24th fur. Conf. Berchtesgaden, 1997), Vol. 21A, Part I, European Physical Society, Geneva (1997) 81) to the level of ion neoclassical transport. TRANSP analysis and predictive modelling with JETTO show that this region of improved confinement appears near the plasma centre and then expands outwards in a way which does not follow either the evolution of the region with the negative magnetic shear or the propagation of the region with a large shear in plasma rotation. The best agreement with experiment has been achieved by using a transport model which combines the effect of a long wavelength decoupling due to small magnetic shear with its suppression by strong rotational shear. Predictive modelling of some of the characteristic JET OMS plasmas gives quite good agreement between such a model and the experimental data. 
+}
+}
+
+
+
+
+@Book{Pareto:1896,
+ author = 	 {Vilfredo Pareto},
+  title = 	 {Cours D'Economie Politique},
+  publisher = 	 {F. Rouge},
+  year = 	 {1896},
+  OPTkey = 	 {},
+  volume = 	 {I + II},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {Lausanne},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+
+
+
+@article{Parker:Lee:1993,
+  author =	 {S. E. Parker and W. W. Lee},
+  title =	 {A fully nonlinear characteristic method for
+                  gyrokinetic simulation},
+  journal =	 {Phys. Fluids B},
+  year =	 1993,
+  volume =	 5,
+  pages =	 {77--86},
+  month =	 {January}
+}
+@Article{Pasquero:Provenzale:Babiano:2001,
+  author = 	 {C. Pasquero and A. Provenzale and A. Babiano},
+  title = 	 {Parameterization of dispersion in two-dimensional turbulence},
+  journal = 	 {J. Fluid Mech.},
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {439},
+  OPTnumber = 	 {},
+  pages = 	 {279-303},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Pecseli:Trulsen:1989,
+  author =	 {Hans L. P\'{e}cseli and J. Trulsen },
+  title =	 {A statistical analysis of numerically simulated
+                  plasma turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1989,
+  volume =	 1,
+  pages =	 {1616-1636},
+  month =	 {August}
+}
+
+
+@Article{Krane:Pecseli:Trulsen:2003,
+  author = 	 {B. Krane and H. L. P{\'e}cseli and J. Trulsen},
+  title = 	 {Concentrations and concentration fluctuations in two-dimensional turbulence},
+  journal = 	 pf,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {15},
+  number = 	 {1},
+  pages = 	 {211-226},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The dispersion of a cloud of passive test particles in a model for homogeneous and isotropic two-dimensional turbulence is studied by a direct numerical simulation in a driven-dissipative turbulent flow. The basic statistical properties of the concentrations of the clouds are analyzed with particular attention to their space-time evolutions in the center of mass as well as the rest frames of reference. Approximate analytical expressions for the concentration and the concentration fluctuations are discussed. The cloud concentration is modeled by a multiple contour distribution, where the concentration is constant within boundaries convected by the flow. Two different types of initial releases are considered: compact, core-type distributions, and alternatively "annulus'' shaped distributions, with vanishing concentration at the center. It is demonstrated that the time evolution of the mean square radius of a cloud can be obtained solely from the power spectrum of the velocity fluctuations with a given, straightforward, model for the relative velocity correlation function. The analysis also provides results for the elongation of material lines convected by the turbulent flow, the observations confirming the expected exponential elongation for large times. }
+}
+
+
+
+@article{Pedersen:Michelsen:Rasmussen:1996,
+  author =	 {Thomas Pedersen and Poul Kerff Michelsen and Jens
+                  Juul Rasmussen},
+  title =	 {Lyapounov exponents and particle dispersion in drift
+                  wave turbulence},
+  journal =	 {Phys. Plasmas},
+  year =	 1996,
+  volume =	 3,
+  pages =	 {2939-2950}
+}
+
+
+
+
+@Article{Perry:Brooks:Content:etal:1991,
+  author = 	 {M. E. Perry and N. H. Brooks and D. A. Content and R. A. Hulse and M. {ali Mahdavi} and H. W. Moos},
+  title = 	 {Impurity Transport During the H-Mode in DIII-D},
+  journal = 	 {Nucl. Fusion},
+  year = 	 {1991},
+  OPTkey = 	 {},
+  volume = 	 {31},
+  OPTnumber = 	 {},
+  pages = 	 {1859 - 1874},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Pettini:Vulpiani:Misguich:Leener:Orban:Balescu:1988,
+  author =	 {Marco Pettini and Angelo Vulpiani and Jacgues
+                  H. Misguich and Michel De Leener and John Orban and
+                  Radu Balescu},
+  title =	 {Chaotic Diffusion across a Magnetic Field in a Model
+                  of Electrostatic Turbulent Plasma},
+  journal =	 {Phys. Rev. A},
+  year =	 1988,
+  volume =	 38,
+  pages =	 {344-363}
+}
+@article{Petviashvili:1977,
+  author =	 {V. I. Petviashvili },
+  title =	 {Self-focusing of an electrostatic drift wave},
+  journal =	 {Sov. J. Plasma Phys.},
+  year =	 1977,
+  volume =	 3,
+  pages =	 {150--151},
+  month =	 {March--April}
+}
+@Article{Petty:Luce:1994,
+  author = 	 {C.C. Petty and T.C. Luce},
+  title = 	 {Inward transport of energy during off-axis heating on the DIII-D tokamak},
+  journal = 	 {Nucl. Fusion },
+  year = 	 {1994},
+  OPTkey = 	 {},
+  volume = 	 {34},
+  OPTnumber = 	 {},
+  pages = 	 {121-130},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Pierre:Leclert:1987,
+  author = 	 {T. Pierre and G. Leclert and F. Braun},
+  title = 	 {Magnetized Double-Plasma Device for Wave Studies},
+  journal = 	 rsi,
+  year = 	 {1987},
+  OPTkey = 	 {},
+  volume = 	 {58},
+  OPTnumber = 	 {},
+  pages = 	 {6-11},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+
+@Article{Politzer:2000,
+  author = 	 {P. A. Politzer},
+  title = 	 {Observation of Avalanchelike Phenomena in a Magnetically Confined Plasma},
+  journal = 	 prl,
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {84},
+  OPTnumber = 	 {},
+  pages = 	 {1192},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Electron temperature fluctuations seen in a magnetically confined tokamak plasma have some of the characteristics of the avalanchelike events sometimes associated with self-organized criticality, including intermittency, large space and time scales, "1/f" spectra, large tails in the autocorrelation function, and clear evidence of radial propagation.}
+}
+
+
+
+
+
+@Article{Politzer:etal:2002,
+  author = 	 {P. A. Politzer and M. E. Austin and  M. Gilmore and  G. R. McKee and  T. L. Rhodes and
+ C. X. Yu and  E. J. Doyle and  T. E. Evans and R. A. Moyere},
+  title = 	 {Characterization of avalanche-like events in a confined plasma},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {9},
+  OPTnumber = 	 {},
+  pages = 	 {62-1969.},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {One mechanism for transport of energy and particles in a plasma is by discrete, intermittent, uncorrelated events, often called avalanches. This paper reports observations and quantitative characterization of avalanche events in a magnetically confined plasma. The observations are primarily of electron temperature fluctuations. Avalanches are identified by their large spatial scale, up to the system size, by self-similar behavior in the frequency spectrum and the autocorrelation function and by propagation. The two-point cross-correlation function allows determination of a characteristic velocity, which typically varies from several hundred meters per second in the outer part of the plasma to zero or even inward near the axis. This can be interpreted as resulting from the prevalence of negative avalanches (i.e., holes) near the axis. The presence of a long-tailed probability distribution is indicated by a Hurst parameter (H) in the range 0.80 to 0.95, which becomes smaller in the outer quarter of the plasma radius. Density fluctuation spectra from the plasma core also show self-similar behavior. Power transport estimates show that about half of the heat flux is carried by the avalanche events under conditions with no magnetohydrodynamic activity. These observations are qualitatively similar to results of modeling calculations based on drift wave turbulence. It is reasonable to infer that avalanches are the macroscopic manifestation of turbulence which inherently has a small spatial scale and, thus, allow a local, gyro-Bohm scaling process to show global Bohm-type behavior. 
+}
+}
+      
+
+
+@Proceedings{Post:Behrisch:1984,
+  title = 	 {Physics of  Plasma-Wall Interactions in Controlled Fusion},
+  year = 	 {1984},
+  editor = 	 {D. E. Post and R. Behrisch},
+  volume = 	 {131},
+   series = 	 {ASI Series},
+   publisher =	 "Plenum",
+  address =	 "New York, London",
+  organization = {Nato}
+}
+@Article{Powers:1974,
+  author = 	 {E. J. Powers},
+  title = 	 {SPECTRAL TECHNIQUES FOR EXPERIMENTAL INVESTIGATION OF PLASMA-DIFFUSION DUE TO POLYCHROMATIC FLUCTUATIONS},
+  journal = 	 {Nucl. Fusion},
+  year = 	 {1974},
+  OPTkey = 	 {},
+  volume = 	 {14},
+  number = 	 {5},
+  pages = 	 {749 - 752},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Press:Teukolsky:1989,
+  author =	 {William H. Press and Saul A. Teukolsky},
+  title =	 {Fourier Transforms Of Real Data In Two And Three
+                  Dimensions},
+  journal =	 {Comp. Phys},
+  year =	 1989,
+  pages =	 {84--87},
+  month =	 {Sept--Oct}
+}
+@article{Provenzale:1999,
+  author =	 {Antonello Provenzale},
+  title =	 {Transport by coherent barotropic vortices},
+  journal =	 {Annu. Rev. Fluid. Mech.},
+  year =	 1999,
+  volume =       31,
+  pages =	 {55--93}
+}
+
+
+
+
+
+
+
+@Article{Puiatti:etal:2003,
+  author = 	 {M. E. Puiatti and  M. Valisa, and M.  Mattioli and T. Bolzonella and A.  Bortolon and I.  Coffey  and R.  Dux and M.  {von Hellermann} and P.  Monier-Garbet, and M. F. F.  Nave and J. Ongena},
+  title = 	 {Simulation of the time behaviour of impurities in JET Ar-seeded discharges and its relation with sawtoothing and RF heating},
+  journal = 	 {Plasma Phys. Contr. Fusion},
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {45},
+  OPTnumber = 	 {},
+  pages = 	 {2011 - 2024},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {In JET, Ar seeding has proven to be a successful means to reach quasistationary regimes that feature, simultaneously, high density, high confinement and an edge radiation belt without significant contamination of the plasma. A detailed analysis shows that in the presence of centrally deposited ion cyclotron resonance heating (ICRH) Ar transport is modified, in the sense of a reduction of the inward pinch convection. Sawtooth (ST) crashes also hamper the accumulation of Ar in the core, though their contribution is less relevant compared to the effect of the ICRH. The analysis is carried out by means of a one-dimensional impurity transport code, which has been applied to several Ar-seeded discharges. The result about the role of ST crashes is independent of triangularity. In the high triangularity discharges, with continuous D refuelling, the convection of impurities in the core region is typically very small so that ICRH injection itself has little relevance in the control of the Ar behaviour.}
+}
+
+@Article{Ramisch:Stroth:Niedner:Scott:2003,
+  author = 	 {Mirko Ramisch and  Uli  Stroth and  Sven Niedner and Bruce Scott},
+  title = 	 {On the detection of Reynolds stress as a driving and
+damping mechanism of geodesic acoustic modes
+and zonal flows},
+  journal = 	 njp,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {5},
+  OPTnumber = 	 {},
+  pages = 	 {12.1-12.11},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+%---------------------------         R         -----------------------------
+
+
+
+@article{Rasmussen:Lynov:Hesthaven:Sutyrin:1994,
+  author =	 "Jens Juul Rasmussen and Jens Peter Lynov and
+                  J. S. Hesthaven and G.G. Sutyrin",
+  title =	 "Vortex Dynamics in Plasmas and Fluids",
+  journal =	 "Plasma Phys. Control. Fusion",
+  year =	 "1994",
+  volume =	 "36",
+  pages =	 "B193-B202"
+}
+@article{Reuss:Misguich:1996,
+  author =	 "J.-D. Reuss and J. H. Misguich",
+  title =	 "Low-frequency percolation scaling for particle
+                  diffusion in electrostatic turbulence",
+  journal =	 "Phys. Rev. E",
+  year =	 "1996",
+  volume =	 "54",
+  pages =	 "1857-1869"
+}
+@article{Reynolds:1883,
+  author =	 "O. Reynolds",
+ title =	 "An experimental investigation of the circumstances which determine whether 
+the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels ",
+  title =	 " ",
+  journal = "Phil. Trans. R. Soc. A",
+  year =	 "1883",
+  volume =	 "175",
+  pages =	 "935-982"
+}
+@article{Reynolds:1895,
+  author =	 "O. Reynolds",
+   title =	 "On the dynamical theory of incompressible viscous fluids and the determination of the criterion ",
+  journal = "Phil. Trans. R. Soc. A",
+  year =	 "1895",
+  volume =	 "186",
+  pages =	 "123-164"
+}
+@article{Rhines:1975,
+  author =	 "Peter B. Rhines",
+  title =	 "Waves and turbulence on a beta plane",
+  journal = "J. Fluid Mech.",
+  year =	 "1975",
+  volume =	 "69",
+  pages =	 "417-443"
+}
+@article{Rhines:1994,
+  author =	 {Peter B. Rhines},
+  title =	 {Jets},
+  journal = "Chaos",
+  year =	 "1994",
+  volume =	 "4",
+  pages =	 "313--339"
+}
+@article{Roberts:Taylor:1962,
+  author =	 "K. V. Roberts and J. B. Taylor",
+  title =	 "Magnetohydrodynamic Equations For Finite
+                  Larmorradius",
+  journal =	 prl,
+  year =	 "1962",
+  volume =	 "8",
+  pages =	 "197-198"
+}
+@Article{Rognlien:Ryutov:Mattor:Porter:1999,
+  author = 	 {T. D. Rognlien and D. D. Ryutov and N. Mattor and G. D. Porter},
+  title = 	 {Two-dimensional electric fields and drifts near the magnetic separatrix in divertor tokamaks},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {1999},
+  volume = 	 {6},
+  number = 	 {5},
+  pages = 	 {1851 --1857}
+}
+@article{Rosenbluth:Simon:1965,
+  author =	 "Marshall N. Rosenbluth and Albert Simon",
+  title =	 "Finite Larmor Radius Equations with Nonuniform
+                  Electric Fields and Velocities",
+  journal =	 "Phys. Fluids",
+  year =	 "1965",
+  volume =	 "8",
+  pages =	 "1300-1322"
+}
+@book{Richardson:1922,
+author = {L. F. Richardson},
+title = { Weather Prediction by numerical Process},
+publisher = {Cambridge University Press},
+address = {Cambridge},
+year ={1922}
+}
+@article{Ross:Mahajan:1978,
+  author =	 "David W. Ross and Swadesh M. Mahajan",
+  title =	 "Are Drift-Wave Eigenmodes Unstable?",
+  journal =	 prl,
+  year =	 "1978",
+  volume =	 "40",
+  pages =	 "324-327"
+}
+@article{Rossby:1940,
+  author =	 "C. G. Rossby",
+  title =	 " ",
+  journal =	 "Q. Jl met. Soc. Suppl.",
+  year =	 "1940",
+  volume =	 "66",
+  pages =	 "68"
+}
+@article{Rudakov:Sagdeev:1961,
+  author =	 "L. I. Rudakov and R. Z. Sagdeev",
+  title =	 "??",
+  journal =	 "Sov. Phys. Dokl.",
+  year =	 "1961",
+  volume =	 "6",
+  pages =	 "145"
+}
+
+@Article{Rudakov:etal:2002,
+  author = 	 {D. L. Rudakov and J. A. Boedo and R. A. Moyer and  S. Krasheninnikov and  A. W. Leonard and  M. A. Mahdavi and  G. R. McKee and
+ G. D. Porter and  P. C. Stangeby and  J. G. Watkins and  W. P. West and  D. G. Whyte and G. Antar},
+  title = 	 {Fluctuation-driven transport in the DIII-D boundary},
+  journal = 	 {Plasma Phys. Control. Fusion},
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {44},
+  OPTnumber = 	 {},
+  pages = 	 {717-731},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Cross-field fluctuation-driven transport is studied in edge and scrape-off layer (SOL) plasmas in the DIII-D tokamak using a fast reciprocating Langmuir probe array allowing local measurements of the fluctuation-driven particle and heat fluxes. Two different non-diffusive mechanisms that can contribute strongly to the cross-field transport in the SOL of high-density discharges are identified and compared. The first of these involves intermittent transport events that are observed at the plasma separatrix and in the SOL. Intermittence has qualitatively similar character in L-mode and ELM-free H-mode. Low-amplitude ELMs observed in high-density H-mode produce in the SOL periods with cross-field transport enhanced to L-mode levels and featuring intermittent events similar to those in L-mode. The intermittent transport events are compatible with the concept of plasma filaments propagating across the SOL due to E×B drifts. The intermittent character of the transport in the SOL is also in agreement with predictions of the non-linear numerical simulations performed with an imposed driving flux. Another type of non-diffusive transport is often seen in high-density H-modes with prolonged ELM-free periods, where the transport near the separatrix is dominated by quasi-coherent modes driving particle and/or heat fluxes exceeding L-mode levels. These modes may play an important role by providing particle and/or heat exhaust between ELMs.}
+}
+
+
+
+
+
+
+
+@techreport{Rudyi:1990,
+  author =	 "Alexander Rudyi",
+  title =	 "Untersuchung transportrelevanter Fluktuationen in
+                  der Randschicht von ASDEX",
+  institution =	 {Max-Planck-Institut f\"ur Plasmaphysik},
+  year =	 "1990",
+  number =	 "IPP III/160"
+}
+
+
+
+@Article{Rutherford:1974,
+  author = 	 {P. H. Rutherford},
+  title = 	 {Impurity transport in the Pfirsch-Schl{\"u}ter regime},
+  journal = 	 {Phys. Fluids},
+  year = 	 {1974},
+  OPTkey = 	 {},
+  volume = 	 {17},
+  OPTnumber = 	 {},
+  pages = 	 {1782 - 1784},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Rypdal:Garcia:Paulsen:1997,
+  author =	 "K. Rypdal and Odd Eric Garcia and Jim Victor
+                  Paulsen",
+  title =	 "Anomalous Cross-Field Current and Fluctuating
+                  Equilibrium of Magnetized Plasmas",
+  journal =	 prl,
+  year =	 {1997},
+  volume  ={},
+  pages =	 {0}
+}
+@Article{Rypdal:Ratynskaia:2003,
+  author = 	 {Kristoffer Rypdal and Svetlana Ratynskaia},
+  title = 	 {Statistics of low-frequency plasma fluctuations in a simple magnetized torus},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {10},
+  OPTnumber = 	 {},
+  pages = 	 {2686},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {submitted}
+}
+
+%--------------------------          S         -------------------------------
+@article{Sanson:Heijst:2000,
+  author =	 {L. Zavala Sanson and G. J. {van Heist}},
+  title =	 {Nonlinear Ekman effects in rotating barotropic flows},
+  journal =	 {J. Fluid Mech.},
+  year =	 2000,
+  volume =	412,
+  pages =	 {75 - 91}
+}
+
+@Book{Schuster:1999,
+  ALTauthor = 	 {},
+  editor = 	 {H. G. Schuster},
+  title = 	 {Handbook of Chaos Control},
+  publisher = 	 {Wiley-VCh},
+  year = 	 {1999},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTaddress = 	 {},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Scott:1992-1,
+  author =	 {Bruce D. Scott},
+  title =	 {The mechanism of self-sustainment in collisional
+                  drift wave turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1992,
+  volume =	 4,
+  pages =	 {2468-2494}
+}
+@article{Scott:1992-2,
+  author =	 {Bruce D. Scott},
+  title =	 {Self-consistent drift wave turbulence, paradigm for
+                  transport},
+  journal =	 {Plasma Phys Contr. Fus.},
+  year =	 1992,
+  volume =	 34,
+  pages =	 {1977-1983}
+}
+@article{Scott:1997:1,
+  author =	 {Bruce D. Scott},
+  title =	 {Three Dimensional Computation of Collisional Drift
+                  Wave Turbulence and Transport in Tokamak Geometry },
+  journal =	 {Plasma Phys. Control. Fusion},
+  year =	 1997,
+  volume =	 {39},
+ number = {3}, 
+  pages =	 {471 - 504}
+}
+@article{Scott:1997:2,
+  author =	 {Bruce D. Scott},
+  title =	 {Three Dimensional Computation of drift Alfv{\`e}n
+                  turbulence },
+  journal =	 {Plasma Phys. Control. Fusion},
+  year =	 1997,
+  volume =	 {39},
+  pages =	 {1635 - 1668}
+}
+@Article{Scott:1998,
+  author = 	 {B. D. Scott},
+  title = 	 {Global consistency for thin flux tube treatments of toroidal geometry},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {1998},
+  OPTkey = 	 {},
+  volume = 	 {5},
+  number = 	 {6},
+  pages = 	 {2334 - 2339},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Scott:2001,
+  author = 	 {B. D. Scott},
+  title = 	 {Shifted metric procedure for flux tube treatments of toroidal geometry: Avoiding grid deformation},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume = 	 {8},
+  number = 	 {2},
+  pages = 	 {447 - 458},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Scott:Biglari:Terry:Diamond:1991,
+  author =	 {Bruce D. Scott and H. Biglari and P. W. Terry and
+                  P. H. Diamond},
+  title =	 {Self-organization in sheared drift-wave turbulence},
+  journal =	 {Phys. Fluids B},
+  year =	 1991,
+  volume =	 3,
+  pages =	 {51-67}
+}
+
+
+
+
+
+
+
+
+
+@Article{Scott:2003,
+  author = 	 {B. D. Scott},
+  title = 	 {The geodesic transfer effect on zonal flows in tokamak edge turbulence},
+  journal = 	 pla,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {320},
+  OPTnumber = 	 {},
+  pages = 	 {53 - 62},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Scott:NJP:2005,
+  author = 	 {B. D. Scott},
+  title = 	 {},
+  journal = 	 njp,
+  year = 	 {2005},
+  OPTkey = 	 {},
+  volume = 	 {submitted},
+  OPTnumber = 	 {},
+  pages = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Sitenko:Sosenko:1993,
+  author =	 {A. G. Sitenko and P. P. Sosenko},
+  title =	 {Low-frequency kinetic structures in plasma},
+  journal =	 {Plasma Phys. Rep.},
+  year =	 1993,
+  volume =	 19,
+  pages =	 {235--242},
+  month =	 {April}
+}
+
+@article{Shinbrot:1995,
+  author = 	 {T. Shinbrot},
+  title = 	 {Progress in the control of chaos},
+  journal = 	 {Adv. Phys. },
+  year = 	 {1995},
+  OPTkey = 	 {},
+  volume = 	 {44},
+  pages = 	 {73-111},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {In this review, we summarize several of the key contributions made over the past 5 years to the control of chaotic dynamical systems. The idea that chaotic systems can in fact be controlled may be counter-intuitive; after all they are unpredictable in the long term. Nevertheless, numerous theorists have independently developed methods which can be applied to chaotic systems, and many experimentalists have demonstrated that physical chaotic systems respond well to both simple and sophisticated control strategies. The great bulk of these researchers have restricted their study to low-dimensional systems, and correspondingly we critique this work at length. Most recently, a few researchers have proposed control techniques for application to high- or infinite-dimensional systems, and we describe this work in some detail as well}
+}
+
+
+@article{She:1991,
+    author = {{She}, Z.},
+    title = "{Intermittency and non-gaussian statistics in turbulence}",
+    journal = {Fluid Dynamics Research},
+    year = 1991,
+    month = oct,
+    volume = 8,
+    pages = {143-158},
+    adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1991FlDyR...8..143S&amp;db_key=INST},
+    adsnote = {Provided by the NASA Astrophysics Data System}
+}
+
+@article{Smolyakov:Diamond:Shevchenko:2000,
+  author =	 {A. I. Smolyakov and P. H. Diamond and V. I. Shevchenko},
+  title =	 {Zonal Flow Generation by parametric instability in magnetized plasmas and geostrophic flows},
+  journal =	 {Phys. Plasmas},
+  year =	 2000,
+  volume = 7,
+  pages =	 {1349--1351}
+}
+
+
+
+ @article{Smolyakov:Diamond:Malkov:2000,
+  author = 	 {A. I. Smolyakov and P. H. Diamond and M. Malkov},
+  title = 	 {Coherent Structure Phenomena in Drift Wave-Zonal Flow Turbulence},
+  journal = 	 prl,
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {84},
+  OPTnumber = 	 {},
+  pages = 	 {491-494},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Book{Book:Sornette:2000,
+  author = 	 {D. Sornette},
+  ALTeditor = 	 {},
+  title = 	 {Critical Phenomena in Natural Sciences},
+  publisher = 	 {Springer},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {Berlin},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Sosenko:Bonhomme:Pierre:2000,
+  author =	 {P. P. Sosenko and G. Bonhomme and Th. Pierre},
+  title =	 {Global drift waves in weakly ionized magnetized plasmas: theory and observations},
+  journal =	 {J. Plasma Physics},
+  year =	 2000,
+  volume =	 63,
+  pages =	 {157--190}
+}
+@Article{Stober:etal:2001,
+  author = 	 {J. Stober and C. Fuchs and O. Gruber and M. Kaufmann and B. Kurzan and F. Meo and H.W. Müller and F. Ryter and {ASDEX Upgrade Team}},
+  title = 	 {Dependence of the density shape on the heat flux profile in ASDEX Upgrade high density H modes},
+  journal = 	 {Nucl. Fusion },
+  year = 	 {2001},
+  OPTkey = 	 {},
+  volume =	 {41},
+  OPTnumber = 	 {},
+  pages =	 {1535-1538},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote =	 {For high density H modes with constant gas puff on ASDEX Upgrade a slow evolution of the density profile is observed with a time constant much larger than E. While the edge density remains constant the central density increases as does the stored energy until sawteeth are lost and impurity influx sets in. This peaking process is only observed with NBI heating. Substituting half of the heating by central ICRH leads to completely flat profiles even though half of the original NBI particle fuelling remains. This behaviour, as well as the slow timescale of the peaking process with pure NBI heating, is successfully modelled with a pinch of the order of the neoclassical Ware pinch and a proportionality between the particle diffusion coefficient D and the heat conductivity . Such an assumption links D to the heat flux profile qheat, since the temperature profile is observed to be stiff. Such a model implies flat density profiles for a centrally heated fusion reactor.}
+}
+
+
+
+
+
+@Book{Straughan:1993,
+  author = 	 {B. Straughan},
+  ALTeditor = 	 {},
+  title = 	 {Mathematical aspects of penetrative convection},
+  publisher = 	 {Longman Publishing Co.},
+  year = 	 {1993},
+  OPTkey = 	 {},
+  volume = 	 {288},
+  OPTnumber = 	 {},
+  series = 	 {Pitman Research Notes in Mathematics},
+  address = 	 {London},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Article{Stringer:1969,
+  author = 	 {T. E. Stringer},
+  title = 	 {DIFFUSION IN TOROIDAL PLASMAS WITH RADIAL ELECTRIC FIELD},
+  journal = 	 prl,
+  year = 	 {1969},
+  OPTkey = 	 {},
+  volume = 	 {22},
+  number = 	 {15},
+  pages = 	 {770},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@article{Sugama:Horton:1994,
+  author =	 "H. Sugama and W. Horton",
+  title =	 "??",
+  journal =	 "Phys. Plasmas",
+  year =	 "1994",
+  volume =	 "1"
+}
+@article{Sugama:Wakatani:Hasegawa:1988,
+  author =	 "H. Sugama and Masahiro Wakatani and Akira Hasegawa",
+  title =	 "Study of resistive drift and resistive interchange
+                  modes in a cylindrical plasma with negative shear",
+  journal =	 "Phys. Fluids",
+  year =	 "1988",
+  volume =	 "31",
+  pages =	 {1601-1608}
+}
+@article{Surko:Slusher:1980,
+  author =	 {C. M. Surko and R. E. Slusher},
+  title =	 {Study of plasma density fluctuations by the
+                  correlation of crossed $CO_{2}$ laser beams},
+  journal =	 {Phys. Fluids},
+  year =	 1980,
+  volume =	 23,
+  pages =	 {2425--2439},
+  month =	 {December}
+}
+@article{Sutyrin:Hesthaven:Lynov:Rasmussen:1994,
+  author =	 {G.G. Sutyrin and J. S. Hesthaven and Jens Peter
+                  Lynov and Jens Juul Rasmussen},
+  title =	 {Dynamical Properties of vortical structures on the
+                  beta plane},
+  journal =	 {J. Fluid Mech},
+  year =	 1994,
+  volume =	 268,
+  pages =	 {103-131}
+}
+@InCollection{book:Swift,
+  author = 	 {J. Swift},
+   title = 	 {On Poetry. A Rhapsody},
+  booktitle = 	 {A Bibliography of the Writings of Jonathan Swift},
+  OPTcrossref =  {},
+  OPTkey = 	 {},
+  OPTpages = 	 {},
+  publisher = {Pennsylvania Press},
+  year =	 {1963},
+  OPTeditor = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTtype = 	 {},
+  OPTchapter = 	 {},
+  OPTaddress = 	 {},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+%----------------------            T         -------------------------------
+
+
+@article{Tao:Procter:Weiss:1998,
+author = {Tao,L. and Proctor,M. R. E. and Weiss,N. O.},
+title = {Flux expulsion by inhomogeneous turbulence},
+journal = {Monthly Notices of the Royal Astronomical Society},
+volume = {300},
+number = {3},
+pages = {907-914},
+year = {1998},
+abstract = { Flux expulsion is an important consequence of the interaction
+ of magnetic fields with fluid convection and has been well studied for 
+particular cases of steady, single-cell flows. Here we examine a related 
+phenomenon in inhomogeneous turbulence using direct numerical simulations. 
+To understand our numerical results, we analyse average properties of our 
+model, and obtain mean transport coefficients which can be used to describe 
+the approach of the system to its final state. For the kinematic problem 
+these transport coefficients give an excellent prediction of the expulsion
+ process; however, the enhanced transport is suppressed by dynamical 
+back-reaction of the Lorentz force. Finally, we discuss the astrophysical 
+implications for magnetic fields in stellar convection zones. Segregation 
+of magnetic fields from turbulent motion not only allows strong toroidal 
+fields to accumulate in regions of convective overshoot but also permits 
+significant poloidal fields to be maintained by dynamo action in stars
+ like the Sun. }
+}
+
+
+@Article{Takayama:Wakatani:Sugama:1996,
+  author =	 "Arimichi Takayama and Masahiro Wakatani and Hideo
+                  Sugama",
+  title =	 "Suppression of non-linear interchange mode by zonal
+                  couterstreaming flow generation",
+  OPTcrossref =	 "",
+  OPTkey =	 "",
+  journal =	 "Phys. Plasmas",
+  year =	 "1996",
+  volume =	 "3",
+  OPTnumber =	 "",
+  pages =	 "3-5",
+  OPTmonth =	 "",
+  OPTnote =	 "",
+  OPTannote =	 ""
+}
+@Article{Tatarinova:1991,
+  author = 	 {E. B Tatarinova and P. A. Kalugin and A. V. Sokol },
+  title = 	 {What is the propagation rate of the passive component in turbulent flows limited by?},
+  journal = 	 {Europhys. Lett.},
+  year = 	 {1991},
+  OPTkey = 	 {},
+  volume = 	 {14},
+  OPTnumber = 	 {},
+  pages = 	 {773},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Diffussive transport for bounded 2D flows}
+}
+@InCollection{Taylor:1915,
+  author = 	 {G. I. {Taylor (1915)}},
+  title = 	 {Eddy motion in the atmosphere},
+  booktitle = 	 {G. I. Taylor: Scientific Papers},
+  OPTcrossref =  {},
+  OPTkey = 	 {},
+  OPTpages = 	 {1 - 23},
+  publisher = {Cambridge University Press},
+  year = 	 {1915},
+  editor = 	 {G. K. Batchelor},
+  volume = 	 {II},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  OPTtype = 	 {},
+  OPTchapter = 	 {},
+  address = 	 {Cambridge},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Article{Taylor:1935,
+  author = 	 {G. I. Taylor},
+  title = 	 {Statistical theory of turbulence. Part I.},
+  journal = 	 {Proc. Roy. Soc.},
+  year = 	 {1935},
+  OPTkey = 	 {},
+  volume = 	 {A 151},
+  OPTnumber = 	 {},
+  OPTpages = 	 {421- 444},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {THE Reference for turbulent Diffusion, Taylor Microscale, Correlation Euler -Lagrange and the like}
+}
+@Article{Taylor:1921a,
+  author = 	 {G. I. Taylor},
+  title = 	 {Diffusion by continuous movement.},
+  journal = 	 {Proc. London Math. Soc.},
+  year = 	 {1921},
+  OPTkey = 	 {},
+  volume = 	 {A 20},
+  OPTnumber = 	 {},
+  OPTpages = 	 {196-221},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {THE Reference for turbulent Diffusion, Taylor Microscale, Correlation Euler -Lagrange and the like}
+}
+@article{Terry:Horton:1982,
+  author =	 {Paul Terry and Wendell Horton},
+  title =	 {Stochasticity and the random phase approximation for
+                  three electron drift waves},
+  journal =	 {Phys. Fluids},
+  year =	 1982,
+  volume =	 25,
+  pages =	 {491--501},
+  month =	 {March}
+}
+@article{Terry:Horton:1983,
+  author =	 {Paul Terry and Wendell Horton},
+  title =	 { },
+  journal =	 {Phys. Fluids},
+  year =	 1983,
+  volume =	 26,
+  pages =	 {106}
+}
+@article{Terry:Ware:Newman:1994,
+  author =	 {Paul Terry and A. S. Ware and D. E. Newman},
+  title =	 {Relaxation oscillations induced by
+                  amplitude-dependent frequency in dissipative trapped
+                  electron mode turbulence},
+  journal =	 {Phys. Plasmas},
+  year =	 1994,
+  volume =	 1,
+  pages =	 {3974--3985},
+  month =	 {December}
+}
+@Article{Terry:2000,
+  author = 	 {P. W. Terry},
+  title = 	 {Suppression of turbulence and transport by sheared flow},
+  journal = 	 {Rev. Mod. Phys.},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {72},
+  number = 	 {1},
+  pages = 	 {109 - 165},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@inproceedings{Theimer:1995,
+  author =	 "G. Theimer and other",
+  title =	 "Individual event analysis: A new tool for the
+                  investigation of structures in turbulence",
+  address =	 "Marseille",
+  booktitle =	 "$2^{nd}$ Workshop on Transport, Chaos and Plasma
+                  Physics",
+  year =	 "1995"
+}
+@article{Timofeev:1964,
+  author =	 "A. V. Timofeev",
+  title =	 " ",
+  journal =	 "Sov. Phys. Techn. Phys.",
+  year =	 "1964",
+  volume =	 "8",
+  pages =	 "682-"
+}
+@Article{Tsallis:1998,
+  author = 	 {C. Tsallis and R. S. Mendes and A. R. Plastino},
+  title = 	 {The role of constraints within generalized nonextensive statistics},
+  journal = 	 {Physica A},
+  year = 	 {1998},
+  OPTkey = 	 {},
+  volume = 	 {261},
+  OPTnumber = 	 {},
+  pages = 	 {534-554},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Article{Tsallis:1988,
+  author = 	 {C. Tsallis},
+  title = 	 {POSSIBLE GENERALIZATION OF BOLTZMANN-GIBBS STATISTICS},
+  journal = 	 {J. Stat. Phys.},
+  year = 	 {1988},
+  OPTkey = 	 {},
+  volume = 	 {52},
+  OPTnumber = 	 {},
+  pages = 	 {479 - 487},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Tsang:Catto:Whitson:Smith:1978,
+  author =	 "K. T. Tsang and P. J. Catto and J. C. Whitson and
+                  Julius Smith",
+  title =	 " ``Absolute Universal Instability`` is not
+                  Universal",
+  journal =	 prl,
+  year =	 "1978",
+  volume =	 "40",
+  pages =	 "327-331"
+}
+@article{Tsui:1993,
+  author =	 "H. Y. W. Tsui and other",
+  title =	 "A comparison of edge turbulence in tokamaks,
+                  stellarators and reversed-field pinches",
+  journal =	 "Phys. Fluids B",
+  year =	 "1993",
+  volume =	 "5",
+  pages =	 "2491-2497"
+}
+
+
+
+@article{Tyr:TBP,
+  author =	 "V. Naulin and Bruce Scott",
+  title =	 "Benchmarking codes for drift-Alfv{\'e}n turbulence",
+  journal =	 "to be published",
+  year =	 "",
+  volume =	 "",
+  pages =	 ""
+}
+
+%---------------------------          V         ------------------------------
+
+@article{Valovic:2002,
+    author = {{Valovic}, M. and {Rapp}, J. and {Cordey}, J.~G. and {Budny}, R. and 
+	{McDonald}, D.~C. and {Garzotti}, L. and {Kallenbach}, A. and 
+	{Mahdavi}, M.~A. and {Ongena}, J. and {Parail}, V. and {Saibene}, G. and 
+	{Sartori}, R. and {Stamp}, M. and {Sauter}, O. and {Strachan}, J. and 
+	{Suttrop}, W. and {EFDA-JET Workprogramme}},
+    title = "{Long timescale density peaking in JET }",
+    journal = {Plasma Physics and Controlled Fusion},
+    year = 2002,
+    month = sep,
+    volume = 44,
+    pages = {1911-1917},
+    adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2002PPCF...44.1911V&amp;db_key=PHY},
+    adsnote = {Provided by the NASA Astrophysics Data System},
+    abstract={Long timescale density peaking has been observed in JET plasmas leading to densities exceeding the Greenwald value. These neutral beam heated discharges are characterized by type-I ELMs and good energy confinement. Central density is limited by neoclassical tearing modes or by termination of H-mode preceded by loss of sawteeth. When these limiting factors are avoided (i.e. at intermediate power level and with optimization of gas puffing) quasi-stationary high density plasmas with peaked density profile are obtained.}
+}
+@article{Vallis:Maltrud:1992,
+  author =	 "Geoffrey K. Vallis and Matthew E. Maltrud",
+  title =	 "Generation of Mean Flows and Jets on a Beta Plane and Over Topography",
+  journal =	 "J. Phys. Oceanogr.",
+  year =	 "1992",
+  volume =	 "23",
+  pages =	 "1346 - 1362"
+}
+@Article{Vlad:Spineanu:Misguich:Balescu:1998,
+  author = 	 {   M. Vlad and F. Spineanu and  J. H. Misguich  and R. Balescu},
+  title = 	 {Diffusion with intrinsic trapping in two-dimensional incompressible stochastic velocity fields},
+  journal = 	 {Phys. Rev. E},
+  year = 	 {1998},
+  OPTkey = 	 {},
+  volume = 	 {58},
+  OPTnumber = 	 {58},
+  pages = 	 {7359-7368},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+
+%---------------------------          W         ------------------------------
+@Article{Wagner:Becker:Behringer:1982,
+  author = 	 {F. Wagner and G. Becker and K. Behringer and D. Cambell and 
+A. Eberhagen and W. Engelhardt and G. Fussmann and O. Gehre
+and J. Gernhardt and G. Vongierke and
+G.Haas and M. Huang and F. Karger and M. Keilhacker and O. Kluber and M. Kornherr and K. Lackner and
+G. Lisitano and Gg. Lister and Hm. Mayer and D. Meisel and Er. Muller and H. Murmann and H. Niedermeyer and W. Poschenrieder and H. Rapp and H.  Rohr and F.  Schneider and G. Siller and
+E. Speth and A. Stabler and Kh. Steuer and G. Venus and O. Vollmer  and  Z. Yu},
+  title = 	 {Regime of Improved Confinement and High-Beta in Neutral-Beam-Heated Divertor Discharges of the Asdex Tokamak},
+  journal = 	 prl,
+  year = 	 {1982},
+  OPTkey = 	 {},
+  volume = 	 {49},
+  OPTnumber = 	 {},
+  pages = 	 {1408 - 1412},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The discovery of the H mode}
+}
+@incollection{Wagner:1986,
+  booktitle =	 "Physics of Plasma-Wall Interactions in Controlled
+                  Fusion",
+  publisher =	 "Plenum Press",
+  editor =	 "D. E. Post and R. Behrisch",
+  author =	 {F. Wagner and K. Lackner},
+  title =	 {Divertor Tokamak Experiments},
+  year =	 1986,
+  pages =	 {931-1004}
+}
+@Article{Wagner:Stroth:1993,
+  author = 	 {F Wagner and U Stroth},
+  title = 	 {Transport in toroidal devices-the experimentalist's view},
+  journal = 	 {Plasma Phys. Control. Fusion},
+  year = 	 {1993},
+  OPTkey = 	 {},
+  volume = 	 {35},
+  OPTnumber = 	 {},
+  pages = 	 {1321-1371},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Wakatani:Hasegawa:1984,
+  author =	 "M. Wakatani and A. Hasegawa",
+  title =	 "A collisional drift wave description of plasma edge
+                  turbulence",
+  journal =	 "Phys. Fluids",
+  volume =	 "27",
+  pages =	 "611-618",
+  year =	 "1984"
+}
+@article{Wakatani:Watanabe:Sugama:Hasegawa:1992,
+  author =	 "M. Wakatani and K. Watanabe and H. Sugama and
+                  A. Hasegawa",
+  title =	 "Resistive drift wave and interchange turbulence in a
+                  cylindrical plasma with magnetic and velocity shear",
+  journal =	 "Phys. Fluids B",
+  volume =	 "4",
+  pages =	 "1754-1765",
+  year =	 "1992"
+}
+@Article{Wakatani:Sato:Miyato:Hamaguchi:2003,
+  author = 	 {M. Wakatani and M. Sato and N.  Miyato and S. Hamaguchi},
+  title = 	 {Shear flow generation due to electromagnetic instabilities},
+  journal = 	 nf,
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {43 },
+  number = 	 {1},
+  pages = 	 {63-67},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Shear flow is the most important ingredient governing nonlinear behaviour of many types of plasma instability. Electromagnetic effects on shear flow generation have been studied for an electromagnetic drift wave called resistive drift-Alfven mode (RDAM) and a global MHD mode called resistive wall mode (RWM). For RDAM it is found that the generated shear flow stabilizes the dominant modes; however, other modes are destabilized. For RWM Maxwell stress due to magnetic fluctuations has a tendency to suppress the poloidal flow near the plasma surface, which gives almost the same saturation level for different initial poloidal flows, since the shear flow stabilization disappears.}
+}
+
+
+ @Article{Warhaft:2000,
+  author = 	 {Z. Warhaft},
+  title = 	 {Passive scalars in turbulent flows},
+  journal = 	 {Ann. Rev. Fluid Mech.},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  volume = 	 {32},
+  OPTnumber = 	 {},
+  pages = 	 {203-240},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Passive scalar behavior is important in turbulent mixing, combustion, and pollution and provides impetus for the study of turbulence itself. The conceptual framework of the subject, strongly influenced by the Kolmogorov cascade phenomenology, is undergoing a drastic reinterpretation as empirical evidence shows that local isotropy, both at the inertial and dissipation scales, is violated. New results of the complex morphology of the scalar field are reviewed, and they are related to the intermittency problem. Recent work on other aspects of passive scalar behavior--its spectrum, probability density function, flux, and variance--is also addressed. }
+}
+
+
+@ARTICLE{Ware:1970A,
+    author = {{Ware}, A.~A.},
+    title = "{Pinch Effect for Trapped Particles in a Tokamak}",
+    journal = prl,
+    year = 1970,
+    month = jul,
+    volume = 25,
+    pages = {15-17},
+    adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1970PhRvL..25...15W&amp;db_key=PHY},
+    adsnote = {Provided by the NASA Astrophysics Data System},
+    abstract={Conservation of canonical angular momentum is shown to require that all trapped particles drift towards the magnetic axis with velocity cE&phiv;B&thetas; (E&phiv; is the toroidal electric field; B&thetas; the poloidal magnetic field). This property, plus an amplification process for the number of trapped particles, will explain the relaxation oscillations which occur for q<3. In addition, there is experimental evidence that it is an important contribution to the good containment when q>3.}
+}
+
+@ARTICLE{Ware:1970B,
+    author = {{Ware}, A.~A.},
+    title = "{Pinch-Effect Oscillations in an Unstable Tokamak Plasma}",
+    journal = prl,
+    year = 1970,
+    month = oct,
+    volume = 25,
+    pages = {916-919},
+    adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1970PhRvL..25..916W&amp;db_key=PHY},
+    adsnote = {Provided by the NASA Astrophysics Data System},
+    abstract={If Tokamak toroidal discharges are operated with q<3, relaxation oscillations are observed to occur involving alternate contraction and expansion of the plasma. It is shown that the detailed properties determined for these oscillations on the Canberra experiment can be explained on the basis of the newly discovered trapped-particle pinch effect.}
+}
+
+
+
+@article{Waltz:1983,
+  author =	 {R. E. Waltz},
+  title =	 {Numerical Study of drift wave turbulence with simple
+                  models for wave-wave nonlinear coupling},
+  journal =	 {Phys. Fluids},
+  year =	 1983,
+  volume =	 26,
+  pages =	 {169--179},
+  month =	 {January}
+}
+@article{Waltz:Dominguez:1983,
+  author =	 {R. E. Waltz and R. R. Dominguez},
+  title =	 {Drift-wave turbulence with wave-wave and
+                  wave-particle nonlinear effects in a sheared slab},
+  journal =	 pf,
+  year =	 1983,
+  volume =	 26,
+  pages =	 {3338--3349},
+  month =	 {January}
+}
+@article{Weinstein:1982,
+  author =	 {Alan Weinstein},
+  title =	 {Hamiltonian structure for drift waves and
+                  geostrophic flow},
+  journal =	 pf,
+  year =	 1982,
+  volume =	 26,
+  pages =	 {388-390},
+  month =	 {February}
+}
+
+@Article{Weisen:etal:2004,
+  author = 	 {H. Weisen and A. Zabolotsky and X. Garbet and D. Mazon and L. Zabeo and C. Giroud and H. Leggate and M. Valovic and K.-D. Zastrow and {contributors to the JET-EFDA Workprogramme}},
+  title = 	 {Shear and collisionality dependence of particle pinch in JET L-mode plasmas},
+  journal = 	 ppcf,
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {46},
+  OPTnumber = 	 {},
+  pages = 	 {751 - 765},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {peaked density profiles, shear,collisionality, passive tracer}
+}
+
+@article{Weiss:1991,
+  author =	 {J. Weiss},
+  title =	 {The dynamics of enstrophy transfer in
+                  two-dimensional hydrodynamics},
+  journal =	 {Physica D},
+  year =	 1991,
+  volume =	 48,
+  pages =	 {273}
+}
+@Article{Winsor:Johnson:Dawson:1968,
+  author = 	 {Niels Winsor and John L. Johnson and John M. Dawson},
+  title = 	 {Geodesic Acoustic Waves in Hydromagnetic Systems},
+  journal = 	 pf,
+  year = 	 {1968},
+  OPTkey = 	 {},
+  volume = 	 {11},
+  number = 	 {11},
+  pages = 	 {2448 - 2450},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {GAMS, original work, nice to read}
+}
+
+@article{Wootton:1990,
+  author =	 {A. J. Wootton and other},
+  title =	 {Fluctuations and anomalous transport in tokamaks},
+  journal =	 {Phys. Fluids B},
+  year =	 1990,
+  volume =	 2,
+  pages =	 {2879-2903}
+}
+@Article{Wootton:Tsui:Prager:1992,
+  author = 	 {A. J. Wootton and H. Y. W. Tsui and S. Prager},
+  title = 	 {Edge turbulence in tokamaks, stellarators and reversed field pinches},
+  journal = 	 {Plas. Phys. Contr. Fusion},
+  year = 	 {1992},
+  OPTkey = 	 {},
+  volume = 	 {34},
+  number = 	 {13},
+  pages = 	 {2023 - 2030},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+%------------------------      Y             ----------------------------
+@article{Yankov:1997,
+  author =	 {V. V. Yankov},
+  title =	 {Attractors and frozen-in invariants in turbulent
+                  plasma},
+  journal =	 {Physics-Uspekhi},
+  year =	 1997,
+  volume =	 40,
+  pages =	 {477-493},
+}
+@Article{Yankov:Nycander:1997,
+  author = 	 {V. V. Yankov and J. Nycander },
+  title = 	 {Description of turbulent transport in tokamaks by invariants},
+  journal = 	 {Phys. Plasmas},
+  year = 	 {1997},
+  OPTkey = 	 {},
+  volume = 	 {4},
+  number = 	 {8},
+  pages = 	 {2907},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@article{Yoshizawa:2001,
+  author =	 {Akira Yoshizawa1 and Sanae-I Itoh and Kimitaka Itoh and Nobumitsu Yokoi},
+  title =	 {Turbulence theories and modelling of fluids and plasmas},
+  journal =	 {Plasma Phys. Control. Fusion},
+  year =	 2001,
+  volume =	 43,
+  pages =	 {R1-R144},
+}
+
+
+@Article{Yu:Krasheninnikov:2003,
+  author = 	 {G. Q. Yu and S. I. Krasheninnikov},
+  title = 	 {Dynamics of blobs in scrape-off-layer/shadow regions of tokamaks and linear devices},
+  journal = 	 {Phys. Plasmas },
+  year = 	 {2003},
+  OPTkey = 	 {},
+  volume = 	 {10},
+  OPTnumber = 	 {},
+  pages = 	 {4413-4418},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Linear and nonlinear stability of blob propagation in the tokamak scrape off layer (SOL) and in the SOL/shadows of linear devices are studied. It is found that the most stable blobs, which can propagate as coherent structures for large distance, are the blobs with some specific spatial scale. Larger blobs are subject to the Rayleigh\x{2013}Taylor (RT) instability, which breaks the blob apart and effectively reduces the scale of new structures. Smaller blobs evolve into mushroom structures typical for nonlinear stages of the RT and Richtmyer\x{2013}Meshkov instabilities in fluids. Biasing of divertor targets can affect the dynamics of blob propagation. For a large magnitude of biasing potential, a strong deformation and even disintegration of the blob as a coherent structure were observed while the blob passes through the biased region}
+}
+
+%------------------------      Z             ----------------------------
+@article{Zakharov:Kuznetsov:1984,
+  author =	 {V. E. Zakharov and E. A. Kuznetsov},
+  title =	 {Hamiltonian Formalism for Systems of Hydrodynamic
+                  Type},
+  journal =	 {Sov. Sc. Rev. Sec. C},
+  year =	 1984,
+  volume =	 4,
+  pages =	 {167-220},
+}
+@article{Zakharov:Piterbarg:1988,
+  author =	 {V. E. Zakharov and L. I. Piterbarg},
+  title =	 {Canonical Variables for Rossby Waves and Plasma
+                  Drift Waves},
+  journal =	 pla,
+  year =	 1988,
+  volume =	 126,
+  pages =	 {497-500},
+}
+@article{Zalesak:1979,
+  author =	 {Steven T. Zalesak},
+  title =	 {Fully Multidimensional Flux-Corrected Transport
+                  Algorithms for Fluids},
+  journal =	 {J. Comp. Phys.},
+  year =	 1979,
+  volume =	 31,
+  pages =	 {335-362},
+}
+@article{Zalesak:1981,
+  author =	 {Steven T. Zalesak},
+  title =	 {Higher Order ZIP Differencing of Convective Terms},
+  journal =	 {J. Comp. Phys.},
+  year =	 1981,
+  volume =	 40,
+  pages =	 {497-508},
+}
+@Article{Zaslavsky:2002,
+  author = 	 {G. M. Zaslavsky},
+  title = 	 {Chaos, fractional kinetics, and anomalous transport},
+  journal = 	 {Phys. Rep.},
+  year = 	 {2002},
+  OPTkey = 	 {},
+  volume = 	 {371},
+  OPTnumber = 	 {},
+  pages = 	 {461 - 580},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@Article{Zastrow:1999,
+  author = 	 {Klaus Dieter Zastrow},
+  title = 	 {Trace tritium transport in JET},
+  journal = 	 {Nucl. Fusion},
+  year = 	 {1999},
+  OPTkey = 	 {},
+  volume = 	 {39},
+  OPTnumber = 	 {},
+  pages = 	 {1891-1896 },
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {Trace amounts of tritium (1-5 percent of the deuterium content) were introduced in short puffs (similar to 40 ms) into the low field midplane edge of steady state deuterium plasmas in JET. The transport properties of the edge and core plasma, and the time evolution of the fraction of tritium in the recycling flux, determine the evolution in space and time of the 14 MeV neutron emission following these puffs. The derived tritium transport coefficients were used to model the deuterium density profile. Good agreement of the profile shape was found near the edge. In the core, the predicted deuterium density is more peaked than the measured profile. An attempt was made to study the scaling of tritium transport with dimensionless plasma parameters. For H mode discharges the transport is best described by gyro-Bohm scaling in the core and Bohm scaling near the edge. These conclusions are based on the assumption that the dependence of particle transport on beta and nu* is weak within the range of variation in these parameters in the data set.}
+}
+
+
+ @Article{Zastrow:etal:2004,
+  author = 	 {K.D. Zastrow and J. M.  Adams and Y. Baranov and P.  Belo and L.  Bertalot and J.H.  Brzozowski  and C.D.  Challis and S.  Conroy and M. {de Baar} and P. {de Vries}
+ and P.  Dumortier and J. Ferreira and L.  Garzotti and T. C. Hender and E. Joffrin and V. Kiptily and J. Mailloux and D. C.  McDdonald and R. Neu and M. {O'Mullane}
+ and M. F. F.  Nave and J.  Ongena and S.  Popovichev and M.  Stamp and J.  Stober and D.  Stork and I.  Voitsekhovitch and M. Valovic and H.  Weisen and A.D.  Whiteford and A.  Zabolotsky A
+and {JET EFDA Contributors}},
+  title = 	 {Tritium transport experiments on the JET tokamak},
+  journal = 	 ppcf,
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {46},
+  OPTnumber = 	 {},
+ pages = 	 {B255-B265},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {An overview is given of the experimental method, the analysis technique and the results for trace tritium experiments conducted on the JET tokamak in 2003. Observations associated with events such as sawtooth collapses, neo-classical tearing modes and edge localized modes are described. Tritium transport is seen to approach neo-classical levels in the plasma core at high density and low q(95), and in the transport barrier region of internal transport barrier (ITB) discharges. Tritium transport remains well above neo-classical levels in all other cases. The correlation of the measured tritium diffusion coefficient and convection velocity for normalized minor radii r/a = [0.65, 0.80] with the controllable parameters q95 and plasma density are found to be consistent for all operational regimes (ELMy H-mode discharges with or without ion cyclotron frequency resonance heating, hybrid scenario and ITB discharges). Scaling with local physics parameters is best described by gyro-Bohm scaling with an additional inverse beta dependence. }
+}
+
+
+
+
+
+
+
+
+
+@article{Zeiler:Biskamp:Drake:Guzdar:1996,
+  author =	 {A. Zeiler and Dieter Biskamp and J. F. Drake and
+                  P. N. Guzdar},
+  title =	 {Three-dimensional fluid simulation of tokamak edge
+                  turbulence },
+  journal =	 {Phys. Plasmas},
+  year =	 1996,
+  volume =	 3,
+  pages =	 {2951--2960},
+}
+@article{Zeiler:Drake:Biskamp:1997,
+  author =	 {A. Zeiler and F. F. Drake and Dieter Biskamp},
+  title =	 {Electron temperature fluctuations ind
+                  drift-resistive balloning turbulence },
+  journal =	 {Phys. Plasmas},
+  year =	 1997,
+  volume =	 4,
+  pages =	 {991--1001},
+}
+
+
+@Article{Zelenyi:Milovanov:2004,
+  author = 	 {L. M Zelenyi and A. V.  Milovanov},
+  title = 	 {Fractal topology and strange kinetics: from percolation theory to problems in cosmic electrodynamics},
+  journal = 	 {Phys. Usp.},
+  year = 	 {2004},
+  OPTkey = 	 {},
+  volume = 	 {47},
+  number = 	 {8},
+  pages = 	 {749-788},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  annote = 	 {The goal of this review is to outline some unconventional ideas behind new paradigms in the modern theory of turbulence. Application of nonstandard, topological methods to describe the structural properties of the turbulent state is considered and the transition to kinetic equations in fractional derivatives for describing the microscopic behavior of a medium is examined. Central to the discussion is the concept of the percolation constant C approximate to 1.327..., a universal parameter describing the topology of nonequilibrium (quasi)stationary states in complex nonlinear dynamical systems allowing self-organized critical behavior. Much attention is given to the formation of power-law energy density spectra in turbulent media. A number of topical problems in modern cosmic electrodynamics, including the self-consistent fractal model of a turbulent current sheet, substorm dynamics, and the formation and dynamical evolution of large-scale magnetic fields in the solar photosphere and interplanetary space, are also discussed. }
+}
+
+
+
+
+@article{Zhang:Spatschek:1992,
+  author =	 {W. Zhang and K. H. Spatschek},
+  title =	 {Strong Turbulence of Drift-Waves in Hamiltonian
+                  Canonical Description},
+  journal =	 {Contrib. Plasma Phys.},
+  year =	 1992,
+  volume =	 32,
+  pages =	 {503--514},
+}
+@article{Zohm:1994,
+  author =	 "H. Zohm and other",
+  title =	 "??",
+  journal =	 "Plasma Phys. Control. Fus.",
+  jear =	 "1994",
+  volume =	 "26",
+  pages =	 "A129-"
+}
+@article{Zweben:1985,
+  author =	 {S. J. Zweben},
+  title =	 {Search for coherent structure within tokamak plasma
+                  turbulence},
+  journal =	 {Phys. Fluids},
+  year =	 1985,
+  volume =	 28,
+  pages =	 {974--982},
+}
+
+%----------------------- Thesises ---------------------------------------
+@MastersThesis{DIPLOM,
+	author={Volker Naulin},
+	title={Selbstorganisation in Niedertemperaturplasmen am Beispiel
+		 driftartiger Moden},
+	school={Heinrich-Heine Universit\"at, D\"usseldorf},
+	year={1992}
+	}
+@MastersThesis{Soeren:Thesis:1998,
+  author =	 {S{\o}ren Bang Korsholm},
+  title =	 {Resistive Drift Wave Turbulence - Analytical and
+                  Numerical Investigations in a Three Dimensional
+                  Geometry},
+  school =	 {Ris{\o} National Laboratory},
+  year =	 {1998}
+ }
+@book{book:Balescu,
+  author =	 {R. Balescu},
+  title =	 {Transport Processes in Plasmas},
+  publisher =	 {North-Holland},
+  address =	 {Amsterdam},
+  year =	 {1988},
+  pages =	 {331}
+}
+@book{book:Boyd:Sanderson,
+	author = {T. J. M. Boyd and J. J. Sanderson},
+	title = {Plasma Dynamics},
+	publisher={Thomas Nelson and Sons Ltd.},
+	address={London},
+	year={1969}
+	}
+@book{book:Briggs,
+  author =	 {William L. Briggs},
+  title =	 {A Multigrid Tutorial},
+  publisher =	 {SIAM},
+  address =	 {Lancaster, Pennsylvania},
+  year =	 {1987},
+  pages =	 {88}
+}
+@book{book:Canuto,
+  author =	 {C. Canuto and M. Y. Hussaini and A. Quarteroni and
+                  T. A. Zang},
+  title =	 {Spectral Methods in Fluid Dynamics},
+  publisher =	 {Springer},
+  address =	 {Berlin und Heidelberg},
+  year =	 {1988},
+  pages =	 {768}
+}
+@book{book:Chen,
+  author =	 {Francis F. Chen},
+  title =	 {Introduction to Plasma Physics and Controlled
+                  Fusion},
+  publisher =	 {Plenum-Press},
+  address =	 {New York, London},
+  year =	 {1984},
+  pages =	 {421}
+}
+@Book{book:frisch,
+  author = {Uriel Frisch},
+  title =	 {Turbulence},
+  publisher =	 {Cambridge University Press},
+  year =	 {1995},
+  address =	 {Cambridge}
+}
+@book{book:Hazeltine:Meiss,
+  author =	 {R.D. Hazeltine and J.D. Meiss},
+  title =	 {Plasma Confinement},
+  publisher =	 {Addison-Wesley Publishing Company},
+  address =	 {Redwood City},
+  year =	 {1992},
+  pages =	 {412}
+}
+@book{book:Krall:Trivelpiece,
+  author =	 {Nicholas A. Krall and Alvin W. Trivelpiece},
+  title =	 {Principles of Plasma Physics},
+  publisher =	 {San Francisco Press, Inc.},
+  address =	 {San Francisco, CA},
+  year =	 {1986},
+  pages =	 {432}
+}
+@book{book:Lesieur,
+  author =	 {M. Lesieur},
+  title =	 {Turbulence in Fluids},
+  publisher =	 {Martinus Nijhoff Publishers},
+  address =	 {Dordrecht},
+  year =	 {1987},
+  pages =	 {286}
+}
+@book{book:McComb,
+  author =	 {W. D. McComb},
+  title =	 {The Physics of Fluid Turbulence},
+  publisher =	 {Clarendon Press},
+  address =	 {Oxford},
+  year =	 {1990},
+  pages =	 {572}
+}
+@Book{book:Stangeby,
+  author = 	 {Peter C. Stangeby},
+  ALTeditor = 	 {},
+  title = 	 {The Plasma Boundary of Magnetic Fusion Devices},
+  publisher = 	 {Institute of Physics Publishing},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {Bristol and Philadelphia},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+@book{book:NR,
+  author =	 {William H. Press and Brian P. Flannery and Saul
+                  A. Teukolsky and William T. Vetterling},
+  title =	 {Numerical Recipes in C},
+  publisher =	 {Cambridge University Press},
+  address =	 {Cambridge},
+  year =	 {1988},
+  pages =	 {735}
+}
+@book{book:Pope,
+	author = {Stephen S. Pope},
+	title = {Turbulent Flows},
+	publisher = {Cambridge University Press},
+	address = {Cambridge},
+	year = {2000}
+	}
+@book{book:spatschek,
+  author =	 {K. H. Spatschek},
+  title =	 {Theoretische Plasmaphysik},
+  publisher =	 {B. G. Teubner},
+  address =	 {Stuttgart},
+  year =	 {1990},
+  pages =	 {234}
+}
+@BOOK{book:Tennekes:Lumley, 
+AUTHOR = {Tennekes, Hendrik and Lumley, John Leask}, 
+EDITOR = {}, 
+TITLE = {A First Course in Turbulence}, 
+ISBN = {0-262-20019-8}, 
+PUBLISHER = {MIT Press}, 
+YEAR = {1972}, 
+VOLUME = {}, 
+SERIES = {}, 
+ADDRESS = {Cambridge, Massachusetts}, 
+EDITION = {}, 
+MONTH = {}
+}
+@article{ct,
+  author =	 {J. R. Dormand and P. J. Prince},
+  title =	 {A reconsideration of some embedded Runge-Kutta
+                  formulae},
+  journal =	 {Journal of Computat. and Appl. Math..},
+  year =	 1986,
+  volume =	 15,
+  pages =	 {203-211},
+}
+
+%-----------------------  BOOKS --------------------------------------
+
+@masterthesis{Latten:Master,
+  author =       "Andrees Latten",
+   title =        "Entwicklung eines 64-Kanal-Transientenrekorders zur Untersuchung turbulenter Driftwellen ",
+   school =       {Christian-Albrechts-Universit\"at, Kiel},
+   year =         "1994"
+}
+@phdthesis{Latten:PHD,
+  author =       "Andrees Latten",
+   title =        "Multisondendiagnostik von Driftwellenturbulenz und anomalen Radialtransport in Laborplasman",
+   school =       {Christian-Albrechts-Universit\"at, Kiel},
+   year =         "1997"
+}
+@book{plasmaformulary,
+  author =	 {J. .D. Huba},
+  title =	 {NRL Plasma Formulary (revised)},
+  publisher =	 "Naval Research Laboratory",
+  address =	 "Washington",
+  year =	 1994,
+  pages =	 "65"
+}
+
+@masterthesis{thesis:Thomas:Sunn,
+	author={Thomas Sunn Pedersen},
+	title={Resistive Drift Wave Turbulence},
+	school={Ris{\o} National Laboratory},
+	year={1995}
+	}
+@Book{Book:Paul:Baschnagel,
+  author = 	 {Jorg Baschnagel and Wolfgang Paul
+},
+  ALTeditor = 	 {},
+  title = 	 { Stochastic Processes },
+  publisher = 	 { Springer},
+  year = 	 {2000},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {New York},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+@Book{book:Tsytovich,
+  author = 	 {V. V. Tsytovich},
+  ALTeditor = 	 {},
+  title = 	 {An Introduction to the Theory of Plasma Turbulence},
+  publisher = 	 {Pergamon Press},
+  year = 	 {1972},
+  OPTkey = 	 {},
+  OPTvolume = 	 {},
+  OPTnumber = 	 {},
+  OPTseries = 	 {},
+  address = 	 {Oxford},
+  OPTedition = 	 {},
+  OPTmonth = 	 {},
+  OPTnote = 	 {},
+  OPTannote = 	 {}
+}
+
+
+@BOOK{1981ntit.book.....H,
+    author = {{Hirshman}, S.~P. and {Sigmar}, D.~J.},
+    title = "{Neoclassical transport of impurities in Tokamak plasmas}",
+publisher = {Unknown},
+year = 1981,
+    month = may,
+   adsurl = {http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=1981ntit.book.....H&db_key=PHY},
+  adsnote = {Provided by the NASA Astrophysics Data System}
+}

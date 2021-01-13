@@ -1,0 +1,32 @@
+Acronyms used in t31 work to go here from file t31acro.txt.
+
+One of my favourite statistical techniques is \gls{ANOVA}.
+The full name and acronym are printed on first usage, but thereafter the same command prints ``\gls{ANOVA}''.
+\glsreset{ANOVA}
+Calling \verb+\glsreset{ANOVA}+ means the full name is printed next time we write \gls{ANOVA}.
+\glsreset{ANOVA}
+\Gls{ANOVA} is capitalized by using \verb+\Gls{ANOVA}+, while the plural is provided by \verb+\glspl{ANOVA}+, giving \glspl{ANOVA} or, after resetting,
+\glsreset{ANOVA}
+\glspl{ANOVA}.
+The (possibly incorrect) ``analyses of variance'' and (definitely incorrect) ``ANOVAE'' plurals are produced by the `longplural' and `shortplural' optional arguments to \verb+\newacronym+.
+Without these, the defaults would be ``analysis of variances'' and ``ANOVAs''.
+
+By default, only acronyms that are referenced are included in the glossary.
+This makes it difficult for the glossary to be a separate document from the reports (and it certainly breaks the page number cross-referencing).
+One work-around for this would be to use the command \verb+\glsaddall+ to include all terms in the glossary file, and then turn off the page numbers by including the argument \verb+[nonumberlist]+ in the \verb+usepackage+ command.
+
+\glsaddall
+
+
+
+\printglossaries
+
+\input{t31acro}
+\input{t31glossary}
+
+\Gls{pi}
+\Gls{fpsLabel}
+
+\input{tabbkacro}
+
+\Gls{computer}

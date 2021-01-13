@@ -1,0 +1,223 @@
+%&pdfLaTeX
+% !TEX encoding = UTF-8 Unicode
+\documentclass{article}
+\usepackage{ifxetex}
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{STIXGeneral}
+\else
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\fi
+\usepackage{textcomp}
+
+\usepackage{array}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{color}
+
+\pagestyle{fancy}
+\rhead{}
+\rfoot{}
+\chead{}
+\cfoot{}
+\lhead{             
+ \textbf{OFFICIAL -- SENSITIVE}}
+\lfoot{\thepage{}}
+\definecolor{color02}{rgb}{0.00,0.00,1.00}
+\definecolor{color18}{rgb}{0.14,0.23,0.36}
+\definecolor{color20}{rgb}{0.14,0.16,0.18}
+
+\begin{document}
+
+\textbf{Call Title:} FM-WP4 Code structure and coordination Activity 3.2 - Investigation 
+of DSL and code generator technologies
+
+\textbf{Value:} 6-12? PM (100\% FEC)
+
+\textbf{Grant Funds for the period: }01/09/2020 -- 31/03/2021 (30/09/2021)
+
+\textbf{Aligns to work package [FM-WP4 }Code structure and coordination\textbf{]}
+
+The most important aim of this work package will be to drive user engagement and 
+ensure that the software is fit for its defined purpose, first by requirements 
+capture, then by defining suitably flexible code structures and related e-Infrastructure 
+for users, ultimately supporting uptake of the new code(s). In order to achieve 
+this aim, this work package will coordinate across the other tasks FM-WP1-3, to 
+ensure that outcomes are compatible and of high quality. There will be management 
+and coordination tasks that will grow as the project matures, connecting with the 
+EUROfusion E-TASC (TSVV) programme, the EPSRC T.P. Turbulence Programme [20] and 
+the US ECP programme etc. 
+
+Coordination tasks will include (but are not restricted to): 
+
+\begin{itemize}
+\item Allocation of resource between tasks and setting project priorities. 
+
+\item Ensuring a consistent choice of definitions (ontology) of objects or equivalently 
+classes. 
+
+\item Definition of common interfaces to components for data input and output. 
+
+\item Design of suitably flexible data structures for common use by all developers. 
+{\color{color18} \textbf{ }}
+
+\item Establishment, promotion and support of good scientific software engineering 
+practice. 
+
+\item Evaluation and deployment of performance portability tools and DSLs targeting 
+Exascale-relevant architectures. 
+
+\item Integration of the developed software into a VVUQ framework (exploiting common 
+approaches developed under XC-WP1 and XC-WP2). 
+
+\item Coordination of a benchmarking framework for correctness testing and performance 
+evaluation of the developed software stack. 
+\end{itemize}
+
+Along with FM-WP1, this work package will be prioritised for an early start, as 
+good scientific software engineering practice needs to be agreed quickly, and well 
+documented interfaces to components need to be available early to ensure that best 
+practice design is embedded from the start.
+
+\textbf{Objectives:}
+
+The overarching objective of this call is to help \nep \  to codesign its software 
+base for exascale hardware and software. It is widely accepted that the pre-exascale 
+and exascale generation of HPC systems will use compute nodes with heterogenous 
+designs whose hardware architectures and programming models could vary significantly 
+amongst vendors. Therefore, achieving performance portability by separation of 
+concerns is the best option for the user applications.
+
+There are several approaches to this aim:  
+
+\begin{itemize}
+\item domain specific language (DSL) which offers an abstraction level suitable for 
+the domain specialist to express specialised algorithms, and which generates automatically 
+the code for the target hardware. As examples we mention: PSypclone, GridTools, 
+PyOP2, etc 
+\item Low level programing models focused on performance portability at the numerical 
+kernel level such ad Kokkos, RAJA, OneAPI, HIP, etc 
+\item At an intermediate level there are frameworks (such as PETSc, Trilinos) or libraries 
+which use generic mathematical abstraction and algorithms, and which cover multiple 
+hardware architectures internally.
+\end{itemize}
+
+The following specific objectives are put forward to support \nep \ : 
+
+\begin{itemize}
+\item An in-depth and continuously updated analysis of the available and upcoming 
+hardware and the associated software solutions. 
+
+\item Performance evaluations and tests for the algorithms of interest. For \nep \  
+two main branches need to be explored: higher order finite elements for fluids 
+and particle methods. Other algorithms could be found to be of interest as other 
+parallel activities of \nep \  are progressing. 
+
+\item Design elements: we need to explore the relationships between the data layouts, 
+communication patters needed by a given code component and the abstraction offered 
+by the DSL or similar technologies described above.
+\end{itemize}
+
+\textbf{Anticipated outputs or results:}
+
+\begin{itemize}
+\item
+Deliver a report on performance and portability of various approaches and their 
+suitability for \nep \  algorithms.
+
+\item
+Deliver a report on designs for data layouts and internode communication suitable 
+for the abstraction used by various DSL and code generators.
+
+\item
+Proof of concept codes in the initial stage and contribution to the proxi-apps 
+develop by parallel calls in the later stage.
+\end{itemize}
+
+For Background:
+Successful completion of this activity will require close communication with the 
+UKAEA. As well as monthly highlight reports, we envisage that this will include 
+three meetings for the monitoring of the project [a kick off meeting (in person 
+or video-conference); a mid-term review meeting (in person); and a final meeting 
+(in person)] and at least monthly conference calls with UKAEA employees. 
+
+%\vspace{12pt}
+%\textbf{Evaluation Weighting: }
+%
+%\vspace{12pt}
+%\begin{tabular}{|>{\raggedright}p{35pt}|>{\raggedright}p{158pt}|>{\raggedright}p{29pt}|>{\raggedright}p{73pt}|}
+%\hline
+% ~ & C\textbf{riteria (5 points available per question)} ~ & \% ~ & M\textbf{arked 
+%against document} ~\tabularnewline
+%\hline
+% ~ & Q\textbf{uality of Research Plan} ~ & 8\textbf{0\%} ~ & R\textbf{esearch 
+%Plan} ~\tabularnewline
+%\hline
+% \textbf{80\% QUALITY} ~ &  a. Plan and Approach  ~\linebreak{}
+% ~ & 4\textbf{5\%} ~\linebreak{}
+% ~ & sections~4, 6 and 7~\tabularnewline
+%\hline
+% &  b. Benefits and alignment to Work Package objectives  ~ & 2\textbf{0\%} ~ & section~2~\tabularnewline
+%\hline
+% &  c. Relevant experience  ~ & 1\textbf{0\%} ~ & section~7.1 ~\tabularnewline
+%\hline
+% &  d. Dependencies and Risks  ~\linebreak{}
+% ~ & 5\textbf{\%} ~\linebreak{}
+% ~ & sections~3, 5,~8~and 9 ~\linebreak{}
+% ~\tabularnewline
+%\hline
+% ~ & V\textbf{alue for money } ~ & 2\textbf{0\%} ~ & R\textbf{esearch Plan} ~\tabularnewline
+%\hline
+%2\textbf{0\% VFM} ~ & Value for money is exceptionally important to all grant 
+%funding. In this section, the bid needs to demonstrate efficiencies and value-added 
+%activities considering time, quality and cost.  ~ & 2\textbf{0\%} ~ & section 
+%10\tabularnewline
+%\hline
+%\end{tabular}
+
+\textbf{GLOSSARY: }
+
+\begin{tabular}{|>{\raggedright}p{74pt}|>{\raggedright}p{240pt}|}
+\hline
+T\textbf{erm or Acronym} & D\textbf{efinition}\tabularnewline
+\hline
+\nep \  & Code name for the ``Fusion Modelling System'' use case commissioned by 
+Met Office to UKAEA under \exc \   programme.\\
+\hline
+PSyclone & PSyclone is a code generation system that generates appropriate code 
+for the PSyKAl code structure developed in the GungHo project.\linebreak{}
+{\color{color02} \emph{https://github.com/stfc/PSyclone}}\\
+\hline
+GridTools & The GridTools framework is a set of libraries and utilities to develop 
+performance portable applications in the area of weather and climate.\linebreak{}
+{\color{color02} \emph{https://github.com/GridTools/gridtools}}\\
+\hline
+PyOP2 & Framework for performance-portable parallel computations on unstructured 
+meshes http://op2.github.com/PyOP2\\
+\hline
+Kokkos & Kokkos C++ Performance Portability Programming EcoSystem\linebreak{}
+{\color{color02} \emph{https://github.com/kokkos/kokkos}}\\
+\hline
+RAJA & R{\color{color20} AJA Performance Portability Layer (C++)}\linebreak{}
+{\color{color02} \emph{https://github.com/LLNL/RAJA}}\\
+\hline
+OneAPI & A Unified, Standards-Based Programming Model, {\color{color02} \emph{https://software.intel.com/en-us/oneapi}}\\
+\hline
+HIP & C++ Heterogeneous-Compute Interface for Portability {\color{color02} \emph{https://gpuopen.com/compute-product/hip-convert-cuda-to-portable-c-code/}}\\
+\hline
+PETSc & Portable, Extensible Toolkit for Scientific Computation Toolkit for Advanced 
+Computation {\color{color02} \emph{https://www.mcs.anl.gov/petsc/}}\\
+\hline
+Trillinos & Object-oriented software framework for the solution of large-scale, 
+complex multi-physics engineering and scientific problems\linebreak{}
+{\color{color02} \emph{https://trilinos.github.io/}}\\
+\hline
+\end{tabular}
+
+\newpage
+
+\end{document}

@@ -1,0 +1,22 @@
+The \nep\ objectives that a ROM could help meet are
+\begin{enumerate}
+\item To assist in UQ by enabling faster solution of a problem at a wider range of
+parameters than a full model would allow.
+(Note that there is a separate call for UQ.)
+\item To assist in validation by helping users interpret simulation results.
+\item To reduce the rate at which data needs to be transferred (data compression)
+either between processors or to disc.
+\item To convert between models of different complexity, eg.\ as
+given by number of spatial dimensions.
+\item (Of course, the ROM might also be independently be useful say in real-time
+control outside the main simulations.) 
+\end{enumerate}
+The problems that would benefit from ROM are mostly nonlinear and exhibit turbulence.
+
+Achieving any of the above objectives would be useful, but especially
+if the ROM is used in pursuit of numbers~1~or~3,
+its errors must be preferably quantifiable or least be
+bounded in some useful way, to ensure actionable simulation.
+At the Exascale, the method employed to produce the ROM should itself seek
+to minimise data transfer.
+

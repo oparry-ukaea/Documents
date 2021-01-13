@@ -1,0 +1,66 @@
+This report has two aims as prefigured in the report~\cite{y1re311}. The central \Sec{taskwork} mainly focusses on
+design patterns to be used in \nep, but also pursues the prototyping process.
+It begins in \Sec{genpat} by outlining in some detail the design patterns that historically have proven useful in large software engineering projects,
+starting with general software design before specialising in \Sec{scipat} to scientific programming and multiscale physics simulation.  
+In \Sec{proto}, consideration is given to the past and current contexts of software development processes: it is worth noting that,
+today, the HPC landscape is in something of a state of flux with the rise of heterogeneous architectures and the
+corresponding coding tools. There is a final summary \Sec{summ}.
+
+The original design pattern concept is credited by Sommerville (\cite{sommerville}, p.209) to architect and design theorist
+Christopher Alexander, who in his 1977~book {\it A Pattern Language: Towns, Buildings, Construction}~\cite{christopheralexander}
+presented a compendium of {\it `certain common patterns of building design that are inherently pleasing and effective'}.
+His text outlines some~253 such patterns, described collectively as a `design lexicon' or even an entirely new tongue:
+to quote Alexander himself {\it `All 253 patterns together form a language.'}.
+
+A similar approach was applied to object-oriented software architecture in the `90s, resulting in the publication
+of {\it Design Patterns: Elements of Reuseable Object-Oriented Software} \cite{gammahelmjohnsonvlissides}, the
+authors of which have become known as the Gang of Four~(Go4, also abbreviated GoF).
+This book proposed 23 design patterns that are classified according to a trinity of themes: creational patterns,
+concerning object generation; structural patterns, to do with classes and composition, and behavioural patterns,
+dealing with interactions between objects.
+These will be discussed with a view of how germane each is to project \nep \ (it is also relevant that,
+during the time since the publication of \cite{gammahelmjohnsonvlissides}, some of the original patterns
+have been elevated to the status of permanent language features in some object-oriented languages).
+Note that there is now a fourth class of design patterns (as exhibited in the Wikipedia article
+\cite{softwarepatternwiki}) concerning concurrency patterns.
+%The Wikipedia article on patterns includes 
+%Resource acquisition is initialization (RAII), which is perhaps generally regarded more as a
+%concept, an important technique for avoiding memory leaks, whereby resource is acquired in the
+%constructor of an object and released in its destructor~\cite[\S\,4.2.2]{stroustroptour}.
+
+Aside from these general concerns, there also exist patterns which apply specifically to {\it scientific} software.  
+As detailed in \Sec{rouson}, the textbook by Rouson, Xia and Xu~\cite{rousonxiaxu} develops most of
+a framework explicitly targeted to multiphysics workflows
+for Exascale HPC, starting from a foundation of object-oriented principles.  
+Their text presents a viewpoint on the most useful Go4 design patterns in the context of scientific programming
+and also offers some novel patterns tailored specifically to this field.  
+
+Consideration is given in \Sec{compat} to the ComPat project \cite{compatwebsite}, which, being a framework and software
+suite to study multiscale fusion plasmas on HPC systems, constitutes a further specialisation in the direction
+of project \nep.  
+Design patterns here are used to provide separation of concerns, with the full physics being represented by
+an interchangeable set of submodels in a coupling framework.  
+Attention is given to the preservation of good scaling to Exascale HPC in such a framework.
+%vecmatk
+%A description is given of a library for coupling the components of a multiscale application ...
+\Sec{vecmatk} gives more details of the Verified Exascale Computing for Multiscale Applications~(VECMA) project~\cite{vecmawebsite}
+which essentially represents a continuation of ComPat, using updated versions of the same components
+eg.\ the multiscale coupling framework MUSCLE.  The associated VECMA toolkit~\cite{vecmatkwebsite}
+provides a platform for VVUQ.  Although not a pattern in the strict sense, this suite is of interest
+as it employs several more fundamental patterns (for example the Go4 {\it Adapter}) in a framework
+which includes the management of a set of interrelated jobs on either a cluster or an HPC machine,
+and the provision of graphical and Python interfaces.
+
+%The Wikipedia article on patterns includes 
+%Resource acquisition is initialization (RAII), which is perhaps generally regarded more as a
+%concept, an important technique for avoiding memory leaks, whereby resource is acquired in the
+%constructor of an object and released in its destructor~\cite[\S\,4.2.2]{stroustroptour}.
+
+In software engineering, prototyping is normally described as
+a quick way to produce something that potential customers can explore, primarily with a view to
+improving the user-interface. Only Booch~\cite[\S\,8.1]{booch} admits that it may help the developer
+understand the technical aspects of the problem better, and this work predates design patterns.
+As indicated in the previous report~\cite{y1re331}, little formal description has been found of the role
+of prototyping in scientific computing. However the highlighted `idea' paper of  Dubey and McInnes~\cite{Du16Idea}
+does include both these applications and is further discussed in \Sec{dubey}.
+

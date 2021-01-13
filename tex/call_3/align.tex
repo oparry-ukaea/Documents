@@ -1,0 +1,66 @@
+\begin{itemize}
+\item This task focuses upon the suitability of available numerical 
+algorithms (or the development of new algorithms)
+for Exascale targeted UQ. As stated in the Fusion Modelling System
+Science Plan
+\begin{itemize}
+\item Quality control, verification, validation and uncertainty quantification
+(VVUQ, eg.\ via intrusive or ensemble-based methods) will be embedded across all
+areas of the project to ensure numerical predictions are ``actionable''. 
+\item Identifying, quantifying and mitigating uncertainty and the
+computational overhead of adequately modelling each will be a core theme within the project.
+\item The overall aim, 
+\ldots of the project \ldots is to build a hierarchy of models that are capable of
+representing edge plasma behaviour to within a specific level of uncertainty.
+\end{itemize}
+
+\item The ideal numerical algorithms for forming the Exascale edge plasma codes of 
+the future will have preferably at least the following properties:
+\begin{itemize}
+\item[{\bf P1}] Accurate solution of hyperbolic problems.
+%\item[{\bf P2}] Ability to deliver efficient and accurate solutions of corresponding 
+%elliptic problems.
+\item[{\bf P3}] Accurate modelling of highly anisotropic dynamics. 
+%\item[{\bf P4}] Accurate representation of first wall geometry (face normals to
+%within~$0.1^{0}$), and correspondingly of complex magnetic field geometries.
+\item[{\bf P5}] Accurate representation of velocity (phase) space.
+%\item[{\bf P6}] Preservation of conservation properties of the underlying equations.
+\item[{\bf P7}] Scalability to likely Exascale architectures:
+\begin{itemize}
+\item[a] interaction between models of different dimensionality,
+\item[b] interaction between particle and fluid models,
+\item[c] dynamic construction of surrogates.
+\end{itemize}
+\item[{\bf P8}] Performance portability to allow rapid deployment upon emerging hardware.
+\end{itemize}
+
+\item It is unlikely that any algorithm will be optimal in all categories,
+and part of the exercise
+will be to rank the importance of these properties.
+\end{itemize}
+
+\begin{enumerate}
+\item Intrusive Uncertainty Quantification~(UQ) implies
+typically PC or gPC, whereby probability distributions
+of fields are expanded in terms of Hermite polynomials
+or other orthogonal polynomials respectively.
+\item Semi-intrusive Uncertainty Quantification~(UQ) implies either
+\begin{itemize}
+\item Probability distributions expanded in terms of
+other basis functions than PC or gPC.
+\item In a multi-scale or multi-level calculation, different
+sampling rates or techniques at different levels, typically
+fewer calculations at microscale.
+\end{itemize}
+\item Non-intrusive UQ typically implies the construction of ensembles
+of realisations of the model.
+\end{enumerate}
+
+Suggested sources
+\begin{enumerate}
+\item R.C. Smith, SIAM 2013, ``Uncertainty quantification: theory, implementation, and applications"
+\item Report of INI 2018 Programme on Uncertainty Quantification \\
+\url{https://www.newton.ac.uk/files/reports/scientific/unq.pdf}
+%\item C.G. Albert for indicative fusion case, UQ of plasma profiles
+\end{enumerate}
+

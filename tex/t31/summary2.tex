@@ -1,0 +1,139 @@
+\subsection{Attractive Features}\label{sec:attract}
+Features highlighted as making software attractive are the presence of a 
+large user-base combined with a strong, well-led development team willing to 
+integrate new code and capable of giving good and rapid support (FLASH, BOUT++, JOREK).
+First use of code must be easy possibly through containerisation eg.\ by docker images
+(Nektar++), but regardless download and installation should be quick and straightforward
+including a test suite which runs rapidly (FLASH, BOUT++).
+It should be possible to make significant changes to the physical model by use of a
+Domain-Specific Language or DSL (BOUT++).
+Access to free training and to meetings involving other users and developers is also seen as
+important (FLASH, BOUT++, JOREK).  There is an element of chicken-and-egg about this,
+and indeed all these apart from DSL
+are not specifically software features.  Fundamentally, opensource software has
+to reward volunteers for doing what commercial vendors charge for, namely maintenance
+and support, as indicated by the authors of the finite element library with the
+distinctive name of deal.II in
+their paper~\cite{Ba13What} which has findings supporting those of the present report.
+
+At code level, attractiveness would seem to translate into a need
+for the software to be well-designed so in particular to enable easy addition of
+new features or incorporation into other codes, and well-documented to make it
+easy to learn how to use.
+The history of FLASH is significant for showing the expense, in terms of repeated refactorings
+each costing up to ten person years of effort,
+needed to develop a large package from disparate legacy codes.
+Even so, it seems that codes may have to be specially rebuilt for different applications,
+and the authors themselves question the cost-effectiveness of a port to Petascale.
+Equally however it is possible to spend too much time obsessing over an
+elaborate design
+which then fails when confronted with a practical application. 
+Project \nep\  has adopted a middle approach of a sequence of coordinated
+core \papp\ developments~\cite{sciplan}, to avoid this pitfall,
+consistent with recent thinking on software development that the most
+effective strategy is some kind of planned `agile' approach~\cite{hewitt,sommerville}.
+
+There is then the big question as to what constitutes well-designed software. 
+If Exascale is not the over-arching requirement, then the use of standard formats
+and accompanying libraries for input (eg.\ XML, json)
+and output (eg.\ netCDF, HDF5) seems a relatively obvious choice. Further
+subdivision of the main calculation code into libraries (Nektar++,\F{SMARDDA})
+would also seem desirable,
+but the options multiply as this may be achieved, for example by subdivision or
+layering or a combination of both. As already discussed, a bad first choice may
+mean a later, very expensive refactoring exercise, even when the code has
+a more integrated design (\F{SMARDDA}).  Typically, but not necessarily at
+a lower level (\F{SMARDDA}), there is the need to define different classes or objects,
+which might also be arranged in hierarchies (layers) and/or grouped (subdivided) in
+many different ways.
+
+Regarding software design, the book by Hewitt~\cite{hewitt} is a very recent work
+that incorporates this latest thinking, and although some may find that it strays too
+far into philosophy, it becomes very practical particularly in later chapters.
+Its main drawback is that it covers all types of software.
+The earlier material in ref~\cite{hewitt} can be very thought-provoking, and
+in any case it ultimately leads to a requirement to discover who will use
+the software and what they would want it do, just as demanded by mainstream project
+management texts, and already initiated for \nep~\cite{y1re111a,y1re111b}.
+
+A feature not in fact possessed by any of the scientific software studied
+in detail is a graphical
+user interface or GUI (although ITER have funded a GUI for \F{SMARDDA}). This is possibly
+because of a need for precision in setting inputs, so that for example sliders
+and dials are not needed, and also that the setting up of parameter scans can become
+very tedious if the GUI designer did not anticipate this usage. (This
+lack is widespread, and the ability to set up scans in a machine-independent
+way appears to be an attractive feature of VECMAtk provided by the QCG software~\cite{qcgwebsite}
+which comes bundled with VECMAtk.) The modular
+approach recommended for Fortran~95 design in~\cite{fprog} which allows for
+separate I/O for each module could be generalised so that instructions for GUI
+generation were embedded. These would probably mostly take the form of tickboxes
+for logical variables, and constraints/hints on numerical inputs expected,
+given selection from relatively small menus of choices for each object.
+
+
+
+
+\subsection{Flexibility}\label{sec:flex}
+As described by Theurich et al~\cite{Th16eart} in relation to Earth system
+modelling, the concept of a framework has always been looser than the narrow definition
+given in \Sec{intro}. Thus the ESMF Earth System Modeling Framework is described 
+as principally consisting of a collection of libraries that cover mathematics and
+computer science as well as physical aspects.
+Although the survey by Groen et al~\cite{Gr19Mast} focuses on multiscale, different
+physical models often apply on the different scales, hence the paper provides
+a useful update on some of the packages discussed by Babur et al., and indeed on thinking
+on multiphysics in general. Again the message is that for physical applications a
+broader definition of framework is necessary.
+On the other hand, the strict definition is good for producing actionable software
+by removing opportunities for developers to make potentially hazardous changes, eg.\ to
+the order of execution.
+
+A strong hint as to how achieve flexibility is provided by Hewitt~\cite[\S\,7]{hewitt}
+quoting Bezos' memo to the effect that
+``Make sure everything you write is a service (API)".
+This introduces the idea of designing software as a large number of largely
+independent smaller units which couple together to achieve the final goal,
+when it becomes important to understand how these smaller units interact.
+Such interaction can be rigorously modelled and hence controlled using a
+graph-based approach (Arcos).
+Indeed graph theory is seen as critical to many aspects of the Exascale,
+as indicated by the ECP's setting up of
+co-design Center for Graph and Combinatorial Methods for Enabling Exascale Applications (ExaGraph).
+OMFIT highlights the importance of a particular graph data structure, namely the
+tree.
+%SoC protocol = message delivery mechanism vs. service doing the work
+
+\subsection{Exascale}\label{sec:exa}
+In respect of frameworks, the above has identified not so much the pattern
+to use at the Exascale, as the key approach to be taken to achieving a flexible
+but robust design, namely through a graph-based approach like that suggested by Arcos.
+The aim should be division of the software into relatively small, simple modules
+that carry minimal information internally. These modules will
+be arranged hierarchically to form objects and/or grouped to form libraries.
+Following work on M3.1.3 will seek to flesh out the details and
+work planned on code generators under \nep\ D3.2 will
+explore the tools available to help achieve good designs.
+
+Inevitably the library aspect of Exascale remains a challenge. It is significant
+that the authors of FLASH, with experience of multiple historical refactorings,
+question the desirability of a port of the software to Exascale.
+Regarding the other current frameworks of more recent inception, there is
+no indication of any such questioning from their authors, though 
+most if not all seem to have needed updating and refactoring to achieve good performance
+on present machines operating up to and at the Petascale.
+
+A key challenge of the Exascale is the heterogeneity, namely that different
+nodes of the computer may have different processors or mixtures of
+processors and GPGPUs. 
+The relative failure of the Fortran co-array feature~\cite{numrich} indicates the magnitude
+of the challenge. Co-arrays reserve a privileged array index (appearing 
+separately in square brackets rather than parenthesis) to denote that data is stored 
+on different nodes. This helps developers to ``think parallel", but is 
+too simple when it comes to handling a mixed node. It seems progress will
+come, at least in the short term, not through enhancements to the major
+scientific
+programming languages of C++ and Fortran, but through special layers
+of software to separate user from the machine architecture, to be
+considered in further detail under \nep\ D3.2.
+

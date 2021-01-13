@@ -1,0 +1,936 @@
+%&pdfLaTeX
+% !TEX encoding = UTF-8 Unicode
+\documentclass{article}
+\usepackage{ifxetex}
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Mapping=tex-text]{STIXGeneral}
+\else
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\fi
+\usepackage{textcomp}
+
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{color}
+
+\pagestyle{fancy}
+\rhead{}
+\rfoot{}
+\chead{}
+\cfoot{}
+\fancyhead[LO]{
+ {\color{color30} \textbf{Commercial in Confidence}}}
+\fancyfoot[LE]{\thepage{}}
+\fancyfoot[LO]{\thepage{}}
+\definecolor{color01}{rgb}{0.00,0.00,0.00}
+\definecolor{color11}{rgb}{0.00,0.50,0.00}
+\definecolor{color19}{rgb}{0.00,0.19,0.33}
+\definecolor{color20}{rgb}{0.21,0.37,0.57}
+\definecolor{color23}{rgb}{0.12,0.29,0.49}
+\definecolor{color25}{rgb}{0.14,0.23,0.36}
+
+\begin{document}
+
+\vspace{72pt}
+%%\begin{figure}[htbp]
+\includegraphics[width=916pt, height=520pt, keepaspectratio=true]{sciplan-fig001.jpg}
+%%\caption{This should be the caption for \texttt{sciplan-fig001.jpg}.}
+%%\end{figure}
+
+%%\begin{figure}[htbp]
+\includegraphics[width=31pt, height=29pt, keepaspectratio=true]{sciplan-fig002.png}
+%%\caption{This should be the caption for \texttt{sciplan-fig002.png}.}
+%%\end{figure}
+
+\vspace{60pt}
+{\huge{}{\color{color30} \textbf{ExCALIBUR }}}
+
+\vspace{12pt}
+{\huge{}{\color{color30} \textbf{Fusion Modelling System Science Plan}}}
+
+\vspace{28pt}
+\baselineskip=12pt
+{\color{color19} \textbf{Abstract}}
+
+\vspace{3pt}
+{\color{color29} This document outlines the Science Plan for research to be commissioned 
+by the Met Office for the ``Fusion Modelling System'' use case of the SPF ``Exascale 
+Computing Algorithms and Infrastructures Benefiting UK Research'' programme (ExCALIBUR). 
+}
+
+\vspace{3pt}
+{\color{color29} Amendments to this document will be tracked in the change log 
+on p.1 and each change will require review and approval by the UKAEA internal ExCALIBUR 
++ }
+
+\vspace{3pt}
+{\color{color29} E-TASC Project Board Director as well as other associated interfaces 
+as deemed appropriate by the Board.}
+
+\vspace{37pt}
+\begin{flushright}
+\baselineskip=12pt
+{\color{color30} \textbf{Commercial in Confidence \pagebreak{}}}
+\end{flushright}
+
+\vspace{36pt}
+\begin{center}
+\baselineskip=12pt
+{\color{color19} \textbf{UKAEA REFERENCE AND APPROVAL SHEET}}
+
+\vspace{0pt}
+\begin{tabular}{|>{\raggedright}p{60pt}|>{\raggedright}p{42pt}|>{\raggedright}p{35pt}|>{\raggedright}p{46pt}|>{\raggedright}p{12pt}|>{\raggedright}p{75pt}|}
+\hline
+\multicolumn{2}{|p{102pt}|}{} & \multicolumn{2}{p{82pt}|}{Client Reference:} & \multicolumn{2}{p{87pt}|}{}\tabularnewline
+\hline
+\multicolumn{2}{|p{102pt}|}{} & \multicolumn{2}{p{82pt}|}{UKAEA Reference:} & \multicolumn{2}{p{87pt}|}{CD/EXCALIBUR-FMS/0001}\tabularnewline
+\hline
+\multicolumn{2}{|p{102pt}|}{} & \multicolumn{2}{p{82pt}|}{Issue:} & \multicolumn{2}{p{87pt}|}{1.10}\tabularnewline
+\hline
+\multicolumn{2}{|p{102pt}|}{} & \multicolumn{2}{p{82pt}|}{Date:} & \multicolumn{2}{p{87pt}|}{29 
+November 2019}\tabularnewline
+\hline
+\multicolumn{6}{|p{272pt}|}{Project Name: ExCALIBUR Fusion Modelling System.\linebreak{}
+Version 1.10 - modifications in response to reviewer recommendations.}\tabularnewline
+\hline
+ & \multicolumn{2}{p{77pt}|}{Name and Department} & \multicolumn{2}{p{58pt}|}{Signature} & Date\tabularnewline
+\hline
+Prepared By: & \multicolumn{2}{p{77pt}|}{Wayne Arter\linebreak{}
+Lucian Anton\linebreak{}
+Debasmita Samaddar\linebreak{}
+Rob Akers \linebreak{}
+MSSC} & \multicolumn{2}{p{58pt}|}{N/A\linebreak{}
+N/A\linebreak{}
+N/A\linebreak{}
+N/A} & 21/10/19\linebreak{}
+21/10/19\linebreak{}
+21/10/19\linebreak{}
+22/10/19\tabularnewline
+\hline
+Reviewed By: & \multicolumn{2}{p{77pt}|}{Ash Vadgama (AWE)} & \multicolumn{2}{p{58pt}|}{N/A} & 14/11/19\tabularnewline
+\hline
+Modifiedd By: & \multicolumn{2}{p{77pt}|}{Rob Akers\linebreak{}
+MSSC}
+\includegraphics[width=59pt, height=35pt, keepaspectratio=true]{sciplan-fig003.jpg}
+ & \multicolumn{2}{p{58pt}|}{} & 27/11/19\tabularnewline
+\hline
+Approved By: & \multicolumn{2}{p{77pt}|}{Martin O'Brien* \linebreak{}
+MSSC}
+\includegraphics[width=288pt, height=162pt, keepaspectratio=true]{sciplan-fig004.png}
+ & \multicolumn{2}{p{58pt}|}{} & 1/12/19\tabularnewline
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{75pt}
+\baselineskip=12pt
+\leftskip=0pt
+* Chairman of UKAEA internal ExCALIBUR Project Board.
+
+\vspace{147pt}
+\baselineskip=13pt
+\parindent=-14pt
+{\Huge{}{\color{color25} \textbf{ExCALIBUR}}}
+
+\vspace{3pt}
+\leftskip=-14pt
+\parindent=0pt
+{\Huge{}{\color{color25} \textbf{Fusion Modelling System Science Plan \label{}}}}
+
+\vspace{12pt}
+\section*{{\huge{}{\color{color25} \textbf{\_bzecsw7iflmwPurpose}}}}
+
+\vspace{24pt}
+{\color{color01} This document outlines the Science Plan for research to be commissioned 
+by the Met Office for the ``Fusion Modelling System'' use case of the SPF ``}{\color{color25} \textbf{Ex}}{\color{color01} ascale 
+}{\color{color25} \textbf{C}}{\color{color01} omputing }{\color{color25} \textbf{Al}}{\color{color01} gorithms 
+and }{\color{color25} \textbf{I}}{\color{color01} nfrastructures }{\color{color25} \textbf{B}}{\color{color01} enefiting 
+}{\color{color25} \textbf{U}}{\color{color01} K }{\color{color25} \textbf{R}}{\color{color01} esearch'' 
+programme (ExCALIBUR). It complements ExCALIBUR Met Office Science Plan and Activities 
+document [1], setting out a vision for the project's contribution to the overarching 
+ExCALIBUR plan. This document is aimed at stakeholders including the SPF ExCALIBUR 
+Programme Board and Steering Committee, has been informed by consultation with 
+the Met Office, with domain experts from across the UKRI community and from within 
+UKAEA. This Science Plan is intended to complement other ExCALIBUR work funded 
+through the UKRI Research Councils and the Met Office ``Weather \& Climate Prediction'' 
+use case.}
+
+\vspace{25pt}
+{\color{color01} \textit{The ExCALIBUR programmatic aims described in [1] are common 
+with those of the Fusion Modelling System use case and so are not repeated here.}}
+
+\vspace{39pt}
+{\huge{}{\color{color25} \textbf{Fusion Modelling Use Case activities}}}
+
+\vspace{12pt}
+\section*{{\color{color29} The aim of the ``Fusion Modelling'' use case of ExCALIBUR 
+is, via the exploitation of the ExCALIBUR principles outlined in [1], to develop 
+new algorithms, software and related e-Infrastructure that will result in the efficient 
+use of current Petascale and future Exascale supercomputing hardware in order to 
+a) draw insights from ITER [2] ``Big Data'' and b) to guide and optimise the design 
+of the UK demonstration nuclear fusion power plant STEP [3] and related fusion 
+technology as we approach the Exascale. The aims of the work are to deliver expertise 
+in, and tools for, ``in-silico'' reactor interpretation and design, initially with 
+a focus upon the ``edge'' region of the tokamak [4] plasma where hot plasma comes 
+into contact with the material walls of the machine (see project NEPTUNE below). 
+This challenging, multi-physics, multi-scale intersection between plasma physics 
+and engineering has long been heralded as an ``exascale'' modelling and simulation 
+problem and its solution is well established as critical to the success of commercial 
+fusion energy. Existing legacy (and often ``black box'') codes do not scale and 
+do not contain all the latest physics that is believed to be important in the ``burning 
+plasma regime'' (notably kinetic effects); without a significant investment in 
+this area, it will not be possible to design the ``divertor'' region of future 
+fusion power plants (the region of the machine where hot plasma comes into contact 
+with the surrounding first wall - see Figure 1 below). }}
+
+\vspace{24pt}
+\section*{%%\begin{figure}[htbp]
+\includegraphics[width=261pt, height=285pt, keepaspectratio=true]{sciplan-fig005.png}
+%%\caption{This should be the caption for \texttt{sciplan-fig005.png}.}
+%%\end{figure}
+}
+
+\vspace{17pt}
+\baselineskip=12pt
+\leftskip=28pt
+{\color{color29} \textit{Figure 1: Schematic diagram of a generic tokamak ``poloidal 
+cross section'' showing the areas of plasma and first wall that will be targeted 
+by project NEPTUNE (shaded circles). Attribution: G. Federici et al. [CC BY 3.0 
+(}}{\color{color23} \textit{\emph{https://creativecommons.org/licenses/by/3.0}}}{\color{color29} \textit{)]}}\footnote{ 
+Minor modifications to figure.}{\color{color29} \textit{.}}
+
+\vspace{12pt}
+\section*{{\color{color29} This is an activity that must be performed ``in-silico'' 
+using ``actionable'' modelling and simulation as the highly coupled physics in 
+the divertor cannot be created in the laboratory with conditions approaching the 
+reactor regime. It is also well established that there is a need for further development 
+of the science (which will take place in close cooperation with ExCALIBUR numericists) 
+- the codes of the ITER and Exascale era must therefore be easy to adapt as new 
+knowledge becomes established (e.g. through ITER operations). The programme itself 
+is designed to exploit commonality of solutions across the disciplines and domains 
+represented by ExCALIBUR and to foster the development of a UK interdisciplinary 
+community (within our National laboratories and institutes across UKRI and throughout 
+Academia).}}
+
+\vspace{24pt}
+\leftskip=-14pt
+Activities will initially be around an ambitious programme to develop a computational 
+model that includes plasma kinetic effects believed to be essential for a first-principles 
+description of the complex dynamics of high temperature fusion plasma in the divertor 
+region{\color{color11} . }{\color{color29} Codenamed NEPTUNE (}{\color{color29} \textbf{NE}}{\color{color29} utrals 
+\& }{\color{color29} \textbf{P}}{\color{color29} lasma }{\color{color29} \textbf{TU}}{\color{color29} rbulence 
+}{\color{color29} \textbf{N}}{\color{color29} umerics for the }{\color{color29} \textbf{E}}{\color{color29} xascale), 
+work will initially focus upon coupling the turbulent plasma periphery to the surrounding 
+neutral gas and partially ionized impurities that exist between the plasma and 
+plasma facing components, in the presence of an arbitrary tokamak magnetic field 
+and full 3D first wall geometry. Figure 1 shows a schematic of a generic tokamak 
+``poloidal cross section'', highlighting the targeted regions of plasma and machine, 
+namely the main chamber between core plasma, scrape off layer and wall (upper shaded 
+circle) and the so called ``plasma exhaust'' or ``divertor'' region (lower shaded 
+circle) where heat and particles come into direct contact with material surfaces. 
+Infrastructure and workflows will be developed so that the resulting close coupled 
+models can be constructed routinely based around a high-fidelity representation 
+of the geometry described by Computer Aided Design (CAD) systems (this likely requiring 
+the development of high order meshing technology, e.g. using Nektar++).}
+
+\vspace{24pt}
+{\color{color29} Quality control, verification, validation and uncertainty quantification 
+(VVUQ, e.g. via intrusive or ensemble-based methods) will be embedded across all 
+areas of the project to ensure numerical predictions are ``actionable''. The initial 
+aim is to develop knowledge and UK capability around how to design world leading 
+Exascale targeted software for the benefit of the UK academic community, UKRI and 
+the UK nuclear supply chain. Emphasis will be placed upon building a connected 
+community, delivering training and skills development activities as necessary, 
+aligned with Pillar 4 of the ExCALIBUR aims (Investing in People).}
+
+\vspace{24pt}
+Together, the UK plasma and HPC communities have the required expertise to deliver 
+this project. UKAEA will bring together world-class experts in tokamak edge physics, 
+gyrokinetic theory, and highly scalable algorithms, to address arguably one of 
+the most important unsolved challenges of fusion research - how to design a plasma 
+``exhaust system'' that can reliably restrict power flux reaching the material 
+surfaces to tolerable levels, i.e. no more than \textasciitilde{}10MW/m\textsuperscript{2} 
+in the steady-state. Later in the project, further packages of work will be designed 
+to address other aspects around the ``in-silico'' design of fusion technology. 
+It is recognised that the project poses a significant human resource and project 
+management challenge, notably to develop and manage a team across many different 
+sites and from many different backgrounds in order to build state-of-the-art software 
+that can reliably and accurately account for a plethora of different complex physical 
+phenomena. Further, the project must maintain an international context and connect 
+to the European EUROfusion programme (in which the UK is a key player) and the 
+US Exascale programme (ECP). Crucially, the emerging software environment must 
+be trusted and ``actionable'' to guide procurements potentially involving hundreds 
+of millions of pounds (e.g. in the case of the {\color{color29} DEMO [5] first 
+wall}), and ultimately to ensure the safe operation of a multi-billion pound nuclear 
+plant.
+
+\vspace{24pt}
+The UK is world-leading in the study of the edge region of tokamak plasmas. The 
+flagship EPSRC/EUROfusion MAST-Upgrade {\color{color29} experiment [6] recently 
+}commissioned by UKAEA at Culham has been built with the primary goal of testing 
+a novel ``Super-X divertor'' design for handling the plasma exhaust. Combined with 
+software developed under ExCALIBUR, the result will be a significant step forward 
+in our understanding of how heat and particle flows can be controlled and kept 
+to within material limits inside a reactor.
+
+\vspace{24pt}
+{\huge{}{\color{color25} \textbf{Project NEPTUNE}}}
+
+\vspace{12pt}
+\textbf{(}{\color{color25} \textbf{NE}}\textbf{utrals \& }{\color{color25} \textbf{P}}\textbf{lasma 
+}{\color{color25} \textbf{TU}}\textbf{rbulence }{\color{color25} \textbf{N}}\textbf{umerics 
+for the }{\color{color25} \textbf{E}}\textbf{xascale) - background}
+
+\vspace{24pt}
+The UK plasma community - in UKAEA and several universities - currently makes extensive 
+use of ``fluid'' codes in its research into the edge-plasma region of fusion devices. 
+``Fluid'' implies that the plasma can be treated in one sense like ``the atmosphere'' 
+in the Met Office's Dynamical Core, but with the added complication of significant 
+effects due to the electrically charged nature of the plasma. For example, plasma 
+electrons and ions can to an extent be treated as separate fluids with different 
+temperatures, interacting via the electromagnetic field. Plasma fluid codes (such 
+as {\color{color29} BOUT++ [7]) are relatively }efficient up to only \textasciitilde{}1000 
+cores, but there are a large range of effects in the tokamak plasma edge that prevent 
+the plasma from isotropising to a Maxwellian distribution with same temperature 
+ion and electron populations (which would correspond most closely to the atmospheric 
+fluid concept). Firstly, the strong imposed and directed magnetic field leads to 
+anisotropy since charged particles move rapidly in tight, spiral orbits (gyro-orbits) 
+along the closed field lines and only slowly normal to the field. Secondly there 
+may be an inadequate number of collisions (especially in the burning plasma or 
+``reactor'' regime) for the species to equilibrate, leaving significant tails in 
+the particle velocity distributions. Such tails may be driven by external heating 
+and/or by collisions with relatively rarefied neutral particle species that are 
+themselves non-Maxwellian. Inclusion of these effects in the fluid models introduces 
+significant modelling uncertainty (which would have to be quantified if the models 
+are to be ``actionable'' - this would require a significant investment). Moreover, 
+existing simulations show that attempting to include the required extra physics 
+can significantly add to execution cost overhead or a breakdown of scaling, e.g. 
+when stability/accuracy issues are addressed, a large reduction in allowable timestep 
+can ensue. Unfortunately, there are significant challenges with moving to a straightforward 
+particle-based {\color{color29} model (e.g. PIC [8], which }could in principle 
+address these problems) - the strength of the electric field in the plasma edge 
+exaggerates the effects of noise when sampling charged particles. Together, all 
+these issues conspire to make it impossible to achieve converged solutions using 
+existing codes within an acceptable timeframe.
+
+\vspace{24pt}
+The next most widely studied level of treatment of velocity space, {\color{color29} namely 
+``gyrokinetics'' [9], averages over gyro-orbits so that velocity space is treated 
+as a 2D problem (perpendicular and parallel to the local magnetic field). This 
+leads to 5D gyrokinetic models, which in principle }are detailed enough and accurate 
+enough to model reality. Ideas around the discretisation of the velocity (phase) 
+space dependence include techniques suitable for dealing with infinite coordinates, 
+such as moment-based methods using truncated series and/or mapped finite elements 
+perhaps combined with spherical harmonics. The alternative, particle-based simulations 
+that run on existing petascale hardware such as SUMMIT, e.g. using the XGC PIC 
+code, can take many weeks for just a single simulation. Unfortunately, the competing 
+and potentially more attractive 5D gyrokinetic models are currently at or beyond 
+the limit of current HPC capability in terms of scalabiliy, requiring further work 
+around both the models themselves and the algorithms used to instantiate them on 
+modern HPC systems.
+
+\vspace{24pt}
+Kinetic levels of complexity are nonetheless going to be necessary (at least locally) 
+for modelling the burning plasma regime, due to the inherent uncertainty in the 
+fluid codes. The plasma in a fusion reactor may well behave significantly differently 
+to plasma in existing devices because it will in general contain two main ionic 
+species (Deuterium and Tritium), neutral fuel particles and ionised Helium ash 
+(or alpha particles), as well as impurity ions originating from the wall. Further, 
+the plasma will be hotter, reducing collisions so that yet more complicated terms 
+need to be added to the fluid approximations. These additional contributions to 
+the fluid models will require tuning in much the same way as meteorological micro-physical 
+effects, but in advance preferably of suitable experimental data from ITER or other 
+reactors. Kinetic code results will inevitably be needed for this ``tuning'' exercise 
+(i.e. providing kinetic closures to the fluid codes). Each plasma species will 
+contribute different levels of uncertainty, and a different scaling and performance 
+overhead to the workflow made up of close coupled codes that will be developed 
+under FM-WP2 and FM-WP3 (see below and Table 1). Identifying, quantifying and mitigating 
+uncertainty and the computational overhead of adequately modelling each will be 
+a core theme within the project.
+
+\vspace{24pt}
+Evidently the interpretation of data from ITER and consequently the design of a 
+DEMO fusion power plant will require a hierarchy of models, from those that can 
+be deployed upon Exascale hardware down to the surrogate models that will be deployed 
+at scale upon the high throughput computing platforms of the ITER era (e.g. for 
+uncertainty quantification and parametric optimisation). High fidelity, exascale 
+``hero run'' codes capable of modelling all the required physics to accurately 
+describe the edge region of the tokamak plasma will be used to develop order reduced 
+``surrogate'' models that can be scaled out for testing against large volumes of 
+experimental data and for routine uncertainty quantification as part of the process 
+shown in Figure 2 (left hand branch). Currently, this iterative ``discovery loop'' 
+is not possible for the edge plasma problem due to the unacceptable run-time overhead 
+of existing codes and lack of flexibility for introducing new physics. Similarly, 
+the high fidelity and surrogate models of the future will be crucial for designing 
+future fusion plant ``in-silico'' (this is shown as the right-hand branch of Figure 
+2 - an iterative ``optimization'' loop). 
+
+\vspace{24pt}
+\begin{center}
+%%\begin{figure}[htbp]
+\includegraphics[width=332pt, height=265pt, keepaspectratio=true]{sciplan-fig006.png}
+%%\caption{This should be the caption for \texttt{sciplan-fig006.png}.}
+%%\end{figure}
+
+\end{center}
+
+\vspace{37pt}
+\baselineskip=12pt
+\leftskip=28pt
+\textit{Figure 2: Typical ``Modelling \& Simulation'' workflow for fusion applications. 
+The left-hand iterative loop is largely around model validation against experimental 
+data whereas the right-hand loop focuses upon ``engineering design''.}
+
+\vspace{24pt}
+\leftskip=-14pt
+The existing code base is currently limited in its ability (for the same reasons 
+as the left-hand branch) to make accurate predictions that will lead to robust 
+engineering solutions (leading to the introduction of unnecessary and expensive 
+engineering overhead). The current paradigm is to make predictions, then build 
+expensive prototypes at scale to confirm that the code predictions are valid - 
+this will be impossible for STEP and DEMO for cost reasons and due to the fact 
+that we simply cannot recreate the operating conditions under which components 
+will have to survive - instead, quantified uncertainty and ``trust'' must be associated 
+with modelling and simulation through rigorous, modern VVUQ - i.e. our codes must 
+be ``actionable''. Lastly, there are also likely to be additional demands upon 
+code execution speed from DEMO operation, for example there will inevitably be 
+a safety-related need for surrogate models that can be deployed as part of future 
+real-time systems to help control the temperature of the first wall. These future 
+needs will all be embedded within the heart of the project requirements throughout 
+the development lifecycle of the NEPTUNE software stack. 
+
+\vspace{24pt}
+The project itself has been designed in stages, so that early work will make significant 
+contributions to existing software capability and to the development of standalone 
+proxy-apps{\color{color29}  [10] that capture the }scaling characteristics of the 
+full models being targeted in the long term. The overall aim, which will guide 
+the direction of the project and choice of Activites and sub-tasks (most of which 
+will be defrayed across UKRI and the Universities), is to build a hierarchy of 
+models that are capable of representing edge plasma behavior to within a specific 
+level of uncertainty, with the option of at least partial incorporation into the 
+development of software across the EUROfusion work programme, notably the TSVV 
+(Theory, Simulation, Verification and Validation) activities. There will be no 
+attempt to refactor or improve the performance of existing legacy codes (unless 
+the overhead of doing so is low). Instead, emphasis will be upon building new insight/knowledge 
+and new software and infrastructure from the ground up using modern software engineering 
+design principles and futureproofing those tools to create an agile platform that 
+can respond to the rapidly changing vision of what the exascale will look like, 
+and to the emergence of new physics understanding. All codes that are capable of 
+making predictions will have embedded within them the concepts of VVUQ, to ensure 
+that they are ``actionable'' to within specified levels of uncertainty (e.g. using 
+``intrusive'' UQ methods). Existing legacy codes will of course be an invaluable 
+resource for guiding development towards the flexible, scalable and performant 
+codes of the future.
+
+\vspace{24pt}
+High level aims of the ExCALIBUR Fusion use case, aligned with the Met Office Weather 
+\& Climate prediction system use case include:
+
+\vspace{24pt}
+\leftskip=0pt
+• To apply the principles of ExCALIBUR to deliver the benefits outlined above.
+
+\vspace{12pt}
+• To develop and deliver cross-cutting research that aligns with the UKRI Research 
+Council contribution (i.e. to help deliver a UK interdisciplinary team that can 
+address aspects of Exascale software design that lie in common across the represented 
+use cases).
+
+\vspace{12pt}
+• To help train the software engineers, architecture specialists, computer scientists/algorithms 
+specialists and data scientists of the ITER and Exascale era.
+
+\vspace{24pt}
+\leftskip=-14pt
+UKAEA will work with the SPF ExCALIBUR Programme Board and Steering Committee to 
+ensure alignment and a close working relationship with the UKRI funded research 
+activities, which for example could include participation in workshops and knowledge 
+exchange activities, participation in stakeholder engagement exercises etc.
+
+\vspace{24pt}
+As part of this Science Plan, four work packages will initially be commissioned 
+by the Met Office, i.e. FM-WP1/2/3/4. As outlined in the Met Office Science Plan 
+[1], the Met Office will manage the cross-cutting theme work packages XC-WP1/2 
+(see below). The four initial Fusion Modelling System work packages are:
+
+\vspace{24pt}
+\leftskip=0pt
+1. Numerical representation;
+
+\vspace{12pt}
+2. Plasma multiphysics model;
+
+\vspace{12pt}
+3. Neutral gas \& impurity model;
+
+\vspace{12pt}
+4. Code structure and coordination,
+
+\vspace{24pt}
+\leftskip=-14pt
+as shown in table 1 (and in [1]). Code Coupling R\&D activity will thread FM-WP1 
+(performance) and FM-WP4 (flexibility) as well as through the two referent model 
+work packages FM-WP2 and FM-WP3. All work packages will be built around modern 
+best practice in co-design and there will be significant interaction between the 
+work packages. Each work package will {\color{color29} be supported by Research 
+Software Engineers (RSEs) (including engagement with the Society of RSE [11]} where 
+necessary).
+
+\vspace{37pt}
+\begin{tabular}{|>{\raggedright}p{61pt}|>{\raggedright}p{50pt}|>{\raggedright}p{63pt}|>{\raggedright}p{55pt}|>{\raggedright}p{53pt}|}
+\hline
+\multicolumn{5}{|p{284pt}|}{P\textbf{SRE Use Cases}}\tabularnewline
+\hline
+Weather \& Climate prediction system: & \multicolumn{2}{p{113pt}|}{W\textbf{C-WP1:}\linebreak{}
+Component model co-design} & W\textbf{C-WP2:}\linebreak{}
+System co-design & W\textbf{C-WP3:}\linebreak{}
+System integration\tabularnewline
+\hline
+Fusion Modelling system: & F\textbf{M-WP1:}\linebreak{}
+Numerical representation & F\textbf{M-WP2:}\linebreak{}
+Plasma multiphysics model & F\textbf{M-WP3:}\linebreak{}
+Neutral gas \& Impurity model & F\textbf{M-WP4:}\linebreak{}
+Code structure \& coordination\tabularnewline
+\hline
+\multicolumn{5}{|p{284pt}|}{C\textbf{ross-Cutting Themes}}\tabularnewline
+\hline
+\multicolumn{2}{|p{111pt}|}{X\textbf{C-WP1:}\linebreak{}
+Common approaches \& solutions} & \multicolumn{3}{p{173pt}|}{X\textbf{C-WP2:}\linebreak{}
+Emerging technologies}\tabularnewline
+\hline
+\end{tabular}
+
+\vspace{50pt}
+\begin{center}
+\textit{Table 1: SPF ExCALIBUR Met Office commissioned Work Packages.}
+\end{center}
+
+\vspace{24pt}
+\baselineskip=12pt
+\leftskip=-14pt
+\textbf{FM-WP1} will focus upon the suitability of available numerical algorithms 
+(or the development of new algorithms) for Exascale targeted plasma modelling. 
+As stated above, elements of this work package together with FM-WP4 will also surround 
+the ``coupling technology'' that will be required to connect the edge/pedestal 
+region of the plasma (addressed by FM-WP2) and the neutral gas/impurity model (FM-WP3). 
+An agile approach will be adopted around the legacy codes that might be necessary 
+for helping to develop a roadmap for the FM-WP1 referent models, e.g. through community 
+workshops (the first being in Feb 2020).
+
+\vspace{24pt}
+\textbf{FM-WP2} and \textbf{FM-WP3} will concentrate upon development of the two 
+close coupled models of the NEPTUNE programme, specifically FM-WP2 around the inclusion 
+of kinetic effects into existing and new edge plasma models, and FM-WP3 of particle 
+based models for describing the region outside and just inside the plasma (neutral 
+atoms/molecules and partially ionized impurities). Initial exploratory work will 
+be carried out using existing codes (as per above) and via the development of proxy-apps, 
+for example to expose options for exascale targeted hardware (GPUs, ARM technology 
+etc.).
+
+\vspace{24pt}
+\textbf{FM-WP4} will focus upon the design of data structures to interface between 
+the different models and generally ensure best practice in scientific software 
+engineering (being responsible for Quality Assurance, co-design, integration etc.). 
+Aligned with Met Office work {\color{color29} package WC-WP1, this programme of 
+work will also explore the use of a ``separation of concerns'' methodology for 
+the Fusion use case critical components (e.g. by exploring the use of Kokkos [12] 
+and Domain Specific Language (DSL) [13] technologies}).
+
+\vspace{24pt}
+Scoping work for the Met Office led cross-cutting themes (XC-WP1 and 2) will be 
+defined in collaboration with the other ExCALIBUR partners early in year 2 with 
+a view towards starting work later that year. The specifics of the cross-cutting 
+themes are here assumed to be covered by the two overarching themes of ``Common 
+Approaches and Solutions'' and ``Emerging Technologies'' (discussed further below).
+
+\vspace{24pt}
+Note, many of the Activities and sub-tasks that will be defrayed to UKAEA, the 
+Universities and UKRI (STFC) will inevitably contribute to more than one of the 
+overarching Work Packages due to the highly coupled nature of the target infrastructure.
+
+\vspace{24pt}
+\section*{{\huge{}{\color{color25} \textbf{UKAEA Research Plans}}}}
+
+\vspace{24pt}
+{\color{color25} \textbf{Numerical representation (}}{\color{color25} Fusion modelling, 
+work package }{\color{color25} \textbf{FM-WP1}}{\color{color25} )}
+
+\vspace{24pt}
+The ideal numerical algorithms for forming the Exascale edge plasma codes of the 
+future will have (but will not be restricted to) the following properties:
+
+\vspace{24pt}
+\leftskip=0pt
+P1. Accurate solution of hyperbolic problems.
+
+\vspace{12pt}
+P2. Ability to deliver efficient and accurate solutions of corresponding elliptic 
+problems.
+
+\vspace{12pt}
+P3. Accurate modelling of highly anisotropic dynamics. 
+
+\vspace{12pt}
+P4. Accurate representation of first wall geometry (face normals to within 0.1°), 
+and correspondingly of complex magnetic field geometries.
+
+\vspace{12pt}
+P5. Accurate representation of velocity (phase) space.
+
+\vspace{12pt}
+P6. Preservation of conservation properties of the underlying equations.
+
+\vspace{12pt}
+P7. Scalability to likely Exascale architectures:
+
+\vspace{12pt}
+a. interaction between models of different dimensionality,
+
+\vspace{12pt}
+b. interaction between particle and fluid models,
+
+\vspace{12pt}
+c. dynamic construction of surrogates.
+
+\vspace{12pt}
+P8. Performance portability to allow rapid deployment upon emerging hardware.
+
+\vspace{24pt}
+\leftskip=-14pt
+It is difficult at this point in time to rank the importance of these properties, 
+or to identify the cost associated with achieving each in a timely fashion - a 
+clearer understanding of immediate needs and achievable SMART deliverables will 
+emerge as the project matures via extensive community engagement and team building 
+across the UK partners - this exercise will start in Feb 2020 via an open workshop. 
+
+\vspace{24pt}
+It is clear however that the choice of geometrical representation and numerical 
+scheme will have a profound impact upon almost all areas of the project. Options 
+will be identified by means of literature and code surveys and via consultation 
+with UKRI and industry experts. Research will be commissioned where necessary to 
+eliminate unsuitable choices as early as possible. Relatively small development 
+tasks will initially be undertaken to test remaining candidate methods for accuracy, 
+stability and HPC scalability potential.  This task, along with FM-WP4 will have 
+a prioritised start to provide initial inputs into FM-WP2 and FM-WP3 developments 
+and work to be defrayed in year 2. Tasks FM-WP1-3 will incorporate numerical, finite 
+element and other plasma physics libraries of suitable quality and exascale applicability.
+
+\vspace{24pt}
+O\label{HHlk22042124}ptions, which do not preclude consideration of others, have 
+been tentatively identified for initial investigation as follows:
+
+\vspace{24pt}
+\leftskip=0pt
+1. Spectral/hp {\color{color29} element [14], combined }with Discontinuous {\color{color29} Galerkin 
+[15], to }meet P1,P3 and possibly P5 above.
+
+\vspace{12pt}
+2. Multigrid methods for P2.
+
+\vspace{12pt}
+3. Nekmesh for P4.
+
+\vspace{12pt}
+4. For Exascale (P7):
+
+\vspace{12pt}
+a. matrix-based approaches, hierarchical geometric structures,
+
+\vspace{12pt}
+b. kinetic enslavement, multi-index Monte-Carlo methods,
+
+\vspace{12pt}
+c. physics based Neural Network approaches.
+
+\vspace{12pt}
+{\color{color29} 5. MUSCLE 2 etc. as referenced in [16], MUI [17], ADIOS [18] etc. 
+for code }coupling P6, P7.
+
+\vspace{24pt}
+\leftskip=-14pt
+As per the algorithm requirements, these will be ranked via the community workshop 
+planned for Feb 2020. Activities for defrayment will then be defined around SMART 
+deliverables together with an integrated delivery plan for the entire project.\label{}
+
+\vspace{14pt}
+\subsection*{{\color{color25} \textbf{\_whpu6lr7i9jcPlasma multiphysics model}}{\color{color25}  
+\label{HHlk22033533}(Fusion modelling, work package }{\color{color25} \textbf{FM-WP2}}{\color{color25} )\label{HHlk22044193}}}
+
+\vspace{14pt}
+This work package will begin by identifying a referent in conjunction with potential 
+users, whereby ``referent'' is meant a model that establishes the maximum detail 
+and complexity of plasma that the software could ever be reasonably expected to 
+model (beyond exascale).  Critical features of the referent will be identified 
+and prioritised for implementation as part of the project. This may involve replacing 
+a kinetic model by moment-based or fluid models. Input from the European Boundary 
+Code (EBC) development (funded by EUROfusion wherein UKAEA is a core partner) will 
+be important to this process. In addition, the speed of model execution will be 
+a consideration as indicated earlier. A provisional sequence of developments is 
+as follows (and will be tuned as part of the initial NEPTUNE requirements capture 
+exercise funded in year 1):
+
+\vspace{14pt}
+\leftskip=0pt
+1. 2D model of anisotropic heat transport.
+
+\vspace{2pt}
+2. 2D elliptic solver in complex geometry.
+
+\vspace{2pt}
+3. 1D fluid solver with simplified physics but with UQ and realistic boundary conditions.
+
+\vspace{2pt}
+4. Spatially 1D plasma model incorporating velocity space effects.
+
+\vspace{2pt}
+5. Spatially 1D multispecies plasma model.
+
+\vspace{2pt}
+6. Spatially 2D plasma model incorporating velocity space effects.
+
+\vspace{2pt}
+7. Interaction between models of different dimensionality.
+
+\vspace{2pt}
+8. Spatially 3D plasma kinetic models.
+
+\vspace{14pt}
+\leftskip=-14pt
+Users from the wider fusion community will be engaged via a workshop in Feb 2020 
+to firm up on the plan, to help define work for defrayment that they themselves 
+can carry out and will be engaged throughout the project to help define and add 
+new surrogate models through a wide engagement programme and co-design (e.g. to 
+treat boundary sheaths) and/or other important physical effects (e.g. radiation, 
+charge exchange recombination, etc.) and compare with existing codes and experiments. 
+\label{}
+
+\vspace{2pt}
+\subsection*{{\color{color20} \textbf{\_qpv4dom6b2t}}}
+
+\vspace{2pt}
+\subsection*{{\color{color25} \textbf{Neutral gas \& Impurity model}}{\color{color25}  
+(Fusion modelling, work package }{\color{color25} \textbf{FM-WP3}}{\color{color25} )}}
+
+\vspace{14pt}
+This work package will begin by identifying a referent (as above) in conjunction 
+with potential users and experts in atomic physics. Critical features of the referent 
+will be identified and prioritised for implementation as part of the project. This 
+may involve deploying a particle-based method, a moment-based model or a fluid 
+model (or even a combination thereof). Input from the European EBC programme will 
+be important to this process, as will the speed of model execution as indicated 
+earlier. A careful assessment of existing codes currently in use {\color{color29} will 
+be necessary, as will cross validation with the established models (notably B2-EIRENE 
+[19]). A provisional }sequence of developments is as follows:
+
+\vspace{14pt}
+\leftskip=0pt
+1. 2D particle-based model of neutral gas \& impurities with critical physics.
+
+\vspace{2pt}
+2. 2D moment-based model of neutral gas \& impurities.
+
+\vspace{2pt}
+3. Interaction with 2D plasma model when available.
+
+\vspace{2pt}
+4. 3D model of neutral gas \& impurities.
+
+\vspace{2pt}
+5. Interaction with 3D plasma model.
+
+\vspace{2pt}
+6. Staged introduction of additional neutral gas/impurity physics.
+
+\vspace{14pt}
+\leftskip=-14pt
+As per FM-WP2, users from the wider fusion modelling community will first be engaged 
+through a workshop in Feb 2020, and will help build a UK team that will add new 
+physics and compare with existing codes and experiments, providing detailed and 
+rigorous verification and validation (V\&V). This is likely to require the provision 
+of databases for different ionisation and excitation reactions, both in the plasma 
+volume and at surfaces.\label{}
+
+\vspace{2pt}
+\subsection*{{\color{color20} \textbf{\_peub9qe5qb2}}}
+
+\vspace{2pt}
+\subsection*{{\color{color25} \textbf{Code structure and coordination }}{\color{color25} (Fusion 
+modelling, work package }{\color{color25} \textbf{FM-WP4}}{\color{color25} )}}
+
+\vspace{14pt}
+The most important aim of this work package will be to drive user engagement and 
+ensure that the software is fit for its defined purpose, first by requirements 
+capture, then by defining suitably flexible code structures and related e-Infrastructure 
+for users, ultimately supporting uptake of the new code(s). In order to achieve 
+this aim, this work package will coordinate across the other tasks FM-WP1-3, to 
+ensure that outcomes are compatible and of sufficiently high quality. There will 
+be management and coordination tasks that will grow as the project matures, {\color{color29} connecting 
+with the EUROfusion E-TASC (TSVV) programme, the EPSRC T.P. Turbulence Programme 
+[20] and the }US ECP programme etc.
+
+\vspace{14pt}
+Coordination tasks will include (but are not restricted to):
+
+\vspace{14pt}
+\leftskip=0pt
+1. Allocation of resource between tasks and setting project priorities.
+
+\vspace{2pt}
+2. Ensuring a consistent choice of definitions (ontology) of objects or equivalently 
+classes.
+
+\vspace{2pt}
+3. Definition of common interfaces to components for data input and output. 
+
+\vspace{2pt}
+4. Design of suitably flexible data structures for common use by all developers.
+
+\vspace{2pt}
+5. Establishment, promotion and support of good scientific software engineering 
+practice.
+
+\vspace{2pt}
+6. Evaluation and deployment of performance portability tools and DSLs targeting 
+Exascale-relevant architectures.
+
+\vspace{2pt}
+7. Integration of the developed software into a VVUQ framework (exploiting common 
+approaches developed under XC-WP1 and XC-WP2).
+
+\vspace{2pt}
+8. Coordination of a benchmarking framework for correctness testing and performance 
+evaluation of the developed software stack.
+
+\vspace{14pt}
+\leftskip=-14pt
+Along with FM-WP1, this work package will be prioritised for an early start, as 
+good scientific software engineering practice needs to be agreed quickly, and well 
+documented interfaces to components need to be available early to ensure that best 
+practice design is embedded from the start.\label{}
+
+\vspace{2pt}
+\_dfq8iu3saxae
+
+\vspace{2pt}
+{\color{color25} \textbf{Common approaches and solutions }}{\color{color25} (Cross-cutting 
+themes, }{\color{color25} \textbf{XC-WP1}}{\color{color25} )}
+
+\vspace{14pt}
+{\color{color29} The examples listed in [1] are very well aligned with the needs 
+of the Fusion use case comprising initially NEPTUNE, especially the methodologies 
+surrounding a ``separation of concerns'', coupling technologies, the use of mixed 
+precision arithmetic and fault tolerance. In addition, project NEPTUNE will benefit 
+from an exploration of the convergence of HPC and AI (e.g. the use of Neural Network 
+PDE solvers [21] or for advanced preconditioners) and parallel in time methods 
+[22]. These areas of common ground and opportunities for interdisciplinary working 
+therein shall be explored and agreed by partners as outlined in the Met Office 
+Science Case.}
+
+\vspace{14pt}
+{\color{color25} \textbf{Emerging Technologies}}{\color{color25}  (Cross-cutting 
+themes, }{\color{color25} \textbf{XC-WP2}}{\color{color25} )}
+
+\vspace{14pt}
+{\color{color29} The examples listed for XC-WP2 in the Met Office Science Case 
+[1] are again highly aligned with the Fusion use case. Other technologies that 
+are deserving of consideration include High Bandwidth Memory (HBM [23]), novel 
+exascale targeted IO/storage technology (e.g. H2020 project SAGE II [24] led by 
+Seagate wherein UKAEA is a partner), next generation accelerator technology (Nvidia 
+Volta Next, A64fx) and ARM systems for efficient scaling of Flops/Watt. It is not 
+clear at this stage which technologies offer the best route forward for the FM-WP2 
+and FM-WP3 close coupled system but it is clear that the UK is well placed to explore 
+all of them (e.g. through Isambard II). As stated earlier, a core theme within 
+the project is to build solutions around a ``separation of concerns'' philosophy 
+(using tools such as Kokkos and One-API) in order to develop an agile environment 
+that can adapt rapidly to disruptive emergent HPC technology.}
+
+\vspace{53pt}
+{\huge{}{\color{color25} \textbf{References}}}
+
+\vspace{14pt}
+{\color{color29} [1]  }Strategic Priorities Fund: ExCALIBUR Met Office Science 
+Plan and Activities
+
+\vspace{2pt}
+[2]  {\color{color23} \emph{https://www.iter.org}}
+
+\vspace{2pt}
+[3]  {\color{color23} \emph{https://www.gov.uk/government/news/uk-to-take-a-big-step-to-fusion-electricity}}
+
+\vspace{2pt}
+{\color{color29} [4]  }{\color{color23} \emph{https://en.wikipedia.org/wiki/Tokamak}}
+
+\vspace{2pt}
+[5]  {\color{color23} \emph{https://www.euro-fusion.org/programme/demo/}}
+
+\vspace{2pt}
+[6]  {\color{color23} \emph{https://reuters.screenocean.com/record/1366443}}
+
+\vspace{2pt}
+[7]  {\color{color23} \emph{https://bout-dev.readthedocs.io/en/latest/user\_docs/introduction.html}}
+
+\vspace{2pt}
+[8]  {\color{color23} \emph{https://en.wikipedia.org/wiki/Particle-in-cell}}
+
+\vspace{2pt}
+[9]  {\color{color23} \emph{https://en.wikipedia.org/wiki/Gyrokinetics}}
+
+\vspace{2pt}
+[10] {\color{color23} \emph{https://proxyapps.exascaleproject.org/app/}}
+
+\vspace{2pt}
+[11] {\color{color23} \emph{https://society-rse.org}}
+
+\vspace{2pt}
+[12] {\color{color23} \emph{https://cfwebprod.sandia.gov/cfdocs/CompResearch/docs/Kokkos-Multi-CoE.pdf}}
+
+\vspace{2pt}
+[13] {\color{color23} \emph{https://en.wikipedia.org/wiki/Domain-specific\_language}}
+
+\vspace{2pt}
+[14] {\color{color23} \emph{https://en.wikipedia.org/wiki/Spectral\_element\_method}}
+
+\vspace{2pt}
+[15] {\color{color23} \emph{https://www.sciencedirect.com/topics/engineering/discontinuous-galerkin}}
+
+\vspace{2pt}
+[16] {\color{color23} \emph{https://royalsocietypublishing.org/doi/10.1098/rsta.2018.0144}}
+
+\vspace{2pt}
+[17] {\color{color23} \emph{https://www.sciencedirect.com/science/article/pii/S0021999115003228}}
+
+\vspace{2pt}
+[18] {\color{color23} \emph{https://www.olcf.ornl.gov/center-projects/adios/}}
+
+\vspace{2pt}
+[19] {\color{color23} \emph{https://www.tandfonline.com/doi/abs/10.13182/FST47-172}}
+
+\vspace{2pt}
+\leftskip=35pt
+\parindent=-49pt
+[20] {\color{color23} \emph{https://www.york.ac.uk/physics/news/departmentalnews/plasma-fusion/major-grant-award-supports-fusion-energy-research/}}
+
+\vspace{2pt}
+\leftskip=-14pt
+\parindent=0pt
+{\color{color29} [21] }{\color{color23} \emph{https://arxiv.org/abs/1906.01200}}
+
+\vspace{2pt}
+{\color{color29} [22] }{\color{color23} \emph{https://parallel-in-time.org}}
+
+\vspace{2pt}
+{\color{color29} [23] }{\color{color23} \emph{https://en.wikipedia.org/wiki/High\_Bandwidth\_Memory}}
+
+\vspace{2pt}
+{\color{color29} [24] }{\color{color23} \emph{http://sagestorage.eu/about/overview}}
+
+\newpage
+
+\end{document}

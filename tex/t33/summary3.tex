@@ -1,0 +1,41 @@
+This report has presented a subset of known object-oriented software design
+patterns that are expected to be important in \nep\ \papp s as currently
+envisaged, using facts derived from existing codebases on which the
+\papp s will draw.  
+It is of note at this point that the progenitor frameworks fall into two
+categories: modern, C++-based approaches,
+and procedural Fortran codes.  
+For the former, the salient design patterns are principally those that enable
+the reuse of components in complex, modular codebases: the Template Method,
+Abstract Factory, Strategy, and Flyweight patterns from the Gang of Four
+\cite{gammahelmjohnsonvlissides}.
+As for the latter, the potential for extensive code re-use is evidenced in 
+existing codes, stemming primarily from the use of modular design.
+The \F{SMARDDA} framework described in this report is a concrete example of 
+a Fortran code constructed by the aggregation of smaller objects, 
+in a similar manner to that anticipated for \nep.
+Here, the use of the layered architectural pattern involves a shared subroutine library
+for common functionality e.g. error logging, supporting re-use.  
+Higher in the framework, the fact that the modules are agnostic to each others' 
+existence means that the various physics models combine in a manifestation of 
+the puppeteer pattern, though some limitations of the current code 
+(e.g. the existence of a single central control file) will need to be overcome 
+in \nep, perhaps with the aid of a graph-based dependency mapping approach. 
+
+A further section has surveyed overarching patterns, though this
+section stops short of prescribing an overall integration framework.  
+There is thus scope for exploration of, for example, optimal coupling using
+prototype versions of the initial \papp s, with a view to address issues
+encountered in earlier multiphysics frameworks \cite{y2re332, compatwebsite,
+vecmawebsite}.
+Again, certain of the time-honoured Gang of Four design patterns, for example,
+Adapter, are of use.
+
+Further design inspiration may be gained by study of the game
+engine structure in the first annex.
+The second  annex has presented a set of guidelines for a series of \papp s for
+benchmarking exascale computing platforms, designed by the US Department of
+Energy's Exascale Computing Project.  
+This provides an evolving set of quality standards and best practices which
+might usefully be considered during \nep\ \papp\ development, as well as
+possibly providing a more formal basis for future development within ExCALIBUR.

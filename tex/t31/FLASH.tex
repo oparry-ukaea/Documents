@@ -1,0 +1,127 @@
+\subsection{FLASH}\label{sec:flash}
+
+
+FLASH \cite{flashwebsite} is described:
+\begin{quote}
+{\it `The FLASH code is a publicly available high performance application code 
+which has evolved into a modular, extensible software system from a collection 
+of unconnected legacy codes.'}
+\end{quote}
+
+Dubey~et~al~\cite{Du09Exte} add to the description {\it `... a Massively-Parallel,
+Multiphysics Simulation Code'}.  FLASH is a community astrophysics code; it has been a clear 
+success in terms of uptake since its inception in Y2K - there are now over 1000 
+citations on the FLASH website~\cite{flashwebsite}.
+
+
+The code formed when legacy solvers (written in Fortran 77) were refactored 
+into a formal software engineering framework.  Subsequent additions to the code 
+have been driven by the physics requirements of the users; Dubey~et~al~\cite{Du09Exte} 
+references in its title the code's {\it `Extensible Component-Based 
+Architecture'}.
+
+\paragraph{Physics and Scope}
+
+Capabilities include compressible hydrodynamics, MHD, nuclear burning, 
+equations of state, radiation, laser drive, fluid-structure interactions, and 
+also particles, which may simply be non-interacting `tracer' particles.
+Kinetics (represented by the Boltzmann equation) and 
+gyrokinetics seem absent from the codebase.  Gravity (an always-additive and 
+therefore long-range force) is clearly a pressing matter for astrophysics but 
+is irrelevant for \nep; likewise any cosmolological / relativity physics. 
+The codebase uses only rectilinear computational meshes.
+
+
+\paragraph{Framework} 
+
+The core algorithms are written in Fortran~90 and wrappers are written in~C.
+
+The code is structured into components called Units (many of which implement a 
+specific component of the physics capability; an example is particles) and the 
+code for an individual Unit is demarcated using the Unix directory structure.  
+A build includes only the Units needed for the problem in question.  The top 
+level of a Unit's directory defines the API of the Unit.  Unit-private data is 
+passed laterally by reference using accessor functions as needed.  Subunits 
+allow alternative implementations and also give scope to shared data, avoiding 
+proliferation of accessor functions.  Simulations are specified via a 
+collection of config files included at various places in the directory 
+structure: files lower down the hierarchy can override ones inherited from 
+higher up.  Users can incorporate novel physics by adding a new Unit.  
+
+The framework is object-oriented and encapsulates data; however, this is 
+accomplished using the directory structure and a set of parsed config files 
+(written in a domain-specific language), rather than using an explicit 
+object-oriented language.  It is stated in \cite{Du09Exte} that this may be 
+beneficial for portability.
+
+Each simulation would appear to necessitate compilation of a new executable; 
+the object-oriented character is strictly at compile (i.e. build) time and it 
+seems the code must be rebuilt to change what the simulation does (excepting 
+parameters read in by config files).
+
+There is no GUI; user interface is via text files / command line.  Multiple I/O 
+libraries are supported e.g. HDF5 and parallel netCDF (see \cite{Du09Exte}).
+
+The workflow includes a test suite, which is run nightly.
+There is an integrated unit test framework and a self-test suite for regression testing.  
+An ensemble of quick-running examples has been proven by a user survey to be a popular feature.  
+
+There is rigorous gatekeeping for non-internal extensions to the release version of the code, 
+including a requirement for a specific unit test and a commitment to provide support.
+
+The user community consists of mainly astrophysicists, but there are some other areas of application.
+There is an email users' group, with support provided by experienced users and the developers.
+The code is free on request; users may modify but not redistribute their own copies.
+Documentation includes a User's Guide and also API description extracted using {\it robodoc}.
+One interesting aspect has been user surveys, which
+have provided insight into how the code was used and also 
+indicated the most widely appreciated aspects of the code.
+\cite{Du09Exte} cites feedback from close to 300 respondents, which gives
+the top reasons for FLASH usage as
+\begin{enumerate}
+\item Adaptive mesh refinement (64\%)
+\item Flexible (47\%)
+\item  Good documentation (47\%)
+\item  Availability of examples (43\%)
+\item  Computationally efficient (37\%)
+\item  Easy to Use (36\%)
+\end{enumerate}
+
+
+\paragraph{Summary}
+
+FLASH is a true multiphysics code and incorporates fields and particles.  Its 
+authors claim efficient operation up to tens of thousands of processors 
+(\cite{Du09Exte} includes an example of 16 million particles running on 32,768 
+nodes of IBM BG/L machine).  %Our anticipated scaling requirements exceed this.
+
+
+
+Disadvantages are associated with the rather amphibious nature of the code: it 
+uses build-time methods to achieve object-oriented features from 
+non-object-oriented languages and so must be largely recompiled for each 
+simulation; also, the code is written in more than one language.  Writing in 
+Chapter~1 of \cite{carverhong}, the authors of the code state that the 
+framework was chosen because the original physics capability was in Fortran and 
+to refactor in an object-oriented language was not an option; it is also 
+conceded that {\it `... FLASH ... has a big challenge in adapting for 
+future heterogeneous platforms'}.  It appears the use of the code may have 
+`peaked': there are only five publications listed from 2019 and ten from 2018; 
+cf. 93 in 2010 \cite{flashwebsite}.
+
+
+%\paragraph{Documentation}
+%User's Guide.  API description extracted using {\it robodoc}.
+%
+%\paragraph{Workflow / release cycle}
+%Nightly test suite.  Gatekeeping for non-internal extensions to Release.  
+%Integrated unit test framework.  Self-test suite for regression testing.  Suite 
+%of quick-running examples (proven, by a user survey, a popular feature).
+%
+%\paragraph{Community}
+%Mainly astrophysics, but some other.  Email users' group (experienced users and 
+%devs provide support).  User surveys.  Code free on request; users may modify 
+%but not redistribute own copies.
+%%
+
+

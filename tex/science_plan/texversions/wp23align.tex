@@ -1,0 +1,92 @@
+\textbf{FM-WP2} and \textbf{FM-WP3} will concentrate upon development of the 
+two close coupled models of the NEPTUNE
+programme, specifically FM-WP2 around the inclusion of kinetic effects into 
+existing and new edge plasma models, and
+FM-WP3 of particle based models for describing the region outside and just 
+inside the plasma (neutral atoms/molecules
+and partially ionized impurities). Initial exploratory work will be carried out 
+using existing codes (as per above) and
+via the development of proxy-apps, for example to expose options for exascale 
+targeted hardware (GPUs, ARM technology
+etc.).
+
+This work package will begin by identifying a referent in conjunction with 
+potential users, whereby ``referent'' is
+meant a model that establishes the maximum detail and complexity of plasma that 
+the software could ever be reasonably
+expected to model (beyond exascale). \ Critical features of the referent will 
+be identified and prioritised for
+implementation as part of the project. This may involve replacing a kinetic 
+model by moment-based or fluid models.
+Input from the European Boundary Code (EBC) development (funded by EUROfusion 
+wherein UKAEA is a core partner) will be
+important to this process. In addition, the speed of model execution will be a 
+consideration as indicated earlier. A
+provisional sequence of developments is as follows (and will be tuned as part 
+of the initial NEPTUNE requirements
+capture exercise funded in year 1):
+
+
+\bigskip
+
+\liststyleWWNumx
+\begin{enumerate}
+\item 2D model of anisotropic heat transport.
+\item 2D elliptic solver in complex geometry.
+\item 1D fluid solver with simplified physics but with UQ and realistic boundary conditions.
+\item Spatially 1D plasma model incorporating velocity space effects.
+\item Spatially 1D multispecies plasma model.
+\item Spatially 2D plasma model incorporating velocity space effects.
+\item Interaction between models of different dimensionality.
+\item Spatially 3D plasma kinetic models.
+\end{enumerate}
+
+\bigskip
+
+Users from the wider fusion community will be engaged via a workshop in Feb 
+2020 to firm up on the plan, to help define
+work for defrayment that they can themselves can carry out and will be engaged 
+throughout the project to help define
+and add new surrogate models through a wide engagement programme and co-design 
+(e.g. to treat boundary sheaths) and/or
+other important physical effects (e.g. radiation, charge exchange 
+recombination, etc.) and compare with existing codes
+and experiments. 
+This work package will begin by identifying a referent (as above) in 
+conjunction with potential users and experts in
+atomic physics. Critical features of the referent will be identified and 
+prioritised for implementation as part of the
+project. This may involve deploying a particle-based method, a moment-based 
+model or a fluid model (or even a
+combination thereof). Input from the European EBC programme will be important 
+to this process, as will the speed of
+model execution as indicated earlier. A careful assessment of existing codes 
+currently in use {will be
+necessary, as will cross validation with the established models (notably 
+B2-EIRENE
+}\href{https://www.tandfonline.com/doi/abs/10.13182/FST47-172}{\textstyleInterne
+tlink{{[19]}}}{).
+A provisional }sequence of developments is as follows:
+
+
+\bigskip
+
+\liststyleWWNumxi
+\begin{enumerate}
+\item 2D particle-based model of neutral gas \& impurities with critical physics.
+\item 2D moment-based model of neutral gas \& impurities.
+\item Interaction with 2D plasma model when available.
+\item 3D model of neutral gas \& impurities.
+\item Interaction with 3D plasma model.
+\item Staged introduction of additional neutral gas/impurity physics.
+\end{enumerate}
+
+\bigskip
+
+As per FM-WP2, users from the wider fusion modelling community will first be 
+engaged through a workshop in Feb 2020, and
+will help build a UK team that will add new physics and compare with existing 
+codes and experiments, providing detailed
+and rigorous verification and validation (V\&V). This is likely to require the 
+provision of databases for different
+ionisation and excitation reactions, both in the plasma volume and at surfaces.

@@ -1,0 +1,124 @@
+% Scan of Karniadakis and Sherwin symbol table converted to text
+Sets
+Real nutrxbers
+Set union
+
+Set intersection
+(0
+
+Ernpty set Is a
+melilber of;
+belongs to
+
+Is not a rnernber of;
+does not belong to c Is a subset of
+Is not a subset, of
+Expansion basis notation
+pa . pq r Expansion basis
+Modified
+principal
+functions
+()rthogonal principal
+One-dirnensional
+Lagrange polynomial of order p
+Two-dizuensional
+Lagrange
+polynomial through nodes
+Polynomial order in the ith
+direction Quadrature order in the
+ith direction
+Global
+Cartesian coordinates
+Local Cartesian coordinates
+Local collapsed
+
+Cartesian coordinates
+Local Cartesian to
+global coordinate
+Inapping
+Various constants
+Nutnber of global degrees of'
+Ntnnbcr of global boundary
+degrees of
+
+Nutnber of elemental degrees of
+Total nurnber of elemental
+degrees of freedorn *'Veof
+Total nurnber of quadrature
+points
+QIQ2Q3
+Nuruber of elernents Helmholtz
+equation constant El('lnellt
+nurnber
+
+General
+indices General
+surnmation indices
+Elemental arrays
+Basis Inatrix Diagonal weight/
+Jaco bian Inatrix
+Elernent.al derivative
+Inat,rix Avith respect to
+Diagonal rnatrix of
+. {2) evaluated at quadrature
+points Elemental Inass matrix
+
+F,lelnentai Laplacian matrix
+Elemental Helmholtz matrix
+Force, vector of the eth element
+
+Vector containing function
+evaluated at quadrature, points
+Vector of expansion coefficients
+Global arrays
+Block diagonal extension of
+matrix
+Concatenation of elemental
+vector f e Matrix global assembly
+Mass Inatrix
+
+Laplacian matrix
+
+Helrnhohtz matrix
+
+9 List of all elernental
+coefficients (
+Global list of
+coefficients
+Solution domains
+Solution domain oo Boundary of
+Q.
+Elemental region
+Boundary of
+Domain boundary with
+Diric.hlet conditions
+Domain boundary with
+Neumann conditions
+Unit outward normal
+
+Differential operators
+Laplacian
+Divergence
+Curl
+Spaces
+A'
+Space of trial solutions
+Finite-dimensional space of trial
+solutions Space, of test functions
+Finite-dimensional space of test
+functions
+Polynomial space
+of order P over Q
+()perators
+Interpolation operator Discrete
+interpolation operator Projection
+operator Discrete projection
+operator
+Linear operator in u
+Fluid variables
+Velocity [u, 2' w
+Pressure
+Vorticity p
+Density
+Dynamic, kinematic viscosities
+

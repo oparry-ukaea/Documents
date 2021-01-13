@@ -1,0 +1,41 @@
+The following generic transport equation~\cite[\S\,1]{duderstadtmartin} applies to
+
+
+all particle-based models for the time
+evolution of the density distribution function~$f (x,{\bf v},t)$
+\begin{equation} \label{eq:transport}
+\frac{\partial f}{\partial t}
++ {\bf v} \cdot \frac{\partial f}{\partial {\bf x}}
++ {\bf a} \cdot \frac{\partial f}{\partial {\bf v}} 
+= S_C(f)
+=\left(\frac{\partial f}{\partial t}\right)_C + s_{exp}({\bf x},{\bf v},t)
+\end{equation}
+where ${\bf a} = d^2 {\bf x}/dt^2$ is the acceleration experienced by a particle
+at position~${\bf x}$ with velocity~${\bf v}$. This represents scalar
+advection in a 6-D space with an explicit source~$s_{exp}({\bf x}, {\bf v},t)$
+and a source due to other inter-particle interactions that is conventionally written
+$(\partial f/\partial t)_C$ when it is localised and usually depends linearly on~$f$.
+
+Complete specification of the problem even for $S_C=0$ and a single species of particle
+requires a force law such as that for particles of species~$\alpha$
+with charge~$q_\alpha$ and mass~$m_\alpha$
+\begin{equation}\label{eq:forcelaw}
+{\bf F} = m_\alpha \frac{d^2 {\bf x}}{dt^2} = q_\alpha ({\bf E} + {\bf v} \times {\bf B})
+\end{equation}
+and equations for the evolution of the electromagnetic fields~${\bf E}({\bf x},t)$ 
+and ${\bf B}({\bf x},t)$ such as Maxwell's equations, neglecting displacement current.
+For neutral particles, when often ${\bf a}={\bf 0}$, interest attaches to $S_C$
+which for 2-particle interactions is often the Boltzmann operator for 
+different species $Q(f_\alpha, f_\beta)$ where $\alpha,\beta$ are species labels.
+
+It will be seen that \Eq{transport} is a statement that the $7-D$ Lie derivative of~$f$
+vanishes, and it is hoped that in the longer term, the properties of the Lie derivative 
+might be exploited.
+
+For current purposes, it is necessary to state a multi-species version of \Eq{transport}
+complete with appropriate source terms to represent the physics thought critical for modelling the
+tokamak edge. Inevitably choice of $S_C$ is a function of lengthscale and timescale.
+On fast timescales in a strong electromagnetic field, the effect of collisions can
+be ignored (collective effects are felt through say the electrostatic field).
+
+

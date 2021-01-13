@@ -1,0 +1,18 @@
+\subsection{Software design patterns for Call 1 Proxyapp}\label{sec:call1}
+
+%Description of proxyapp
+
+The proxyapp specified in Section 2.1.5 of Contract Ref.\ T/NA078/20, {\it Proxyapp instantiating a 2D model of anisotropic heat transport}, is designed to investigate and quantify the performance of spectral element methods \cite{karniadakissherwin} in modelling anisotropic heat transport in close proximity to a complex first wall geometry.
+The initial remit is for a two-dimensional solver only.
+It is worth noting that a rather generic requirement for next-generation algorithms is spectral accuracy, not least because it is suited to the current HPC landscape - hence, some of the design patterns used in this proxyapp are expected to bleed into other \nep\ work.
+
+%Context of proxyapp
+
+The proxyapp will be built within the pre-existing {\it Nektar++} framework for spectral / hp element PDE solvers \cite{nektarwebsite} and will extend current capabilities to include equations governing the scrape-off layer plasma.  
+The higher-order methods used by {\it Nektar++} generically involve a large amount of arithmetic for a given quantity of data, a computational pattern that is well-suited to today's HPC landscape.  
+The scope of the problem encompasses also techniques for generating two- and three-dimensional meshes capable of conforming to a reactor wall and also to the geometry of local magnetic field lines representing, for example, the tokamak X-point and this capability will be provided by {\it NekMesh}, a meshing framework capable of importing computational meshes from popular CAD formats as well as generating its own meshes and which is integrated with {\it Nektar++} \cite{nektarwebsite}.
+
+%Patterns with UML diagrams
+
+The proxyapp has yet to be implemented but in view of the facts that it will leverage existing {\it Nektar++} code and that codes of this type are likely to have certain common and well-defined characteristics, a description of the main software design patterns used in the {\it Nektar++} framework is presented (for more details, see the discussion in Section 3.5 of \cite{nektardevelopersguide}).
+

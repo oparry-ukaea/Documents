@@ -1,0 +1,50 @@
+% Acronyms from Ralph C. Smith "Uncertainty Quantification"
+
+ANOVA Analysis of variance
+AR Autoregressive (rnodel)
+ASAP Adjoint sensitivity analysis procedure
+BWR Boiling water reactor
+CASL Consortium for Advanced Silnulation of Light VaterI Reactors
+cdf Curnulative distribution function
+CESM Comrnunity Earth System Model
+CFCs chlorofluorocarbons
+CRUD Chalk River unidentified deposit
+CVT Centroidal Voronoi tesselation
+DAKOTA Design Analysis Kit for Optimization and Terascale Applications
+DOE Departrnent of Energy.
+DRAM Delayed rejection adaptive Metropolis
+DREAM DiffeRential Evolution Adaptive Metropolis
+ECMWF European Centre for  Weather Forecasts
+FPGAs Field progralnrnable gate arrays
+FSAP Forward sensitivity analysis procedure
+GCR Gas-cooled reactor
+GP  Gaussian process
+gPC Generalized polynolnial chaos
+HDMR High-dirnensional model representation
+iid Independent and identically distributed
+IPCC Intergovernmental Panel on Climate Change
+kde Kernel density estimation
+LANL Los Alamos National Laboratory
+LQR Linear quadratic regulator
+MAP Maximum a posteriori (estimate)
+MCMC Markov chain Monte Carlo
+MLE Maximum likelihood estimate
+NISP Nonintrusive spectral projection
+NWP Numerical weather prediction
+ODE Ordinary differential equation
+OLS Ordinary least squares
+ORNL Oak Ridge National Laboratory
+PC Polynomial chaos
+PCA Principal component analysis
+PDE Partial differential equation
+pdf Probability density function
+POD Proper orthogonal decomposition
+PRA Probabilistic risk assessment
+PWR Pressurized water reactor
+Q-Q Quantile-quantile
+QoI Quantity of interest
+SAMSI Statistical and Applied Mathenlatical Sciences Institute
+SDE Stochastic differential equation
+SIR Susceptible, infected, recovered (model)
+SVD Singular value decomposition
+WMO World Meteorological Organization32

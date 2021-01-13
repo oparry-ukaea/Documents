@@ -1,0 +1,220 @@
+The milestone report~M3.1.1~\cite{y1re311} highlighted the design challenge 
+represented by project \nep. The present work investigates the state-of-art
+in software design for multiphysics applications potentially relevant to
+the project, focusing on `software frameworks'. In this document, suitability
+for deployment at the Exascale is not an over-arching requirement, there is at least
+equal interest in techniques employed both to ensure a flexible software
+design, and also those which make the resulting code attractive to others so as to build
+a wider user and developer community.
+
+%Wikipedia: framework dictates flow of control, extensible but not modifiable (Wikipedia
+%entry closely equivalent to Sommerville 15.2).
+
+Frameworks are defined by Sommerville~\cite[\S\,15.2]{sommerville} (after
+Schmidt et al~\cite{Sc04Leve}) as\\
+\emph{an integrated set of software artefacts (such as classes, objects and components) that
+collaborate to provide a reusable architecture for a family of related applications}\\
+(In this context, component implies a collection of objects~\cite[\S\,2.1.3]{sommerville}
+whereas class and object are apparently synonymous.)\\
+Sommerville treats frameworks in a chapter on software re-use, consistent
+with the idea that saving labour is the essence of their attractiveness to others.
+Sommerville confuses matters slightly by stating first that ``frameworks are
+language-specific", then that a ``framework can incorporate other frameworks"
+in the context where it is clearly indicated that the encompassing
+framework might be in a different programming language to the others. 
+It does not therefore seem unreasonable to drop the language-specific requirement.
+It can easily be agreed~~\cite[\S\,15.2]{sommerville} that ``Frameworks are not libraries
+in that they provide a skeleton architecture for the application", but while
+normally frameworks will be ``implemented \ldots in an object-oriented programming language",
+this does not seem to be strictly necessary.
+
+There will be overlap with M3.3.2 work on design patterns in that the skeleton
+architecture will usually be a pattern. The pattern however has to be one which
+dictates the flow of control, and which is extensible. The definition of skeleton
+architecture extends to demand that the pattern ``not be modifiable", whereas it
+would seem reasonable to allow changes within an overall pattern.
+
+``Multiphysical" software would be better nomenclature than ``multiphysics" since there
+is no restriction to the field of physics
+in what appears to be a defining bibliography for multiphysics frameworks by Babur~et~al~\cite{Ba15Mult}.
+In 2015, there were $144$ entries in categories listed by ref~\cite{Ba15Mult} which
+included 'Chemistry and Chemical Engineering' and 'Life and Health Sciences', thus
+fewer than~$100$ would be relevant to this report. Clearly much
+of the software listed was likely to have become obsolete even by~2015,
+although there were a few examples where one framework had morphed into another.
+
+Potentially relevant multiphysics software listed in~\cite{Ba15Mult} includes
+(all C++ unless different language stated in parenthesis after name), with originating
+organisation before brief description and website:
+\begin{itemize}
+\item PETSc  -- Argonne (ANL), Portable, Extensible Toolkit for Scientific Computation \url{https://www.mcs.anl.gov/petsc/}
+\item FEniCS  -- (Python, uses PETsc) International, computational mathematical modeling \url{https://fenicsproject.org/}
+\item Firedrake  -- (Python, uses PETsc) Imperial College, solution of partial differential equations using the finite element method \url{https://www.firedrakeproject.org/}
+\item Trilinos  -- Sandia, project for parallel solver algorithms and libraries \url{https://github.com/trilinos/Trilinos}
+\item OpenFOAM  -- ESI group, Computational Fluid Dynamics software \url{https://openfoam.com/}
+\item Nektar++, see \Sec{nektar}  -- UK academic, spectral/hp element \url{https://www.nektar.info/}
+\item waLBerla  -- Germany, widely applicable Lattice Boltzmann from Erlangen \url{https://www.walberla.net/index.html}
+\item LAMMPS  -- Sandia, Large-scale Atomic/Molecular Massively Parallel Simulator \url{https://lammps.sandia.gov/}
+\item preCICE  -- Stuttgarts \& TUM, Precise Code Interaction Coupling Environment \url{https://www.precice.org/}
+\item POOMA  -- Los Alamos (LANL), library supporting element-wise, data-parallel, and stencil-based physics computations using one or more processors  \url{http://savannah.nongnu.org/projects/freepooma} last updated 2005.
+%\item HLA  --  IEEE standard for distributed simulation, combining several simulations
+\item FLASH, see \Sec{flash}  -- Chicago, radiation magnetohydrodynamics~(MHD) simulation code for plasma physics and astrophysics, \url{http://flash.uchicago.edu/site/index.shtml}
+\item MOOSE  -- Idaho, Multiphysics Object Oriented Simulation Environment \url{https://moose.inl.gov/SitePages/Home.aspx}
+%\item CSMP 
+\item XMSF  -- US, Extensible Modeling and Simulation Framework using web services \url{https://sourceforge.net/projects/xmsf/}
+\item OASIS4 -- France, exchanges of coupling information between numerical codes representing different components of the climate system \url{https://portal.enes.org/oasis} last updated 2019 
+%\item MCT
+\end{itemize}
+Selected codes are described in more detail in the sections indicated.
+Qualifications for inclusion in the list are that source code is available without significant fee,
+(although it may be necessary to register with the authors prior to download)
+and that significant updates were made to the code repository in~2020.
+(The web-sites listed were current as of June~2020.)
+FLASH is also described in Carver et al~\cite[\S\,1]{carverhong} along with Amanzi/ATS, which
+employs the Arcos framework, see \cite{Co16Mana} discussed in more detail in \Sec{arcos}.
+%mentioned in Carver et al~\cite[\S\,1]{Du16Soft}
+
+Babur et al also mention HLA, High Level Architecture, which evolved to 
+become an IEEE standard for distributed simulation, leaving behind its origins as a single piece of software.
+Although OASIS~\cite{Va13OASI} is present, ESMF, the Earth System Modeling
+Framework~\cite{Hi04arch} and NEMO, Nucleus for European Modelling of the Ocean NEMO~\cite{nemowebsite},
+are missing from the bibliography, presumably on the 
+grounds that they are only used by Earth scientists, although both coordinate modelling of many
+different physical processes. Similarly there are examples of astrophysics
+codes besides FLASH, such as the Pencil~Code~\cite{pencilwebsite} which
+is centred on compressible magnetohydrodynamics
+and the `other'~NEMO~\cite{othernemowebsite} (Not Everybody Must Observe) which is a stellar dynamics toolbox,
+which are not mentioned, although they have grown to include a lot of extra physical processes.
+The paper by Theurich~et~al~\cite{Th16eart} indicates that
+ESMF was important for subsequent developments,
+and together with the recent survey by Groen et al~\cite{Gr19Mast} that
+covers multiscale computing software, will be discussed further in \Sec{summ}.
+
+%VORPAL (particles only) replaced Cary's FACETS (1)?
+%SAMRAI - adaptive -> grid gen
+
+Regrettably, investigation of the usage of the term ``framework" in
+talks at the SIAM~PP20 meeting indicated wide usage as a synonym for library.
+Here, consideration will only be given to software which represents
+significantly more complexity than a library plus a test harness.
+Thus, although there are approximately
+$50$~separate mentions of the term ``framework" in the online programme~\cite{pp20},
+the number of true frameworks in smaller, and the number that are multiphysics
+is smaller still. The following are noteworthy (author(s) and session(s) at end of line):
+\begin{itemize}
+%\item CabanaMD  --  ECP, Molecular dynamics proxy application based on Cabana https://github.com/ECP-copa/CabanaMD
+%\item MaMiCo  -- particle+continuum (0)
+\item OpenFPM  -- Dresden, particles and mesh simulation \url{http://openfpm.mpi-cbg.de/}
+, last release 2/19 . Incardona, MS22
+\item Legion  -- Stanford, data-centric parallel programming system for writing portable high performance programs targeted at distributed heterogeneous architectures \url{https://legion.stanford.edu/}. Shipman, MS36
+%\item COSMO  framework for regional weather prediction in Europe, being superseded by ICON
+%not opensource \url{https://code.mpimet.mpg.de/projects/iconpublic}
+\item AMReX -- ECP, massively parallel, block-structured adaptive mesh refinement \url{https://amrex-codes.github.io/amrex/}. Gott, MS12, Almgren, MS46
+\end{itemize}
+There were other mentions of Adaptive Mesh Refinement (AMR) frameworks at PP20, notably by Shimokawabe in MS25, but most concerned AMReX, which
+is both the name of the software and the Exascale Computing Project~(ECP) co-design centre~\cite[\S\,3]{Al20Exas}. It is notable
+that the only other mention of framework within the ECP programme~\cite{Al20Exas} is 
+the Multiscale Modeling Framework~(MMF) which appears exclusively
+in the context of E3SM, a cloud-resolving version of CESM, the Community Earth System Model
+which is compared to the ESMF in ref~\cite{Th16eart}.
+
+%Cabana is a performance portable library for particle-based simulations. 
+%Cabana is developed as part of the Co-Design Center for Particle Applications (CoPA) within the Exascale Computing Project (ECP) under the U.S. Department of Energy.
+%macro–micro-coupling tool (MaMiCo) was developed to ease the development of and modularize molecular-continuum simulations, retaining sequential and parallel performance.
+
+The precise criteria for identifying software to be ``multiphysics" could be debated.
+Babur~et~al include only one current code, OMFIT, relevant to magnetically confined
+nuclear fusion, consistent with
+the idea that fusion basically constitutes a single area of physics. Indeed,
+since  \nep \ will be concentrating on plasma physics, the use of the term multiphysics 
+in the context of the project might be queried. However, in magnetic fusion work, there
+seems to be an empirical definition as software which combines the function of two or more
+existing separate codes. Thus the SOLPS software~\cite{Bo16Pres} couples a fluid
+code~(B2) for the ionised component of the plasma with a particle code~(EIRENE) for
+the neutral component. A better definition might be as modelling software
+capable of treating coupled effects using different physical representations 
+and solution algorithms for the interacting components.
+Project \nep \ software should not become ``multiphysics" only when 
+it incorporates plasma chemistry effects.
+
+The following is a representative although far from exhaustive list of
+frameworks relevant to fusion, again C++ unless stated otherwise in parenthesis:
+\begin{itemize}
+\item OMFIT  -- (Python) General Atomics (GA), One Modeling Framework for Integrated Tasks \url{https://omfit.io/}
+\item BOUT++, see \Sec{bout}  -- York, Plasma fluid finite-difference simulation code in curvilinear coordinate systems  \url{http://boutproject.github.io/ }
+%Me15Inte
+\item ETS  -- (Mixed) EU,  European Transport Simulator within Integrated Tokamak Modelling~(ITM).  IMAS repository %St18Towa
+\item JOREK, see \Sec{jorek} --  (Fortran) EU, MHD including more detailed fluid plasma models \url{https://www.jorek.eu/}
+\item SMARDDA, see \Sec{smardda}  -- (Object-oriented Fortran) UK, Surface interactions of rays and particles. IMAS repository as SMITER kernel
+\item Alya  -- Spain, High Performance Computational Mechanics \url{https://www.bsc.es/research-development/research-areas/engineering-simulations/alya-high-performance-computational }
+\item VECMAtk -- EU, includes MUSCLE~3, formerly ComPat \url{https://www.vecma-toolkit.eu/}
+\end{itemize}
+BOUT++, JOREK and SMARDDA will be described in more detail in the sections indicated.
+The IMAS repository is not publicly available, but is usually accessible on request by  
+members of the fusion community to ITER.
+The Alya software is free subject to a collaboration agreement. Alya~\cite{Va16Alya} and VECMAtk
+have been included as more general frameworks which have been used for fusion work,
+respectively reactor modelling~\cite{Gu18Newh} and multiscale tokamak core plasma modelling~\cite{Lu19Comp}.
+Neither has yet seen any uptake in fusion outside the collaborators in the EU-funded
+projects to develop them. The tool-kit VECMAtk is directed towards Uncertainty Quantification
+and will be described in detail elsewhere.
+
+OMFIT~\cite{Me15Inte} has attracted and continues to attract a very wide range of users.
+Many of the reasons for this are to be found in the first paragraphs of \Sec{attract},
+but aside from interactivity, one specially highlighted by
+the authors is that it integrates people engaged in previously fragmented efforts in experimental
+data analysis, often including multiphysics simulations, into
+a community based around the software. It goes almost without saying
+that the larger the usage of software, the more reliable it becomes,
+provided there is a good management, especially of error reporting.
+Much of the OMFIT software relates to ancillary tasks such as reading and
+converting between data formats and visualisation, for which users would
+otherwise to write their own software, and here OMFIT's comprehensive documentation,
+extending to YouTube videos, is clearly vital.
+
+The present work contains in \Sec{taskwork} detailed descriptions of one
+obsolescent and six other frameworks still under active development. 
+\Sec{compare} provides a tabulated overview of the seven. \Sec{summ} summarises
+what has been learnt about what makes software attractive in \Sec{attract},
+then \Sec{flex} indicates how
+to begin producing complicated designs that nonetheless possess much flexibility,
+and lastly \Sec{exa} sets the scene for the transition to the Exascale.
+%Frameworks are implemented as a collection of concrete and abstract object
+%classes in an object-oriented programming language. Therefore, frameworks are
+%language-specific. Frameworks are available in commonly used object-oriented
+%programming languages such as Java, C#, and C++, as well as in dynamic languages
+%such as Ruby and Python. In fact, a framework can incorporate other frameworks,
+%where each framework is designed to support the development of part of the applica-
+%tion. You can use a framework to create a complete application or to implement part
+%of an application, such as the graphical user interface.
+
+%------------------------------
+
+%OLYMPUS - historical approach
+%SMARDDA modules
+%raysect \url{https://github.com/raysect} is a library, although described as a framework
+%
+%
+%PP20 programme 87 mentions of word "framework" (/2=43)
+%multiphysics 18/2=9
+%https://www.siam.org/Portals/0/Conferences/PP20/PP20_PROGRAM_COLOR_V4_with_abstracts.pdf?ver=2020-02-06-095558-400
+%CabanaMD
+%MaMiCo particle+continuum (0)
+%OpenFPM
+%AMReX (0+) but is ECP
+%AMR framework Shimokawabe
+%(Many AMR)
+%Shipman Legion Programming System
+%Checkout COSMO framework for regional weather prediction in Europe
+%
+%
+%Metrics:
+%How good at each user/developer level?
+%Long-term maintenance, maintainability
+%Range of multiphysics
+%Entries in swMATH \url{https://swmath.org/about_contact}
+%How robust - "actionable" Are Python, Java robust enough?
+%
+
+%\begin{verbatim}
+%\end{verbatim}

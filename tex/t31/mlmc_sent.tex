@@ -1,0 +1,47 @@
+An alternative approach to producing the PCE is to sample at a set of $N$~random
+points~$\theta_j, j=1\ldots N$, so that
+$n$ is a distribution in probability space, viz.
+\begin{equation} \label{eq:dfnexpn}
+n(x,t,\theta) = \sum_{j=0}^{N} n_{sj}(x,t)\delta(\theta-\theta_j)
+\end{equation}
+and then to equate with \Eq{Hermite_expansion} in the weak sense, ie.
+\begin{equation} \label{eq:hermweak}
+\langle\sum_{j=0}^{N} n_{sj}(x,t)\delta(\theta-\theta_j), H_k(\theta)\rangle = 
+\langle\sum_{j=0}^{N} n_{j}(x,t) H_j (\theta), H_k(\theta)\rangle 
+\end{equation}
+where $\langle,\cdot \rangle$ denotes the inner product indicated by \Eq{}, so that
+\begin{equation} \label{eq:hermres}
+n_k(x,t) = \frac{1}{2^nn!\sqrt{\pi}}\sum_{j=0}^{N} n_{sj}(x,t)H_k(\theta_j) e^{-\theta_j^2}
+\end{equation}
+
+\subsection{MLMC}\label{sec:mlmc}
+%MFMA - see Slide 7 of Sa18Spar-ppt
+Multi-level Monte-Carlo~(MLMC) is a more efficient way of estimating averages
+and other statistics by means of random or Monte-Carlo~(MC) sampling. 
+MLMC is usually associated with the name of Mike~Giles~\cite{Gi16Mult}.
+Suppose that a model or surrogate problem may be solved with a range of
+spatial and/or temporal resolutions. The basic idea is that sample solutions
+computed with different levels of resolution may be combined to produce means
+and other statistics 
+(giving estimates of uncertainty) as accurately as though all solutions had been
+obtained using the finest level.
+
+In more detail, for the example of a steady solution obtained with
+different spatial levels of resolution~\cite{Mi13Mult}, the MLMC algorithm is
+\begin{enumerate}
+\item Construct a hierarchy of meshes, spacings~$h_l$, where $l=0$ is the coarsest level
+and $l=L$ is the finest.
+\item For each~$l$, draw a level-dependent number~$N_l$ of samples from the parameters/fields
+to be sampled, eg.\ 
+${\bf U}$ denoting a single solution depending on spatial variables alone.
+\item Solve the model or surrogate problem $N_l$ times at each level, giving an
+ensemble of solutions~${\bf U}^k_l,\;k=1,\ldots N_l$,
+\item Estimate the mean (other moments of the distribution follow similarly) as
+\begin{equation}
+{\mathbb E}^L[{\bf U}]= \sum_{l=0}^L {\mathbb E}_l[{\bf U}_l-{\bf U}_{l-1}]
+\end{equation}
+using simple averages~${\mathbb E}_l$ with ${\bf U}_{-1}={\bf 0}$
+\end{enumerate}
+Large gains occur when
+$N_l=N_0 4^{lp}$ where the solution scheme is of order~$p\leq(d+1)/2$.
+

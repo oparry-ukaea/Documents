@@ -1,0 +1,9 @@
+filnam g_g12 
+filon
+loc 0 0.4
+scale 0.6 0.6
+pict g_gaps 1
+loc 0 0
+pict g_vgaps 1
+frame
+grend

@@ -1,0 +1,53 @@
+\nep \  will require the numerical instantiation of systems of equations to deliver
+a solution that efficiently and accurately captures
+key aspects of the collective physical processes expected to 
+operate in the tokamak edge. The allowable systems will treat a range of 
+interacting charged and neutral particle species as phase fluids, that is to 
+say that functional dependence in velocity space is allowed as well as the more 
+usual dependence on space and time. However, only at most two velocity space 
+variables should be employed, typically the third will have been removed by 
+averaging over the gyro-orbit. Averaging over velocity space 
+dependencies to provide fluid-type models only dependent on spatio-temporal variables will be needed.
+Plasma species will not only feel the electromagnetic 
+field, but may modify its behaviour, which effect must be accounted for. (It 
+should be borne in mind that other task packages will address treatment of 
+charged and neutral species using discrete particle models and hydrodynamical approaches
+involving classical Newtonian fluids, cf.\ Navier-Stokes Equations).
+
+The collective physical processes (regimes) important 
+for tokamak edge physics should be determined based on the length scales and timescales observed 
+experimentally or derivable from estimates of the number density, temperature 
+and magnetic field in the edge, as discussed above for attached L-mode plasmas, and separately
+determined in other configurations. It is expected that 
+relevant processes for each species separately will be selected on the basis of 
+a small number of key parameters, of which obviously the first is number 
+of particles of each species in the Debye sphere that should be large to ensure that a plasma 
+treatment is appropriate. The second will be magnetisation parameter~$\delta_s=\rho_{ts}/L$ of a 
+representative species particle, others will include the normalised collision 
+frequency~$\nu^{*}=L/\lambda_{smfp}$, the drift-ratio, the
+width of the SOL normalised to~$L$ and the plasma~$\beta$.
+Different models will be appropriate according 
+to the relative sizes of these latter key parameters, and the magnetic 
+geometry, that is to say whether field lines are (i) straight (slab 
+geometry), (ii) twisted, (iii) toroidal, (iv) twisted and toroidal. Note the 
+term ``model" includes not only say special collision operators appropriate 
+to interaction between different species including neutral species, but also 
+the boundary conditions appropriate to the particular physical case, or for the 
+latter it may be acceptable to describe how the representation changes to 
+particle and/or hydrodynamic fluid on a bounding surface or over an overlap 
+volume. In all cases, the limitations of each model need to be clearly stated, including a 
+discussion of the ease of its numerical implementation at the Exascale.
+
+The identification of key edge physical processes and regimes will prioritise 
+the theoretical developments needed to produce models capable of treating them 
+efficiently at the Exascale. Ideally it should be possible to transition smoothly 
+from one model to another as key parameters vary, both as time varies and as a 
+function of position. It is expected that the widely differing timescales for 
+electron and ion species dynamics will present a particular challenge, and 
+interaction is expected with other tasks for designing software for multiscale 
+applications and researching surrogate models. Theorists are also expected to 
+collaborate with numerical experts not only in respect of ease of implementation, 
+but also to produce algorithms for estimating likely errors, both within a 
+single species model and in its interactions with other species models 
+including discrete particle and hydrodynamical fluid, in order to guide refinements 
+to the equations of the system describing the given regime.

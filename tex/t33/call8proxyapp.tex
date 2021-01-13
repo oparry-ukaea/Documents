@@ -1,0 +1,74 @@
+\subsection{Software design patterns for Call 8 Proxyapps}\label{sec:call8}
+
+%Description of proxyapps
+
+The Contract Ref.\ T/NA085/20 focusses on the development of a referent
+gyrokinetics model.
+This work package will investigate a novel approach to deriving the gyrokinetic
+equations, where the local three-dimensional fluid quantities (density,
+momentum and energy) are embedded into the five-dimensional particle
+distribution function.
+This leads to a version of gyrokinetics with both a kinetic equation for the
+modified distribution function and a set of fluid equations for the local
+moments.
+This allows one to use a single model to study both the core (where one solves
+the whole equation system) and for the scrape-off layer (where one solves 
+only the fluid equations).
+Alternatively, the model allows a very natural coupling of the gyrokinetic
+equations to any set of fluid equations for the scrape-off layer.
+
+Because of the novelty of this approach, the work package will first derive
+drift kinetic equations (the simplified, long-perpendicular wavelength
+limit of gyrokinetics).
+It will also develop proxyapps to compare the numerical performance of the new
+model to a more standard drift kinetic model for a variety of problems.
+It will determine potential bottlenecks in the numerical treatment of the drift
+kinetic models, and, in addition, develop appropriate numerical algorithms for
+treating the wall boundary.
+
+%Context of proxyapp
+
+The proxyapp will be developed from scratch using Julia, which combines rapid
+prototyping in a high-level language and access to computational libraries,
+with performance that approaches that of statically-typed languages. 
+While there is no design pattern yet specified for the proxyapp, the developers
+are also early contributors to the gyrokinetics code GS2 \cite{GS2}.
+It therefore seems likely that the proxyapp will share design features with
+GS2.
+
+GS2 is written in Fortran 90, using a modular design pattern (see section
+\ref{sec:modular}).
+It utilizes lazy initialization (see section \ref{sec:lazy_init}) as a
+technique to passively manage module dependencies.
+The modular design is a result of the age of the code.
+Object-oriented techniques have been introduced, but in an incremental
+fashion that allows modular design to coexist with encapsulated objects.
+To achieve this, dependency injection (section \ref{sec:dependency_injection})
+was adopted, with module-level variables being phased out in favour of large
+\texttt{state} objects.
+Having a small number of objects with many members has proven convenient for developers,
+and it seems likely this proxyapp will retain this approach from GS2,
+with perhaps a few \texttt{state} objects representing the solution, the diagnostic outputs
+and the simulation parameters.
+
+%%%GS2 is written in Fortran 90, using a modular design pattern.
+%%%It utilizes lazy initialization -- rather than handling dependencies between modules explicitly,
+%%%each module has an initialization subroutine \texttt{init} which calls the \texttt{init} routine of all the module's dependencies before initializing itself.
+%%%A similar approach is taken to uninitialization.
+%%%In keeping with the modular design, GS2 makes heavy use of module-level
+%%%variables for objects like the solution arrays and grid resolutions.
+%%%These variables may be read and modified by all subroutines within the module;
+%%%when given the \texttt{public} attribute, such variables may be edited by \emph{all} modules.
+%%%The module-level variables arise in legacy code, and the newer code
+%%%incorporates object-oriented designs.  
+%%%However, this change was made incrementally, with the object-oriented code
+%%%coexisting with the module-level variables.
+%%%Therefore, the object-oriented approach uses a dependency injection design pattern, 
+%%%where so far as possible, objects that were previous module-level variables
+%%%are instead wrapped into a large \texttt{state} object.
+%%%The \texttt{state} is then the input/output of subroutines, allowing the
+%%%module-level variables to be incrementally removed.
+%%%Having a small number of objects with many members has proven convenient for developers,
+%%%and it seems likely this proxyapp will retain this approach from GS2,
+%%%with perhaps a few \texttt{state} objects representing the solution, the diagnostic outputs
+%%%and the simulation parameters.

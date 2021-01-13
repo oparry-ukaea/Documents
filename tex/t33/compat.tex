@@ -1,0 +1,110 @@
+\hyphenation{gyro-period sub-models create hetero-geneous gyro-kinetic}% specify allowed hyphen insertions (e.g. prevents gy-roperiod, submod-els)
+
+\subsubsection{ComPat}\label{sec:compat}
+
+The ComPat project \cite{compatwebsite,compatswwebsite} is an extreme scaling
+design pattern targeting the multiscale modelling of magnetic confinement
+fusion (MCF) plasmas.  
+Models of MCF plasmas span lengthscales from the electron gyroradius $\sim
+10^{-6}$ m to the device size $\sim 10$ m, and timescales from the electron
+gyroperiod $\sim 10^{-10}$ s to the confinement time $\sim 10$ s.
+Including even smaller length- and timescales from atomic and sheath physics
+would be desirable.  The different physical effects within an MCF plasma are
+also characterized by models of different dimensionality, with five-dimensional
+gyrokinetic turbulence, two- or three-dimensional edge transport, and
+one-dimensional core transport models.
+
+The ComPat project adopts a submodel approach to modelling MCF plasmas, using
+single-scale submodels provided by different codes, and coupling these together
+by passing relevant information in an agreed format through middleware.  
+This approach has a number of benefits.  
+It allows the separation of concerns: using existing codes as submodels means
+that the components are developed by domain specialists, and are therefore
+better tested and validated.  
+Discrete submodels are also easier to maintain and optimize.  
+Further, it allows users to change which code is used for each submodel, so
+that a user could, for example, choose between continuum and particle-based
+solvers for the gyrokinetic turbulence, or indeed, between gyrokinetic and
+gyrofluid models.
+The drawback of separating codes in this manner is that the process of coupling
+codes introduces complexity and runtime overheads.
+
+ComPat is a framework and software suite designed to facilitate studying
+multiscale fusion plasmas on HPC systems.  
+It has two major objectives \cite{Lu19ComP}:
+(1) to provide a collection of methods and software to aid the development of
+component-based multiscale simulations; and 
+(2) to create generic transformation and optimization methods to ameliorate
+coupling overheads and improve the simulation's runtime (and/or other
+performance metric) on a targeted set of execution platforms.
+Different workflow configurations may be used depending on what the user wishes
+to optimize, for example, minimizing wall clock time, minimizing total energy
+consumption, or maximizing scaling efficiency.
+
+
+\paragraph{Implementation}
+
+The ComPat software stack has several components.
+Firstly, it uses a domain-specific language, the Multiscale Modelling Language
+(MML) and its representation in XML (xMML) to allow developers to give a
+high-level description of submodels and their interactions.
+It uses the tool jMML to generate a topology, task-graph and skeleton
+configuration file for the coupling framework.
+The coupling framework used is MUSCLE2 (Multiscale Coupling Library and
+Environment).
+This itself has two parts, a library for data exchange between submodels, and a
+runtime environment to manage each submodel's execution on (possibly)
+distributed resources.
+The library has APIs in C, C++, Fortran, Python and Java, with functions
+allowing users to query parameters, send and receive data, and log and stage
+files.
+This component-based approach means that the framework is agnostic towards
+which submodels are actually used.
+Submodels (called \emph{kernels} in MUSCLE2 nomenclature) therefore may be
+swapped in and out, and different multiscale models treated within the same
+framework.
+
+ComPat uses QCG middleware \cite{qcgwebsite}, as a resource broker to set-up
+and execute jobs.
+The QCG client provides a simple interface to machines through batch scripts or
+XML files.
+This allows cross-cluster jobs to be configured with a single script and to be
+monitored from a single workstation.
+
+\paragraph{Performance}
+
+Alowayyed \emph{et al.}\ \cite{Al17Mult} identify three Multiscale Computing Patterns (MCPs):
+{\it Heterogeneous Multiscale Computing} (HMC),
+{\it Replica Computing} (RC) And
+{\it Extreme Scaling} (ES).
+ComPat follows the {\it Extreme Scaling Pattern}, as the computing cost of one
+submodel (called the \emph{primary}) dominates that of all other submodels
+(called the \emph{auxiliaries}).
+In ComPat, the primary is the model for microscale turbulence.
+Through its use of multiple computing resources, the extreme pattern introduces
+an extra layer of parallelism at the code coupling level, meaning that coupling
+overheads may be hidden, and the coupled code may even outperform a monolithic
+implementation.
+
+In Luk \emph{et al.}\ \cite{Lu19ComP}, a further optimization is found by solving
+the submodels in an ``asynchronous'' fashion.
+A simple first analysis of the data dependencies in ComPat showed that the
+different models needed to be executed sequentially, and that consequently the
+primary microturbulence submodel was often idle, waiting for other submodels to
+finish.
+However, by considering the timescales of the auxiliary submodels, Luk \emph{et
+al.}\ argue that the longer-timescale equilibrium and transport solvers do not
+change their input to the turbulence solver significantly from one time step to
+the next.
+Therefore, they introduce an "asynchronous" mode, where the microturbulence
+model takes equilibrium and transport data from the \emph{previous} timestep. 
+This removes the data dependency, and allows the submodels to run in parallel.
+This asynchronous workflow decreases the total wall clock time by around $6\%$
+without appreciably changing the simulation results.
+
+Despite this improvement, the runtime is still limited by the scaling
+performance of microturbulence submodel, which only scales well to 16 cores per
+flux tube.
+This emphasises that in the {\it Extreme Scaling Pattern} it is necessary to optimize
+both the workflow and the raw scaling performance of the submodels (that are on
+the critical path) in order to obtain good scaling performance at Exascale.

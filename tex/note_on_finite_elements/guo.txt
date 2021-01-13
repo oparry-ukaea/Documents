@@ -1,0 +1,14 @@
+Gr15Soft (seems to have been suppressed, but available on arXiv 
+
+We find that the publication output of the
+four scientific codes correlates strongest with the development effort invested
+in the three years prior to publication, and that each of these years of effort
+appear to contribute equally to the publication output.a
+
+@article{groen2015software,
+  title={Software development practices in academia: a case study comparison},
+  author={Groen, Derek and Guo, Xiaohu and Grogan, James A and Schiller, Ulf D and Osborne, James M},
+  journal={arXiv preprint arXiv:1506.05272},
+  year={2015}
+}
+

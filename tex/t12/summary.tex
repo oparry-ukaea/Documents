@@ -1,0 +1,89 @@
+The requirements capture exercise did not raise any significant issues that
+had not been anticipated in the Science Plan~\cite{sciplan}.
+Concerning modelling and software, there was remarkably little dissension.
+The question of the physics to be included has been settled in the
+short term  by the need to align with the E-TASC projects on edge modelling.
+Longer term there are questions still to be resolved concerning the
+details of the gyroaveraged kinetic (or other kinetic) model to be employed,
+the inclusion of special relativistic effects, plasma chemistry, 
+and for example whether the PFC boundaries should be allowed to `melt',
+and whether particle dynamics within the top layers of PFCs should be included.
+
+There is still a debate about how best to deal with situations when the software
+even at the Exascale is incapable of resolving boundary or internal layers.
+A feature of the lower order (Patankar) fd scheme is that it can be
+formulated so that in an implicit time advance of a field advection-diffusion equation,
+it acts a contraction mapping on the field, ie.\ it converges to a single, finite solution,
+regardless of lack of layer resolution or of size of timestep. Under such circumstances, a spectral
+scheme may fail completely cf.\ the dispersion analyses of say Ainsworth et al~\cite{Ai09Disp}
+and more recently for spectral/hp element schemes in the Galerkin~\cite{Mo16Eige} and 
+discontinuous Galerkin~\cite{Mo15line} contexts,
+and users generally prefer an answer to none at all.
+Of course, it may be argued that a manifestly erroneous result without an accuracy estimate
+will not be used to action large procurements, but in any event it would be better
+for the spectral scheme to produce a result at increasingly extreme parameters.
+
+There are a number of ways to achieve this, the most obvious' being the use of
+explicit artifical viscosity,
+to broaden thinner layers or small features to the
+point where full spectral accuracy is achievable.
+Different options have been explored, of
+which the most robust appears to be `DG-mimicking spectral vanishing viscosity'~ (SVV), see ref~\cite{Mo19Spat}.
+Fernandez et al~\cite{Fe19Nonm} specifically addresses robustness when mesh resolution becomes poor..
+
+A better approach from the point-of-view
+of accuracy is to insert more resolution (more elements or increased order polynomials)
+where aliasing error has been detected. This has its limitations in terms of cost,
+but there are also practical issues concerning refinement that still need investigation.
+Some of these latter points might be more easily addressed by reformulating the problem 
+in terms of a variational approach and/or using the Lie derivative formulation~\cite{La03prac}.
+It was anticipated that these could be addressed in the cross-cutting programme.
+
+Interaction with a reactor design framework awaits better definition of data structures
+for such tools. There seems no reason however why this should not be addressed inside-out,
+as regardless, techniques have to be produced for moving data at the Exascale.
+
+Subject to the above qualifications, the production of proxyapps should proceed in Y2 as indicated
+in the Activities Plan~\cite{y12acts}, viz.\ a larger task :
+\begin{itemize}
+\item to define a referent physics model for the tokamak edge region, accounting
+for magnetised plasma behaviour in the presence of significant numbers of neutral atoms and molecules, allowing for
+radiation and chemical reactions, and identifying important wall interactions such as sheath formation.
+\end{itemize}
+This task will be expected to interact with other tasks to ensure feasible implementation.
+It is desirable that theroretical support be provided for the EBC pilot code development,
+which is a 2-D fluid model, as well as for the 1-D fluid cases with kinetic effects explicitly
+listed below.
+
+The candidate algorithms are expected to employ spectral finite element and particle representations.
+There are 5 tasks for which advanced mathematical skills will be important:
+\begin{enumerate}
+\item  to assess performance of spectral elements for \nep \ 
+\item  to examine the optimal replacement of plasma species properties
+represented on high-order spatially accurate meshes by a particle representation and vice versa.
+\item  to study uncertainty quantification (UQ) techniques for \nep \ .
+\item  to study model order reduction techniques for \nep \ .
+\item  to investigate matrix-preconditioning techniques for \nep \ .
+\end{enumerate}
+There are 4 tasks to develop proxy-apps for \nep \  of demonstrable, high accuracy
+in challenging test-cases, namely :
+\begin{enumerate}
+\item  2-D model of anisotropic heat transport.
+\item  2-D elliptic solver in complex geometry.
+\item  1-D fluid solver with simplified physics but with UQ and realistic boundary conditions.
+\item  1-D plasma model incorporating velocity space effects.
+\end{enumerate}
+There are 2  tasks concerning software engineering for \nep \ 
+\begin{enumerate}
+\item  to investigate DSL and code generation techniques for \nep \ .
+\item  to investigate, in collaboration with UKAEA staff, data structures and design patterns for \nep \ .
+\end{enumerate}
+
+The Science Plan~\cite{sciplan} shows how the proxyapps should feed into the $5$-year development.
+All the tasks may use any identified software packages including
+commercial software as part of the demonstration process, provided a feasible route to producing code
+freely usable by \nep \  is clearly indicated. It will obviously be better if a task
+is linked to the delivery of a proxy-app.
+
+
+

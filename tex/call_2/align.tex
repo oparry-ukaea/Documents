@@ -1,0 +1,62 @@
+\begin{itemize}
+\item This task focuses upon the suitability of available numerical 
+algorithms (or the development of new algorithms)
+for Exascale targeted plasma modelling. As stated in the Fusion Modelling System
+Science Plan, elements of this work package together with FM-WP4 will also
+surround the ``coupling technology'' that will be required to connect the 
+edge/pedestal region of the plasma (addressed
+by FM-WP2) and the neutral gas/impurity model (FM-WP3).
+
+\item The ideal numerical algorithms for forming the Exascale edge plasma codes of 
+the future will have preferably at least the following properties:
+\begin{itemize}
+\item[{\bf P1}] Accurate solution of hyperbolic problems.
+\item[{\bf P2}] Ability to deliver efficient and accurate solutions of corresponding 
+elliptic problems.
+\item[{\bf P3}] Accurate modelling of highly anisotropic dynamics. 
+\item[{\bf P4}] Accurate representation of first wall geometry (face normals to
+within~$0.1^{0}$), and correspondingly of complex magnetic field geometries.
+\item[{\bf P5}] Accurate representation of velocity (phase) space.
+\item[{\bf P6}] Preservation of conservation properties of the underlying equations.
+\item[{\bf P7}] Scalability to likely Exascale architectures:
+\begin{itemize}
+\item[a] interaction between models of different dimensionality,
+\item[b] interaction between particle and fluid models,
+\item[c] dynamic construction of surrogates.
+\end{itemize}
+\item[{\bf P8}] Performance portability to allow rapid deployment upon emerging hardware.
+\end{itemize}
+
+\item It is unlikely that any algorithm will have all the above, and part of the exercise
+will be to rank the importance of these properties.
+
+\item Options were tentatively identified for initial investigation,
+but have since been revised as indicated in the Milestone Report
+CD/EXCALIBUR-FMS/0013.
+\begin{enumerate}
+\item The edge region is in parts a very good vacuum, so
+that none of the neutral or charged species in the plasma typically thermalizes fully.
+Indeed, collision timescales typically vary $\tau\propto T^{3/2}/N$ where $T$~is the temperature of the species
+and~$N$ is its number density, so that a species may be treatable as a fluid over say microsecond
+timescales in cooler, denser regions, but not on shorter timescales or in parts closer to the core.
+The edge may also contain relatively small numbers of impurity species with different charges,
+the spectra of which are important for diagnosing local plasma properties.
+There is the additional complication of sheath formation at the edge, where the preferential
+loss of electrons leads to strong electric fields and consequently flows close to sonic.
+
+\item The cooler parts of the tokamak edge plasma may contain large numbers of neutral atoms,
+Neutrals are important because classical plasma transport coefficients~$\kappa$, in
+addition to a~$1/\tau$ dependence, are anisotropic because of the strong magnetic field,
+to the extent that collisions with neutrals may become an important limiting mechanism
+for transport along the field. Another aspect of the neutral species is that
+these collisions may represent a large source of plasma.
+
+\end{enumerate}
+
+
+%\begin{enumerate}
+%\item Kinetic or Particle Enslavement (KE),
+%\item Quasi-Monte-Carlo (QMC) methods,
+%\item Multi-Index Monte-Carlo (MIMC) methods, to include Multi-Level Monte-Carlo (MLMC).
+%\end{enumerate}
+\end{itemize}
