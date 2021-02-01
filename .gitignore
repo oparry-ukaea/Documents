@@ -21,7 +21,6 @@
 *.log
 *.o
 *.out
-*.pdf
 *.pyc
 *.rtf
 *.sav
