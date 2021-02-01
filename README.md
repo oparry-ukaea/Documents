@@ -15,6 +15,7 @@ Table of Contents
 
 ```
 ├── bid_documents - Bid documents (with financials redacted)  
+├── meetings - documents and presentations from meetings
 └── tex  
     ├── call_1 - Call document for "Performance of Spectral Elements"  
     ├── call_2 - Call document for "Optimal Use of Particles"  
