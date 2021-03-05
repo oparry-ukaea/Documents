@@ -32,9 +32,10 @@ small natural numbers for both this and the version is recommended.
 
 # Table of contents
 
-| Call no., identifier and short title   | Responsible Persons(s) |            Comments              |
+| Task                                   | Responsible Persons(s) |            Comments              |
 |:---------------------------------------|:-----------------------|:--------------------------------:|
-| 78, 1.1, Generation of edge mesh       |     DM                 |                                  |
+| **Call 78**                            |                        |                                  |
+| 1.1, Generation of edge mesh           |     DM                 |                                  |
 | 1.2 Surface mesh generation            |     DM                 |                                  |
 | 1.3 Software development 1             |     DM                 |                                  |
 | 1.4 Curvilinear mesh generation        |     DM                 |                                  |
@@ -46,12 +47,14 @@ small natural numbers for both this and the version is recommended.
 | 3.2 Training materials                 |     DM                 |                                  |
 | 3.3 Coordination                       |     DM                 |                                  |
 |                                        |                        |                                  |
-| 79,M3 Implicit field solver            |     TG                 |                                  |
+| **Call 79**                            |                        |                                  |
+| M3 Implicit field solver               |     TG                 |                                  |
 | M4 Particle orbit solver               |     BM                 |                                  |
 | M5 Low noise                           |     BM                 |                                  |
 | M6 Codesign with SHP, gyro-averaging   |     BM                 |                                  |
 |                                        |                        |                                  |
-| 80, D1.1 First report                  |     MV                 |     [2047352_1-TN-01-3.pdf](2047352_1-TN-01-3.pdf)        |
+| **Call 80**                            |                        |                                  |
+| D1.1 First report                      |     MV                 |     [2047352_1-TN-01-3.pdf](2047352_1-TN-01-3.pdf)        |
 | M1.1 Select codes                      |     PVC                |                                  |
 | D1.2 Final report                      |     MV                 |                                  |
 | M1.2 VVUQ evaluations                  |     PVC                |                                  |
@@ -60,7 +63,8 @@ small natural numbers for both this and the version is recommended.
 | D2.2 Final workshop                    |     PVC                |                                  |
 | A2 Completion                          |     PVC                |                                  |
 |                                        |                        |                                  |
-| 81, D1.1 Preliminary report            |     DeM                |                                  |
+| **Call 81**                            |                        |                                  |
+| D1.1 Preliminary report                |     DeM                |                                  |
 | M1.1 Select literature and codes       |     SG                 |                                  |
 | D1.2 Final report                      |     DeM                |                                  |
 | M1.2 ROM on toy                        |     SG                 |                                  |
@@ -71,8 +75,8 @@ small natural numbers for both this and the version is recommended.
 | M2.2 Engagement                        |     SG                 |                                  |
 | A1.3 Final report                      |     SG                 |                                  |
 |                                        |                        |                                  |
-|                                        |                        |                                  |
-| 83, 0.1 Community standards            |     PH                 |                                  |
+| **Call 83**                            |                        |                                  |
+| 0.1 Community standards                |     PH                 |                                  |
 | 0.2 Coordination FY21/22               |     PH                 |                                  |
 | 0.3 Coordination FY22/23               |     PH                 |                                  |
 | 1.1 2D elliptic, select test cases     |     BD                 |                                  |
@@ -94,7 +98,8 @@ small natural numbers for both this and the version is recommended.
 | 5.2 Proxyapp assessment                |     DM                 |                                  |
 | 5.3 Roadmap to SHP/Nektar++            |     DM                 |                                  |
 |                                        |                        |                                  |
-| 84, M1.1 Elliptics 1                   |     ES & ST            |     [2047353-TN-01-2.pdf](2047353-TN-01-2.pdf)          |
+| **Call 84**                            |                        |                                  |
+| M1.1 Elliptics 1                       |     ES & ST            |     [2047353-TN-01-2.pdf](2047353-TN-01-2.pdf)          |
 | M1.2 Elliptics 2                       |     ES                 |                                  |
 | D1.1 Elliptics                         |     ES & ST            |                                  |
 | M2.1 Hyperbolics 1                     |     ES & ST            |     [2047353-TN-01-2.pdf](2047353-TN-01-2.pdf)          |
@@ -118,7 +123,8 @@ small natural numbers for both this and the version is recommended.
 | D6.3 Coupled test                      |     ES & ST            |                                  |
 | D6.4 Recommendations                   |     VA, ES & ST        |                                  |
 |                                        |                        |                                  |
-| 85,M1.1 1D parallel model periodic     |     FP                 |     [2047357-TN-01-2.pdf](2047357-TN-01-2.pdf)          |
+| **Call 85**                            |                        |                                  |
+| M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](2047357-TN-01-2.pdf)          |
 | M1.2 Regimes, s-o-a models             |     FP                 |                                  |
 | M1.3 Wall bcs                          |     FP                 |                                  |
 | M1.4 2D model walls                    |     FP                 |                                  |
@@ -150,7 +156,8 @@ small natural numbers for both this and the version is recommended.
 | D2.4 2D drift-kinetic numerics         |     MB                 |                                  |
 | D2.5 Proxyapps final report            |     MB                 |                                  |
 |                                        |                        |                                  |
-| 86,D1.1 Report h/w                     |     SW                 |                                  |
+| **Call 86**                            |                        |                                  |
+| D1.1 Report h/w                        |     SW                 |                                  |
 | D1.2 Report s/w                        |     GM                 |                                  |
 | D1.3 Exascale I/O                      |     SW                 |                                  |
 | M1 Survey of h/w and s/w               |     SW                 |                                  |
