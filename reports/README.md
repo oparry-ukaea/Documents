@@ -68,12 +68,10 @@ small natural numbers for both this and the version is recommended.
 | M1.1 Select literature and codes       |     SG                 |                                  |
 | D1.2 Final report                      |     DeM                |                                  |
 | M1.2 ROM on toy                        |     SG                 |                                  |
-| A1.1 Progress report                   |     DeM                |                                  |
 | D2.1 Workshop 1                        |     SG                 |                                  |
 | D2.2 Workshop 2                        |     SG                 |                                  |
 | D2.3 Cost benefit for key codes        |     DeM                |                                  |
 | M2.2 Engagement                        |     SG                 |                                  |
-| A1.3 Final report                      |     SG                 |                                  |
 |                                        |                        |                                  |
 | **Call 83**                            |                        |                                  |
 | 0.1 Community standards                |     PH                 |                                  |
