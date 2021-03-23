@@ -32,7 +32,7 @@ small natural numbers for both this and the version is recommended.
 
 # Table of contents
 
-| Task                                   | Responsible Persons(s) |            Comments              |
+| Task                                   | Responsible Person(s)  |            Comments              |
 |:---------------------------------------|:-----------------------|:--------------------------------:|
 | **Call 78**                            |                        |                                  |
 | 1.1 Generation of edge mesh            |     DM                 |                                  |
