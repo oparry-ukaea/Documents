@@ -35,7 +35,7 @@ small natural numbers for both this and the version is recommended.
 | Task                                   | Responsible Persons(s) |            Comments              |
 |:---------------------------------------|:-----------------------|:--------------------------------:|
 | **Call 78**                            |                        |                                  |
-| 1.1 Generation of edge mesh           |     DM                 |                                  |
+| 1.1 Generation of edge mesh            |     DM                 |                                  |
 | 1.2 Surface mesh generation            |     DM                 |                                  |
 | 1.3 Software development 1             |     DM                 |                                  |
 | 1.4 Curvilinear mesh generation        |     DM                 |                                  |
