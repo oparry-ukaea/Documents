@@ -22,7 +22,7 @@ Reports - numbering as file-name:
 * TN  technical note
 * PS  monthly progress statement
 * QR  quarterly report
-* AR  annual report.
+* AR  annual report
 * MN  minutes
 * RP  any other technical report
 * AD  any other admin document
@@ -35,7 +35,7 @@ small natural numbers for both this and the version is recommended.
 | Task                                   | Responsible Persons(s) |            Comments              |
 |:---------------------------------------|:-----------------------|:--------------------------------:|
 | **Call 78**                            |                        |                                  |
-| 1.1, Generation of edge mesh           |     DM                 |                                  |
+| 1.1 Generation of edge mesh           |     DM                 |                                  |
 | 1.2 Surface mesh generation            |     DM                 |                                  |
 | 1.3 Software development 1             |     DM                 |                                  |
 | 1.4 Curvilinear mesh generation        |     DM                 |                                  |
