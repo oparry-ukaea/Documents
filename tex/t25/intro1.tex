@@ -1,0 +1,39 @@
+Modern computational models in physics and engineering achieve a high level of complexity, with numbers of degrees of freedom (alternately `state-space dimension') frequently of order a billion, or more.  
+Despite this, many problems of interest are still out of reach for direct methods, either due to the sheer number of degrees of freedom, or because the problem involves widely-varying time or space lengthscales, as occurs not infrequently in multi-physics scenarios where there are unresolved scales of variation.  
+Problems of both these types are associated with the \nep\ use case of magnetically-confined fusion, in which a typical degree of freedom count is $10^{21}$.  
+
+In order to surmount the problem of an unmanageably-large state-space, it might be asked whether some of the degrees of freedom, or certain {\it combinations} thereof, can be taken to be in some sense more important than others, with the `others' being ignorable.  
+Such an approach of retaining only the dominant behaviour of a system is termed {\it model order reduction} (MOR), with the resulting model being referred to as a {\it reduced-order model} (ROM) (synonyms are a {\it surrogate model} or an {\it emulator}).  
+These may be hundreds to thousands of times faster in execution than the high-dimensional model they approximate.  
+The utility of a much faster proxy is obvious for uncertainty quantification (UQ), calibration of models to large amounts of data, real-time control systems, and for allowing the solution of coupled, multiscale problems.  
+
+MOR is a fairly new field, though a rapidly-developing one since it stands on the shoulders of a large body of techniques from linear algebra and systems theory.  
+It is an attempt to tackle (if not `solve' in the exhaustive sense) today's `intractable' problems using advances in algorithm technology rather than hardware; working `smarter', rather than necessarily `harder'.  
+In an era where FLOPS per watt is a marketable figure of merit, the energy efficiency of such approaches might be considered a bonus, in addition to the elegance of avoiding doing unnecessary work.  
+There is also the sheer convenience of being able to make progress using only light computing platforms, given that a powerful computer means a physically large computer, currently and for the foreseeable future.
+
+The focus here is on algorithmic approaches to MOR, as opposed to the more traditional application of physicists' or engineers' domain knowledge.  
+The goal is a systematic procedure to identify the dominant emergent degrees of freedom from potentially highly-nonlinear coupled systems.  
+Such an algorithm works by reducing the genericity of an existing computational method e.g. a finite element framework, incorporating problem-specific constraints and boundary conditions; in this way it constrains the physics and determines approximate `modes' dominating the system response.  
+Thus, MOR works in tandem with generic discretization routines (the spectral / {\it hp} methods chosen for exploration in \nep\ are an example) rather than supplanting them: most ROM approaches tend to deal with the post-discretization system.  
+Some analyses seek to reduce the size of the set of input parameters, and hence the burden associated with data assimilation - this is not specifically addressed here, though clearly UQ techniques can be used to identify the most `important' input parameters in terms of their effect on the mean or variance of the output (and this UQ might itself make use of a ROM for Monte Carlo sampling).
+
+Section \ref{MORTechniques} of this report is written with the intent of surveying the currently popular techniques for MOR: {\it reduced basis methods}, {\it proper orthogonal decomposition}, and {\it proper generalized decomposition}, though note that it is intended as an initial exposition in anticipation of further investigative work.  
+The near-term future goal is to focus on computational models of the edge region of a magnetically-confined fusion plasma, which tends to be described using fluid dynamics equations (an example of state-space basis reduction in a fusion context, using Krylov subspace methods, can be found in \cite{bo17mode}), though ultimately it may be useful to apply ROMs also to particle kinetics \cite{ni19mode} and gyrokinetics \cite{gi21mode}.  
+It is worth noting that there are currently several open-source MOR toolkits and modules; a list can be found in \cite{morwiki}.  
+The use of Gaussian processes in model order reduction is not included here since this work has been assigned to a third party, though the value of the Gaussian process approach in facilitating non-intrusive UQ is to be noted.
+
+Another important area of model validation is the need to incorporate experimental measurements (e.g. in order to fit parameters in a model or in order to define an inverse problem for an initial condition).  
+The process of including data into models is called {\it data assimilation} (DA).  
+There are various analytic techniques for data assimilation, most of which start with the assumption of Gaussian errors.  
+Here, ROMs find relevance in that there is frequently a need to integrate a complicated model (at least once) in order to propagate the information derived from experimental measurements and their corresponding uncertainties either forward or backward in time; an effective ROM can make this process a lot less cumbersome.  There is also the fact that DA techniques can be applied to the Bayesian calibration of ROMs, for example, the ensemble Kalman filter can be used as a parameter estimation framework.
+
+Because of this overlap, an overview of the basic DA methods is included in Section \ref{DataAssimilation} of this report.  
+This section is really structured as an exposition of analytic methods derived for the special case of linear models and Gaussian errors, generalized to treatments of real models, and some mention of the methods for incorporating known physics into the process is made.  
+The canonical example of DA, and to a large extent the context of the discussion presented here, is {\it numerical weather prediction} (NWP); here, a large amount of observational data is available (in the form of wind velocity, pressure, humidity) and the system to be modeled, though based on well-understood microscopic physics, comprises vastly many degrees of freedom interacting nonlinearly over a vast range of lengthscales.  
+It goes without saying that the field of meteorology has a great deal of experience with DA (and to a lesser extent, MOR, though the entire workings of NWP could be viewed as a MOR), with forecasts having been made on a daily basis using methods improved incrementally over many decades.  
+The techniques here for extending the analytic Gaussian results to a real nonlinear system are of great interest because one aim of \nep\ is to use knowledge of plasma physics to improve in a similar fashion our understanding of the `weather' inside a tokamak.  
+Tokamak physics also contains noteworthy similarities to certain phenomena encountered in numerical weather prediction, for example multiple scales and turbulent flow.
+
+An appendix gathers some useful facts concerning Gaussian statistics.
+

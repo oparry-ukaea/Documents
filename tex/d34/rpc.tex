@@ -1,6 +1,6 @@
-%Edit 0026 ZZZ to report number nnnn 
-%Edit 3.3.3 YYMILE to milestone number m.m.m
-%Edit Design patterns evaluation report YYTITLE to report title - Words Start with Caps
+%Edit 0033 ZZZ to report number nnnn 
+%Edit 3.4 YYMILE to milestone number m.m.m
+%Edit Development plan YYTITLE to report title - Words Start with Caps
 \documentclass[11pt,twoside,a4paper]{article}
 %%======================================================================
 %% PACKAGES:
@@ -24,7 +24,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\culhamissueno}{1.00}%<==edit
-\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0026}%<==edit
+\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0033}%<==edit
 \newcommand{\Sec}[1]{Section~\ref{sec:#1}}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
 \newcommand{\Tab}[1]{Table~\ref{tab:#1}}
@@ -35,7 +35,7 @@
 %\F{NEPTUNE} always in caps
 \newcommand{\F}[1]{\textsc{#1}}
 \newcommand{\B}[1]{\textbf{#1}}
-\newcommand{\T}[1]{{\tt #1}}
+\newcommand{\T}[1]{\texttt #1}
 \newcommand{\V}[1]{\mathbf{#1}}
 \newcommand{\I}[1]{\textit{#1}}
 \input{../stdefns}
@@ -45,7 +45,7 @@
 
 %% REPORT COVER PAGE Information
 
-\newcommand{\culhamtitle}{\LARGE Design patterns evaluation report  \\[1.0\baselineskip] M3.3.3 }%<==edit
+\newcommand{\culhamtitle}{\LARGE Development plan  \\[1.0\baselineskip] D3.4 }%<==edit
 
 %%QA BOX information -- change following as needed
 \newcommand{\culhamboardname}{Martin O'Brien}%<==edit
@@ -53,13 +53,13 @@
 \newcommand{\culhamauthor}{Wayne Arter}%<==edit
 \newcommand{\culhamauthora}{Ed Threlfall}%<==edit
 \newcommand{\culhamauthorb}{Joseph Parker}%<==edit
-\newcommand{\culhamauthorc}{Debasmita Samaddar}%<==edit
+\newcommand{\culhamauthorc}{Will Saunders}%<==edit
 %\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
 %\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
 
-\newcommand{\culhamdate}{11 December 2020}%<=edit
-\newcommand{\culhamdatea}{18 December 2020}%<=edit
-\newcommand{\culhamdateb}{11 December 2020}%<=edit
+\newcommand{\culhamdate}{16 March 2021}%<=edit
+\newcommand{\culhamdatea}{16 March 2021}%<=edit
+\newcommand{\culhamdateb}{16 March 2021}%<=edit
 
 % reproduce Rob's page size
 
@@ -90,36 +90,29 @@
 {\LARGE \culhamtitle } \\[2.0\baselineskip]%<==omit
 {\textbf{\textsf{Abstract}}}\\%<==omit
 The report describes work for \exc \ project \nep \ %<==omit
-at Milestone 3.3.3. %<==omit
-\input{abst3}%ed%<==omit
+at the point of Deliverable D3.4. %<==omit
+\input{abstc}%<==omit
 %<==omit
 \vfill%<==omit
 \centerline{\includegraphics[width=0.9\textwidth]{../corpics/tokintcrop}}%<==omit
 \end{titlepage}%<==omit
 
-\input{approbox3}%ed%<==omit
+\input{approboxc}
 
 \clearpage
 \section{Introduction}\label{sec:intro}
-\input{intro3}%ed
+\input{introc}
 \clearpage
-%\section{Task Work}\label{sec:taskwork}
-\input{body3}%ed
+\section{Task Work}\label{sec:taskwork}
+\input{bodyc}
 \clearpage
-\section{Summary}\label{sec:summ}
-\input{summary3}%ed
+%\section{Summary}\label{sec:summ}
+%\input{summaryc}
 \section*{Acknowledgement}\label{sec:ackn}
 \input{../metackn.tex}
 
 %\section*{References}
 \bibliographystyle{unsrt}
-\bibliography{../bib/new,../bib/waynes,../bib/misc,../bib/warv,../bib/neuts,../bib/reac,../bib/exc,../bib/active,../bib/dg1srt,../bib/t33rp3}
-
-\appendix
-\section{Structure of a Game Engine}\label{sec:gamestruct}
-\input{gamestruct}
-\section{ECP \Papp\  standards}\label{sec:proxyapp_standards}
-\input{proxyapp_standards}
-
+\bibliography{../bib/new,../bib/waynes,../bib/misc,../bib/warv,../bib/neuts,../bib/reac,../bib/exc,../bib/active,../bib/dg1srt}
 
 \end{document}

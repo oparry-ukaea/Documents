@@ -1,0 +1,379 @@
+\section{Techniques for Model Order Reduction} \label{MORTechniques}
+
+For illustrative purposes, a concrete definition of a typical target problem is given.  
+In the further interest of clarity, a linear time-invariant system is considered (note that nonlinear models are typically time-updated using a linearization, though in that case the property of time-invariance is lost).
+
+Consider an input $u(t) \in \mathbb{R}^m$ to a model with state defined by $x(t) \in \mathbb{R}^n$ and giving an output $y(t) \in \mathbb{R}^p$:
+
+\begin{eqnarray} \label{LTIsystem}
+\dot{x}(t) &=& A x(t) + B u(t)\\
+y(t) &=& C x(t).
+\end{eqnarray}
+
+Here the number of model states, that is the dimension of the vector $x(t)$, given by $n$ above, may be very large (and generally is much larger than the number of inputs $m$ and the number of outputs $p$); in a modern application $n$ might be taken to be of the order of a billion (with numbers such as this, it is feasible to store the vector of model states but not to store the $n \times n$ matrix $A$).  
+This full model is a high-dimensional state space linear model (sometimes called the high-dimensional model in the context of MOR).  
+Now MOR aproaches aim to replace the full internal state by a smaller state vector, of size $r \ll n$, defined by $x(t) = V \tilde{x}(t)$; then choosing another matrix defined by $W^T V = I$ the system is 
+
+\begin{eqnarray}
+\dot{\tilde{x}}(t) &=& W^T A V \tilde{x}(t) + W^T B u(t)\\
+y(t) &=& C V \tilde{x}(t).
+\end{eqnarray}
+
+Here $W$ and $V$ are $n \times r$ matrices (of tall, thin shape).  
+The task of MOR approaches is to find the projection matrices $W, V$ such that the response of this reduced system mimics as closely as possible that of the full system.
+
+The following discussions are necessarily brief and many important considerations, such as the stability of the ROMs, are not included.  
+More detailed presentations of the material can be found in e.g. the review \cite{ch17mode} and also in the documentation for the open-source Python MOR toolkit {\it pyMOR} \cite{pymorwebsite}.
+
+\subsection{Reduced basis methods} \label{RBmethods}
+
+To focus on the case of reduction for parameterized PDEs, consider a family of PDEs defined by a single equation with a dependence on parameters $\mu$ belonging to a set $\mathcal{P}$ (this would represent the inputs to the model).  
+To give a parabolic example, let the solution be labelled by $u_{\mu}(t)$; the semi-discrete problem is then, in weak form 
+
+\begin{eqnarray}
+u_{\mu}(0) &=& u_0\\
+\langle v, \dot{u}_{\mu}(t) \rangle + b_{\mu} \left ( v, u_{\mu}(t) \right ) &=& f(v) \; \; \forall v \in V_h\\
+y_{\mu}(t) &=& g(u_{\mu}(t)).
+\end{eqnarray}
+
+This is the full-order model (note the first equation is simply the initial condition).  
+States $u_{\mu}$ belong to a large-dimensional vector space $V_h$ which spans the states available to the system post-discretization.  
+Here the discretized spatial part of the PDE is contained in the matrix operator $b_{\mu}$, which also contains dependence on the set of parameters (an example would be a spatially-varying diffusion constant). 
+
+To seek an approximate solution on a subspace $V_N \subset V_h$, a solution the same problem is sought for vectors in the reduced set and using an initial condition Galerkin projected onto this space.  
+The general idea here is to construct iteratively a reduced space for the internal degrees of freedom, given a predefined set of parameters restricted to the region of interest in parameter space and referred to as the {\it training} parameter set.  
+The choice of vector to add at a given stage in the process is the main problem, and this choice is motivated by the definition of the Kolmogorov $N$-width $d_N$:
+
+\begin{equation}
+d_N = \underset{V_N \subseteq V, dim(V_N) \leq N}{\inf} \; \underset{\mu \in \mathcal{P}}{\sup} \; \underset{v \in V_N}{\inf} \Vert u(\mu) -v \Vert. 
+\end{equation}
+
+This quantity, which gives an upper bound for the possible quality of a reduced space i.e. the worst-case error, needs some explanation.  
+For a particular solution $u(\mu)$ of the full-order model (known as a {\it snapshot}), the best approximation in the current reduced space is first computed (this is the inner infimum, which simply means identifying the reduced-space vector $v$ that best approximates the snapshot), then the error in this is maximized (the supremum) over the training set of $\mu$, giving the worst-case best approximation.  
+Taking the infimum of this over all possible reduced spaces $V_N$ gives the Kolmogorov $N$-width.
+
+In practice, the inner infimum is dealt with by orthogonal projection of the snapshot $u(\mu)$ into $V_N$.  
+Denoting the reduced basis vectors by $v_i$ for $i=1, ..., N$ the relevant coefficents (projections) $\lambda_i$ can be found by solving 
+
+\begin{equation}
+\sum_{j=1}^{N} \lambda_j \langle v_j, v_i \rangle = \langle v, v_i \rangle,
+\end{equation}
+
+which can also be expressed as the matrix equation $G \Lambda = R$; the matrix $G$ is referred to as the Gramian.  
+Note that a naive implementation would lead to the condition number of the Gramian getting increasingly large as new vectors are added into the reduced basis (because of the increasing amount of linear dependence); in order to avoid this issue, the reduced basis tends to be orthonormalized using the standard Gram-Schmidt procedure (reducing the Gramian to an identity matrix).  
+Note the basis construction is an example of the {\it method of snapshots} due to the use of particular solutions of the full-order model.
+
+Each new vector added to the reduced basis ought to give in some sense the maximum possible improvement in the approximation and this can be achieved by so-called `greedy' methods: the aim is to find the parameter value $\mu^*$ that maximizes the error between the reduced model and the full-order model, then add the solution vector corresponding to this $\mu^*$ to the reduced basis (having first subtracted the part projected onto the existing reduced state space).  
+This search over the (remaining) parameters in the training set forms the inner loop of the algorithm; clearly, using the full-order model here (giving the {\it strong greedy algorithm}) incurs a significant speed cost in constructing the ROM.  
+The process can be streamlined by using the current ROM as a proxy for the full-order model in this inner loop (giving the {\it weak greedy algorithm}) and effectively increasing the size of the training sets (and thereby the dimension of the parameter spaces) that can be used.
+
+A further simplification, in order to avoid needing to recompute the system matrices for each choice of parameters, involving repeated computation of the relevant bilinear forms using the full-order model, is to assume that the parameter dependence of the operators can be put into separable form (also known as an {\it affine decomposition}), viz.
+
+\begin{equation} 
+b_{\mu} (v,u)  = \sum_{q=1}^Q \theta_q({\mu}) \; b_q (v,u).
+\end{equation}
+
+This gives what is termed {\it online efficiency} - new parameter values can be tested without expensive recomputation.  
+Clearly this will not work in the case of a nonlinear operator as the linearized operators are then state-dependent.  
+One solution to this problem is {\it empirical interpolation}: the behaviour of the nonlinear operator is represented by a small number of pointwise evaluations with an (affine) interpolation to general parameter values.  
+The technique can also be applied to problems where there is no affine decomposition of the operators.
+
+\subsection{Proper orthogonal decomposition (POD)} \label{POD}
+
+POD is another method for creating a reduced basis out of snapshot data and it is related to the familiar {\it Principal Components Analysis} (PCA) used in statistical analysis \cite{gershenfeld} and also to the {\it Karhunen-Lo\'eve expansion} used in stochastic process modelling.  
+In PCA, a vector of random variables $\underline{x}$ is subjected to a linear transformation to a new variable $\underline{y}$ such that the covariance matrix $\langle (\underline{y}-\underline{\bar{y}})(\underline{y}-\underline{\bar{y}})^T \rangle$ of the new variable is diagonal (this can always be done, since the covariances form a real symmetric matrix).  
+The Karhunen-Lo\'eve expansion is basically the continuous analogue of this.  
+PCA-type analyses rely on the basic fact that a matrix acting on a general vector will give greater weight to components of the vector that lie in the subspace spanned by the eigenvectors of the matrix with the largest eigenvalues. 
+
+In POD the snapshot vectors are assembled into the {\it snapshot matrix} (this is a tall, thin matrix: the dimension of the full state is $n$ and the number of samples $n_s$, with $n_s \ll n$)
+
+\begin{equation}
+A=
+\begin{pmatrix}
+\vdots & \vdots & \cdots & \vdots\\
+u(\mu_1) & u(\mu_2) & \cdots & u(\mu_{n_s})\\
+\vdots & \vdots & \cdots & \vdots\\ 
+\end{pmatrix}
+\end{equation}
+
+Then the {\it singular value decomposition} (SVD) of $A$ is computed
+
+\begin{equation}
+A = U \Sigma V^T.
+\end{equation}
+
+For clarity, here $U$ is $n \times n_s$ and the columns of this matrix are the {\it left-singular vectors} of $A$; $V$ is $n_s \times n_s$ and the columns are the {\it right-singular vectors} of $A$.  
+The diagonal entries of the $n_s \times n_s$ matrix $\Sigma$ are the {\it POD singular values} of $A$ and are arranged in monotonically decreasing order (denoting the components of $\Sigma$ as $\sigma_1 \geq \sigma_2 \; ... \geq \sigma_{n_s}$).  
+The magnitude of each of these singular values (which can be clearly seen to generalize the eigenvalues for a square matrix) tells how important is each vector in the columns of $U$ for the approximation of the snapshot data.  
+The procedude is then to retain a given number of these vectors, and in the sense of minimizing the $L2$-norm, an optimal approximation space is obtained.  
+It is worth noting that individual errors may be large, despite the least-squares optimality (this is different to the greedy methods applied in the preceding subsection).
+
+The POD is an efficient lower-dimensional representation of the snapshot data in the sense that if the first $r$ singular vectors are retained $r \leq n_s$ then the POD basis minimizes the last-squares error relative to the $n_s$-dimensional reduced space; and this least-squares error is represented by the sum of the squares of the remaining eigenvalues, a fact that can be used to choose an appropriate size of POD basis: one approach, referred to as the fractional `energy' in the POD modes, is to choose $r$ such that 
+
+\begin{equation}
+\frac{\sum_{i=1}^r \sigma_i^2}{\sum_{i=1}^{n_s} \sigma_i^2} > \kappa
+\end{equation}
+
+with $\kappa$ being something approaching unity, e.g. $99.9\%$.
+
+Note that this error assessment applies only to the error in the reconstruction of the snapshots and {\it not} the error relative to the full model.  
+Error analysis with this wider scope is not possible in all cases - see for example \cite{ch17mode}, p.9.
+
+There is also the issue of how best to choose the snapshot set (optimal snapshot selection).  
+Uniform sampling is likely to be effective only for problems with a handful of parameters; for larger-dimensional parameter spaces, sparse grid sampling or greedy sampling may be used.  
+Again, UQ analysis to exclude less important parameters and restriction to physically reasonable location in parameter space are useful.
+
+Note that because the POD basis is constructed from sampled solutions, this method can be applied straightforwardly to linear and nonlinear systems.
+
+\subsection{Proper generalized decomposition (PGD)}
+
+Many MOR techniques (including the POD method outlined above) operate in a sequential fashion, constructing a reduced basis and then projecting the problem solution onto it.  
+A potential issue here is that if the initial reduced basis is in some way unsuitable, the second step will yield a poor reduced model, and the only way to proceed is to repeat step one and construct a new basis.  
+One way to address this problem is to seek a method that works incrementally i.e. the reduced basis is capable of being enriched with new states during the construction of the ROM.
+
+In PGD the simplification is made that the solution to the problem is separable in time and in each (or some) of the space coordinates. %(note that the former assumption tends to be made anyway in finite-element modelling, where a time-dependent system of ODEs called the semi-discrete system is obtained).  
+Thus the solution to a parametric problem may be sought in the form
+
+\begin{equation}
+u^N(\underline{x}, t, \mu_1, ... \mu_M) \approx \sum_{i=1}^N X_i(\underline{x}) T_i(t) \; \prod_{m=1}^M P_i^m(p_m).
+\end{equation}
+
+The important question now is the algorithm for constructing the separated functions.  An enrichment scheme is used, with e.g.
+
+\begin{equation}
+u^n(\underline{x},t) = u^{n-1}(\underline{x},t) + X_n(\underline{x}) T_n(t)
+\end{equation}
+
+being substituted into the equation and the nonlinear problem for the unknown functions $X_n(\underline{x})$ and $T_n(t)$ solved.  
+The enrichment scheme itself is an iterative process that involves solving for the sequences $X_n^0, X_n^1, ... , X_n^p$ and $T_n^0, T_n^1, ... , T_n^p$, where e.g. $X_n$ is taken to be $X_n^p$ once a tolerance 
+
+\begin{equation}
+\Vert X_n^p(\underline{x}) T_n^p(t) - X_n^{p-1}(\underline{x}) T_n^{p-1}(t) \Vert < \epsilon
+\end{equation}
+
+is reached (here $\Vert ... \Vert$ is a suitable norm).  
+The procedure involves an initial guess for all but one of the unknown functions in the product and then solving the equation for the remaining unknown (this is called an {\it alternating direction strategy}).  
+The actual solution mechanism is typically a greedy algorithm applied to the weak formulation of the problem.
+
+It is well worth noting that the extent to which the spatial dependence can be separated stems from the choice of spatial computational mesh: meshes with symmetry directions result in a reduction of the complexity of the problem needed to solve each iteration of the alternating direction problem.  
+As an example, a mesh of rectilinearly-aligned hexahedra would represent the easiest case (three spatial symmetry directions), with an extruded (unstructured) triangular mesh of prisms being easier than the fully three-dimensional tetrahedral-meshed case.  
+This is a clear example of the relevance of the spatial discretization to the efficiency of subsequent algorithms. 
+
+Note that the modes obtained using PGD are not necessarily orthogonal, unlike POD modes.
+
+\subsection{System-theoretic approaches}
+
+The idea behind {\it balanced truncation} is to intelligently reduce the state vector by removing states that are either hard to reach or hard to observe.  
+This is done by computing the {\it reachability Gramian} $\mathcal{P}$ and the {\it observability Gramian} $\mathcal{Q}$ defined by
+
+\begin{eqnarray}
+A \mathcal{P} + \mathcal{P} A^T + B B^T &=& 0\\
+A^T \mathcal{Q} + \mathcal{Q} A + C^T C &=& 0; 
+\end{eqnarray}
+
+note the matrices $A$, $B$, $C$ are as defined in \ref{MORTechniques} above.  
+To find the states to remove, a {\it balancing transformation} that simultaneously diagonalizes $\mathcal{P}$ and $\mathcal{Q}$ is sought; and matrices $V$ and $W$ (again, defined in \ref{MORTechniques}) are computed.
+
+There are also frequency-domain approaches, for example, {\it rational interpolation} involves approximating the transfer function (the Laplace transform of the impulse response) of the system by a rational function.
+
+More information can be found at \cite{pymorwebsite}.
+
+\section{Data Assimilation} \label{DataAssimilation}
+
+The two main classes of data assimilation method are {\it sequential methods}, used to propagate the state of the model and the information from observations forward in time one step at a time (embodied in the {\it Kalman filter}); and {\it variational methods}, in which the assimilation is performed for all timesteps at once (hence, the information contained in an observation at a given time propagates backward and forward in time).  
+Both classes of method are based on analytic results derived for the combination of Gaussian-distributed errors and using linear dynamical models.
+
+\subsection{Kalman filtering}
+
+The {\it filtering problem} is how to maintain an optimally-predictive stochastic model in the presence of two sources of error: i) model error (also known as system noise); and ii) observation error.  
+This means calculating the PDF for the state at a given point in time, conditioned on observations up to that time.  
+
+First, the model state is propagated for one time step into the future and this propagation incurs an error known as the {\it system noise}.  
+The propagation dynamics may be linear or not, though linearity is required in order to keep the Gaussian statistics for which the Kalman filter is strictly optimal.  Secondly, new experimental observations are assumed to become known at the new time, in the form of measurement data with its own errors, called {\it observation error}.  
+There are therefore two fundamental steps: combining the error in the model at the previous timestep with the model error incurred by the time-advance, then conditioning the resulting system on the probability distribution associated to the new observation.
+
+The problem of propagating sequentially the probability density function (PDF) $p(x)$ of the state from time index $i$ to $i+1$ is easily understood, at least in the case of a linear system (and it might be noted here that many models are propagated in time using a linearization about their true dynamics).  
+A simple pedagogical example is that of a random walk where the individual (spatial) `step' is itself a random variable, $\epsilon_i$, with PDF $q_i(x)$ for each individual step $i$; thus, the state of the walk updates as
+
+\begin{equation}
+x_{i+1} = x_{i} + \epsilon_i
+\end{equation} 
+
+and the evolution of the PDF is given by the convolution
+
+\begin{equation}
+p_{i+1}(x) = \int_{-\infty}^{+\infty} p_i(x-u) q_i(u) du.
+\end{equation}
+
+This formula, which can be interpreted as a probabilistic sum over all possible update steps, is most easily solved by transforming to the Fourier domain, in which the convolution becomes a simple product of the Fourier-transformed PDFs (known as {\it characteristic functions}): viz., indicating a Fourier-transformed quantity with a tilde,
+
+\begin{equation}
+\tilde{p}_{i+1}(k) = \tilde{p}_i(k) \tilde{q}_i(k).
+\end{equation}
+
+This can be used to show - basically by completing the square - that, if the initial $p_0(x)$ is Gaussian and the distribution of the step lengths is also Gaussian, then the error in the sum is always Gaussian and that the variance is incremented by the variance of the individual steps (the familiar square-root dependence of the expected displacement via a random walk can be seen to emerge from this rule).  Here it is assumed that the errors in different steps labelled by $i$ are uncorrelated.
+Note this works because of the basis change to the eigenspace of the space translation operator (this sort of diagonalization - a transform to an `uncorrelated' basis - comes up again and again e.g. in Principal Components Analysis, mentioned in Subsection \ref{POD}).  
+These simple conclusions survive for any choice of model time-update that is linear.
+
+The other thing to consider is the fact that, as well as the system noise (represented by the distribution $q_i(x)$ in the above), there are also observational data that take the form of measurements, these with their own errors (observation error).  
+Given the PDF of the state at time index $i+1$ (i.e. $p_{i+1}(x)$ in the above) and the new observation, the question of the correct new PDF for the system is answered by {\it Bayes' theorem}, which enables us to make use of the information about the state from the previous time step (in fact, recursively, all past time steps and prior observations) and the new information in the current observation. 
+
+Bayes' theorem is usually stated as
+
+\begin{equation}
+P(A|B) = \frac{P(B|A) P(A)}{P(B)},
+\end{equation}
+
+where $P(A|B)$ is to be read as the probability distribution of $A$ given prior knowledge $B$.  
+The term $P(A)$ represents prior knowledge and is simply referred to as the {\it prior}; the left-hand distribution, incorporating this knowledge, is called the {\it posterior distribution}.
+
+To continue in the vein of treating the simplest possible example, consider the following Bayesian derivation of the posterior, given a prior $p(x) \propto \exp{\left(-(x-x_0)^2 / 2 \sigma_0^2\right)}$ and an observation $x_e$ taken from a distribution $\propto \exp{\left(-(x-x_e)^2 / 2 \sigma_e^2\right)}$.  
+Up to normalization, the posterior distribution is simply the product of these two PDFs, giving a new Gaussian with a variance $\sigma$ that is clearly given by
+
+\begin{equation} \label{covar_recip}
+\frac{1}{\sigma^2}  =\frac{1}{\sigma_0^2} + \frac{1}{\sigma_e^2},
+\end{equation}
+
+the new mean given by $\mu = \frac{\sigma_e^2 x_0+\sigma_0^2 x_e}{\sigma_0^2+\sigma_e^2}$; both of these formulae can be obtained by minimizing the variance when combining two uncorrelated random variables - a simple example of least squares.  The benefit of all this is that observational `evidence' is weighted according to its degree of uncertainty.
+
+It is somewhat amusing that this update involves a square completion in real space while the update for the model error had a square completion in $k$-space (i.e. adding Gaussian random variables involves adding real-space variances, while conditioning involves adding $k$-space variances - hence the reciprocals in \ref{covar_recip}).  
+This example demonstrates the property that a Gaussian prior and a Gaussian-distributed observation error lead to a Gaussian posterior (and note that the variance in the posterior does not depend on the actual measured value).  
+It is also clear that the model expectation value undergoes a discontinuous jump on incorporation of the new observation.  Again, the basic conclusions here survive for any observation $y(x)$ that is a linear function of the underlying model variable $x$.
+
+Taken together, and extended to a general linear system of random variables (the scalar quantities above become vectors; the variances become convariance matrices), the two key ideas above (adding Gaussian random variables and Gaussian-on-Gaussian conditioning) combine to give an analytic filtering algorithm known as the Kalman filter.
+
+Taking the system dynamics to be
+
+\begin{equation}
+x_{k+1} = M x_{k}+\eta_k
+\end{equation}
+
+and the observation definition to be
+
+\begin{equation}
+y_{k} = H x_{k}+\epsilon_k
+\end{equation}
+
+and the system noise and observation errors respectively $\eta_k \sim N(0, Q)$ and $\epsilon_k \sim N(0, R)$, there follow formulae for the expectation vector and covariance matrix of the model at time step $k$, called the {\it analysis} values and given subscript $a$ (and because of the Gaussian statistics, this exhausts the properties of the model):
+
+\begin{equation}
+x_k^a = P_k^a \left ( H^T R^{-1} y_k^o + \left ( P_k^f \right )^{-1} x_k^f \right ),
+\end{equation}
+
+\begin{equation}
+P_k^a = \left ( \left ( P_k^f\right )^{-1} + H^T R^{-1} H \right )^{-1},
+\end{equation}
+
+where the {\it forecast} values for the mean and covariance are
+
+\begin{equation}
+x_f^k = M x_{k-1}^a
+\end{equation}
+
+and
+
+\begin{equation}
+P_k^f = M P_{k-1}^a M^T + Q.
+\end{equation}
+
+These forms make manifest the similarity to the scalar Bayesian formulae above; there are alternate forms which may or may not be easier to evaluate in practice due to the different dimensions of the matrices to be inverted.  
+Note that the analysis covariance is updated using a procedure similar to \ref{covar_recip} above; the covariance associated to the measurement error is added in reciprocal.
+
+One alternative form for the update of the mean is
+
+\begin{equation}
+x_k^a = x_k^f + P_k^a H^T R^{-1} \left ( y_k^o-H x_k^f \right );
+\end{equation}
+
+the matrix $K \equiv P_k^a H^T R^{-1} = P_k^f H^T \left( H P_k^f H^T + R \right )^{-1}$ is known as the {\it Kalman gain} matrix and the observation-forecast difference the {\it innovation}.  
+(The second form of $K$ can be derived from the first by postmultiplying by the identity in the form $\left ( H P_k^f H^T+R \right ) \left ( H P_k^f H^T+R \right )^{-1}$ and using the formula connecting the forecast and analysis variances.)
+
+%Extended Kalman filter
+The Kalman filter is optimal (indeed analytic) in the case of strictly Gaussian errors, a property that is destroyed if either the system dynamics or the measurements involve nonlinearity.  
+In most practical applications the dynamics are nonlinear, and observation errors are often manifestly non-Gaussian (for examples such as humidity, the values are strictly positive and bounded from above by physics e.g. saturation).  
+The absence of Gaussianity means that the conditional mean and conditional modes differ; also, properties such as the new variance being independent of the measured values and the fact that the incorporation of the observation decreases the variance may not hold.
+
+Nonlinear systems are treated using the {\it extended Kalman filter}, in which the mean propagates according to the nonlinear dynamics and the variance is evolved according to a linearization about this mean (see the next subsection for more on this).
+
+%Ensemble Kalman filter - a MC approach
+In practice, it is difficult to apply the Kalman filter directly to a high-dimensional system because of the need to store the covariance matrices of large numbers of variables (typically $10^6$ and up).  
+One possible approach is to replace the continuous PDF and the full covariance matrix with a set of random samples from the appropriate distributions, i.e. resort to Monte Carlo.  
+For such a sample, the Kalman filter is approximated by the {\it ensemble Kalman filter} (EnKF) and, again, the easiest case to understand is the linear Gaussian scenario, under which there is a simple procedure for generating random variables taken from the correct analysis distribution.  Starting with $x^i$ drawn from the forecast distribution (noting that here $i$ denotes one sample in the ensemble) and observation error $\epsilon_i$ taken from $N(0, R)$, form the combination 
+
+\begin{equation}
+\xi^i = x^i + K \left ( y^o - (H x^i + \epsilon^i) \right ).
+\end{equation} 
+
+It is also necessary to approximate the Kalman gain matrix $K$ and the appropriate procedure is to form the approximate gain
+
+\begin{equation} \label{ApproxGain}
+\hat{K} = X Y^T (Y Y^T)^{-1},
+\end{equation}
+
+where $X$ is a matrix whose columns are $(N_e-1)^{-1} \left ( x^i - \hat{x}^f \right )$ and $Y$ is a matrix with columns $(N_e-1)^{-1} \left ( H x^i + \epsilon_i - H \hat{x}^f -\hat{\epsilon} \right )$ (here $N_e$ is the size of the ensemble and in the limit $N_e \rightarrow \infty$ the mean and covariance converge to those given by the Kalman filter update).
+
+There are many other details but the key point is that the Monte Carlo approach avoids the curse of dimensionality for very large systems of correlated variables.  
+It is clear that ensemble-based schemes involve potentially a large number of model evaluations, implying that an efficient ROM could be of great utility here.
+
+Note that the EnKF can also be used for parameter estimation; in {\it joint estimation}, the parameters are included as additional degrees of freedom in the state (there are also other applications of extending the state beyond the degrees of freedom of the numerical model).  
+Such an approach can be used to calibrate a reduced order model; the advantage of doing this, as opposed to an elementary least-squares fit, is that the calibration is done `correctly' in a Bayesian sense.  
+For a ROM with $r$ internal states and $p$ model parameters and assuming $N_y$ measurements, the approximate gain (\ref{ApproxGain}) is a matrix of dimensions $(r+p) \times N_y$, which is relatively inexpensive to compute and use; also note that there are also techniques to avoid needing to compute the $N_y \times N_y$ matrix inverse $\left ( Y Y^T \right )^{-1}$.
+
+A more detailed introduction to the Kalman filter can be found in \cite{snyder2012}.
+
+\subsection{Four-dimensional variational data assimilation and methods from weather prediction}
+
+{\it Four-dimensional variational data assimilation} or {\it 4D-Var} is a procedure that minimizes the mismatch between a temporal sequence of model states and a set of observational data.  
+Importantly, in doing so it propagates information forward and backward in time (the Kalman filter propagates information forward only).  
+Note that the problem of fitting a model to a set of measurements all at a particular point in time is termed {\it 3D-Var}.
+
+What is referred to as {\it weak-constraint 4D-Var} allows for uncertainty in the dynamical propagation (i.e. system noise) and works by minimizing a scalar functional such as
+
+\begin{equation}
+J(x_0, x_1, ..., x_K) = \frac{1}{2} (x_0-x_0^b)^T \left ( P_0^b \right )^{-1} (x_0-x_0^b)\\
++ \frac{1}{2} \sum_{k=0}^K (H_k x_k-y_k)^T \left ( R_k \right )^{-1} (H_k x_k- y_k)\\
++ \frac{1}{2} \sum_{k=0}^{K-1} (x_{k+1}-M_k x_k)^T \left ( Q_k \right )^{-1} (x_{k+1}-M_k x_k)
+\end{equation}
+
+The terms here represent, respectively, the deviation of the fitted model from the initial background data, the error in the observed quantities, and the model error.  
+The assimilation is done over a sequence of $K+1$ points in time labelled by the index $k$.  
+It is clear, at least in the linear, Gaussian-error case, that $J(x_0, x_1, ..., x_K)$ represents the negative logarithm of the PDF and hence its minimization gives a maximum-likelihood estimate for the system state conditioned on the observed data.
+
+In the case of a realistic scenario, the problem with this is that a direct minimization would require the evaluation of a large number of derivatives, each of which would involve a specific integration of the dynamical model.  
+Making the method feasible is the {\it adjoint method}, a technique that allows the numerical computation of the gradient of a scalar function at a cost of at most a few times the cost of the direct computation of that function.  
+The adjoint method is basically a recursive trick for calculating the gradients of a function of the form
+
+\begin{equation}
+f(x) = \frac{1}{2} \sum_{k=0}^K \left ( x_k-y_k \right )^T C^{-1} \left ( x_k-y_k \right ) 
+\end{equation}
+
+in the particular case that $x_{k+1} = M_k x_k$.  
+The price of using this technique is that an {\it adjoint model} must also be coded, in addition to the actual model.
+
+In the case of a linear model and linear measurements, the problem is amenable to the analytic, Gaussian techniques outlined in the previous subsection.  
+However, even if the model error is ignored (giving what is called {\it deterministic 4D-Var}), it turns out that there are severe problems fitting these models to observations for the case of real weather models, which are not linear.  
+As so far defined, a vector $x$ is sought that minimizes the 4D-Var penalty function
+
+\begin{equation}
+J(x) = \frac{1}{2} \sum_{k=0}^K \left ( x-x^b \right )^T B^{-1} \left ( x-x^b \right ) + \frac{1}{2} \sum{k=0}^K \left ( y-y^o \right )^T R^{-1} \left ( y-y^o \right ),
+\end{equation}
+
+where the first quadratic term is a Gaussian background prior.  
+This extremization is done using local gradients evaluated using the adjoint method.  
+The problem is that this gradient typically fails to lead to a minimum of the penalty function, which is nonlinear due to the nonlinearity of $y=H(M(x))$.  
+Examples of atmospheric physics which lead to this failure are given in \cite{lorenc2012}; these examples split into fast processes not captured by scales simulated in the model and `macroscopic' phenomena (e.g. cloud formation) not captured by local gradients.  
+An overall issue seems to be attempts to predict large-scale nonlinear phenomena based on local gradients (equivalently, the forecasting model that has been written down is chaotic).  
+Note that this problem relates to the evolution of the prior under the model and the observations {\it neglecting} any additional system noise or measurement error.  Another issue is that outside the linear, Gaussian case, minimizing the argument of the negative exponential does not estimate the mean of the distribution - it estimates the mode.
+
+A strategy for dealing with this is to track the evolution of the mean using the full nonlinear model $\bar{M}$ and approximate the evolution of perturbations about this mean by a Gaussian model $\tilde{M}$ called the {\it perturbation forecast} (PF).  
+In practice, this proceeds by introducing and iteratively improving a `guess' $x^g$ for the mean of the new state (this is termed the {\it incremental approach}).  Also, in the absence of a true model $\bar{M}$ for the mean of the PDF, the normal NWP model $M$ is used.  
+Now the evaluation of the statistics from the perturbation forecast model form the inner loop and this needs to be evaluable without recomputing the full nonlinear model $\bar{M}$ i.e. it uses $\tilde{M}$.  
+This can be viewed as a sort of reduced-order model.
+
+Another critical issue in NWP is the so-called {\it butterfly effect} in which errors or fluctuations at small scales quickly grow and affect larger scales.  
+This means that current NWP algorithms cannot simply be expected to continue to work at a higher resolution on a more powerful computer without some degree of modification.  
+A solution mentioned in \cite{lorenc2012} is to filter the PF model to prevent the rapid growth of the affected scales.  
+Another issue is the potentially chaotic nature of DA systems (and note that deterministic chaos concerns extreme sensitivity to initial conditions, rather than the coupling between scales that characterises the butterfly effect).  
+This chaotic dynamics becomes worse for larger systems where there are basically not enough observations to control the growth of dynamics governed by the increasing number of positive Lyapunov exponents.
+
+More detailed expositions of 4D-Var can be found in \cite{lorenc2012}, \cite{talagrand2012}.

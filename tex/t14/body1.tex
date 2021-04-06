@@ -1,0 +1,512 @@
+\section{Morning}
+
+The meeting was opened by Rob Akers and the agenda was shown by Wayne Arter:
+
+\begin{verbatim}
+Wayne Arter, UKAEA    9.05         Introduction
+Ben Dudson,  York     9.10         Plasma fluid referent model via exploratory Proxyapps
+Steven Wright, York   9.35         Investigate DSL and code generation techniques
+Dave Moxey, Exeter    9.50-10.05   Performance of Spectral Elements
+           ---Break---
+Felix Parra, Oxford   10.25        Referent model for plasma edge region
+Peter Coveney, UCL    10.45        Study of Uncertainty Quantification (UQ) techniques
+Sue Thorne,  STFC     11.00        Investigate matrix-preconditioning techniques
+Ben McMillan, Warwick 11.15-11.30  Optimal Use of Particles
+        ---Short break---
+Discussion            11.40
+Marta Barrabino       12.00-12.15  Your admin/financial questions answered
+        ---Lunch Break---
+13.30  Anisotropic transport/elliptic solvers. 
+   Patrick Farrell, Oxford
+   Chris Cantwell/Spencer Sherwin, Imperial
+14.30 Surrogate models for data compression/turbulence 
+   Ed Threlfall, UKAEA
+   Tim Dodwell, Exeter
+   Ben McMillan, Warwick 
+15.30-16.00  Discussion and Close
+\end{verbatim}
+
+\subsection{PO 2047356: Plasma referent model via exploratory \papp s, Ben~Dudson / Peter Hill (York)}
+
+Ben~Dudson showed a slide with his timeline; the current work is 2D / 3D 
+elliptic solver and test cases and 1D fluid solver.
+
+Environment set-up has been done, including a Slack channel and a github 
+repository which now contains initial \papp s MinEPOCH and Nektar-Driftwave 
+(the latter is \F{Nektar++} with Hasegawa-Wakatani equations).  Documentation 
+is on ReadTheDocs (it uses reStructuredText from github repo).
+
+Peter Hill described the initial plans for performance testing framework to 
+target FLOPS, memory performance and networking.  The plan is to track 
+performance progression rather than to do detailed profiling i.e. be able to 
+detect if changes to the code result in performance loss (e.g. spoiling cache 
+locality).  Framework is initially a github repo but the intention is to do a 
+database.  Output is to be a structured text file format, probably JSON.  There will be 
+automated tests as well as ad-hoc manual capability.  This is currently being 
+scoped, with target delivery in c.6 months.
+
+Ben~Dudson showed work for 1.2 elliptic solver, treating vorticity equation on a `2D 
+helix' (i.e. excluding direction parallel to magnetic field; for the shape 
+think of the Riemann surface of the logarithm).  The shape is a space-filling 
+curve as it does not close on itself and the equation is basically $\nabla^2 
+\Phi = \Omega$.  New Hypre implementation (GPU), tested on Lassen (LLNL); $10^6 
+- 10^7$ sized grids. There was a clarification that slides focussed on operator inversion - 
+`equation' was a typo. One simple test is that operator compounded with  inverse returns 
+identity. He showed some GPU tests e.g. 4 GPU (NVIDIA V100) executes faster 
+than 40 CPU cores on node-for-node comparison.  A code profile showed a large 
+speed-up in the solve step but that the set-up and data copy stages were slow 
+for the GPU - these parts scale badly.
+
+Ben~Dudson showed 2.1 1D fluid model, based on SD1D and Hermes-3 (the latter developed partly for
+STEP).  Core plasma on the left, first wall on right and region of plasma / 
+neutrals recycling near the wall with atomic reactions there.  Component tests 
+included conservation of matter and comparison to analytic solution for 
+nonlinear heat model.  He showed output of test case with outflow boundary 
+condition on one side and no-flow on the other.  Much scope for introducing 
+complexity e.g. separate electron and ion temperatures, multiple ion species, 
+reactions and collisions.
+
+There was a question from Felix Parra about whether equation for elliptic 
+solver $\nabla^2 \Phi = \Omega$ was actually the correct physics: sometimes 
+it's OK e.g. ballooning modes but in other cases the potential may actually be 
+determined by other physics along magnetic field lines.  There was discussion 
+about extending the method to full 3D, allows bigger timestep but Ben~Dudson 
+mentioned problems with Ohm's Law in this case.  Felix Parra mentioned a paper 
+using the COGENT code trying to do this in 3D that had confirmed the difficulty 
+of the problem.
+
+\subsection{PO 2047358: Investigate DSL and code generation techniques, Steven Wright (York)}
+
+Stephen W showed the timeline for this 9 month project.  There is one 
+deliverable for this FY: D1.1 a report on the state of current and future (5-10 
+year) hardware and techniques for evaluating hardware, programming models and 
+code portability, which he summarized.  Current and forthcoming pre / post 
+Exascale systems are all heterogeneous (except Fugaku, which is now getting 0.5 
+ExaFLOPS).  Near-future GPU tech is NVIDIA (Lovelace / Einstein / Hopper?), AMD 
+Instinct, and Intel Xe.  US DOE has four forthcoming supercomputers, all 
+SlingShot fabric Cray Shasta systems; Europe situation is similar.  UK Archer 2 
+is slower (28 PetaFLOPS), many Tier-2 systems inc Isambard 2.  Report also 
+summarizes pros and cons of OpenMP, RAJA, SYCL etc.
+
+D1.2 DSLs.  These can be low-level e.g. OP2 or high-level like UFL or \F{BOUT++}. 
+Optimized data representation and movement: data managers are Kokkos 
+Views, UMPIRE, Intel SIMD Data Layout Template~(SDLT)
+(goal is hardware-agnostic data configurations).
+
+D1.3 data representation and I/O.  Mentioned formats (HDF5, netCDF) and 
+I/O acceleration libraries (TyphonIO, SILO, ADIOS).  York are looking for apps 
+to test these.  New approaches include NVMe, Veloc, Rabbit, burst buffers.  
+Noted that rewriting existing codes nasty so goal is \emph{new} future-proofed codes, 
+agile / flexible, with hardware-agnostic data management and a user interface 
+and/or DSL for scientists.
+
+Task 2 testbeds and representative \papp\ s.  Noting that \F{Nektar++},
+\F{BOUT++} and {\it EPOCH} likely too large to assess portability, the goal is to 
+perform this analysis using \papp\ s.
+
+
+Rob Akers wanted to determine the extent to which \nep\  partners are aware of 
+cross-cutting ExCALIBUR themes e.g. DSL.  Gihan Mudalidge replied that he is on 
+two of the relevant workgroups: Gen~X and turbulent flow simulations.
+Low-level OP2 / OPS were developed at Warwick.  Wayne Arter commented 
+that there is an upcoming \nep\  discussion session on DSLs to which many of 
+the partners want to contribute.  Rob mentioned that there is a Cambridge / 
+Intel / Dell `openlab' group from which partners might obtain assistance (e.g. 
+for OneAPI).
+
+\subsection{PO 2048465: Performance of spectral elements, David Moxey (Exeter)}
+
+Task 1: High-order mesh generation
+
+David M made the point that high-order elements need high-order representations 
+of the geometry (nomenclature: isoparametric means geometry represented to same 
+polynomial order as used in spectral elements; there are also sub- and 
+super-parametric - standard definition of isoparameteric is that geometry is represented
+with the same basis functions as the fields).
+Accurate surfaces representation is specifically D1.3.  He 
+explained the need to bend element edges / faces and spread out internal nodal 
+points and showed a strain-energy minimization scheme used in {\it NekMesh} 
+(using a BFGS optimization strategy), an incremental process that deforms 
+linear mesh, optimizes edge nodes then optimizes internal nodes.  Figures of 
+merit for surface meshes include accuracy of normal approximation and 
+evaluation of $L_2$~distance from the CAD surface.  Exeter are working with 
+sample geometries provided by UKAEA as well as other known challenging examples.
+
+Looking ahead to D2.1 (anisotropic heat transport solver, steady and 
+time-dependent cases) David M has recruited two Imperial College students.  
+D1.2 is a quadrilateral-based cross-field solver.  For D3.2 he has solicited 
+interest in aspects of \F{Nektar++} from \nep\ partners.
+
+
+Discussion on meshing: Rob Akers asked if it was worth UKAEA collating CAD 
+representations e.g. MAST, ITER first walls during the coming months.  David M 
+reported that he has already received some `clean' CAD models of JET / MAST / 
+ITER from Wayne Arter.  Cleaning up CAD was identified as a bottleneck; David M 
+plans to continue working with the developers of {\it CADfix} software which 
+does precisely this.  Wayne Arter said he was encouraging interaction with
+the \F{CADfix} people.
+
+Discussion on particles: Rob Akers mentioned the problem of `losing' particles 
+when tracking them in a mesh (e.g. in neutronics) if they traverse a vertex.  
+David M mentioned that there is a prototype particle-tracking branch of \F{Nektar++}
+implemented by a student; it works but is not efficient.  Rob worries 
+about scaling behaviour of particle tracking if there are e.g. billions of 
+particles.  David M concurred that this is a problem.
+
+After this talk there was a question from Chris Cantwell about allowing 
+his student to join the afternoon sessions: it was decided that it was fine for 
+affiliated parties to join in the sessions.  Wayne Arter also raised the 
+question of how widely David M's \F{Nektar++} training might be publicized.
+
+\subsection{PO 2047357: Referent model for plasma edge region, Felix Parra (Oxford)}
+
+Gyrokinetic-averaged kinetic referent model (work done with Michael Barnes and 
+Michael H. Hardman).
+
+3 Milestones, M1.1 1D equations.  Felix P presented a final set of parallel 
+dynamics equations defined on the 1D subspaces along the magnetic field lines.  
+The moment approach for the system has been deduced and a linear test for 
+checking the implementation has been derived.  The main problem appears to be 
+solving for the potential (hence the moment approach).
+
+M2.1 1D code with periodic boundary conditions - this is now on the git repo.  
+It has the option to use finite differences or Chebyshev polynomials and it 
+handles ions, electrons, and neutrals.  It has been validated against an 
+analytic linear model.  Felix P showed computational  results as
+wave dispersion relations, which exhibited a novel direct (non-propagating)  mode associated 
+with the presence of neutrals  in the plasma.
+
+M1.2 report on plasma edge model is to be delivered this week.  It reviews 
+problems needing kinetic treatment and a systematic treatment of the issue of 
+which particular finite Larmor radius effects need be retained and when; also 
+the matters of including neutrals into kinetic codes and boundary conditions at 
+the wall.
+
+Rob Akers commented on the pleasing progress and it was noted that the 
+treatment of neutrals in 1D is new physics.  Rob is interested in 
+collisionally-coupled massive impurities.
+
+There was a discussion of the non-propagating mode, which was once thought 
+unimportant for simulations but now is believed to be relevant for turbulence 
+and how turbulence cascades; it will be present in 2D and 3D simulations also.  
+Rob Akers asked whether it was possible to measure this mode experimentally.  
+Wayne Arter mentioned he and Patrick Farrell will soon start supervising a PhD
+student to investigate problems of this type (systems with an time-varying mode and a `DC' mode)
+as they transition into the nonlinear regime.
+  
+
+
+\subsection{PO 2047352\_1: Study of UQ techniques, Maxime Vassaux (UCL) on behalf of Peter Coveney}
+
+Study of Uncertainty Quantification (UQ) techniques for \nep.
+
+Activity 1: Report on UQ.  Part 1 concise recommendations for UQ - done.  Part 
+2 architecture of UQ workflows for June; they are working on active subspaces and 
+semi-intrusive UQ for a chaotic (molecular dynamics) code.
+
+Activity 2: Workshops.  Part 3 EasyVVUQ workshop was done (18 January) and was 
+followed by a VECMAtk hackathon (19-22 June) in which it was noted that the 
+\F{BOUT++} developers participated.  Part 4, a second workshop including an 
+explanation of recommended UQ methods is scheduled to occur in early July.  
+There will be another hackathon also (21-23 April).
+
+High-throughput UQ reporting: the focus is on non-intrusive UQ (so as to avoid 
+human-intensive activities e.g. code rewriting).  Enhanced sampling techniques 
+were mentioned, including Monte-Carlo for high-dimensional parameter spaces, 
+adaptive sparse grid and stochastic collocation.  Active subspace methods 
+rotate to the strongest variability directions.
+
+Semi-intrusive methods are for encapsulated coupled models.  Maxime V showed an 
+example from materials modelling with a cheap macromodel and an expensive 
+(molecular dynamics) micromodel; the latter was replaced with a surrogate.  The 
+example used MUSCLE3.
+
+The conclusions from the first hackathon were presented. A questionnaire
+indicated that there were a wide range (six) of 
+single codes and one coupled model.  It was mentioned that one of the codes was 
+\F{Nektar++}.
+
+Rob Akers wanted to make sure that the UQ group were getting what they needed 
+from other partners.  Maxime V said that this was in progress; specifically, he 
+has started interacting with Serge Guillas' group on surrogates.  Peter Coveney 
+said partners should actively request help from his group.  Maxime V mentioned 
+that there is a UQ-specific channel on the Slack.  Peter Coveney advised that 
+Maxime V will be collaborating with Deyu Ming now that the latter is active.  
+Rob Akers mentioned there is a joint UKAEA PhD student with Serge G and also an 
+additional Met Office PhD.  Rob Akers said all partners should think about 
+attracting PhD students to \nep\  in order to expand the project. The next UKAEA
+round however will be geared towards students' starting in Autumn 2022.
+
+Peter Challenor was concerned that there was no Gaussian Process content in the 
+non-intrusive UQ, as this approach is more scalable than e.g. stochastic 
+collocation.  Peter Challenor said this was supposed to come from Serge G.  
+Maxime V asked Peter Challenor whether GP can be used for adaptive sampling; 
+Peter Challenor replied that he has just submitted a paper and it works better 
+than MICE.  `Sequential Design' for computer experiments was mentioned and Rob 
+Akers agreed that this is needed for STEP; Rob Akers is very interested in 
+opensource approaches and Peter Challenor is going to send him a preprint.
+
+
+\subsection{PO 2047353: Investigate matrix preconditioning techniques, Sue Thorne (STFC)}
+
+Key PDEs have been identified.  There was a presentation last week to \nep\  
+partners by Anton Lebedev of STFC.
+
+Deliverables: Literature surveys 1.1 elliptic problems, 2.1 hyperbolic, and 3.1 
+sparse approximate inverses.  These are contained in one report and were 
+discussed in Anton's talk.  4.1 implicit factorization preconditioners to 
+include their proposed preconditioners and theoretical convergence results.
+Work started early  on  D6.1-6.4 comparison report and D5.1-5.2 prototype code.
+
+Sue T thanked Ben~McMillan for supplying equations: elliptic ones are simplified 
+Grad-Shafronov and non-Boussinesq vorticity; hyperbolics 1D fluid solver and 2D 
+Hasegawa-Wakatani.
+
+Sue T discussed constraint-style preconditioners, and how STFC have extended 
+the work of Keller, Gould, Wathan (2001) and Dollar, Gould, Schilders, Wathen 
+(2006) to the non-symmetric case.  (Note that Dollar is Sue's former surname.)
+D4.1 non-symmetric extension gives new 
+(publishable) theory results, applicable beyond \nep.
+
+\subsection{PO 2047355: Optimal use of particles, Ben~McMillan (Warwick)}
+
+Ben~McMillan is focussing on Lagrangian particle approach (numerically favoured when 
+velocity space is 3D, distribution function is multi-component or there is a 
+non-optimal spatial grid; there is no Courant limit.  There is however a 
+timestep limit from the explicit field solver (field moves faster than 
+particles), also existing techniques are noisy and do not integrate well with 
+fluid models.  For these reasons, Ben~McMillan believes massive improvements are 
+possible for the simulation of particles in the plasma edge.
+
+Milestones: M4 \papp\  with advanced particle orbit solver, M5 low-noise 
+control variates implementation, M6 report on co-design.  Also M3 implicit 
+methods (for field solve) is underway.
+
+Gyrokinetic PIC: standard technique, done in ORB5.  Basic drift-kinetic / 
+currents added to {\it EPOCH} \papp.  The aim is to provide a pathway to 
+advanced electromagnetic algorithms and mixed schemes.  Minor improvements 
+include some refactoring and adding particle sub-stepping in anticipation of 
+the implicit field solver.
+
+Connection with fluid methods: control-variates to reduce noise: this approach 
+involves using a background distribution plus a perturbation.  It works well in 
+the core, usually referred to as~$\delta f$, and is being adapted for the edge,
+e.g. to allow large fluctuations, 
+to make sure the no-fluctuation limit recovers the fluid behaviour (e.g. 
+setting the first three moments of the perturbation to zero).
+
+Ben~McMillan showed a test of the {\it EPOCH} \papp\ ; an evolving collisionless 
+particle distribution.  It exhibited simple 1D plasma bunching.  Control 
+variates can reduce the Monte Carlo variance by a factor of c.100.
+
+Rob Akers asked if the density stays strictly positive; Ben~McMillan replied yes under 
+certain assumptions but there are potential issues here.
+
+M6 co-design with spectral / hp elements: Ben~McMillan has done some work on particle 
+tracing in Hasegawa-Wakatani and seed particles in Nektar-driftwave.  This was 
+on a regular quad grid; he proposes distorting the mesh to test particle 
+tracing.  There are unanswered questions here so there will need to be dialogue 
+with \F{Nektar++} developers.
+
+Rob Akers expressed again his concern re.\ the issue of losing particles (this 
+issue needs to be fixed, in a way that is scaleable).  He asked Ben~McMillan whether 
+he was getting everything he needs; Ben~McMillan replied he would like a bit of steer 
+on his next step e.g. algorithm in the \papp\  and curvilinear elements.  Rob 
+replied that Ben's remit was to provide this steer himself, and also 
+recommended talking to others in the particle community e.g. Simon 
+McIntosh-Smith re.\ the latter's work in collaboration with Aldermaston on 
+co-design for upcoming architectures.  Rob made clear that a continuing grant 
+would involve particles on curvilinear meshes at the Exascale, and coupling to 
+spectral / hp - to be co-designed, rather than attempting to fuse existing 
+codes.
+
+\subsection{Answers to admin and financial questions, Marta Barrabino, UKAEA}
+
+A general discussion preceded Marta B's arrival.
+
+Wayne mentioned problems getting a contract for Peter Challenor / Tim Dodwell
+under PO 2048906.
+
+Rob asked whether everyone was happy with the communication aspects of the 
+project e.g. Slack, email.  Spencer Sherwin did not receive the agenda for this 
+meeting.  Rob mentioned that the forthcoming ExCALIBUR website could have an 
+email sign-up button that could work in a `granular' way i.e. sign up to 
+various ExCALIBUR themes.
+
+Spencer S mentioned the challenge of getting new starters up to speed on 
+\nep\  activities.  It emerged that, in order to mitigate this, there might be 
+a small amount of flexibility in Met Office deliverable deadlines.  There is 
+also the possibility of more informal meetings for novices; Wayne Arter 
+mentioned that dividing the group into smaller parts (e.g. divide by 3) made 
+these more accessible.
+
+Rob Akers asked whether the invoicing process was clear (and noted that some 
+invoices had incorrectly been sent directly to him).  Peter Coveney noted the 
+difficulties faced by finance departments at this time of year, proximity to 
+Easter, and the overlap with other proposals.  Rob emphasized that we need to 
+satisfy the Met Office that the deliverables have been done, by 20 March.  
+Outstanding invoices need to have been received by then or there is the 
+possibility of having to refund money to BEIS.  It was clear that some PIs were 
+not certain whether their invoices had been raised or not due to bureaucratic 
+opacity.  Rob emphasized that the optimal procedure is to raise the invoice at 
+the same time as submitting the deliverable.
+
+Marta B joined the discussion at this point.
+% It emerged that UKAEA could invoice the Met Office even without invoices (!).
+
+Rob Akers reminded \nep\ grantees that they were obliged to produce technical reports as
+promised in their bids. The slides from their talks would interim evidence of 
+work done and would act as substitutes for the  quarterly reports
+due in the current month. \\
+Payment timescale: Rob approves invoices once 
+received then payment within 3-5 days.  Partners may email Rob if they wish to 
+know Marta B's email address for further queries.
+
+Marta B made clear that the UKAEA procurement dept is currently overloaded 
+(explaining problems with issuing Peter Challenor / Tim Dodwell contract) and 
+to copy her in to any relevant correspondence.
+
+Deferred workshop sessions will occur after Easter: Wayne Arter will arrange a 
+Doodle poll.  Rob Akers suggests a shared calendar for the project to automate 
+this coordination and asked for ideas for implementing such (e.g. is there a 
+Slack feature?).
+
+\section{Afternoon}
+
+\subsection{Anisotropic transport / elliptic solvers}
+
+Chris Cantwell reported on D2.1 attempts to solve the anisotropic diffusion 
+problem using \F{Nektar++}: a rectangular domain with a discrete step of 
+`source', then homogeneous Dirichlet boundary on a second side and the 
+remaining two sides using a Neumann condition.  Even with $p=8$ high-order 
+elements the system displays the Gibbs (Runge) phenomenon of oscillations due 
+to the representation of a steep-sided function in polynomials.  They tried 
+aligning the quads with the axes of the diffusion tensor, to little help, then 
+switched the top hat function for a `regularized' version (combination of 
+hyperbolic tangents), which helped, but still showed a bit of oscillation that 
+David M said was probably due to a badly-shaped triangular element.  Further 
+refinement of the mesh appeared to remove the residual oscillation, giving a 
+nice-looking result.
+
+D2.2 vectorizing matrix-free operators: the issue here was to get the relevant 
+data contiguous in memory, which means elements are no longer stored 
+sequentially but that the data for a specific element is interlaced with the 
+corresponding data for all elements.  A roofline plot showed good performance 
+with regular elements, hitting the AVX2 floating point performance roofline; 
+curvilinear elements are more memory-bottlenecked due to the need to load a 
+Jacobian (i.e. non-affine relation between reference and individual elements).  
+Wayne Arter made the point that one goal was to quantify the quality of the 
+solution as a function of the regularization parameter used in smoothing the 
+boundary data.  Rob said that a criterion for what degree of Runge oscillation 
+we can allow is the experimental measurement threshold.
+Spencer S asked how we know where to refine the mesh and where to align it with 
+the magnetic field.  Patrick Farrell queried whether the problem was ill-posed 
+but the consensus was that this was not the case.  John Omotani asked whether 
+there was a general method for aligning meshes to field lines in 3D; David M 
+said this work was one of his deliverables and that they had code for 
+addressing the 2D problem.  One other approach mentioned was simply to 
+$p$-refine without trying to align the mesh but John O had little faith in that 
+procedure.  X-points bring further complexity.
+
+It was noted that one could do local $p$-adaptivity and local $r$-adaptivity 
+(the latter might involve local deformation of the mesh).  Wall {\it and} field 
+alignment is a nasty problem due to the small angles.  Wayne Arter mentioned 
+that, in the literature, there is up to $10^8$ difference in size of 
+diffusivity component; he showed a slide with an illustration of what happened 
+to a quadrilateral element on a circuit of a tokamak: returned to original 
+position but sheared and no longer congruent with how it started out.  Possible 
+solutions: hanging nodes or use tetrahedra / prisms.  Rob asked how long we 
+have before needing to decide a meshing strategy here: Wayne Arter said a few 
+months.
+
+Patrick Farrell reported on his own work on the anisotropic transport problem.  
+A literature review had uncovered examples of asymptotic-preserving schemes by 
+Deluzet and Narski for highly anisotropic Laplacians (up to $10^{10}$ 
+anisotropy factor in the diffusion tensor components).  This work showed any 
+Galerkin method / LU decomposition would fail for such large anisotropies, and 
+proposed a strategy for dealing with this issue: introduce an extra variable 
+obeying an auxiliary (homogeneous) equation, solved via an iterative scheme.  
+Deluzet-Narski proved convergence.  Patrick F showed test cases, some of which 
+worked well, but also showed that convergence stalls in some cases (he wants to 
+correspond further with the authors re.\ this).  Patrick F showed then a possible 
+solution he devised the day before using a vectorial auxiliary variable, so not 
+sure whether it always works or indeed whether it is already in the literature, 
+though initial tests were promising.  Possible overlap with preconditioners 
+work (84) as the linear algebra problem is not symmetric.  Patrick F also 
+showed examples of Deluzet-Narski for a 3D problem run on a supercomputer; also 
+his work was presented in the DSL of Firedrake (UFL)  which looks very good.
+
+Felix Parra mentioned he had tried something similar but using a scalar 
+auxilliary variable (the gradient component parallel to the magnetic field) in 
+2009 but had not succeeded in making it work.  Patrick thought the idea was 
+good.
+
+Wayne Arter suggested Patrick liaise with Pierre Degond at Imperial, an expert 
+on asymptotic-preserving schemes (although he has only a visiting appt).
+ 
+
+
+
+\subsection{Surrogate models for data compression / turbulence}
+
+Ed Threlfall presented slides showing convection: firstly, a 3D case where 
+heating from below caused mushroom-like convection structures in water.  He 
+then showed 2D convection in a vertical slot heated from the side i.e. the 
+double-glazing problem and explained the three main regimes accessed by 
+increasing the Rayleigh number: conducting (diffusion-dominated), regular 
+convection, and turbulent convection.  A comparison between a turbulent \F{Nektar++}
+simulation and a photograph from a 1965 experiment was shown.  Then 
+Ed T played a movie of the same turbulent simulation recorded using \F{Nektar++}
+that showed the instability to boundary-layer waves.  Here, Spencer S 
+suggested boundary layer refinement (Ed T explained that this had been tried 
+but then relaxed in order to resolve turbulent structures propagating into the 
+core of the tank and their growth).  Spencer S suggested trying the 2.5D (i.e. 
+Fourier in $z$) capability of \F{Nektar++} to do a full 3D simulation and 
+seeing whether the similarity to the 1965 results was enhanced.  Wayne Arter
+indicated that there was more experimental work in the last few years, by 
+Daverat, Li et al., but he has not had chance to return to it.  Rob Akers 
+suggested Ed T liaise with Andrew Davis (UKAEA) who is simulating swirl tubes 
+with rifling structures designed to promote turbulence.
+
+Tim Dodwell presented on constructing Gaussian process (GP) surrogate models of 
+the same \F{Nektar++} simulations.  He noted that this problem is a good 
+candidate for a surrogate as two inputs (he used Prandtl number and Rayleigh
+number $Ra$) but a $42,000$-dimensional model space (the temperature field), 
+with full mode runs taking c.4 hours on 24 CPUs for his choice of time step.  
+Full-field GP emulator approximates the full output $T$ field.  GPs offer 
+forward propagation, Bayesian sensitivity analysis, calibration and data-driven 
+preconditioners, so better than polynomial chaos approaches.  Solution 
+approximated by $M$ independent Gaussian processes representing the principal 
+components (the leading one seems to be a steady convection mode): overlap with 
+this mode decayed exponentially as $Re$ was increased.  Code used was {\it mogp-emulator}.
+Another consideration is using the UQ techniques to determine 
+the maximum stable timestep over the parameter space, as currently this needs 
+to be `guessed'.  UQ would need to be extended to handle the failures caused by 
+an over-large timestep.  Overall, results were impressive, given that only 20 
+model runs were used, and Tim D mentioned that he will probably be able to make 
+rapid progress now that David M has returned to work.
+
+Spencer S asked about using machine learning for adaptive meshing.  Rob Akers 
+has spoken to Garth Wells re.\ this (the latter not enthusiastic) but also Lee 
+Margetts) who has done an extensive literature survey on the subject and who 
+seems more keen.
+
+Pater Coveney brought up the issue described in the UQ textbook by RC Smith,
+of the many systems that are not governed by 
+Gaussian statistics; heavy-tailed distributions make estimation of the mean 
+from a few measurements unreliable.  Peter Challenor replied
+that it is a common misconception that GP emulators are restricted to the
+case of Gaussian errors; they just use a Gaussian interpolant.
+
+Ben~McMillan delivered a presentation on hierarchies of models in tokamak 
+turbulence (work with Chris Pringle and Bogdan Teca, Cambridge).  He explained 
+the range of models, from zero-dimensional toy model right up to the full 6D 
+Boltzmann kinetics.  He focused on the `plasma interchange' model that shares 
+some of the features of fluid convective instabilities (interchange instability 
+replaces buoyancy instability; again viscosity versus diffusion).  He showed 
+turbulent-like structures on a space-time plot and likened these to the 
+filaments / blobs seen in tokamak-s.  Also showed that the 1D model could be run 
+for sufficiently long so as to capture rate `extreme' events that are clearly 
+of great interest in real tokamaks (these are the events that can cause severe 
+damage to the first wall).  Wayne Arter drew attention to a the work
+of Mohammad Farazmand on extreme events e.g. rogue waves (using heavy-duty numerics).
