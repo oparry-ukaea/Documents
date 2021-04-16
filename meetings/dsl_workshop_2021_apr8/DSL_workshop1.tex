@@ -218,28 +218,45 @@ below).
 
 \subsection{DSLs in {\tt BOUT++} (my title), Ben Dudson}
 
-BD's experience with coming to existing code and finding discrepancies between 
-the code and the documentation, as well as fusion physics' lack of 
-completely-specified models, led to the aim to make it easy to add new physics 
-to {\tt BOUT++}.  He explained the code structure i.e. method-of-lines time 
-integration with all the physics in a module that computes the 
-time-derivatives, and gave an example of the {\tt BOUT++} DSL: {\tt ddt(n) = 
--vE\_Grad(n,phi)+Div\_par(Jpar)+2*DDZ(n) / R\_c}.  WA asked whether the next 
-bit of code shown was C++ but BD replied it is an external DSL that is 
-interpreted at runtime; apparently the DSL evolved from a simple configuration 
-file and now it can e.g. parse complex mathematical formulae but it was
-unfortunately  {\it not} Turing-complete, as a result of this evolution. %1h 15m
+BD's experience with coming to existing code and finding discrepancies
+between the code and the documentation, as well as fusion physics'
+lack of completely-specified models, led to the aim to make it easy to
+add new physics to {\tt BOUT++}, and easy to read what equations are
+being solved.  He explained the code structure i.e. method-of-lines
+time integration with all the physics in a module that computes the
+time-derivatives, and explained that there are two DSLs used in
+BOUT++:
+\begin{itemize}
+  \item The physics equations are written in C++ e.g. {\tt ddt(n) = 
+    -vE\_Grad(n,phi)+Div\_par(Jpar)+2*DDZ(n) / R\_c}.
+  \item An input configuration file format. This evolved from a simple
+    configuration file (INI format), and now it can e.g. parse complex
+    mathematical formulae, and is Turing-complete. This evolution was
+    driven by the need for increasingly complex configurations, in
+    particular testing with MMS. In hindsight it might have been
+    better to adopt a standardised interpreted input language, rather
+    than evolve a unique one.  WA asked whether the next bit of code shown
+    was C++ but BD replied it is an external DSL that is interpreted
+    at runtime by an interpreter inside BOUT++.
+\end{itemize}
 
-BD explained how the code had been made performant and cited work by Joseph 
-Parker (2018) vectorizing the kernel inner loops (subsequently, the bottleneck 
-became the elliptic inversion).  Another problem overcome was that of too many 
-small loops not parallelizing efficiently on GPUs (need more work per unit of 
-loaded data to get the efficiency).  Showed example of merging outer loops.  
-This became hard to debug, and adding debugging framework code wrecked the 
-performance, so an idea was borrowed from {\tt SYCL} - unsafe but lightweight 
-wrappers and doing the runtime checks outside the loop.  There was a brief 
-discussion about the need for manual vectorization, as compilers cannot do this 
-well, and interaction with threading only complicates things.
+%1h 15m
+
+BD explained how the code had been made performant and cited work by
+Joseph Parker (2018) vectorizing the kernel inner loops (subsequently,
+the bottleneck became the elliptic inversion).  Another problem
+overcome was that of too many small loops not parallelizing
+efficiently on GPUs (need more work per unit of loaded data to get the
+efficiency).  Showed example of merging loops to form a single
+outerloop.  This became hard to debug when using techniques such as
+C++ templates and code generation, and adding debugging framework code
+wrecked the performance. To address this, an idea was borrowed from
+{\tt SYCL} - unsafe but lightweight wrappers and doing the runtime
+checks outside the loops. This enables efficient code which retains
+readability, and can be more easily debugged. There was a brief
+discussion about the need for code tuning and manual vectorization, as
+compilers cannot always do this well, and interaction with threading
+only complicates things.
 
 \subsection{General discussion} \label{discussion}
 
