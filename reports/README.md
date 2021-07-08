@@ -12,10 +12,10 @@ Reports - numbering as file-name:
 * 2047356   York and Exeter
 * 2047357   Oxford Physics
 * 2047358   York and Warwick
-* TBD       Exeter and Imperial
-* TBD       Exeter UQ
+* 2048465   Exeter and Imperial
+* 2048906   Exeter UQ
 
-(UCL has only one number, but two grants UQ 2047352_1 and MOR 2047353_2)
+(UCL has only one number, but two grants UQ 2047352_1 and MOR 2047352_2)
 
 ### Letter Codes
 
