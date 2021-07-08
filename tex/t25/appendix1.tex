@@ -1,0 +1,25 @@
+The Gaussian-distributed random variable is, in a sense, the simplest random quantity, in that the statistical properties are specified completely the the first {\it two} cumulants, these representing the mean and the variance of the probability distribution.  
+Higher cumulants are zero; the Gaussian is the only distribution with this property (indeed, even a uniform probability distribution has an infinite set of non-zero cumulants).
+
+The well-known {\it Central Limit Theorem} states that a linear combination of a large number of uncorrelated random variables tends to a Gaussian-distributed random variable; indeed, any linear function of a Gaussian random variable is itself a Gaussian random variable i.e. there is no need to take the limit in this case (this means that linear dynamical models preserve the Gaussianity of errors in the model state).  
+This can be expressed in the fact that the Gaussian is {\it stable} under linear combination of like-distributed variables.  
+There are other stable distributions (for example, the Cauchy distribution), but the Gaussian is the only one with finite variance.  
+Note that it has been demonstrated in the main text that the Gaussian is also stable under the conditional probability rules for the incorporation of new observations that are themselves Gaussian distributed.
+
+If an $N$-component random vector $\underline{x}$ is Gaussian, then it has probability density
+
+\begin{equation}
+p(\underline{x}) = \frac{1}{(2 \pi)^{\frac{N}{2}}} |P|^{-\frac{1}{2}} \; \exp \left ( -\frac{1}{2} (\underline{x}-\underline{\bar{x}})^T  P^{-1} (\underline{x}-\underline{\bar{x}}) \right ).
+\end{equation}
+
+Here $\bar{x}$ is the expectation $E(\underline{x})$ and $P = cov(\underline{x}) \equiv E((\underline{x}-\underline{\bar{x}})(\underline{x}-\underline{\bar{x}})^T)$.
+
+Note that the mode of the Gaussian distribution is equal to the mean (this fact means that the mean can be evaluated by minimizing the quadratic argument of the decaying exponential, or equivalently that a maximum-likelihood estimate gives the mean).
+
+The Fourier transform of a zero-mean Gaussian is easily evaluated by completing the square, giving
+
+\begin{equation}
+FT \left ( \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-x^2 / 2 \sigma^2} \right ) \propto e^{-\sigma^2 k^2 / 2},
+\end{equation}
+
+showing that the Fourier transform of a Gaussian is a $k$-space Gaussian.

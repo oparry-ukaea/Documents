@@ -1,6 +1,6 @@
-%Edit 021 ZZZ to report number nnnn 
-%Edit YYMILE YYMILE to milestone number m.m.m
-%Edit Equations for ExCALIBUR/NEPTUNE Proxyapps YYTITLE to report title - Words Start with Caps
+%Edit 0030 ZZZ to report number nnnn 
+%Edit 1.4.1 YYMILE to milestone number m.m.m
+%Edit Winter 2020-21 Workshop YYTITLE to report title - Words Start with Caps
 \documentclass[11pt,twoside,a4paper]{article}
 %%======================================================================
 %% PACKAGES:
@@ -24,12 +24,12 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\culhamissueno}{1.00}%<==edit
-\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/021}%<==edit
+\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0030}%<==edit
 \newcommand{\Sec}[1]{Section~\ref{sec:#1}}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\Tab}[1]{Table~\ref{tab:#1}}
 \newcommand{\Eq}[1]{Equation~(\ref{eq:#1})}
 \newcommand{\Eqs}[2]{Equations(\ref{eq:#1}) and~(\ref{eq:#2})}
-\newcommand{\Eqr}[2]{Equations(\ref{eq:#1})--~(\ref{eq:#2})}
 \newcommand{\Figs}[2]{Figures~\ref{fig:#1}--~\ref{fig:#2}}
 %Bold lc for script names, tt for computer code and file-names
 %\F{NEPTUNE} always in caps
@@ -37,32 +37,29 @@
 \newcommand{\B}[1]{\textbf{#1}}
 \newcommand{\T}[1]{{\tt #1}}
 \newcommand{\V}[1]{\mathbf{#1}}
-\newcommand{\C}[1]{\mathcal{#1}}
 \newcommand{\I}[1]{\textit{#1}}
-\def\xib{\mbox{\boldmath $\xi$}}
 \input{../stdefns}
-
 
 
 %%======================================================================
 
 %% REPORT COVER PAGE Information
 
-\newcommand{\culhamtitle}{\LARGE Equations for \exc/\nep \; \Papp s  \\[1.0\baselineskip] Version~1.0 }%<==edit
+\newcommand{\culhamtitle}{\LARGE Winter 2020-21 Workshop  \\[1.0\baselineskip] M1.4.1 }%<==edit
 
 %%QA BOX information -- change following as needed
 \newcommand{\culhamboardname}{Martin O'Brien}%<==edit
 \newcommand{\culhamcontactname}{Rob Akers}%<==edit
 \newcommand{\culhamauthor}{Wayne Arter}%<==edit
-\newcommand{\culhamauthora}{Lucian Anton}%<==edit
-\newcommand{\culhamauthorb}{Debasmita Samaddar}%<==edit
-\newcommand{\culhamauthorc}{\culhamcontactname}%<==edit
+\newcommand{\culhamauthora}{Ed Threlfall}%<==edit
+\newcommand{\culhamauthorb}{Joseph Parker}%<==edit
+\newcommand{\culhamauthorc}{Will Saunders}%<==edit
 %\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
 %\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
 
-\newcommand{\culhamdate}{10 March 2020}%<=edit
-\newcommand{\culhamdatea}{10 March 2020}%<=edit
-\newcommand{\culhamdateb}{10 March 2020}%<=edit
+\newcommand{\culhamdate}{18 March 2021}%<=edit
+\newcommand{\culhamdatea}{18 March 2021}%<=edit
+\newcommand{\culhamdateb}{18 March 2021}%<=edit
 
 % reproduce Rob's page size
 
@@ -92,76 +89,27 @@
 {\LARGE {\textbf{\textsf{ExCALIBUR}}}}\\[2.0\baselineskip]%<==omit
 {\LARGE \culhamtitle } \\[2.0\baselineskip]%<==omit
 {\textbf{\textsf{Abstract}}}\\%<==omit
-The report describes equations for \exc \ project \nep \ \Papp s.  %<==omit
-The numbering of the systems follows that of the \nep\ Science Plan, so %<==omit
-that those listed under FM-WP2 are denoted 2-1, 2-2, etc., and %<==omit
-under FM-WP3 as 3-1, 3-2, etc. It is a living document to which further equation %<==omit
-systems will be added throughout the course of the project.%<==omit
-%\input{abst}%<==omit
-%%<==omit
-%\vfill%<==omit
-%\centerline{\includegraphics[width=0.9\textwidth]{../corpics/tokintcrop}}%<==omit
+The report describes work for \exc \ project \nep \ %<==omit
+at Milestone 1.4.1. %<==omit
+\input{abst1}%<==omit
+%<==omit
+\vfill%<==omit
+\centerline{\includegraphics[width=0.9\textwidth]{../corpics/tokintcrop}}%<==omit
 \end{titlepage}%<==omit
 
-\input{approbox}
+\input{approbox1}
 
 \clearpage
 \section{Introduction}\label{sec:intro}
-\input{pappbit}
-\subsection{Overall Plan}\label{sec:plana}
-\input{plana}
-\subsection{\Papp s Summary}\label{sec:papp}
-\input{papps}
-\section{Braginskii coefficients}\label{sec:bragin}
-\input{bragin}
+\input{intro1}
 \clearpage
-\section{System 2-1: 2-D model of anisotropic heat transport} \label{sec:sys2-1}
-\input{sys21}
+%\section{Task Work}\label{sec:taskwork}
+\input{body1}
 \clearpage
-\section{System 2-2: 2-D elliptic solver in complex geometry} \label{sec:sys2-2}
-\input{sys22}
-\clearpage
-\section{System 2-3: 1-D fluid solver with simplified physics but with UQ and realistic boundary conditions} \label{sec:sys2-3}
-\input{sys23}
-\clearpage
-\section{System 2-4: Spatially 1-D plasma model incorporating velocity space effects} \label{sec:sys2-4}
-\input{sys24}
-\clearpage
-\section{System 2-5: Spatially 1-D multispecies plasma model} \label{sec:sys2-5}
-\input{sys25}
-\clearpage
-\section{System 2-6: Spatially 2-D plasma model incorporating velocity space effects} \label{sec:sys2-6}
-\input{sys26}
-%\clearpage
-%\section{System 2-7: Interaction between models of different dimensionality} \label{sec:sys2-7}
-%\input{sys27}
-%\clearpage
-%\section{System 2-8: Spatially 3-D plasma kinetic models} \label{sec:sys2-8}
-%\input{sys28}
-\clearpage
-\section{System 3-1: 2-D particle-based model of neutral gas and impurities with critical physics} \label{sec:sys3-1}
-\input{sys31}
-%\clearpage
-%\section{System 3-2: 2-D moment-based model of neutral gas & impurities} \label{sec:sys3-2}
-%\input{sys32}
-%\clearpage
-%\section{System 3-3: Interaction with 2-D plasma model when available} \label{sec:sys3-3}
-%\input{sys33}
-%\clearpage
-%\section{System 3-4: 3-D model of neutral gas & impurities} \label{sec:sys3-4}
-%\input{sys34}
-%\clearpage
-%\section{System 3-5: Interaction with 3-D plasma model} \label{sec:sys3-5}
-%\input{sys35}
-%\clearpage
-%\section{System 3-6: Staged introduction of additional neutral gas/impurity physics} \label{sec:sys3-6}
-%\input{sys36}
-\clearpage
-\section{Summary}\label{sec:summ}
-\input{summary}
+%\section{Summary}\label{sec:summ}
+\input{summary1}
 \section*{Acknowledgement}\label{sec:ackn}
 \input{../metackn.tex}
-Valuable input from Ben Dudson is also acknowledged.
 
 %\section*{References}
 \bibliographystyle{unsrt}

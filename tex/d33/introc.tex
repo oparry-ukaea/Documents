@@ -1,0 +1,49 @@
+This report comes as D3.3, a deliverable addressing the problem as to how the software
+for project \nep\ should be structured in order to facilitate the development.
+The original planning of the project envisaged that by this stage
+there would have been time for more extensive interactions 
+with the wider community, who will after all be largely responsible for the
+provision of code.
+However, such discussions have not been possible, owing
+to the delays in the awarding grants and building the
+community due to the COVID-19 pandemic.
+Thus the material presented here
+although based on the extensive work described in the previous milestone M3.3.x
+reports~\cite{y1re331,y2re332,y2re333}, has to be regarded in part as a basis for further
+negotiation with the community. Since it remains unclear how the software may be
+best written so as to execute well on a range of different machine architectures -- and indeed
+which architectures will successfully operate at the Exascale -- 
+a choice of a parallelism abstraction layer (between eg.\ RAJA, Kokkos and SYCL)
+continues to be  deferred~\cite[\S\,3.2]{y2re333}.
+In the former case, details are expected to change in the light
+of experience developing the \papp s, when hopefully the latter situation regarding the
+choice of parallel library will have become clearer.
+For the present, only  technical considerations to guide the selection
+are presented. 
+
+The survey of software patterns in the M3.3.x reports supports the contention that, in
+the context of scientific software, patterns
+should be viewed largely as a way of communicating the functionality of a module or subroutine.
+Hence, as an important ultimate aim of the software is incorporation into a engineering design workflow
+for a fusion reactor or its control systems, this report veers more to the model-based systems
+engineering~(MBSE) viewpoint. A widely recommended language for
+engineering design  is SysML\textsuperscript{TM}.~\cite{friedenthaletal}.
+Conveniently SysML is underlain by the Unified Modelling
+Language~(UML~\cite{omgumlwebsite}), already used in
+refs~\cite{y2re332,y2re333} to describe software patterns, and
+since \nep\ is a software project, more than adequate for present purposes.
+
+Employing preferentially the UML nomenclature from UML~2,,
+this report aims to provide a complete background against which to 
+design the \nep\ software, complementing the M3.3.x reports.
+\Sec{considers} discusses high-level constraints on the structure of software.
+where the concept of division into packages and modules (which may represent libraries)  is promoted.
+\Sec{scistruct} explores the implications of these constraints for \nep.
+At the opposite extreme to \Sec{considers},
+\Sec{lowlevel} describes the desirable contents for a single module,
+and the last \Sec{parabstr} the smallest scale data structures relevant to selection
+of an abstraction layer for machine parallelism.
+\Sec{procio} discusses the question of what best to output when developing 
+software for the Exascale.
+
+%eg.\ Douglass's book~\cite{douglass}.
