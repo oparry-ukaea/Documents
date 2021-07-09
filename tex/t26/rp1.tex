@@ -1,13 +1,13 @@
-%Edit 0024 ZZZ to report number nnnn 
-%Edit 3.1.3 YYMILE to milestone number m.m.m
-%Edit Report on user layer design YYTITLE to report title - Words Start with Caps
+%Edit 0038 ZZZ to report number nnnn 
+%Edit 2.6.1 YYMILE to milestone number m.m.m
+%Edit Identification of a preferred overall numerical scheme YYTITLE to report title - Words Start with Caps
 \documentclass[11pt,twoside,a4paper]{article}
 %%======================================================================
 %% PACKAGES:
 %%
 %\usepackage{times}               % Times+Helvetica+Courier fonts
 \usepackage{helvet}              % helvetica + cmr
-\usepackage{fancyvrb}       % package for headers/footers
+\usepackage{fancyhdr}       % package for headers/footers
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}            % Graphics.
@@ -16,8 +16,6 @@
 %\usepackage{ifthen}              % logical branching
 \usepackage{hyperref}            %insert hyper-links
 \usepackage{latexsym}
-\usepackage{verbatim}
-%\usepackage{showlabels}
 % uncomment the following to override auto page total
 %\pptotal{20}
 %%======================================================================
@@ -26,7 +24,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\culhamissueno}{1.00}%<==edit
-\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0024}%<==edit
+\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0038}%<==edit
 \newcommand{\Sec}[1]{Section~\ref{sec:#1}}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
 \newcommand{\Tab}[1]{Table~\ref{tab:#1}}
@@ -40,12 +38,6 @@
 \newcommand{\T}[1]{{\tt #1}}
 \newcommand{\V}[1]{\mathbf{#1}}
 \newcommand{\I}[1]{\textit{#1}}
-\newcommand{\x}{\mathbf{x}}
-\newcommand{\bbeta}{\boldsymbol{\beta}}
-\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
-\newcommand{\fone}{f^{(1)}}
-\newcommand{\ftwo}{f^{(2)}}
-\newcommand{\fK}{f^{(K)}}
 \input{../stdefns}
 
 
@@ -53,8 +45,7 @@
 
 %% REPORT COVER PAGE Information
 
-\newcommand{\culhamtitle}{\LARGE Report on user layer design for
-Uncertainty Quantification\\[1.0\baselineskip] M3.1.3 }%<==edit
+\newcommand{\culhamtitle}{\LARGE Identification of a preferred overall numerical scheme  \\[1.0\baselineskip] M2.6.1 }%<==edit
 
 %%QA BOX information -- change following as needed
 \newcommand{\culhamboardname}{Martin O'Brien}%<==edit
@@ -62,13 +53,13 @@ Uncertainty Quantification\\[1.0\baselineskip] M3.1.3 }%<==edit
 \newcommand{\culhamauthor}{Wayne Arter}%<==edit
 \newcommand{\culhamauthora}{Ed Threlfall}%<==edit
 \newcommand{\culhamauthorb}{Joseph Parker}%<==edit
-\newcommand{\culhamauthorc}{Debasmita Samaddar}%<==edit
+\newcommand{\culhamauthorc}{Will Saunders}%<==edit
 %\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
 %\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
 
-\newcommand{\culhamdate}{14 October 2020}%<=edit
-\newcommand{\culhamdatea}{14 October 2020}%<=edit
-\newcommand{\culhamdateb}{14 October 2020}%<=edit
+\newcommand{\culhamdate}{\today}%<=edit
+\newcommand{\culhamdatea}{\today}%<=edit
+\newcommand{\culhamdateb}{\today}%<=edit
 
 % reproduce Rob's page size
 
@@ -99,33 +90,23 @@ Uncertainty Quantification\\[1.0\baselineskip] M3.1.3 }%<==edit
 {\LARGE \culhamtitle } \\[2.0\baselineskip]%<==omit
 {\textbf{\textsf{Abstract}}}\\%<==omit
 The report describes work for \exc \ project \nep \ %<==omit
-at Milestone 3.1.3. %<==omit
-\input{abst3}%<==omit
+at Milestone 2.6.1. %<==omit
+\input{abst1}%<==omit
 %<==omit
 \vfill%<==omit
 \centerline{\includegraphics[width=0.9\textwidth]{../corpics/tokintcrop}}%<==omit
 \end{titlepage}%<==omit
 
-\input{approbox3}
+\input{approbox1}
 
 \clearpage
-\section{Introduction}\label{sec:intro}
-\input{intro3}
+\input{body1}
 \clearpage
-\input{body3}
-\clearpage
-\section{Summary}\label{sec:summ}
-\input{summary3}
 \section*{Acknowledgement}\label{sec:ackn}
 \input{../metackn.tex}
 
-\section{Appendices}\label{sec:append}
-\subsection{Quasi-Monte-Carlo}\label{sec:QMC}
-\input{qmc}
-\subsection{Latin Hypercube Sampling}\label{sec:LHSamp}
-\input{lhs}
 %\section*{References}
 \bibliographystyle{unsrt}
-\bibliography{../bib/new,../bib/waynes,../bib/misc,../bib/warv,../bib/neuts,../bib/reac,../bib/exc,../bib/active,../bib/dg1srt,../bib/mc}
+\bibliography{../bib/new,../bib/waynes,../bib/misc,../bib/warv,../bib/neuts,../bib/reac,../bib/exc,../bib/active,../bib/dg1srt}
 
 \end{document}
