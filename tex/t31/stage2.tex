@@ -48,7 +48,7 @@ it is possible to achieve convergence of the integral at a rate
 There is the important caveat that this rate is achieved only in
 the `energy' norm:
 \begin{equation}\label{eq:ennorm}
-\parallel Q \parallel_E = \sqrt{\left(\int \sum_{i=1}^d \left(\frac{\partial Q}{\partial x_i}\right)^2 d{\bf x}\right)}
+\parallel Q \parallel_E = \sqrt{\left(\int \sum_{i=1}^d \left(\frac{\partial Q}{\partial x_i}\right)^2 d{\mathbf x}\right)}
 \end{equation}
 and in other norms the $d$-dependent rate \Eq{sparsec} is found. Nonetheless
 this implies that the number of samples needed to characterise the
@@ -135,9 +135,9 @@ of Variance', a family of statistical methods for quantifying how the outputs
 of a system depend on its inputs, usually based on linearity assumptions.
 
 Suppose that the function is $f\left(\mathbf{x}\right)=f\left(x_1,x_2,\dots,x_d\right)$
-where ${\bf x} \in I^d$ (i.e.\ $0 \leq x_k \leq 1, k=1, \dots, d$), then the Sobol decomposition is
+where ${\mathbf x} \in I^d$ (i.e.\ $0 \leq x_k \leq 1, k=1, \dots, d$), then the Sobol decomposition is
 \begin{equation}\label{eq:fexp}
-f\left(x_1,\ldots,x_d\right)=f_0+\sum_{k=1}^d f_k\left(x_k\right)+\sum_{j=1}^{d-1}\sum_{k=j+1}^d f_{jk}\left(x_j,x_k\right)+ \cdots +f_{12 \dots d}({\bf x})
+f\left(x_1,\ldots,x_d\right)=f_0+\sum_{k=1}^d f_k\left(x_k\right)+\sum_{j=1}^{d-1}\sum_{k=j+1}^d f_{jk}\left(x_j,x_k\right)+ \cdots +f_{12 \dots d}({\mathbf x})
 \end{equation}
 where $f_0$ is a constant and the integral of each term in the sums is zero, i.e.
 \begin{equation}\label{eq:fint}
