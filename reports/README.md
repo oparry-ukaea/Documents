@@ -64,7 +64,7 @@ small natural numbers for both this and the version is recommended.
 | A2 Completion                          |     PVC                |                                  |
 |                                        |                        |                                  |
 | **Call 81**                            |                        |                                  |
-| D1.1 Preliminary report                |     DeM                |                                  |
+| D1.1 Preliminary report                |     DeM                |     [2047352_2-TN-01-3.pdf](call_81_rom/2047352_2-TN-01-3.pdf)        |
 | M1.1 Select literature and codes       |     SG                 |                                  |
 | D1.2 Final report                      |     DeM                |                                  |
 | M1.2 ROM on toy                        |     SG                 |                                  |
