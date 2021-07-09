@@ -1,5 +1,8 @@
 all:
 	latexmk -pdf rp1.tex
 
-clean:
-	rm -f *.aux *.bbl *.blg *.fdb_latexmk *.fls *.log *.out *.pdf
+clean: clean_aux
+	rm -f *.pdf
+	
+clean_aux:
+	rm -f *.aux *.blg *.bbl *.log *.out *.fdb_latexmk *.fls
