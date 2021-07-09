@@ -54,7 +54,7 @@ small natural numbers for both this and the version is recommended.
 | M6 Codesign with SHP, gyro-averaging   |     BM                 |                                  |
 |                                        |                        |                                  |
 | **Call 80**                            |                        |                                  |
-| D1.1 First report                      |     MV                 |     [2047352_1-TN-01-3.pdf](2047352_1-TN-01-3.pdf)        |
+| D1.1 First report                      |     MV                 |     [2047352_1-TN-01-3.pdf](call_80_uq/2047352_1-TN-01-3.pdf)        |
 | M1.1 Select codes                      |     PVC                |                                  |
 | D1.2 Final report                      |     MV                 |                                  |
 | M1.2 VVUQ evaluations                  |     PVC                |                                  |
@@ -97,10 +97,10 @@ small natural numbers for both this and the version is recommended.
 | 5.3 Roadmap to SHP/Nektar++            |     DM                 |                                  |
 |                                        |                        |                                  |
 | **Call 84**                            |                        |                                  |
-| M1.1 Elliptics 1                       |     ES & ST            |     [2047353-TN-01-2.pdf](2047353-TN-01-2.pdf)          |
+| M1.1 Elliptics 1                       |     ES & ST            |     [2047353-TN-01-2.pdf](call_84_preconditioning/2047353-TN-01-2.pdf)          |
 | M1.2 Elliptics 2                       |     ES                 |                                  |
 | D1.1 Elliptics                         |     ES & ST            |                                  |
-| M2.1 Hyperbolics 1                     |     ES & ST            |     [2047353-TN-01-2.pdf](2047353-TN-01-2.pdf)          |
+| M2.1 Hyperbolics 1                     |     ES & ST            |     [2047353-TN-01-2.pdf](call_84_preconditioning/2047353-TN-01-2.pdf)          |
 | M2.2 Hyperbolics 2                     |     ES                 |                                  |
 | D2.1 Hyperbolics                       |     ES & ST            |                                  |
 | M3.1 SPAI                              |     ES                 |                                  |
@@ -122,7 +122,7 @@ small natural numbers for both this and the version is recommended.
 | D6.4 Recommendations                   |     VA, ES & ST        |                                  |
 |                                        |                        |                                  |
 | **Call 85**                            |                        |                                  |
-| M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](2047357-TN-01-2.pdf)          |
+| M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](call_85_gyrokinetics/2047357-TN-01-2.pdf)          |
 | M1.2 Regimes, s-o-a models             |     FP                 |                                  |
 | M1.3 Wall bcs                          |     FP                 |                                  |
 | M1.4 2D model walls                    |     FP                 |                                  |
