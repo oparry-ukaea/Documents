@@ -1,0 +1,166 @@
+\section{{\nep\  Meeting: 20 April 2021 2-3pm BST}}
+
+\emph{Present}
+
+\begin{itemize}
+\item Chair: Wayne Arter, UKAEA
+\item Felix Parra, Oxford
+\item Michael Barnes, Oxford
+\item Sarah Newton, UKAEA
+\item John Omotani, UKAEA
+\item Joseph Parker, UKAEA
+\item Ed Threlfall, UKAEA
+
+\end{itemize}
+
+\section{Minutes}
+
+WA started by discussing the recent report~`03' by Oxford, {\it Physics in the edge 
+of fusion devices}~\cite{2047357-TN-03}.  (Two other
+reports~\cite{2047357-TN-01,2047357-TN-02}  have already been
+produced.) He commended the very good report, 
+praising an accessible (ie.\ to other \nep\  grant holders) introduction, 
+followed by an authoritative literature survey (4 pages of references).  The 
+reviewer had passed the report subject to only minor details.  WA thought the 
+focus on drift-ordered fluid models interesting and FP confirmed that this was 
+the approach taken in most of the current state-of-the-art models.  WA said the 
+fundamental dimension is the size of the flow ie.\ the size of the boundary 
+sheath, but mentioned there could be an alternative expansion for higher flows 
+- FP agreed and cited the case where there is a potential difference across the 
+wall (some machines do this eg.\ rotating mirrors, but not tokamaks; he also 
+mentioned biasing the divertor though this idea seems to have been abandoned 
+years ago for reasons that were unclear).  WA said potential differences made 
+performance worse and that the pedestal does not `like' having flow.
+
+WA moved on to discuss the novel research content of the report; it was not 
+clear what model would be best ie.\ full gyrokinetics, or drift kinetics with 
+small corrections (easier).  FP added that drift-plus-corrections might be 
+acceptable; WA stated that the main worry with this approach is a proper energy 
+conservation relation; however, a cheap model is certainly needed, in order to 
+perform many runs with the aim of assessing the effect of damping terms.  WA 
+mentioned that lots of diverging types of calculations were performed in the 
+1990s.  WA suggested formulating the new physics in the form of a variational 
+principle, compatible with new work involving adding a variational-based DSL to 
+\F{Nektar++} as part of \exc\  cross-cutting theme work (this could allow 
+the easy passage of the new physics into an exascale-enabled code in the next 
+three years).  FP mentioned that there are many variational approaches, 
+automatic differentiation etc. so many possible ways of formulating physics 
+models.
+
+WA returned to his own questions regarding the report and asked FP how he 
+planned to proceed next.  FP responded that he proposes to explore three areas 
+where existing work is lacking:
+\begin{enumerate}
+\item Address neutrals, with a charge-exchange operator;
+\item Wall boundary conditions;
+\item Calculation of the electric field (difficult).
+\end{enumerate}
+
+The electric field is obtained from a pressure balance equation and there is a 
+trick in gyrokinetics for calculating it from a small polarization density 
+term.  Material on the pressure balance approach is included in FP's first 
+report (the new thing is to try this in the higher-moment approach, meaning the 
+electric field can be derived from the parallel momentum equation).  FP is not 
+sure it will work as it involves a rather artificial `split' of an equation.  
+WA then asked about similarities to the asymptotic-preserving schemes as used 
+by Patrick Farrell; FP said this problem is similar - it involves the 
+asymptotic behaviour of a small parameter (here, the gyroradius) though it does 
+not clearly fall into the strict ambit of asymptotic-preserving problems.  WA 
+mentioned that even if implemented using asymptotic-preserving methods, PF's 
+work shows that a degree of numerical ingenuity is still required.  It seemed 
+that FP had talked with PF after the last progress meeting to revisit a 
+problem FP had worked on (without success) in the past - it seems they are 
+working on this but there were no details.
+
+WA steered the discussion back to the report; he was a little confused by the 
+discussion of particle methods (a kinetic model may be attacked as a 5-D fluid 
+system or as a particle system).  FP stated that the continuum equations are 
+integrable using particles; WA said the the physics suggests this is so but 
+that electromagnetism is then a challenge.  FP said his method is not exclusive 
+to fluid or particle approaches; fluid methods are attractive as it is clear 
+how to do a spectral implementation, as in MB's work (there was some confusion 
+about whether a spectral particle code is even possible).  The \I{HAGIS} code~\cite{Pi98HAGI}
+(particles coupled to spectral force fields) was cited - Fourier spectral field 
+representation provides a nice cut-off here.  WA said he had brought up 
+particles because of sheath effects meaning it is not clear what boundary 
+conditions to use for fluids near the wall.  In this context, FP has extended 
+work by Geraldini et al~\cite{Ge19Depe}  to derive the distribution of ions at a domain end 
+(extension involves replacing adiabatic electrons with kinetic ones); this 
+distribution is input into a (complicated) code by Geraldini that 
+calculates the potential at the wall, and which electrons come back, given the 
+ion distribution at the presheath. WA wanted to understand how this all fitted 
+together.  FP said for \exc\ , the full sheath code would be replaced by 
+something simpler eg.\ assuming ions always leave and that this assumption 
+determines the potential drop, hence a simplified boundary condition.  The 
+motivation here was not to start simulations with a full-blown code whose true 
+results are unknown.  WA mentioned that PIC modelling could be used to check 
+the outputs of this boundary code.  FP agreed and also said the Geraldini 
+boundary code might prove unstable.  Regarding PIC coupling, WA asked about how to 
+couple the different representations used in different domains, having talked 
+previously to a worker on the \I{XGC} boundary code who had admitted that the 
+determination of the sizes of overlap regions was done largely by trial and 
+error.  WA had previously mentioned methodological concerns 
+about instabilities in the US \I{GENE} simulation code.
+FP expressed his own confusion why there is currently work to 
+couple \I{XGC} and \I{GENE}, given that these are both kinetic codes (\I{XGC} 
+is gyrokinetic PIC and \I{GENE} treats a 5-D continuum model.  WA mentioned that NASA need 
+to solve the particles / fluids dichotomy; he thought \I{XGC} was best for 
+boundaries and \I{GENE} for bulk.  WA agrees that one can use a continuum 
+representation but worries that collision operators are problematic; further to 
+this, FP asked whether particle methods were better for collisions. WA said 
+that collisions have been done for many years and the trade-off is accurate 
+microphysics but much noise / sampling error; he mentioned it might not be 
+necessary for us to get the momentum balance strictly correct.  FP thinks 
+collisions are a problem in PIC too; he sees why the neutronics field uses 
+particle codes but thinks either particle or continuum appropriate for plasmas. 
+WA mentions collisions in fluids are harder because both particles are moving and generally 
+a hard problem to identify a particle `collision' without using a mesh.
+FP said particle vs. continuum is not considered in his 
+report.  WA said he has never looked into rigorous maths behind this in detail 
+and opined that a definitive theory is needed here.  WA then mentioned that in 
+classical fluids, the mean free path is used to determine what overlap is 
+needed (ie.\ between regions simulated using continuum and particle 
+descriptions) - can this be applied in plasmas?  FP opined that he favours 
+fluid / drift models for two reasons: 1) the 11-moment equation can be used to 
+compute the electric field and 2) one has better control over the energy; in 
+different regions of different temperatures, their grids can rescale 
+`automatically'.  There is scope for a diagnostic in this code that detects 
+that the distribution is Maxwellian and triggers use of Braginskii theory.  WA 
+mentioned that in space applications, he thought he recollected that the
+mean free path is used to determine 
+whether a particle description is needed (it is clearly more attractive to 
+simulate a fluid by default and switch unresolved regions to use a more 
+expensive particle description as required, rather than defaulting to 
+particles); NASA applications involve compression and heating near a nose cone 
+giving a hot, collisionless gas (and indeed a plasma).  WA asked whether there 
+exists a simple problem using FP's formalism in which the need for a particle 
+description can be detected.  FP answered that, in his experience, the need for 
+kinetics is determined heuristically (he used the phrase `fudge factor'); he 
+noted that even if the mean free path is relatively small, collisionless 
+processes involve high energy particles which can nevertheless contribute
+significantly to transport eg.\ heat fluxes.
+
+WA invited FP to talk about his plans for future work and FP handed over to MB, 
+who has implemented a 1+1-D drift kinetic solver which evolves the distribution 
+function, see the '02'~report~\cite{2047357-TN-02}.  The results from this agree with kinetic solvers (once they apply 
+`corrections').  Technical details: implemented in Julia using the FFTW3
+library; Chebyshev pseudospectral elements; no explicit artificial viscosity 
+but uses an upwind flux at element boundaries so it has slight numerical 
+dissipation: apparently they deal with this by `re-normalizing' the integral 
+over velocity space so it remains constant.  They still want to test solving 
+for the electromagnetic field in this code (this would conclude their work with 
+periodic boundaries).  WA mentioned that a similar code could be implemented in 
+\F{Matlab} but that this would run slowly; MB added that JO had tested the 
+Julia code vs. C++ and found little difference in speed.
+
+There followed a brief discussion on DSLs (unfortunately FP and MB missed the 
+recent DSL meeting due to other commitments).  WA mentioned that \F{Firedrake} 
+is build around Python and it calls C code, giving a possible challenge for 
+integrating \F{Nektar++} into the DSL of \F{Firedrake} as part of a forthcoming 
+cross-cutting \exc\  bid.  MB added that Julia can call C++ or Fortran code.
+
+WA closed the meeting.  FP checked it was OK for JO to be a co-author on their 
+publication; WA said there was no issue here so long as the bidding process is 
+seen to be transparent and fair.  He reiterated that the aim of UKAEA is to make codes that come 
+out of \nep\  as widely-available as possible.
+
