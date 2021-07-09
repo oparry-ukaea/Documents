@@ -8,7 +8,7 @@ Reports - numbering as file-name:
 * 2021000   Oxford Maths
 * 2047352   UCL - see note
 * 2047353   STFC
-* 2047355   Warwick
+* 2047355   Warwick PIC
 * 2047356   York and Exeter
 * 2047357   Oxford Physics
 * 2047358   York and Warwick
