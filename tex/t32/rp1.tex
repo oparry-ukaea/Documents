@@ -1,6 +1,7 @@
-%Edit 0011 ZZZ to report number nnnn 
-%Edit 1.2.1 YYMILE to milestone number m.m.m
-%Edit Year One Summary Report YYTITLE to report title - Words Start with Caps
+%Edit 0039 ZZZ to report number nnnn 
+%Edit 3.2.1 YYMILE to milestone number m.m.m
+%Edit Survey of code generators and their suitability for 
+%Edit \nep  YYTITLE to report title - Words Start with Caps
 \documentclass[11pt,twoside,a4paper]{article}
 %%======================================================================
 %% PACKAGES:
@@ -24,9 +25,10 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \newcommand{\culhamissueno}{1.00}%<==edit
-\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0011}%<==edit
+\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0039}%<==edit
 \newcommand{\Sec}[1]{Section~\ref{sec:#1}}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\Tab}[1]{Table~\ref{tab:#1}}
 \newcommand{\Eq}[1]{Equation~(\ref{eq:#1})}
 \newcommand{\Eqs}[2]{Equations(\ref{eq:#1}) and~(\ref{eq:#2})}
 \newcommand{\Figs}[2]{Figures~\ref{fig:#1}--~\ref{fig:#2}}
@@ -37,29 +39,29 @@
 \newcommand{\T}[1]{{\tt #1}}
 \newcommand{\V}[1]{\mathbf{#1}}
 \newcommand{\I}[1]{\textit{#1}}
-\newcommand{\nep}{\textsc{NEPTUNE}}
-\newcommand{\exc}{\textsc{E}x\textsc{CALIBUR}}
+\input{../stdefns}
 
 
 %%======================================================================
 
 %% REPORT COVER PAGE Information
 
-\newcommand{\culhamtitle}{\LARGE Year One Summary Report  \\[1.0\baselineskip] M1.2.1 }%<==edit
+\newcommand{\culhamtitle}{\LARGE Survey of code generators and their suitability for 
+\nep   \\[1.0\baselineskip] M3.2.1 }%<==edit
 
 %%QA BOX information -- change following as needed
 \newcommand{\culhamboardname}{Martin O'Brien}%<==edit
 \newcommand{\culhamcontactname}{Rob Akers}%<==edit
 \newcommand{\culhamauthor}{Wayne Arter}%<==edit
-\newcommand{\culhamauthora}{Lucian Anton}%<==edit
-\newcommand{\culhamauthorb}{Debasmita Samaddar}%<==edit
-\newcommand{\culhamauthorc}{\culhamcontactname}%<==edit
+\newcommand{\culhamauthora}{Ed Threlfall}%<==edit
+\newcommand{\culhamauthorb}{Joseph Parker}%<==edit
+\newcommand{\culhamauthorc}{Will Saunders}%<==edit
 %\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
 %\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
 
-\newcommand{\culhamdate}{10 March 2020}%<=edit
-\newcommand{\culhamdatea}{10 March 2020}%<=edit
-\newcommand{\culhamdateb}{10 March 2020}%<=edit
+\newcommand{\culhamdate}{\today}%<=edit
+\newcommand{\culhamdatea}{\today}%<=edit
+\newcommand{\culhamdateb}{\today}%<=edit
 
 % reproduce Rob's page size
 
@@ -90,24 +92,18 @@
 {\LARGE \culhamtitle } \\[2.0\baselineskip]%<==omit
 {\textbf{\textsf{Abstract}}}\\%<==omit
 The report describes work for \exc \ project \nep \ %<==omit
-at Milestone 1.2.1. %<==omit
-\input{abst}%<==omit
+at Milestone 3.2.1. %<==omit
+\input{abst1}%<==omit
 %<==omit
 \vfill%<==omit
 \centerline{\includegraphics[width=0.9\textwidth]{../corpics/tokintcrop}}%<==omit
 \end{titlepage}%<==omit
 
-\input{../approbox}
+\input{approbox1}
 
 \clearpage
-\section{Introduction}\label{sec:intro}
-\input{intro}
+\input{body1}
 \clearpage
-\section{Task Work}\label{sec:taskwork}
-\input{body}
-\clearpage
-\section{Summary}\label{sec:summ}
-\input{summary}
 \section*{Acknowledgement}\label{sec:ackn}
 \input{../metackn.tex}
 

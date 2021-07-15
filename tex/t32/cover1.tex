@@ -1,0 +1,94 @@
+%Edit 0039 ZZZ to report number nnnn 
+%Edit 3.2.1 YYMILE to milestone number m.m.m
+%Edit Survey of code generators and their suitability for 
+ep  YYTITLE to report title - Words Start with Caps
+\documentclass[11pt,twoside,a4paper]{article}
+%%======================================================================
+%% PACKAGES:
+%%
+%\usepackage{times}               % Times+Helvetica+Courier fonts
+\usepackage{helvet}              % helvetica + cmr
+%\usepackage{frutiger}            % Frutiger \sffamily fonts.
+\usepackage{fancyhdr}       % package for headers/footers
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}            % Graphics.
+%\usepackage{a4}                  % page layout to fit A4
+%\usepackage{amssymb}              % 
+%\usepackage{lastpage}            % get page no of last page
+%\usepackage{ifthen}              % logical branching
+\usepackage{hyperref}            %insert hyper-links
+\usepackage{latexsym}
+% uncomment the following to override auto page total
+%\pptotal{20}
+%%======================================================================
+
+% ensure sans-serif font used throughout
+\renewcommand{\familydefault}{\sfdefault}
+
+\newcommand{\culhamissueno}{1.00}%<==edit
+\newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/0039}%<==edit
+\newcommand{\Sec}[1]{Section~\ref{sec:#1}}
+\newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\Eq}[1]{Equation~(\ref{eq:#1})}
+\newcommand{\Eqs}[2]{Equations(\ref{eq:#1}) and~(\ref{eq:#2})}
+\newcommand{\Figs}[2]{Figures~\ref{fig:#1}--~\ref{fig:#2}}
+%Bold lc for script names, tt for computer code and file-names
+%\F{NEPTUNE} always in caps
+\newcommand{\F}[1]{\textsc{#1}}
+\newcommand{\B}[1]{\textbf{#1}}
+\newcommand{\T}[1]{{\tt #1}}
+\newcommand{\V}[1]{\mathbf{#1}}
+\newcommand{\I}[1]{\textit{#1}}
+\input{../stdefns}
+
+
+%%======================================================================
+%% REPORT COVER PAGE Information
+
+\newcommand{\culhamtitle}{\LARGE Survey of code generators and their suitability for 
+ep   \\[1.0\baselineskip] M3.2.1 }%<==edit
+
+%%qa box information -- change following as needed
+%%only needed if uncomment approbox
+\newcommand{\culhamboardname}{Martin O'Brien}%<==edit
+\newcommand{\culhamcontactname}{Rob Akers}%<==edit
+\newcommand{\culhamauthor}{Wayne Arter}%<==edit
+\newcommand{\culhamauthora}{Lucian Anton}%<==edit
+\newcommand{\culhamauthorb}{Debasmita Samaddar}%<==edit
+\newcommand{\culhamauthorc}{\culhamcontactname}%<==edit
+\newcommand{\culhamdate}{\today}%<=edit
+\newcommand{\culhamdatea}{\today}%<=edit
+\newcommand{\culhamdateb}{\today}%<=edit
+%\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
+%\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
+
+%
+\setlength{\textheight}{290.0mm}
+\setlength{\topmargin}{-20.0mm}
+\setlength{\oddsidemargin}{-10.0mm}
+\setlength{\evensidemargin}{\oddsidemargin}
+\setlength{\parindent}{0mm}
+\addtolength{\parskip}{0.5\baselineskip}
+\setlength{\topsep}{0pt}
+\setlength{\itemsep}{0pt}
+
+
+\begin{document}
+
+\begin{titlepage}
+\includegraphics[width=2.5cm]{../corpics/cofaplus} \\[2.0\baselineskip]
+{\LARGE {\textbf{\textsf{ExCALIBUR}}}}\\[2.0\baselineskip]
+{\LARGE \culhamtitle } \\[2.0\baselineskip]
+{\textbf{\textsf{Abstract}}}\\
+The report describes work for \exc \ project \nep \
+at Milestone M3.2.1.
+\input{abst}
+\vfill
+\hspace{-20mm}\includegraphics[width=22.0cm]{../corpics/tokintcrop}
+\end{titlepage}
+
+\clearpage
+%\input{approbox}
+
+\end{document}

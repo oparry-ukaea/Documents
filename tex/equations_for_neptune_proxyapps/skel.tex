@@ -23,7 +23,7 @@
 % ensure sans-serif font used throughout
 \renewcommand{\familydefault}{\sfdefault}
 
-\newcommand{\culhamissueno}{1.00}%<==edit
+\newcommand{\culhamissueno}{1.01}%<==edit
 \newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/021}%<==edit
 \newcommand{\Sec}[1]{Section~\ref{sec:#1}}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
@@ -48,7 +48,7 @@
 
 %% REPORT COVER PAGE Information
 
-\newcommand{\culhamtitle}{\LARGE Equations for \exc/\nep \; \Papp s  \\[1.0\baselineskip] Version~1.0 }%<==edit
+\newcommand{\culhamtitle}{\LARGE Equations for \exc/\nep \; \Papp s  \\[1.0\baselineskip] Version~1.1 }%<==edit
 
 %%QA BOX information -- change following as needed
 \newcommand{\culhamboardname}{Martin O'Brien}%<==edit
@@ -60,9 +60,9 @@
 %\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
 %\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
 
-\newcommand{\culhamdate}{10 March 2020}%<=edit
-\newcommand{\culhamdatea}{10 March 2020}%<=edit
-\newcommand{\culhamdateb}{10 March 2020}%<=edit
+\newcommand{\culhamdate}{\today}%<=edit
+\newcommand{\culhamdatea}{\today}%<=edit
+\newcommand{\culhamdateb}{\today}%<=edit
 
 % reproduce Rob's page size
 
@@ -161,10 +161,15 @@ systems will be added throughout the course of the project.%<==omit
 \input{summary}
 \section*{Acknowledgement}\label{sec:ackn}
 \input{../metackn.tex}
-Valuable input from Ben Dudson is also acknowledged.
+Valuable input from Ben Dudson is also acknowledged. Stuart Henderson provided helpful
+advice concerning plasma radiation.
 
 %\section*{References}
 \bibliographystyle{unsrt}
 \bibliography{../bib/new,../bib/waynes,../bib/misc,../bib/warv,../bib/neuts,../bib/reac,../bib/exc,../bib/active,../bib/dg1srt}
+
+\appendix
+\section{Annex A: Atomic and Molecular Effects}\label{sec:atomic}
+\input{atomic}
 
 \end{document}

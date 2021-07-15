@@ -33,14 +33,14 @@ different spatial levels of resolution~\cite{Mi13Mult}, the MLMC algorithm is
 and $l=L$ is the finest.
 \item For each~$l$, draw a level-dependent number~$N_l$ of samples from the parameters/fields
 to be sampled, eg.\ 
-${\bf U}$ denoting a single solution depending on spatial variables alone.
+${\mathbf U}$ denoting a single solution depending on spatial variables alone.
 \item Solve the model or surrogate problem $N_l$ times at each level, giving an
-ensemble of solutions~${\bf U}^k_l,\;k=1,\ldots N_l$,
+ensemble of solutions~${\mathbf U}^k_l,\;k=1,\ldots N_l$,
 \item Estimate the mean (other moments of the distribution follow similarly) as
 \begin{equation}
-{\mathbb E}^L[{\bf U}]= \sum_{l=0}^L {\mathbb E}_l[{\bf U}_l-{\bf U}_{l-1}]
+{\mathbb E}^L[{\mathbf U}]= \sum_{l=0}^L {\mathbb E}_l[{\mathbf U}_l-{\mathbf U}_{l-1}]
 \end{equation}
-using simple averages~${\mathbb E}_l$ with ${\bf U}_{-1}={\bf 0}$
+using simple averages~${\mathbb E}_l$ with ${\mathbf U}_{-1}={\mathbf 0}$
 \end{enumerate}
 Large gains occur when
 $N_l=N_0 4^{lp}$ where the solution scheme is of order~$p\leq(d+1)/2$.

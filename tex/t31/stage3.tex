@@ -43,7 +43,8 @@ that for every finite set of indices $x_1, ... , x_K$
 Z_{x_1, ... , x_K} = \left ( Z_{x_1}, ... Z_{x_K} \right )
 \end{equation}
 
-is a multivariate Gaussian variable.  An equivalent definition is the statement that there exist 
+is a multivariate Gaussian variable.  An equivalent (characteristic function) definition is the
+statement that there exist 
 real-valued $\sigma_{jk}$, $\mu_j$ for any $s_1, ... , s_K \in \mathbb{R}$ such that the 
 expectation is
 
@@ -82,26 +83,26 @@ second kind). In the above \Eqs{stoch}{matern}, $\sigma$, $L$ and $\nu$ are exam
 hyperparameters, which are typically determined by use of Bayesian methods.
 
 In {\it simple kriging} the mean $\mu$ is known in advance and the estimator for the value of the 
-process at point $\bf{x}_0$ is constructed as a weighted linear combination of the existing set of $N$ 
+process at point $x$ is constructed as a weighted linear combination of the existing set of $N$ 
 samples
 
 \begin{equation}
-Z^*(\bf{x}_0) = \mu + \sum_{i=1}^N w_i \left ( Z(\bf{x}_i) - \mu \right );
+\tilde{Z}(x) = \mu + \sum_{i=1}^N w_i \left ( Z(x_i) - \mu \right );
 \end{equation}
 
 minimisation of the prediction variance leads to a simple expression (actually a least-squares 
 estimator) for the weights in terms of the matrix of covariances between the sample points $C_{ij} 
 \equiv C(x_i,x_j)$ and the vector of covariances between the estimation point and the sample points 
-$D_i \equiv C(x_0, x_i)$ as $\bf{w} =  C^{-1} D$.
+$r_i \equiv C(x, x_i)$ as ${\mathbf w} =  {\bf r} C^{-1}$.
 
 In the case of a constant unknown mean, one has {\it ordinary kriging} (note it still involves the 
 assumption that the mean is constant), and the formulae above are supplemented by a condition that 
 the estimator be unbiased (this is simply the constraint that the weights sum to unity), which can 
 be incorporated using a Lagrange multiplier.  
-The variance of the estimator can be computed, leading to an intuitive plot that resembles a string 
-of sausages (\Fig{kriging}).  
 There are successively more involved kriging varieties based on further generalisation, for example 
 general polynomial models of the underlying trend.  
+The variance of the estimator can be computed, leading to an intuitive plot that resembles a string 
+of sausages (\Fig{kriging}) in the more general case.  
 Note that there is also gradient-enhanced kriging, which uses an estimate of the local gradient to 
 reduce the variance of a kriging estimator.
 
@@ -167,15 +168,15 @@ is probably less critical in application to \nep.
 %This {\it maximum-margin} hyperplane is chosen by noting that the two parallel hyperplanes given by
 %
 %\begin{eqnarray}
-%\mathbf{w} \cdot \mathbf{x} - b &=& 1\\
-%\mathbf{w} \cdot \mathbf{x} - b &=& -1
+%{\mathbf w} \cdot {\mathbf x} - b &=& 1\\
+%{\mathbf w} \cdot {\mathbf x} - b &=& -1
 %\end{eqnarray}
 %
-%are separated by the Euclidean distance $\x=2/\lVert \mathbf{w} \rVert$, and so the problem is 
-%to minimize $\lVert \mathbf{w} \rVert$ subject to the constraint that $y_i(\mathbf{w} \cdot \mathbf{x_i}-b) 
+%are separated by the Euclidean distance $\x=2/\lVert {\mathbf w} \rVert$, and so the problem is 
+%to minimize $\lVert {\mathbf w} \rVert$ subject to the constraint that $y_i({\mathbf w} \cdot {\mathbf x_i}-b) 
 %\geq 1$ (in the simple case that the two data sets correspond respectively to values $1$ and $-1$) 
 %- this is the criterion that no data points lie within the margin.  
-%The linear classifier is then the sign of $\mathbf{w} \cdot \mathbf{x} - b$ (see \Fig{svm} for an 
+%The linear classifier is then the sign of ${\mathbf w} \cdot {\mathbf x} - b$ (see \Fig{svm} for an 
 %illustration of this).  
 %In general, the sample set may not be linearly separable and a way to get round this is to replace 
 %the scalar product with a nonlinear {\it kernel function}, which basically allows the boundary 
