@@ -104,7 +104,7 @@ small natural numbers for both this and the version is recommended.
 | M2.2 Hyperbolics 2                     |     ES                 |                                  |
 | D2.1 Hyperbolics                       |     ES & ST            |                                  |
 | M3.1 SPAI                              |     ES                 |                                  |
-| D3.1 SPAI                              |     VA, ES & ST        |                                  |
+| D3.1 SPAI                              |     VA, ES & ST        |     [2047353-TN-02-2.pdf](call_84_preconditioning/2047353-TN-02-2.pdf)                             |
 | 4.1 Coupled theory                     |     ES & ST            |                                  |
 | 5.1 Coupled code 1                     |     ES & ST            |                                  |
 | 5.2 Coupled code 2                     |     ES                 |                                  |
