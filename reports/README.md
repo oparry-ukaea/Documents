@@ -51,7 +51,7 @@ small natural numbers for both this and the version is recommended.
 | M3 Implicit field solver               |     TG                 |                                  |
 | M4 Particle orbit solver               |     BM                 |                                  |
 | M5 Low noise                           |     BM                 |                                  |
-| M6 Codesign with SHP, gyro-averaging   |     BM                 |                                  |
+| M6 Codesign with SHP, gyro-averaging   |     BM                 |     [2047355-TN-01-3.pdf](call_79_pic/2047355-TN-01-3.pdf)           |
 |                                        |                        |                                  |
 | **Call 80**                            |                        |                                  |
 | D1.1 First report                      |     MV                 |     [2047352_1-TN-01-3.pdf](call_80_uq/2047352_1-TN-01-3.pdf)        |
