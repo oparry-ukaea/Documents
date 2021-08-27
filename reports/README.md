@@ -104,7 +104,7 @@ small natural numbers for both this and the version is recommended.
 | M2.2 Hyperbolics 2                     |     ES                 |                                  |
 | D2.1 Hyperbolics                       |     ES & ST            |                                  |
 | M3.1 SPAI                              |     ES                 |                                  |
-| D3.1 SPAI                              |     VA, ES & ST        |     [2047353-TN-02-2.pdf](call_84_preconditioning/2047353-TN-02-2.pdf)                             |
+| D3.1 SPAI                              |     VA, ES & ST        |     [2047353-TN-02-2.pdf](call_84_preconditioning/2047353-TN-02-2.pdf)          |
 | 4.1 Coupled theory                     |     ES & ST            |                                  |
 | 5.1 Coupled code 1                     |     ES & ST            |                                  |
 | 5.2 Coupled code 2                     |     ES                 |                                  |
@@ -119,7 +119,7 @@ small natural numbers for both this and the version is recommended.
 | D6.1 Code                              |     ES                 |                                  |
 | D6.2 Uncoupled test 1                  |     ES & ST            |                                  |
 | D6.3 Coupled test                      |     ES & ST            |                                  |
-| D6.4 Recommendations                   |     VA, ES & ST        |                                  |
+| D6.4 Recommendations                   |     VA, ES & ST        |     [2047353-TN-03-3.pdf](call_84_preconditioning/2047353-TN-03-3.pdf)       |
 |                                        |                        |                                  |
 | **Call 85**                            |                        |                                  |
 | M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](call_85_gyrokinetics/2047357-TN-01-2.pdf)          |
