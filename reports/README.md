@@ -77,7 +77,7 @@ small natural numbers for both this and the version is recommended.
 | 0.1 Community standards                |     PH                 |                                  |
 | 0.2 Coordination FY21/22               |     PH                 |                                  |
 | 0.3 Coordination FY22/23               |     PH                 |                                  |
-| 1.1 2D elliptic, select test cases     |     BD                 |                                  |
+| 1.1 2D elliptic, select test cases     |     BD                 |     [2047356-TN-02-2.pdf](call_83_software/2047356-TN-02-2.pdf)                 |
 | 1.2 Elliptic BOUT++                    |     BD                 |                                  |
 | 1.3 Elliptic Nektar++                  |     DM                 |                                  |
 | 1.4 Evaluate precond                   |     BD                 |                                  |
@@ -91,7 +91,7 @@ small natural numbers for both this and the version is recommended.
 | 3.3 Timestepping                       |     DD                 |                                  |
 | 4.1 1-D multispecies, select tests     |     BD                 |                                  |
 | 4.2 Implement BOUT++                   |     BD                 |                                  |
-| 4.3 DSL adoption                       |     SW                 |     [2047358-TN-01-2.pdf](call_83_software/2047358-TN-01-2.pdf)                             |
+| 4.3 DSL adoption                       |     SW                 |     [2047358-TN-01-2.pdf](call_83_software/2047358-TN-01-2.pdf)                 |
 | 5.1 2-D plasma, select tests           |     DM                 |                                  |
 | 5.2 Proxyapp assessment                |     DM                 |                                  |
 | 5.3 Roadmap to SHP/Nektar++            |     DM                 |                                  |
@@ -123,7 +123,7 @@ small natural numbers for both this and the version is recommended.
 |                                        |                        |                                  |
 | **Call 85**                            |                        |                                  |
 | M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](call_85_gyrokinetics/2047357-TN-01-2.pdf)          |
-| M1.2 Regimes, s-o-a models             |     FP                 |                                  |
+| M1.2 Regimes, state-of-art models      |     FP                 |     [2047357-TN-03-2.pdf](call_85_gyrokinetics/2047357-TN-03-2.pdf)          |
 | M1.3 Wall bcs                          |     FP                 |                                  |
 | M1.4 2D model walls                    |     FP                 |                                  |
 | M1.5 Analytic benchmarks for 2-D walls |     FP                 |                                  |
