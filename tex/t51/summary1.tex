@@ -1,0 +1,59 @@
+\exc \ project \nep \ work on UQ to-date (including two UQ workshops organised by
+each of the two UCL grantees) has already helped established a significant number of points
+relevant to the design of the \nep \ software. The points may be dealt with under the two main headings
+of sampling and surrogate production, however there is a strong suggestion that
+sampling and the production of a surrogate should operate sequentially, meaning that the
+surrogate informs the choice of sample points, which in turn modifies the surrogate \&c.
+
+For sampling, there are recommendations from external \nep \
+reports~\cite{2047352_1-TN-01} that adaptive stochastic collocation~(ASC)
+is to be preferred, supported by the study in \Sec{asc} above.
+The ASC method is expected to be resilient in the face of the
+``curse of dimensionality", although not completely resistant~\cite{y2re241}.
+It seems natural to accompany most sampling by polynomial interpolation when the spectral/hp element 
+approach is used to represent spatial dependences in terms of $p^{th}$~order polynomials.
+
+\Sec{pceasc} above confirms that surrogates should incorporate
+``appropriate" physical knowledge, such as the need for say Nusselt numbers not to be less than unity.
+\Sec{nektar} confirms that turbulence, even when arising in the context of a  2-D fluid model,
+is hard. The work shows that there remain questions concerning adequate numerical resolution, probably tied
+up with the existence of relatively long timescale transients. 
+In such circumstances, the additional expense of  GP is likely to be worthwhile, and to become even
+more so with the higher dimensional  models. Given the obvious need to couple models
+of different dimensionality, the linked GP approach to producing surrogates described
+%Recommendations from 241 and 352_TN-01 are active subspace techniques/adaptive stochastic collocation for sampling
+external \nep \ report~\cite{2047352_2-TN-01} (see also ref~\cite{Mi21Link})  appears worth pursuing.
+
+There is also a strong suggestion from the discussion~\cite{y2re241} that active subspace methods be considered
+to help produce surrogates.
+Clearly UQ is an area where there is scope for the development of significant new techniques,
+indicating that it is worth supporting a post-doc if only in order to keep abreast of the latest research.
+Since, there is lacking a convincing demonstration at scale of the proposed techniques, a new grant
+could usefully direct a post-doc to explore practical details of implementation.
+These could also include the use of PCA \emph{aka} POD in application to time-dependent problems, as
+described in the closing chapters of the book by Brunton and Kutz~\cite[\S\,11,12]{bruntonkutz}.
+Probably there is no particular worry regarding PCA itself as it seems to be so widely used.
+Application to time-dependent problems is already being pursued by a UKAEA sponsored research
+student at Leeds~(Alasdair Roy).
+One technique for identifying parameters which is known to scale because of its use in
+weather and climate studies is Data Assimilation~(DA), discussed briefly in internal
+project \nep \ report~\cite[\S\,3]{y2re251}, specifically by means of the Ensemble Kalman Filter~(EnKF).
+EnKF does however rely on having good starting estimates for the parameters, now discoverable
+by an optimisation front-end in the UKAEA sponsored EnKF-Python software~\cite{Ar18Data},
+and also at least crude estimates of the  uncertainties in the parameters. A.~Roy is exploring
+the possibility of using algorithms for SINDy - Sparse Identification of Nonlinear
+Dynamics~\cite[\S\,7.3]{bruntonkutz} - to help provide the information required by DA.
+(Exa)scalability will need ultimately to be considered for use in \nep.
+There has also been consideration of the use of adjoints, see
+discussion in \nep \ report~\cite[\S\,2.4.1]{y1re121} of their usefulness and economy for design, and
+discussion in \nep \ report~\cite[\S\,3.2]{y2re251} of their use in calculating functional
+derivatives. Again, there is the issue of scalability to consider.
+
+%Rational polynomial interpolation?
+
+However, so as not to be too prescriptive, there are other aspects of UQ that would withstand further examination,
+such the utility of other sparse approximation techniques, eg.\ Proper generalized decomposition~(PGD)
+described in ref~\cite{chinestaetal} as example of use of tensor train ideas
+and already mentioned in previous call documents, along with the Discrete Empirical Interpolation Method~(DEIM). 
+In particular, a method would be useful for selecting automatically amongst the various possible techniques, having
+regard to application and resources available.
