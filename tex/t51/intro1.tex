@@ -1,0 +1,153 @@
+This report collates technical material used to inform the preparation of the call for 
+procurement of support for Uncertainty Quantification~(UQ).
+The work performed primarily consisted of collating material produced
+internally~\cite{y2re241,y2re242,y2re251,y2re313}
+and by external grantees at UCL~\cite{2047352_1-TN-01,2047352_2-TN-01}, plus
+hands-on exploration of sampling techniques, the construction of surrogates and the study
+of dimensionally reduced models.
+The production of this call reflects the importance attributed to UQ in project \nep, so that 
+the software produced should be capable of producing `actionable' results, that could form a significant
+input to multi-million pound procurements.
+
+It seems worthwhile to start by recapitulating the project
+\nep \ requirements for UQ, insofar as they are currently understood. In particular, to
+note a clear distinction between the experiments that \nep \ code needs to model, and the
+outputs of the simulations themselves.  Relevant experiments are almost entirely medium-sized
+and large tokamaks, where it seems that even the edge plasma has a temperature of
+around~$10$\,eV~($10^5$\,K). The presence of magnetic fields of order $1-10$\,T, and
+electric fields of around $10^4$\,Vm$^{-1}$ implies a hostile environment, subject further
+to large electromagnetic transients not just at start-up and ramp-down of a discharge, but also caused by
+plasma instabilities such as ELMs and sawteeth.  Most diagnostics struggle to achieve absolute
+accuracies of $10$\,\%, although they usually detect the direction of smaller changes reliably.
+Many are ``one-of-a-kind" so require careful interpretation, and all signals may have been subject to
+filtering both at low and high frequencies, to remove  `spikes' and `drift'.
+In comparison, signals from simulation are very `clean', but the simulation may lack
+crucial realism, in that either important physical processes are not treated or 
+if included, that the spatio-temporal discretisation may not be sufficiently fine to
+represent them accurately.
+
+%The Model  expt. - noisy, large unc. toks
+%simulation - clean, level of detail controllable by mesh refinement, more detailed physics
+
+Turning to the expected usage of the \nep \ software, this covers  both physics and engineering.
+Both physicist and engineers are potentially interested in everything computed by the software, which is of course
+likely to be an overwhelming amount of detail. A physicist is more likely to begin by
+formulating simpler models and use the software to determine their appropriateness and accuracy,
+an engineer probably more likely to use the output of simulation as a basis for producing simplified models.
+An experimental physicist may be satisfied with qualitative accuracy, provided it is obtained
+rapidly enough to help formulate the next experimental `shot' (eg.\ by indicating that more
+or less gas input would be helpful), whereas a more theoretical
+%counterpart may want a model useful for extrapolation to reactor parameters. An engineer
+counterpart may want to quantify the difference between model predictions and experiment 
+sufficiently well to help produce a more refined model. An engineer
+seeking to design a reactor may be interested only in a relatively small number of
+quantities of interest~(QoI) but which need to be determined more precisely, 
+such as local maxima in time-averaged heat flux, whereas
+other engineers may see edge code as forming a part of a digital twin, to be used to help control
+operation of an actual tokamak device where accurate time-dependent modelling will also be critical.
+%Users physicist -  formulate simpler models useful for extrapolation of geometry and parameter changes
+%potentially interested in everything as extrapolation
+%experimental physicist, qual accuracy OK for fuelling
+%engineering design - few QoI, static
+%digital twin (as part) - for operation and control, quant accuracy, time dep.
+It is notable that most of the preceding requirements involve extrapolation,
+from model to new features of an existing experiment or, in the design case, to more
+extreme values of geometrical size, magnetic field etc. representing a fusion reactor
+relative to existing experiments such as JET.
+%Requirements - interpolation, to obtain sufficient data to perform to a given accuracy
+%extrapolate - "to expt" and to new parameters
+
+For the above it is therefore as Smith~\cite{smithUQ} describes (see also the \nep \
+report~\cite[\S\,1]{y2re313}), important that UQ involves more than just clever sampling
+to identify parameter sensitivities, and the standard definitions of ways of quantifying
+these such as Sobol indices~\cite{y2re241}. In particular,
+the production of surrogate models is within scope of UQ.
+%sampling imp. for identifying important parameters
+It is worth saying that in one sense even the most complex partial differential equation~(PDE) models of plasma are 
+simply surrogates for experimental `reality'. The most detailed and least controversial
+model of tokamak plasma consists in treating it as of order~$10^{20}$ or more particles evolving
+under the influence of external and self-generated electromagnetic fields, but
+this is of course not tractable even at the Exascale~\cite{Wa95a}, without very selective
+sampling of the particles. Currently, particle models are seen as at best struggling to capture
+edge plasma behaviour, with no certain likelihood of significant improvement, and 
+in any event there is a separate calls that could cover research into particle sampling. The PDE models
+attempt to capture the key physics of the plasma particles, viz.\ their appearance, motion,
+interactions with other particles and eventual loss, as terms representing respectively
+source, advection, diffusion and sinks in continuum models. Unfortunately, long mean free
+paths~(\emph{mfp}s) mean that at least in some regions it is necessary explicitly to represent
+phase-velocity dependence of plasma density, and the resulting basic 6-D dependence of 
+fields (5-D if gyro-averaged models are used) stretches current and foreseen computing
+facilities. In any event, above applications eg.\ preliminary design studies and operational control,
+require models capable of evaluation within seconds or less, ie.\  surrogates for the
+PDEs, expected to have lower spatial dimensionality (2-D or 1-D) or even as systems of 
+ordinary differential equations~(ODEs).
+%Surrogate. PDE solution as surrogate for expt/reality, advection, diffusion, sinks and sources.
+
+Unfortunately for application to \nep, most surrogates have been designed for use as
+interpolants. Nonetheless, interpolation is likely to be important at least within the software,
+eg.\ to connect different models, and the book by de~Boor~\cite{deboor} has interesting
+material relating to the use of splines in this context. In particular, de~Boor lists
+theorems relating to the optimality of spline polynomial interpolation, so that there might be
+wonder that any other form of interpolation is required. In fact, spline optimality is found only in 
+the energy or least-squares norm, so there is anyway the possibility of fitting the data
+with polynomial functions that have under- and over-shooting oscillations between sample
+points (called nodes in spline jargon). Moreover, de~Boor illustrates the potential for dramatic failings
+using what he refers to as the Titanium heat data set~\cite[Fig.\ XIII.1]{deboor}. The data is
+a set of some~$50$ apparently regularly spaced samples of a function which is practically
+flat except for one distinct `hump', rising to four times the value of the `plateau' over
+c.\ $15$\,\% of the range. Since the interpolation is by a piecewise  ($5^{th}$ order polynomial)
+the undershoot by greater than the maximum `hump' value is in many respects more impressive than
+that exhibited in Boyd's book~\cite[Fig.\ 4.3]{boyd} as part of his demonstration of the Runge
+phenomenon, ie.\ that polynomial interpolation at evenly spaced points may diverge. In both books,
+the problem is identified as due to poor choice of sample points. de Boor~\cite[Fig.\ XIV.5]{deboor}
+shows improved fitting if the number of samples in the plateau region of the \emph{Ti} heat data is reduced,
+whereas Boyd points out that optimal $N^{th}$~order polynomial interpolation is achieved using
+sample points that are the roots of the Chebychev
+polynomial of degree~$(N+1)$, that cluster as close together as~$1/N^2$ near the end-points
+of the sample region. In any event, for many interpolation purposes, it seems that polynomial spline
+fitting with an order of three or so, is adequate \emph{provided} the nodes are chosen suitably. The cost
+scales as the operation count  of a banded-diagonal matrix solver, so~$\mathcal{O}(N)$ where $N$~is the
+number of points to be interpolated per dimension.
+There are however strong proponents for the use of rational polynomial interpolation~\cite{stoerbulirsch}
+and in particular radial basis function~\cite{fornbergflyer}. Wavelet bases~\cite{Fa15Wave} also
+have their adherents, and special conditions such as periodicity or infinite domain mean that
+respectively Fourier series and the Hermite basis are to be preferred. The Hermite basis is
+employed in the Polynomial Chaos Expansion~(PCE), which is advocated by P.\ Coveney~et~al, see
+the \nep\ report~\cite{2047352_1-TN-01}. % and special bases will not be discussed further
+
+Accurate spline fitting requires a sufficient amount of data to enable best location of the
+nodes, which, since they generally aim to use as few nodes as possible, is commonly unavailable
+in the output of
+highly expensive numerical calculations. This lack of data means also that interpolation using
+Neural Networks~(NNs)  is mostly unsuitable, and motivates the use of Gaussian Processes~(GPs)
+for interpolation despite their expense, that~$\mathcal{O}(N^3)$ of inverting a full matrix~\cite{y2re242}.
+They come with the benefit of accompanying error bounds, and seem to be relatively stable when
+used for extrapolation~\cite{Ch20priv}. They may be very effective in combination with a 
+special basis produced by Principal Component Analysis~(PCA), \emph{aka} Proper Orthogonal Decomposition
+or POD, see the \nep\ report~\cite{2047352_2-TN-01}. Moreover, S.~Guillas~\cite{Li17Dime} describes
+a number of techniques which outperform PCA, in particular favouring a reproducing kernel
+approach to estimating derivatives needed to optimise the basis. This is coupled with
+a sequential approach to selecting sample points.
+Indeed, choosing sample points appropriately is still a major issue for GPs, which P.~Challenor (private
+communication) has explored extensively and favours `Leave One Out'~(LOO).
+
+% as interpolant (1) polynomial spline, GP, NN.
+%limitations of spline, GP and NN in table/appendix.
+%De Boor for spline, Ti heat data XIII.1 - Gibbs like phena - but XIV.5 shows OK if get nodes
+%in right place
+Nonetheless, given the general need for extrapolation, it is desirable to incorporate as much
+physical knowledge as possible into the surrogate model. The hopes are that the parameters
+of the surrogate are either invariant under the extrapolation, or that they have well-determined
+scaling properties, and that all important physical processes have been identified.
+The parameters of the surrogate may then be fitted using existing data from
+experiment and/or simulation as described above.
+The surrogate may need to be space and/or time dependent as required by the
+user and application. Of course, such surrogates can be very useful for interpolation also.
+Worthy of particular mention is Model Order Reduction~\cite{y2re251}, which for linear and some nonlinear
+problems, offers reliable estimates of error in interpolating Quantities of Interest~(QoI),
+hence likely to be particularly useful for the design engineer.
+
+The body of the current document consists of hands-on exploration of sampling techniques
+in \Sec{bout}, the construction of surrogates by Gaussian Processes in \Sec{nektar} and
+of surrogates consisting of dimensionally reduced models in \Sec{dimred}.
+The implications for the call are summarised in \Sec{summ}.

@@ -1,0 +1,149 @@
+\subsection{Lie Derivative Surrogate}\label{sec:lied}
+
+In the absence of sources \Eq{lie} may be written for a flow
+${\bf u}$ in any number of dimensions as
+\begin{equation}\label{eq:lief}
+\frac{\partial f}{\partial t} + {\bf u}.\nabla f =0
+\end{equation}
+To proceed to derive a widely used class of surrogate for models involving
+Lie derivatives,  it is helpful to run over a small amount of mathematics.
+The streamlines of a vector field such as~${\bf u}$ by definition satisfy
+\begin{equation}\label{eq:strml}
+\frac{d {\bf x}}{ds}={\bf u }({\bf x})
+\end{equation}
+where ${\bf x}(s)$ is the streamline parameterised by~$s$, and where often
+$s$ is chosen to be arc-length along the curve.
+Hence substituting \Eq{strml} in ${\bf u}.\nabla f$ gives the Lie derivative
+as $d f/d s$ which illustrates its
+coordinate independence, since $s$ is an almost arbitrary label.
+Further,  substituting \Eq{strml} in \Eq{lief} gives
+\begin{equation}\label{eq:scal1}
+\frac{\partial f}{\partial t} +  \frac{\partial f}{\partial s} =0
+\end{equation}
+where now $f(s,t)$. \Eq{scal1} is well-known to have the exact solution
+$f=F(t-s)$ for arbitrary scalar functions of a single variable~$F$.
+In realistic applications, $S\neq0$, but  the property that $f$ is a function only of arclength
+(and time) survives, so that the physics of sources and sinks may be dealt with by a surrogate
+which has only one space dimension supposing the streamlines are known.
+Moreover, in the plasma context, the main flow may often be directed along
+lines of magnetic field~${\bf B}$, so that exactly the same statements could be made 
+replacing streamline with fieldline.
+
+Now, \Eq{momcon} can be expressed in Lie derivative form by eliminating 
+$\frac{\partial n}{\partial t}$ using \Eq{masscon}, and division by~$n$, giving
+\begin{equation}\label{eq:liemom}
+ \frac{\partial U}{\partial t}  +  U \frac{\partial  U}{\partial x} = -\frac{1}{n} \left(  \frac{\partial p}{\partial x} + G + S_1 - U S_0 \right)
+\end{equation}
+Thus provided ${\bf u}$ is expressed in Cartesians, each component separately obeys an
+equation of the form \Eq{lief} and similar remarks apply. There is also~\cite{Wa13a}  a (pseudo-)vector
+Lie formulation for~${\bf B}$ and the vorticity~${\bf \nabla}\times{\bf u}$ which can lead to
+similar simplifications and potential surrogates.
+
+
+\subsection{Surrogates for advection}\label{sec:adv}
+
+\Eqs{lie}{sol} combine to give an equation identical to that for mass conservation in 2-D, namely
+\begin{equation}\label{eq:masscon2d}
+\frac{\partial f}{\partial t} +  \frac{\partial (u_x f) }{\partial x} + \frac{\partial (u_y f)}{\partial y} = S
+\end{equation}
+where now $f(x,y,t)$ is the fluid density as a function of time~$t$,
+and $u_x$ and $u_y$  are components of the flow~${\bf u }$.
+Source terms may still be represented as~$S(x,y,t)$, 
+collision terms may be represented as a further contribution to~$S(x,y,t)$, of form
+\begin{equation}\label{eq:diffus}
+S_d=\frac{\partial}{\partial x} \left( \kappa_{xx} \frac{\partial f}{\partial x} +
+\kappa_{xy} \frac{\partial f}{\partial y} \right) +
+\frac{\partial}{\partial y} \left( \kappa_{yx} \frac{\partial f}{\partial x} +
+\kappa_{yy} \frac{\partial f}{\partial y} \right)
+\end{equation}
+The above 2-D expressions should be sufficient for understanding how to deal with many
+situations involving advection, diffusion and sources, which are more generally formulated as
+\begin{equation}\label{eq:AD}
+\frac{\partial f}{\partial t} + \nabla \cdot ({\bf u} f-\kappa \nabla f) =S
+\end{equation}
+for tensor diffusion coefficient~$\kappa$.
+
+Analogous to \Sec{boltz}, integrating \Eq{masscon2d} over coordinate~$y$,
+ie.\ forming $\int \cdot dy$ leads to
+\begin{equation}\label{eq:masscon1d}
+ \frac{\partial \int f dy}{\partial t}  +  \frac{\partial}{\partial x} \int u_x f dy+  [  u_y f ]_{y=\pm y_b} = \int S dy
+\end{equation}
+There is then a simplification to a 1-D surrogate upon supposing
+that as in \Sec{boltz} $u_x$ may be written 
+\begin{equation}\label{eq:usplit2}
+u_x = U(x) + \tilde{u} (x,y)
+\end{equation}
+and introducing as before
+\begin{equation}
+n = \int f dy
+\end{equation}
+to give without further approximation, the equation (cf.\ \Eq{masscon}
+\begin{equation}\label{eq:massconplus}
+ \frac{\partial n}{\partial t}  +  \frac{\partial  nU}{\partial x}  = S_0
+\end{equation}
+where $S_0$ includes the difference in mass fluxes at the boundaries $y=\pm y_b$.
+However, if instead of \Eq{usplit2} is assumed
+\begin{equation}\label{eq:vsplit2}
+u_x = V(y) + \tilde{v} (x,y)
+\end{equation}
+then it is necessary to assume a weak dependence of $f$ on~$y$ to give an equivalent of
+\Eq{massconplus} that is necessarily approximate as
+\begin{equation}\label{eq:massconplvs}
+ \frac{\partial n}{\partial t}  +   \frac{1}{2y_b} \int V dy \cdot \frac{\partial  n}{\partial x} = S_0
+\end{equation}
+
+The production of a so-called 0-D surrogate is achieved by further integrating over
+coordinate~$x$, ie.\ forming $\int \cdot dx$ of \Eq{masscon1d}:
+\begin{equation}\label{eq:masscon0d}
+ \frac{d \int\int f dx dy}{dt}  + \left[ \int u_x f dy \right]_{x=\pm x_b} +  \left[ \int  u_y f dx \right]_{y=\pm y_b} = \int \int S dx dy
+\end{equation}
+This is evidently an ODE for the total mass $n_{tot}(t) =\int\int f dx dy$ in terms of the
+total source $S_{tot}(t) = \int \int S dx dy$ provided the boundary fluxes are known.
+Note that diffusion may be explicitly included in the above expressions \Eqs{masscon1d}{masscon0d}
+on making the replacements
+\begin{eqnarray}\label{eq:addif}
+u_x f &\longrightarrow&  u_x f 
+- \kappa_{xx} \frac{\partial f}{\partial x} - \kappa_{xy} \frac{\partial f}{\partial y}\\
+u_y f &\longrightarrow&  u_y f 
+- \kappa_{yx} \frac{\partial f}{\partial x} - \kappa_{yy} \frac{\partial f}{\partial y}
+\end{eqnarray}
+
+
+Again analogously to \Sec{boltz}, form $\int \cdot \psi dy$ for an arbitrary  scalar~$\psi$
+and rearrange $f$-derivative terms, leading to
+\begin{equation}\label{eq:scalcons2}
+\frac{\partial  n\Psi}{\partial t}  +  \frac{\partial}{\partial x} \int u_x \psi f dy-  \int u_x  \frac{\partial \psi}{\partial x} f dy+ [ \psi u_y f ]_{\pm y_b}  - \int u_y \frac{\partial \psi}{\partial y} f dy= \int S \psi dy
+\end{equation}
+where now also is introduced $\Psi$ such that
+\begin{equation}\label{eq:qsplit}
+\psi = \Psi(x) + \tilde{\psi} (x,y)
+\end{equation}
+and thus
+\begin{equation}\label{eq:qsplitf}
+\int \psi f dy  = n \Psi
+\end{equation}
+Further expanding $u_x$ and $\psi$ in \Eq{scalcons2}, there results, using similar manipulations
+to \Sec{boltz}, but without assuming $u_x=y$ that
+\begin{equation}\label{eq:scalcon2}
+ \frac{\partial n\Psi}{\partial t}  +  \frac{\partial  nU \Psi }{\partial x} = -  \frac{\partial p_\psi}{\partial x} + G_\psi + S_{1\psi}
+\end{equation}
+where
+\begin{equation}
+p_\psi= \int \tilde{u} \tilde{\psi}  f dy,\;\;\; S_{1\psi} = \int S \psi dy-[ \psi u_y f ]_{\pm y_b}
+\end{equation}
+and exploiting \Eq{3rd}
+\begin{equation}
+G_\psi= n U  \frac{\partial \Psi}{\partial x} + \int u_y \frac{\partial \tilde{\psi}}{\partial y} f dy +
+ U \int \frac{\partial \tilde{\psi}}{\partial x} f dy+    \int \tilde{u} \frac{ \partial \tilde{\psi}}{\partial x} f dy
+\end{equation}
+As before, using the equation of mass conservation simplifies the dynamics, resulting in
+\begin{equation}\label{eq:scalcon}
+n\frac{\partial \Psi}{\partial t}  -U \int \frac{\partial \tilde{\psi}}{\partial x} f dy 
+ = -  \frac{\partial p_\psi}{\partial x} + H_\psi + S_{1\psi} - \Psi S_{0}
+\end{equation}
+where
+\begin{equation}
+H_\psi= \int u_y \frac{\partial \tilde{\psi}}{\partial y} f dy + \int \tilde{u} \frac{ \partial \tilde{\psi}}{\partial x} f dy
+\end{equation}
+As might be expected from \Sec{boltz}, taking $\psi=u_x$ achieves only minor further simplification.
+

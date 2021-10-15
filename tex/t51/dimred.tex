@@ -1,0 +1,103 @@
+\subsection{Boltzmann Equation}\label{sec:boltz}
+One suggestive example of the production of a surrogate is the reduction of the Boltzmann equation to 
+the equations of fluid dynamics. The model is a combination of Lie derivative and solenoidal constraints
+\begin{eqnarray}\label{eq:lie}
+ \frac{\partial f}{\partial t} + u_x  \frac{\partial f}{\partial x} + u_y  \frac{\partial f}{\partial y} &=& S\\
+ \frac{\partial u_x}{\partial x} +  \frac{\partial u_y}{\partial y} &=& 0 \label{eq:sol}
+\end{eqnarray}
+where $f(x,y,t)$ is the phase space density as a function of time~$t$,
+$u_x$ is the flow in position space~$x$, and $u_y$ is the flow in velocity space~$y$.
+Collision and other source terms are represented as~$S(x,y,t)$.
+For simplicity, it is assumed that position and velocity space are each~1-D. In more conventional
+notation where $v$ is the velocity space coordinate and $a$ the acceleration experienced by
+a particle, then  $y \leftrightarrow v$, $u_x=v$  and $u_y = a$.
+
+Integrating \Eq{lie} over velocity space, ie.\ forming $\int \cdot dy$ leads to
+\begin{equation}\label{eq:nconkin}
+ \frac{\partial n}{\partial t}  +  \frac{\partial}{\partial x} \int u_x f dy- \int \frac{\partial u_x}{\partial x} f dy+  \frac{\partial}{\partial y} \int u_y f dy- \int \frac{\partial u_y}{\partial y} f dy= \int S dy
+\end{equation}
+upon using 
+\begin{equation}
+u_x  \frac{\partial f}{\partial x} =  \frac{\partial  (u_x f)}{\partial x} -  f  \frac{\partial u_x}{\partial x}
+\end{equation}
+and introducing
+\begin{equation}
+n = \int f dy
+\end{equation}
+Using \Eq{sol} so that two terms cancel, \Eq{nconkin} becomes
+\begin{equation}\label{eq:nconsimp}
+ \frac{\partial n}{\partial t}  +  \frac{\partial}{\partial x} \int u_x f dy+  [  u_y f ]_{\pm y_b} = \int S dy
+\end{equation}
+If $f$ and/or $u_y$ vanish(es) at the boundaries of the velocity domain $y=\pm y_b$, the third term is zero.
+Suppose there is a mean flow, ie.\ that $u_x$ may be written 
+\begin{equation}\label{eq:usplit}
+u_x = U(x) + \tilde{u} (x,y)
+\end{equation}
+such that 
+\begin{equation}\label{eq:zeromean}
+\int \tilde{u} f dy=0
+\end{equation}
+and thus
+\begin{equation}\label{eq:usplitf}
+\int u_x f dy  = n U
+\end{equation}
+then substituting \Eq{usplit} in the second term of \Eq{nconsimp} results  in
+\begin{equation}\label{eq:masscon}
+ \frac{\partial n}{\partial t}  +  \frac{\partial  nU}{\partial x} = S_0
+\end{equation}
+which is recognised as the fluid dynamical equation of mass conservation with
+source~$S_0(x)= \int S dy-[  u_y f ]_{\pm y_b}$.
+
+To obtain the momentum conservation equation from \Eq{lie}, form $\int \cdot u_x dy$ and rearrange
+$f$-derivative terms, leading to
+\begin{equation}\label{eq:momconkin}
+ \frac{\partial  nU}{\partial t}  +  \frac{\partial}{\partial x} \int u_x^2 f dy- \int \frac{\partial u_x^2}{\partial x} f dy+  \frac{\partial}{\partial y} \int u_x u_y f dy- \int  \frac{\partial (u_x u_y)}{\partial y} f dy= \int S u_x dy
+\end{equation}
+Using 
+\begin{equation}
+\frac{\partial (u_x u_y)}{\partial y} =  u_x \frac{\partial  u_y}{\partial y} +   \frac{\partial u_x}{\partial y} u_y = -  u_x  \frac{\partial  u_x}{\partial x} +   \frac{\partial u_x}{\partial y} u_y
+\end{equation}
+(the second manipulation using \Eq{sol}), \Eq{momconkin} gives
+\begin{equation}\label{eq:momcons2}
+\frac{\partial  nU}{\partial t}  +  \frac{\partial}{\partial x} \int u_x^2 f dy-  \int u_x  \frac{\partial u_x}{\partial x} f dy+ [ u_x u_y f ]_{\pm y_b}  - \int u_y  \frac{\partial u_x}{\partial y} f dy= \int S u_x dy
+\end{equation}
+Writing $u_x =U(x,t) + \tilde{u}$, the second term expands to
+\begin{equation}
+ \frac{\partial}{\partial x} ( U^2 \int f dy) + 2  \frac{\partial}{\partial x} (U \int \tilde{u} f dy) +  \frac{\partial}{\partial x} \int \tilde{u}^2 f dy
+\end{equation}
+which since $\int \tilde{u} f dy=0$, reduces to 
+\begin{equation}\label{eq:term2}
+  \frac{\partial  (n U^2)}{\partial x}  +   \frac{\partial}{\partial x} \int \tilde{u}^2 f dy
+\end{equation}
+The third term in \Eq{momcons2} is zero provided
+\begin{equation}
+ \frac{\partial u_x}{\partial x} = 0
+\end{equation}
+Indeed if $u_x=y$, then upon  introducing
+\begin{equation}
+p= \int \tilde{u}^2 f dy
+\end{equation}
+and
+\begin{equation}
+G= \int u_y f dy = \int a f dy
+\end{equation}
+there results the fluid dynamical equation of momentum conservation with momentum source $S_1(x)= \int S u_x dy-[ u_x u_y f ]_{\pm y_b}$,
+namely:
+\begin{equation}\label{eq:momcon}
+ \frac{\partial nU}{\partial t}  +  \frac{\partial  nU^2}{\partial x} = -  \frac{\partial p}{\partial x} + G + S_1
+\end{equation}
+
+It may be helpful to note that the third term in \Eq{momcons2} expands to
+\begin{equation}\label{eq:3rd}
+- (n U  \frac{\partial U}{\partial x} + U \int \frac{\partial \tilde{u}}{\partial x} f dy+    \int \tilde{u} \frac{\partial \tilde{u}}{\partial x} f dy)
+\end{equation}
+where \Eq{zeromean}  has been used to zero one term.
+
+%
+%\begin{equation}
+%\int u_x  \frac{\partial u_x}{\partial x} f dy= U  \frac{\partial U}{\partial x} \int f dy+ U \int \frac{\partial \tilde{u}}{\partial x} f dy+ \frac{\partial U}{\partial x} \int \tilde{u} f dy+  \frac{1}{2} \int \frac{\partial \tilde{u}^2}{\partial x} f dy
+%\end{equation}
+%\begin{eqnarray}\label{eq:terms}
+%\mbox{Second term}&:&\frac{\partial}{\partial x} ( U^2 \int f dy) + 2  \frac{\partial}{\partial x} (U \int \tilde{u} f dy) +  \frac{\partial}{\partial x} \int \tilde{u}^2 f dy \\
+%\mbox{Third term}&:&- (U  \frac{\partial U}{\partial x} \int f dy+ U \int \frac{\partial \tilde{u}}{\partial x} f dy+   \frac{1}{2} \int \frac{ \partial \tilde{u}^2}{\partial x} f dy) \label{eq:3rd}
+%\end{eqnarray}
