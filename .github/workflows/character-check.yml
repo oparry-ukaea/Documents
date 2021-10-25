@@ -1,0 +1,30 @@
+name: Check for non-ascii characters in tex documents
+on: [pull_request]
+jobs:
+  non-ascii:
+    name: Check for non-ascii characters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: "Checking for non-ascii characters. Presence of non-ascii characters will result in failure."
+        run: |
+          echo "CHANGED_FILES=$(git log --name-only ${{ github.event.before }}..${{ github.event.after }})" >> CHANGED_FILES
+          counter=0
+          for filename in $CHANGED_FILES
+            extension="${filename##*.}"
+            if [[ ! "$extension" =~ ^(tex|md|txt)$ ]]; then
+              continue
+            fi
+            do `perl -ne '/[\x80-\xFF]/&&print($ARGV."($.):\t^".$_)' $filename > non-ascii-chars.txt`
+            while read h
+              do echo "$h"
+              let "counter=counter+1"
+            done < non-ascii-chars.txt
+            rm non-ascii-chars.txt
+          done
+          exit $counter
+
