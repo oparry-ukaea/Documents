@@ -10,8 +10,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Fetch unshallow
-        run: git fetch --unshallow
       - name: "Checking for non-ascii characters. Presence of non-ascii characters will result in failure."
         run: |
           echo $(git branch -a)
