@@ -12,7 +12,7 @@ jobs:
           fetch-depth: 0
       - name: "Checking for non-ascii characters. Presence of non-ascii characters will result in failure."
         run: |
-          echo "CHANGED_FILES=$(git log --name-only ${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.base.sha }})" >> CHANGED_FILES
+          echo "CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.ref }}..${{ github.event.pull_request.base.sha }})" >> CHANGED_FILES
           counter=0
           for filename in $CHANGED_FILES
             extension="${filename##*.}"
