@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Checkout action
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: "Checking for non-ascii characters. Presence of non-ascii characters will result in failure."
         run: |
           echo "CHANGED_FILES=$(git diff --name-only ${{ github.event.pull_request.base.ref }}..HEAD)" >> CHANGED_FILES
