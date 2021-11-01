@@ -15,14 +15,12 @@ jobs:
           echo $(git branch -a)
           echo "CHANGED_FILES=$(git diff --name-only remotes/origin/main..pull/36/merge)" >> CHANGED_FILES
           counter=0
-          for filename in $CHANGED_FILES
-            extension=`echo "$FILE"`
-            extension=`echo "$FILE" | cut -f2)`
-            extension=`echo "$FILE" | cut -d'.' -f2)`
-            if [[ ! "$extension" =~ ^(tex|md|txt)$ ]]; then
+          for FILENAME in $CHANGED_FILES
+            EXTENSION=`echo "$FILENAME" | cut -d'.' -f2`
+            if [[ ! "$EXTENSION" =~ ^(tex|md|txt)$ ]]; then
               continue
             fi
-            do `perl -ne '/[\x80-\xFF]/&&print($ARGV."($.):\t^".$_)' $filename > non-ascii-chars.txt`
+            do `perl -ne '/[\x80-\xFF]/&&print($ARGV."($.):\t^".$_)' $FILENAME > non-ascii-chars.txt`
             while read h
               do echo "$h"
               let "counter=counter+1"
