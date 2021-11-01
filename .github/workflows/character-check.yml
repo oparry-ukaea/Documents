@@ -16,6 +16,7 @@ jobs:
           echo "CHANGED_FILES=$(git diff --name-only remotes/origin/main..pull/36/merge)" >> CHANGED_FILES
           counter=0
           for FILENAME in $CHANGED_FILES
+            EXTENSION=`echo $FILENAME`
             EXTENSION=`echo $FILENAME | cut -d'.' -f2`
             if [[ ! "$EXTENSION" =~ ^(tex|md|txt)$ ]]; then
               continue
