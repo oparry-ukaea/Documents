@@ -4,29 +4,24 @@ jobs:
   non-ascii:
     name: Check for non-ascii characters
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout action
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: "Checking for non-ascii characters. Presence of non-ascii characters will result in failure."
+        shell: bash
         run: |
-          echo $(git branch -a)
-          echo "CHANGED_FILES=$(git diff --name-only remotes/origin/main..pull/36/merge)" >> CHANGED_FILES
           counter=0
-          for FILENAME in $CHANGED_FILES
-            EXTENSION=`echo $FILENAME`
-            EXTENSION=`echo $FILENAME | cut -d'.' -f2`
-            if [[ ! "$EXTENSION" =~ ^(tex|md|txt)$ ]]; then
-              continue
-            fi
-            do `perl -ne '/[\x80-\xFF]/&&print($ARGV."($.):\t^".$_)' $FILENAME > non-ascii-chars.txt`
+          for FILENAME in `find ./tex -name *.tex`
+          do
+            perl -ne '/[\x80-\xFF]/&&print($ARGV."($.):\t^".$_)' $FILENAME > non-ascii-chars.txt
             while read h
               do echo "$h"
               let "counter=counter+1"
             done < non-ascii-chars.txt
             rm non-ascii-chars.txt
           done
+          echo "######################################################"
+          echo "There are " $counter " non-ascii characters in ./tex/*.tex"
+          echo "######################################################"
           exit $counter
 
