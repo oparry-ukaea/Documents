@@ -1,0 +1,54 @@
+name: Check for non-ascii characters in tex documents
+on: [pull_request]
+jobs:
+  non-ascii:
+    name: Check for non-ascii characters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v2
+      - name: "Checking for non-ascii characters. Presence of non-ascii characters will result in failure."
+        shell: bash
+        run: |
+          counter=0
+          for FILENAME in `find ./tex -name *.tex`
+          do
+            perl -ne '/[\x80-\xFF]/&&print($ARGV."($.):\t^".$_)' $FILENAME > non-ascii-chars.txt
+            while read h
+              do echo "$h"
+              let "counter=counter+1"
+            done < non-ascii-chars.txt
+            rm non-ascii-chars.txt
+          done
+          echo "######################################################"
+          echo "There are" $counter "line in files with non-ascii characters in ./tex/*.tex"
+          echo "######################################################"
+          exit $counter
+  not-exe:
+    name: Fail if any tex files are executable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout action
+        uses: actions/checkout@v2
+      - name: "Checking for executable tex files either via permission or through intention (first line
+        contains a shebang and a \"latex\"). Presence of executable tex files will result in failure."
+        shell: bash
+        run: |
+          counter=0
+          for FILENAME in `find ./tex -name *.tex`
+          do
+            export CHARCOUNT=$(head -n 1 $FILENAME | grep \!\# | grep latex | wc -c)
+            if (( $CHARCOUNT > 0 )); then
+              echo $FILENAME ": " $(head -n 1 $FILENAME)
+              let "counter=counter+1"
+            fi
+            if [[ -x "$FILENAME" ]]; then
+              echo $FILENAME "has executable permissions."
+              let "counter=counter+1"
+            fi
+          done
+          echo "######################################################"
+          echo "There are" $counter "executable tex files in ./tex/*.tex"
+          echo "######################################################"
+          exit $counter
+
