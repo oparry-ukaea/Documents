@@ -1,0 +1,2 @@
+bibtexparser>=1.2.0
+pyyaml>=5.4.1
