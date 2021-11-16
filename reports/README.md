@@ -51,12 +51,12 @@ small natural numbers for both this and the version is recommended.
 | M3 Implicit field solver               |     TG                 |                                  |
 | M4 Particle orbit solver               |     BM                 |                                  |
 | M5 Low noise                           |     BM                 |                                  |
-| M6 Codesign with SHP, gyro-averaging   |     BM                 |     [2047355-TN-01-3.pdf](call_79_pic/2047355-TN-01-3.pdf)           |
+| M6 Codesign with SHP, gyro-averaging   |     BM                 |     [2047355-TN-01-3.pdf](2047355/TN-01.pdf)           |
 |                                        |                        |                                  |
 | **Call 80**                            |                        |                                  |
-| D1.1 First report                      |     MV                 |     [2047352_1-TN-01-3.pdf](call_80_uq/2047352_1-TN-01-3.pdf)        |
+| D1.1 First report                      |     MV                 |     [2047352_1-TN-01-3.pdf](2047352_1/TN-01.pdf)        |
 | M1.1 Select codes                      |     PVC                |                                  |
-| D1.2 Final report                      |     MV                 |     [2047352_1-TN-01-4.pdf](call_80_uq/2047352_1-TN-01-4.pdf)        |                             |
+| D1.2 Final report                      |     MV                 |     [2047352_1-TN-01-4.pdf](2047352_1/TN-01.pdf)        |                             |
 | M1.2 VVUQ evaluations                  |     PVC                |                                  |
 | A1 Literature Review                   |     PVC                |                                  |
 | D2.1 Initial workshop                  |     PVC                |                                  |
@@ -64,7 +64,7 @@ small natural numbers for both this and the version is recommended.
 | A2 Completion                          |     PVC                |                                  |
 |                                        |                        |                                  |
 | **Call 81**                            |                        |                                  |
-| D1.1 Preliminary report                |     DeM                |     [2047352_2-TN-01-3.pdf](call_81_rom/2047352_2-TN-01-3.pdf)        |
+| D1.1 Preliminary report                |     DeM                |     [2047352_2-TN-01-3.pdf](2047352_2/TN-01.pdf)        |
 | M1.1 Select literature and codes       |     SG                 |                                  |
 | D1.2 Final report                      |     DeM                |                                  |
 | M1.2 ROM on toy                        |     SG                 |                                  |
@@ -77,7 +77,7 @@ small natural numbers for both this and the version is recommended.
 | 0.1 Community standards                |     PH                 |                                  |
 | 0.2 Coordination FY21/22               |     PH                 |                                  |
 | 0.3 Coordination FY22/23               |     PH                 |                                  |
-| 1.1 2D elliptic, select test cases     |     BD                 |     [2047356-TN-02-2.pdf](call_83_software/2047356-TN-02-2.pdf)                 |
+| 1.1 2D elliptic, select test cases     |     BD                 |     [2047356-TN-02-2.pdf](2047356/TN-02.pdf)                 |
 | 1.2 Elliptic BOUT++                    |     BD                 |                                  |
 | 1.3 Elliptic Nektar++                  |     DM                 |                                  |
 | 1.4 Evaluate precond                   |     BD                 |                                  |
@@ -91,20 +91,20 @@ small natural numbers for both this and the version is recommended.
 | 3.3 Timestepping                       |     DD                 |                                  |
 | 4.1 1-D multispecies, select tests     |     BD                 |                                  |
 | 4.2 Implement BOUT++                   |     BD                 |                                  |
-| 4.3 DSL adoption                       |     SW                 |     [2047358-TN-01-2.pdf](call_83_software/2047358-TN-01-2.pdf)                 |
+| 4.3 DSL adoption                       |     SW                 |     [2047358-TN-01-2.pdf](2047358/TN-01.pdf)                 |
 | 5.1 2-D plasma, select tests           |     DM                 |                                  |
 | 5.2 Proxyapp assessment                |     DM                 |                                  |
 | 5.3 Roadmap to SHP/Nektar++            |     DM                 |                                  |
 |                                        |                        |                                  |
 | **Call 84**                            |                        |                                  |
-| M1.1 Elliptics 1                       |     ES & ST            |     [2047353-TN-01-2.pdf](call_84_preconditioning/2047353-TN-01-2.pdf)          |
+| M1.1 Elliptics 1                       |     ES & ST            |     [2047353-TN-01-2.pdf](2047353/TN-01.pdf)          |
 | M1.2 Elliptics 2                       |     ES                 |                                  |
 | D1.1 Elliptics                         |     ES & ST            |                                  |
-| M2.1 Hyperbolics 1                     |     ES & ST            |     [2047353-TN-01-2.pdf](call_84_preconditioning/2047353-TN-01-2.pdf)          |
+| M2.1 Hyperbolics 1                     |     ES & ST            |     [2047353-TN-01-2.pdf](2047353/TN-01.pdf)          |
 | M2.2 Hyperbolics 2                     |     ES                 |                                  |
 | D2.1 Hyperbolics                       |     ES & ST            |                                  |
 | M3.1 SPAI                              |     ES                 |                                  |
-| D3.1 SPAI                              |     VA, ES & ST        |     [2047353-TN-02-2.pdf](call_84_preconditioning/2047353-TN-02-2.pdf)          |
+| D3.1 SPAI                              |     VA, ES & ST        |     [2047353-TN-02-2.pdf](2047353/TN-02.pdf)          |
 | 4.1 Coupled theory                     |     ES & ST            |                                  |
 | 5.1 Coupled code 1                     |     ES & ST            |                                  |
 | 5.2 Coupled code 2                     |     ES                 |                                  |
@@ -119,11 +119,11 @@ small natural numbers for both this and the version is recommended.
 | D6.1 Code                              |     ES                 |                                  |
 | D6.2 Uncoupled test 1                  |     ES & ST            |                                  |
 | D6.3 Coupled test                      |     ES & ST            |                                  |
-| D6.4 Recommendations                   |     VA, ES & ST        |     [2047353-TN-03-3.pdf](call_84_preconditioning/2047353-TN-03-3.pdf)       |
+| D6.4 Recommendations                   |     VA, ES & ST        |     [2047353-TN-03-3.pdf](2047353/TN-03.pdf)       |
 |                                        |                        |                                  |
 | **Call 85**                            |                        |                                  |
-| M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](call_85_gyrokinetics/2047357-TN-01-2.pdf)          |
-| M1.2 Regimes, state-of-art models      |     FP                 |     [2047357-TN-03-2.pdf](call_85_gyrokinetics/2047357-TN-03-2.pdf)          |
+| M1.1 1D parallel model periodic        |     FP                 |     [2047357-TN-01-2.pdf](2047357/TN-01.pdf)          |
+| M1.2 Regimes, state-of-art models      |     FP                 |     [2047357-TN-03-2.pdf](2047357/TN-03.pdf)          |
 | M1.3 Wall bcs                          |     FP                 |                                  |
 | M1.4 2D model walls                    |     FP                 |                                  |
 | M1.5 Analytic benchmarks for 2-D walls |     FP                 |                                  |
