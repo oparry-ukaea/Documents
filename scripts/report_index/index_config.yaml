@@ -1,0 +1,28 @@
+# This is the configuration file for the report_index generation script
+index_config:
+  # specify the location of the bibtex file to use
+  bibtex: "../tex/bib/exc.bib"
+  # specify specific bibtex ids for specific files, e.g. those that do not
+  # match the expected pattern in either filename or bibtex entry
+  bibtex_ids:
+      "CD-EXCALIBUR-FMS0020-1.00_NEPTUNE_Charter.docx": "charter"
+      "CD-EXCALIBUR-FMS0001-1.10-Fusion_Modelling_System_Science_Plan.pdf": "sciplan"
+  # base url prefix for link generation
+  base_url: "https://github.com/ExCALIBUR-NEPTUNE/Documents/blob/main/reports/"
+  # output LaTeX source filename
+  output_file: "report_index.tex"
+  # map between PO and section title
+  po_name:
+    "2021000" : "Oxford Maths"
+    "2047352_1" : "UCL - UQ"
+    "2047352_2" : "UCL - MOR"
+    "2047353" : "STFC - Preconditioning"
+    "2047355" : "Warwick - PIC"
+    "2047356" : "York and Exeter - Software"
+    "2047357" : "Oxford Physics - Gyrokinetics"
+    "2047358" : "York and Warwick - Coordination"
+    "2048465" : "Exeter and Imperial - FEM"
+    "2048906" : "Exeter - UQ"
+    "ukaea_reports" : "UKAEA Reports"
+
+
