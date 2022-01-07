@@ -1,0 +1,436 @@
+\section{Advection and Diffusion Separately}\label{sec:work}
+\subsection{Pure Advection}\label{sec:puread}
+Assume first that there is no diffusion $\kappa=0$.
+Consider first a matrix derived by central differncing
+\begin{equation}\label{eq:mat1}
+A=\begin{pmatrix}
+0 & 1 & 0 & 0 & 0 & 0\\
+-1 & 0 & 1 & 0 & 0 & 0\\
+0 & -1 & 0 & 1 & 0 & 0 \\
+0 & 0 & -1 & 0 & 1 & 0\\
+0 & 0 & 0 & -1 & 0 & 1\\
+0 & 0 & 0 & 0 & -1 & 0
+\end{pmatrix}
+\end{equation}
+Using reduce-algebra (CSL reduce), the inverse of centred-difference~$A$ is easily calculated as
+\begin{equation}\label{eq:mat2}
+\begin{pmatrix}
+0 & -1 & 0 & -1 & 0 & -1\\
+1 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & -1 & 0 & -1 \\
+1 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & -1\\
+1 & 0 & 1 & 0 & 1 & 0
+\end{pmatrix}
+\end{equation}
+Note the way that odd and even columns and rows decouple.
+Now by the arguments regarding
+the application of Dirichlet boundary conditions in \Sec{intro},
+the inverse matrix~\Eq{mat2} corresponds to a problem \Eq{mat1}  with~$f$ specified
+at both inflow and outflow boundaries, which is peculiar from a physical standpoint.
+Solving \Eq{mat1} by elimination - or by inspection of \Eq{mat2} - shows that
+values~$f_2$, $f_4$, \ldots, corresponding to even-numbered rows are determined
+from $f_0$ (assumed folded into $b_2$).
+Similarly, since the matrix is $6\times6$, it is the boundary value~$f_7$ (as part of $b_5$)
+that determines $f_5$, $f_3$ and $f_1$ in a sequence of decreasing odd index.
+
+This illustrates how arises the well-known difficulty with centred differences
+applied to advection-diffusion that the odd and even numbered variables tend to 
+decouple, resulting in chequerboard instabilities in 2-D. Note that if $A$ is of
+size given by an odd number, it is singular, because both boundary constraints
+fall on the even-numbered field samples $f_2$, $f_4$ etc.\ and and none apply
+to the odd-numbered ones.
+
+A common way to avoid such issues is to upwind, see eg.\ the books by Peyret
+and Taylor~\cite{peyrettaylor} or Patankar~\cite{patankar}.
+With the flow (`wind') blowing from
+negative~$x$, apply upwinding only  at the outlet boundary $x=L$, this gives a matrix
+\begin{equation}\label{eq:matcu1}
+\begin{pmatrix}
+0 & 1 & 0 & 0 & 0 & 0 & 0\\
+-1 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & -1 & 0 & 1 & 0 & 0 & 0\\
+0 & 0 & -1 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & -1 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 0 & 1\\
+0 & 0 & 0 & 0 & 0 & -2 & 2
+\end{pmatrix}
+\end{equation}
+The factors of two in the last row follow because the discrete derivative
+is formed by the difference between adjacent mesh values. In this case, and
+indeed whether the size of~$A$ is odd or even,  its inverse exists
+and indeed provides a degree of coupling between the odd and even meshes,
+being for the $7 \times 7$ case:
+\begin{equation}\label{eq:matcui1}
+\begin{pmatrix}
+1 & -1 & 1 & -1 & 1 & -1 & \frac{1}{2}\\
+1 & 0 & 0 & 0 & 0 & 0 & 0\\
+1 & 0 & 1 & -1 & 1 & -1 & \frac{1}{2}\\
+1 & 0 & 1 & 0 & 0 & 0 & 0\\
+1 & 0 & 1 & 0 & 1 & -1 & \frac{1}{2}\\
+1 & 0 & 1 & 0 & 1 & 0 & 0\\
+1 & 0 & 1 & 0 & 1 & 0 & \frac{1}{2}\\
+\end{pmatrix}
+\end{equation}
+
+Applying upwinding throughout the domain gives a matrix
+\begin{equation}\label{eq:mat3}
+A=\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0\\
+-1 & 1 & 0 & 0 & 0 & 0\\
+0 & -1 & 1 & 0 & 0 & 0 \\
+0 & 0 & -1 & 1 & 0 & 0\\
+0 & 0 & 0 & -1 & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1
+\end{pmatrix}
+\end{equation}
+with inverse
+\begin{equation}\label{eq:mat4}
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0\\
+1 & 1 & 0 & 0 & 0 & 0\\
+1 & 1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 1 & 1 & 0 & 0\\
+1 & 1 & 1 & 1 & 1 & 0\\
+1 & 1 & 1 & 1 & 1 & 1
+\end{pmatrix}
+\end{equation}
+Note that this has a much different structure, lower triangular, compared to the inverse in \Eq{mat2}.
+It clearly reflects the flow physics of the problem, with downstream values only
+depending on upstream ones. Similarly if the flow is directed from the opposite direction,
+then the matrix~$A$ becomes the negative transpose of that in \Eq{mat3} and
+correspondingly its inverse is upper triangular
+\begin{equation}\label{eq:mat5}
+\begin{pmatrix}
+-1 & -1 & -1 & -1 & -1 & -1\\
+0 & -1 & -1 & -1 & -1 & -1\\
+0 & 0 & -1 & -1 & -1 & -1\\
+0 & 0 & 0 & -1 & -1 & -1\\
+0 & 0 & 0 & 0 & -1 & -1\\
+0 & 0 & 0 & 0 & 0 & -1
+\end{pmatrix}
+\end{equation}
+
+\subsection{Pure Diffusion}\label{sec:puredi}
+The next case neglects flow and assumes nonzero constant~$\kappa=$, so that close to steady state
+the matrix for a second-order centred discretisation of the purely diffusive problem is
+\begin{equation}\label{eq:mat7}
+D=\begin{pmatrix}
+-2 & 1 & 0 & 0 & 0 & 0\\
+1 & -2 & 1 & 0 & 0 & 0\\
+0 & 1 & -2 & 1 & 0 & 0 \\
+0 & 0 & 1 & -2 & 1 & 0\\
+0 & 0 & 0 & 1 & -2 & 1\\
+0 & 0 & 0 & 0 & 1 & -2
+\end{pmatrix}
+\end{equation}
+with normalised inverse (apply factor~$1/7$) of
+\begin{equation}\label{eq:mat6}
+-D^{-1}=\begin{pmatrix}
+6 & 5 & 4 & 3 & 2 & 1\\
+5 & 10 & 8 & 6 & 4 & 2\\
+4 & 8 & 12 & 9 & 6 & 3\\
+3 & 6 & 9 & 12 & 8 & 4\\
+2 & 4 & 6 & 8 & 10 & 5 \\
+1 & 2 & 3 & 4 & 5 & 6
+\end{pmatrix}
+\end{equation}
+Note that consistent with the physically expected  effects of diffusion, the inverse has largest entries on
+the diagonal, and its entries become smaller with distance from the diagonal. \Eq{mat6} may
+also be regarded as an analogue of the discrete Green's function.
+
+\subsection{Advection with flow reversal}\label{sec:reverse}
+A more \nep-relevant problem is driven by a source at the domain midpoint~$x=L/2$, so that the
+flow reverses direction there. Unlike centred differences, the upwind scheme matrix~$A$ is
+sensitive to flow direction. Moreover for the scheme to be conservative, a staggered grid
+is typically used, so that the flow has sample values $u_{i\pm 1/2}$ at points
+intermediate between those at which $f_i$ is defined. There are four
+cases~\cite[\S\,5.2-2]{patankar} depending
+on the signs of $u_{i\pm 1/2}$, the two already implicitly covered when the signs are
+the same, and two when they are opposite representing respectively converging and diverging
+flow at the sample point of~$f_i$, so that the coefficients of $f_{i-1}$, $f_i$ and~$f_{i+1}$
+may be enumerated as 3-vectors as follows
+\begin{enumerate}
+\item Forwards flow $u_{i-1/2},\;\; u_{i+1/2} > 0$,
+\begin{equation}\begin{pmatrix}
+-u_{i-1/2} & u_{i+1/2} & 0
+\end{pmatrix} \end{equation}
+\item Converging flow $u_{i-1/2}>0>u_{i+1/2}$,
+\begin{equation}\begin{pmatrix}
+-u_{i-1/2} & 0 & u_{i+1/2} 
+\end{pmatrix} \end{equation}
+\item Diverging flow $u_{i+1/2}>0>u_{i-1/2}$,
+\begin{equation}\begin{pmatrix}
+0 & u_{i+1/2}-u_{i-1/2} & 0
+\end{pmatrix} \end{equation}
+\item Backwards flow $u_{i-1/2},\;\; u_{i+1/2} < 0$,
+\begin{equation}\begin{pmatrix}
+0 & -u_{i-1/2} & u_{i+1/2}
+\end{pmatrix} \end{equation}
+\end{enumerate}
+Consider an even case where $A$ is of size~$6\times6$. This corresponds
+to an odd number~$5$ of flow samples~$u_{i\pm 1/2}$, let them be described by the
+vector of samples
+\begin{equation} \label{eq:matdi0}
+\begin{pmatrix}
+u_{1/2} & u_{3/2} & \ldots 
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1 & -u & 0 & v & 1
+\end{pmatrix}
+\end{equation}
+where $u>0$ and $v>0$ so that flow diverges about the point~$5/2$, then the above upwind rules give
+\begin{equation}\label{eq:matdi1}
+A=\begin{pmatrix}
+1 & -1 & 0 & 0 & 0 & 0\\
+0 & 1 & -u & 0 & 0 & 0\\
+0 & 0 & -u & 0 & 0 & 0\\
+0 & 0 & 0 & v & 0 & 0\\
+0 & 0 & 0 & -v & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1
+\end{pmatrix}
+\end{equation}
+with determinant $det(A)=uv$ and inverse
+\begin{equation}\label{eq:matdi2}
+\begin{pmatrix}
+1 & 1 & 1 & 0 & 0 & 0\\
+0 & 1 & 1 & 0 & 0 & 0\\
+0 & 0 & \frac{1}{u} & 0 & 0 & 0\\
+0 & 0 & 0 & \frac{1}{v} & 0 & 0\\
+0 & 0 & 0 & 1 & 1 & 0\\
+0 & 0 & 0 & 1 & 1 & 1
+\end{pmatrix}
+\end{equation}
+However for $A$ of size $5\times5$, with a diverging flow about the point~$2$,
+\begin{equation} \label{eq:matodi0}
+\begin{pmatrix}
+u_{1/2} & u_{3/2} & \ldots 
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1 & -u &  v & 1
+\end{pmatrix}
+\end{equation}
+the above upwind rules give
+\begin{equation}\label{eq:matdi3}
+A=\begin{pmatrix}
+1 & -1 & 0 & 0 & 0\\
+0 & 1 & -u & 0 & 0\\
+0 & 0 & u+v & 0 & 0\\
+0 & 0 & -v & 1 & 0\\
+0 & 0 & 0 & -1 & 1
+\end{pmatrix}
+\end{equation}
+with determinant $det(A)=u+v$ and inverse
+\begin{equation}\label{eq:matd4}
+\begin{pmatrix}
+1 & 1 & \frac{u}{(u+v)} & 0 & 0\\
+0 & 1 & \frac{u}{(u+v)} & 0 & 0\\
+0 & 0 & \frac{1}{(u+v)} & 0 & 0\\
+0 & 0 & \frac{v}{(u+v)} & 1 & 0\\
+0 & 0 & \frac{v}{(u+v)} & 1 & 1
+\end{pmatrix}
+\end{equation}
+It will be seen that if $u$~and/or~$v$ are small in some sense, then the conditioning of~$A$
+with odd dimension may be much better than with even. Fundamentally of course the magnitude of
+determinant depends on the location of the stagnation points relative to the offset or~`$1/2$'-grid.
+
+\section{Advection-diffusion}\label{sec:addi}
+In many cases of interest, diffusion is small relative to advection so that the Peclet
+number~$Pe=||{\bf u}||  L/\kappa$ (where the domain of interest is $0<x<L$) is large.
+The behaviour of solutions to the discrete problem is governed by the dimensionless
+group known as the grid or mesh Peclet number $Pe_h=||{\bf u}|| h/\kappa$ where $h$~is the
+mesh spacing implicitly assumed to be uniform, ie.\  $h=L/(N-1)$ where $N\times N$~is
+the size of~$A$ or~$D$. Suppose $Pe_h=1/\epsilon$, then the matrix $A-\epsilon D$ 
+requires inversion, for different choices of schemes.
+
+Provided $A$ is well-behaved, then the small perturbation due to conductivity should make
+little difference. Hence, interest attaches to the centred difference case, and to the
+divergent upwind case where $u$~and~$v$ might be considered small of order~$\epsilon$
+near the stagnation point.
+
+\subsection{Centred Difference Scheme}\label{sec:centred}
+As might be expected, the addition of a small diffusive term makes little difference~$\mathcal{O}(\epsilon)$
+to  the determinant of the even-sized matrix, which changes to $1+21 \epsilon^2+ \mathcal{O}(\epsilon^4)$,
+with entries accurate to $\mathcal{O}(\epsilon^3)$ of:
+\begin{equation}\begin{pmatrix}
+6 \epsilon & -1+\epsilon-10 \epsilon^2 & 4 \epsilon-8 \epsilon^2 & -1+3 \epsilon-6 \epsilon^2 & 2 \epsilon-8 \epsilon^2 & -1+5 \epsilon-10 \epsilon^2  \\
+1+\epsilon+10 \epsilon^2 & 2 \epsilon & -8 \epsilon^2 & 2 \epsilon-4 \epsilon^2 & -4 \epsilon^2 & 2 \epsilon-8 \epsilon^2  \\
+4 \epsilon+8 \epsilon^2 & 8 \epsilon^2 & 4 \epsilon & -1+\epsilon-6 \epsilon^2 & 2 \epsilon-4 \epsilon^2 & -1+3 \epsilon-6 \epsilon^2  \\
+1+3 \epsilon+6 \epsilon^2 & 2 \epsilon+4 \epsilon^2 & 1+\epsilon+6 \epsilon^2 & 4 \epsilon & -8 \epsilon^2 & 4 \epsilon-8 \epsilon^2  \\
+2 \epsilon+8 \epsilon^2 & 4 \epsilon^2 & 2 \epsilon+4 \epsilon^2 & 8 \epsilon^2 & 2 \epsilon & -1+\epsilon-10 \epsilon^2  \\
+1+5 \epsilon+10 \epsilon^2 & 2 \epsilon+8 \epsilon^2 & 1+3 \epsilon+6 \epsilon^2 & 4 \epsilon+8 \epsilon^2 & 1+\epsilon+10 \epsilon^2 & 6 \epsilon 
+\end{pmatrix} \end{equation}
+One interesting point is that although the odd source
+terms~$b_{2j+1}$ now couple to even indexed~$f_i$ and vice versa, the corresponding entries in the matrix
+may frequently be as small as~$\mathcal{O}(\epsilon^2)$.
+
+The diffusion term makes the odd-sized matrix 
+invertible, albeit with small $det(A)=6\epsilon+20\epsilon^3+\mathcal{O}(\epsilon^5)$,
+with entries accurate to $\mathcal{O}(\epsilon^3)$ of:
+\begin{equation}\begin{pmatrix}
+1+10 \epsilon^2 & -4 \epsilon+4 \epsilon^2 & 1-2 \epsilon+4 \epsilon^2 & -2 \epsilon+6 \epsilon^2 & 1-4 \epsilon+6 \epsilon^2  \\
+4 \epsilon+4 \epsilon^2 & 8 \epsilon^2 & -2 \epsilon+2 \epsilon^2 & 4 \epsilon^2 & -2 \epsilon+6 \epsilon^2  \\
+1+2 \epsilon+4 \epsilon^2 & 2 \epsilon+2 \epsilon^2 & 1+6 \epsilon^2 & -2 \epsilon+2 \epsilon^2 & 1-2 \epsilon+4 \epsilon^2  \\
+2 \epsilon+6 \epsilon^2 & 4 \epsilon^2 & 2 \epsilon+2 \epsilon^2 & 8 \epsilon^2 & -4 \epsilon+4 \epsilon^2  \\
+1+4 \epsilon+6 \epsilon^2 & 2 \epsilon+6 \epsilon^2 & 1+2 \epsilon+4 \epsilon^2 & 4 \epsilon+4 \epsilon^2 & 1+10 \epsilon^2 
+\end{pmatrix} \end{equation}
+In summary, despite the presence of diffusion, 
+the odd-even coupling remains weak in both odd and even cases, underlining the fact that $A$~may
+be well-conditioned without giving physically well-behaved results.
+
+\subsection{Patankar Scheme}\label{sec:patankar}
+Strictly speaking, there is a family of Patankar schemes~\cite[\S\,5.2]{patankar}, each member sharing the basic idea that each
+becomes the above upwind schemes at large~$Pe_h$ and centred differences as 
+$Pe_h\rightarrow 0$.  Nonetheless, the scheme~\cite[\S\,5.2-5]{patankar} that simply switches between upwind and
+centered at $Pe_h=2$ is found to have comparable performance to more sophisticated 
+variants~\cite[\S\,5.2-6]{patankar}. To simplify notation, suppose that flows are normalised by the outflow
+speed~$U_0=||{\bf u}||$, and length by~$h$, so that modifications from upwind
+are needed whenever flow  speed drops below~$2\epsilon$. 
+There are three separate cases depending as to whether (1) both $|u_{i\pm 1/2}|<2\epsilon$,
+(2) $|u_{i-1/2}|< 2\epsilon$ only and (3) $|u_{i+1/2}|< 2\epsilon$ only, and then separate subcases
+depending on the signs of $u_{i\pm 1/2}$, except in the first case.
+
+\begin{enumerate}
+\item When both $|u_{i\pm 1/2}|<2\epsilon$, centred differences apply. 
+The coefficients of $f_{i-1}$, $f_i$ and~$f_{i+1}$ as 3-vectors are
+\begin{enumerate}
+\item Any flow $u_{i-1/2},\;\; u_{i+1/2}$,
+\begin{equation}\begin{pmatrix}
+-\frac{1}{2}u_{i-1/2}-\epsilon & -\frac{1}{2}u_{i-1/2} + \frac{1}{2}u_{i+1/2}-2\epsilon & \frac{1}{2}u_{i+1/2}-\epsilon
+\end{pmatrix} \end{equation}
+\end{enumerate}
+%the two already implicitly covered when the signs are
+%the same, and two when they are opposite representing respectively converging and diverging
+%flow at the sample point of~$f_i$, so that
+\item When $|u_{i-1/2}|< 2\epsilon$ and $|u_{i+1/2}|> 2\epsilon$,
+the coefficients of $f_{i-1}$, $f_i$ and~$f_{i+1}$
+may be enumerated as 3-vectors as follows
+\begin{enumerate}
+\item Forwards flow $u_{i-1/2},\;\; u_{i+1/2} > 0$ and diverging flow $u_{i+1/2}>0>u_{i-1/2}$,
+\begin{equation}\begin{pmatrix}
+-\frac{1}{2}u_{i-1/2} -\epsilon & -\frac{1}{2}u_{i-1/2} -u_{i+1/2}+\epsilon & 0
+\end{pmatrix} \end{equation}
+\item Converging flow $u_{i-1/2}>0>u_{i+1/2}$ and backwards flow $u_{i-1/2},\;\; u_{i+1/2} < 0$,
+\begin{equation}\begin{pmatrix}
+-\frac{1}{2}u_{i-1/2} -\epsilon & -\frac{1}{2}u_{i-1/2} +\epsilon &  -u_{i+1/2}
+\end{pmatrix} \end{equation}
+\end{enumerate}
+\item When $|u_{i-1/2}|> 2\epsilon$ and $|u_{i+1/2}|< 2\epsilon$,
+the coefficients of $f_{i-1}$, $f_i$ and~$f_{i+1}$
+may be enumerated as 3-vectors as follows
+\begin{enumerate}
+\item Forwards flow $u_{i-1/2},\;\; u_{i+1/2} > 0$ and diverging flow $u_{i+1/2}>0>u_{i-1/2}$,
+\begin{equation}\begin{pmatrix}
+-u_{i-1/2} & \frac{1}{2}u_{i+1/2}+\epsilon & \frac{1}{2}u_{i+1/2}-\epsilon
+\end{pmatrix} \end{equation}
+\item Converging flow $u_{i-1/2}>0>u_{i+1/2}$ and backwards flow $u_{i-1/2},\;\; u_{i+1/2} < 0$,
+\begin{equation}\begin{pmatrix}
+0 & -u_{i-1/2}+\frac{1}{2}u_{i+1/2}+\epsilon & \frac{1}{2}u_{i+1/2}-\epsilon
+\end{pmatrix} \end{equation}
+\end{enumerate}
+\end{enumerate}
+
+Consider an even case where $A$ is of size~$6\times6$. This corresponds
+to an odd number~$5$ of flow samples~$u_{i\pm 1/2}$, let them be described by the
+vector of samples
+\begin{equation} \label{eq:patdi0}
+\begin{pmatrix}
+u_{1/2} & u_{3/2} & \ldots 
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1 & -u & \delta  & v & 1
+\end{pmatrix}
+\end{equation}
+where $u>0$ and $v>0$ so that flow diverges about a  point near~$5/2$ such
+that~$|\delta| < \epsilon$, then 
+suppose first that both $u,\;v>2\epsilon$, then the above Patankar scheme gives
+\begin{equation}\label{eq:patdi1}
+A=\begin{pmatrix}
+1 & -1 & 0 & 0 & 0 & 0\\
+0 & 1 & -u & 0 & 0 & 0\\
+0 & 0 & u+\frac{\delta}{2}+\epsilon & \frac{\delta}{2}-\epsilon & 0 & 0\\
+0 & 0 & -\frac{\delta}{2}-\epsilon & v-\frac{\delta}{2}+\epsilon & 0 & 0\\
+0 & 0 & 0 & -v & 1 & 0\\
+0 & 0 & 0 & 0 & -1 & 1
+\end{pmatrix}
+\end{equation}
+with $det(A)=uv+(\epsilon-\frac{1}{2}\delta)(u+v)$.
+Now suppose that  both $|u|,\;|v|<2\epsilon$, then
+\begin{equation}\label{eq:patdi1eps}
+A=\begin{pmatrix}
+1 & -1 & 0 & 0 & 0 & 0\\
+0 & 1-\frac{u}{2}+\epsilon & -\frac{u}{2}-\epsilon & 0 & 0 & 0\\
+0 & \frac{u}{2}-\epsilon & \frac{u+\delta}{2}+2\epsilon & \frac{\delta}{2}-\epsilon & 0 & 0\\
+0 & 0 & -\frac{\delta}{2}-\epsilon & \frac{-\delta+v}{2}+2\epsilon & \frac{v}{2}-\epsilon & 0\\
+0 & 0 & 0 & -\frac{v}{2}-\epsilon & 1-\frac{v}{2}+\epsilon & 0\\
+0 & 0 & 0 & 0 & -1 & 1
+\end{pmatrix}
+\end{equation}
+with $det(A)= \frac{1}{4} u v + 3 \epsilon^2 + \frac{1}{4} \delta (v-u) +
+\frac{1}{2} \epsilon (2  u +  \delta +  2 v -u v - u \delta ) + 2 \epsilon^3 $
+
+Turning to the case where $A$ is of size~$5\times5$. Let the even number of
+$u_{i\pm 1/2}$ again be described by the vector 
+\begin{equation} \label{eq:patdei0}
+\begin{pmatrix}
+u_{1/2} & u_{3/2} & \ldots 
+\end{pmatrix}
+=
+\begin{pmatrix}
+-1 & -u & v & 1
+\end{pmatrix}
+\end{equation}
+then supposing both $|u|,\;|v|<2\epsilon$,
+\begin{equation}\label{eq:patdei3}
+A=\begin{pmatrix}
+1 & -1 & 0 & 0 & 0\\
+0 & 1-\frac{u}{2}+\epsilon & -\frac{u}{2}-\epsilon & 0 & 0\\
+0 & \frac{u}{2}-\epsilon & \frac{u+v}{2} +2\epsilon & \frac{v}{2}-\epsilon & 0\\
+0 & 0 & -\frac{v}{2}-\epsilon & 1-\frac{v}{2}+\epsilon & 0\\
+0 & 0 & 0 & -1 & 1
+\end{pmatrix}
+\end{equation}
+The inverse, normalised by $4 det(A)$ is
+\tiny
+\begin{equation}\label{eq:matidei3}
+\begin{pmatrix}
+2 (4 \epsilon^2 + 4 \epsilon - w) & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 8 \epsilon + u + v - w & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 4 \epsilon + u - v - w & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v - u - v - w & 0\\
+0 & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 8 \epsilon + u + v - w & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 4 \epsilon + u - v - w & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v - u - v - w & 0\\
+0 & 4 \epsilon^2 - 2 \epsilon u - 2 \epsilon v + 4 \epsilon - u + v + w & 4 \epsilon^2 - 2 \epsilon u - 2 \epsilon v + 8 \epsilon - u - v + w + 4 & 4 \epsilon^2 - 2 \epsilon u - 2 \epsilon v + 4 \epsilon + u - v + w & 0\\
+0 & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v - u - v - w & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 4 \epsilon - u + v - w & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 8 \epsilon + u + v - w & 0\\
+0 & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v - u - v - w & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 4 \epsilon - u + v - w & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 8 \epsilon + u + v - w & 2 (4 \epsilon^2 + 4 \epsilon - w)
+\end{pmatrix}
+\end{equation}
+%\begin{pmatrix}
+%2 (4 \epsilon^2 + 4 \epsilon - u v + u + v) & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 8 \epsilon - u v + 2 u + 2 v & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 4 \epsilon - u v + 2 u & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v - u v & 0\\
+%0 & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 8 \epsilon - u v + 2 u + 2 v & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v + 4 \epsilon - u v + 2 u & 4 \epsilon^2 + 2 \epsilon u - 2 \epsilon v - u v & 0\\
+%0 & 4 \epsilon^2 - 2 \epsilon u - 2 \epsilon v + 4 \epsilon + u v - 2 u & 4 \epsilon^2 - 2 \epsilon u - 2 \epsilon v + 8 \epsilon + u v - 2 u - 2 v + 4 & 4 \epsilon^2 - 2 \epsilon u - 2 \epsilon v + 4 \epsilon + u v - 2 v & 0\\
+%0 & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v - u v & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 4 \epsilon - u v + 2 v & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 8 \epsilon - u v + 2 u + 2 v & 0\\
+%0 & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v - u v & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 4 \epsilon - u v + 2 v & 4 \epsilon^2 - 2 \epsilon u + 2 \epsilon v + 8 \epsilon - u v + 2 u + 2 v & 2 (4 \epsilon^2 + 4 \epsilon - u v + u + v)
+%\end{pmatrix}
+%\end{equation}
+\normalsize
+where $w=uv-u-v$ and the determinant has increased to $det(A)=2\epsilon - \frac{1}{2}w  +2\epsilon^2=
+\frac{1}{2}(u+v)  + 2\epsilon - \frac{1}{2}uv  +2\epsilon^2$.
+
+Note the fact there are zeroes  in the first and last columns of the matrix~\Eq{matidei3}.
+Experiments with larger matrices indicates that the inverse has indeed
+the structure of  a `flow' into from the matrix diagonal as in eg.\ \Eq{matdi2}
+combined with a diffusive spread over an extra entry above or below the diagonal.
+The typical structure is illustrated by the pattern of non-zero entries~$X$ in the
+$8\times8$ inverse as follows:
+\begin{equation}\label{eq:matX}
+\begin{pmatrix}
+X & X & X & X & X & X & 0 & 0\\
+0 & X & X & X & X & X & 0 & 0\\
+0 & 0 & X & X & X & X & 0 & 0\\
+0 & 0 & X & X & X & X & 0 & 0\\
+0 & 0 & X & X & X & X & 0 & 0\\
+0 & 0 & X & X & X & X & 0 & 0\\
+0 & 0 & X & X & X & X & X & 0\\
+0 & 0 & X & X & X & X & X & X
+\end{pmatrix}
+\end{equation}

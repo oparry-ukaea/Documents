@@ -1,0 +1,33 @@
+The note considers discretisations of the advection-diffusion equation for
+a scalar field~$f({\bf x},t)$ in a flow~${\bf u}({\bf x})$ with source term $S({\bf x})$
+\begin{equation} \label{eq:advdif}
+\frac{\partial f}{\partial t} + \nabla \cdot ({\bf u} f) = \nabla \cdot (\kappa \nabla f) + S
+\end{equation}
+Suppose that $f$ only depends on a single coordinate~$x$, is at or close to steady-state, and
+also initially that the diffusion $\kappa=\;$const. and $u=\;$const.,  then applying typical
+finite difference and finite element
+approximations and rescaling gives the equation  
+\begin{equation} \label{eq:advdifd}
+(A -\kappa D) {\bf f}={\bf b}
+\end{equation}
+for the discrete values of $f_i$ arranged in the vector ${\bf f}$, where ${\bf b}$ represents the
+source and boundary terms, and $A$ is the `discrete matrix', ie.\  that captures the discretisation for,
+the advection term, and $D$ is the discrete matrix for the diffusion term.
+
+Regarding the discrete values at the boundaries, note that supposing Dirichlet  conditions to be applied,
+then it is unnecessary to count these as separate unknowns, they may instead be specified via the
+boundary terms~${\bf b}$. A key point to note is that if there is no diffusion, then the field may be
+specified at only one boundary since the highest derivative is then of first order, and
+physical considerations imply this has to be the upwind boundary, i.e. where the flow is directed from.
+
+The following analysis focuses on low order finite difference schemes,
+for the obvious reason of simplicity.
+However, it culminates with the Patankar scheme, a variant of which is almost surely implemented
+or has been extensively used in the SOLPS code that represents state-of-the-art for edge modelling, 
+certainly in terms of the detailed physics it includes, so in some sense this is an assessment
+of what \nep\ has to improve upon. Moreover, it seems plausible that most if not all of the issues
+raised below in the context of finite differences may appear,
+albeit in slightly different guise, when modelling with high order finite element schemes,
+where centred differences capture Classical Galerkin scheme behaviour and upwinding 
+more the features of upwinded Discontinuous Galerkin.
+
