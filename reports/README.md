@@ -79,11 +79,11 @@ small natural numbers for both this and the version is recommended.
 | D2.3 Cost benefit for key codes        |     DeM                |                                  |
 | M2.2 Engagement                        |     SG                 |                                  |
 |                                        |                        |                                  |
-| **Call 83**                            |                        |                                  |
+| **Call 83, 2047356**                   |                        |                                  |
 | 0.1 Community standards                |     PH                 |                                  |
-| 0.2 Coordination FY21/22               |     PH                 |                                  |
+| 0.2 Coordination FY21/22               |     EH & DD            | [2047356-TN-10-1.pdf](2047356/TN-10-1.pdf) |
 | 0.3 Coordination FY22/23               |     PH                 |                                  |
-| 1.1 2D elliptic, select test cases     |     BD                 |     [2047356-TN-02-2.pdf](2047356/TN-02.pdf)                 |
+| 1.1 2D elliptic, select test cases     |     BD                 | [2047356-TN-02-2.pdf](2047356/TN-02.pdf) |
 | 1.2 Elliptic BOUT++                    |     BD                 |                                  |
 | 1.3 Elliptic Nektar++                  |     DM                 |                                  |
 | 1.4 Evaluate precond                   |     BD                 |                                  |
