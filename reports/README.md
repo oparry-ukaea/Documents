@@ -90,7 +90,7 @@ small natural numbers for both this and the version is recommended.
 | 2.1 1-D fluid with UQ, select tests    |     BD                 |                                  |
 | 2.2 1-D BOUT++ bc implementation       |     BD                 | [2047356-TN-07-1.pdf](2047356/TN-07-1.pdf) |
 | 2.3 1-D Nektar++                       |     DM                 |                                  |
-| 2.4 UQ 1 (BOUT++)                      |     SW                 |                                  |
+| 2.4 UQ 1 (BOUT++)                      |     SW                 | [2047356-TN-08-1.pdf](2047356/TN-08-1.pdf) |
 | 2.5 UQ 2                               |     SW                 |                                  |
 | 3.1 1-D +velocity, select tests        |     DD                 |                                  |
 | 3.2 Phase space                        |     DD                 |                                  |
