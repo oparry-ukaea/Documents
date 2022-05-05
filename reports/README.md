@@ -178,5 +178,8 @@ small natural numbers for both this and the version is recommended.
 | **2053622   Kings and Imperial**       |                        |                                  |
 | M78-3.1 Proxyapp coordination          |                        | [Nektar-CWIPI](https://github.com/ExCALIBUR-NEPTUNE/nektar-cwipi) |
 |                                        |                        |                                  |
+| **2060042   Imperial and Kings**       |                        |                                  |
+| D1.1 Implementation of TensorRegions   |     CC                 | [2060042-TN-01-2.pdf](2060042/TN-01-2.pdf) |
+|                                        |                        |                                  |
 | **2060049   STFC Y3**                  |                        |                                  |
 | D3.1 particle-fluid coupling           |     AS                 | [2060049-TN-02.pdf](2060049/TN-02.pdf)          |
