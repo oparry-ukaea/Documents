@@ -85,7 +85,7 @@ small natural numbers for both this and the version is recommended.
 | 0.3 Coordination FY22/23               |     PH                 |                                  |
 | 1.1 2D elliptic, select test cases     |     BD                 | [2047356-TN-02-2.pdf](2047356/TN-02.pdf) |
 | 1.2 Elliptic BOUT++                    |     BD                 |                                  |
-| 1.3 Elliptic Nektar++                  |     DM                 |                                  |
+| 1.3 Elliptic Nektar++                  |     DM                 | [2047356-TN-12-2.pdf](2047356/TN-12-2.pdf) |
 | 1.4 Precondition 2D elliptic solvers   |     BD                 | [2047356-TN-06-1.pdf](2047356/TN-06-1.pdf) |
 | 2.1 1-D fluid with UQ, select tests    |     BD                 |                                  |
 | 2.2 1-D BOUT++ bc implementation       |     BD                 | [2047356-TN-07-1.pdf](2047356/TN-07-1.pdf) |
