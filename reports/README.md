@@ -174,3 +174,6 @@ small natural numbers for both this and the version is recommended.
 | M3 Future proofing                     |     SW                 |                                  |
 | D4.1 Report                            |     SW                 |                                  |
 | M4 Best practice                       |     SW                 |                                  |
+|                                        |                        |                                  |
+| **2060049   STFC Y3**                  |                        |                                  |
+| D3.1 particle-fluid coupling           |     AS                 |     [2060049-TN-02.pdf](2060049/TN-02.pdf)          |
