@@ -95,7 +95,7 @@ small natural numbers for both this and the version is recommended.
 | 3.1 1-D +velocity, select tests        |     DD                 | [2047356-TN-11-1.pdf](2047356/TN-11-1.pdf) |
 | 3.2 Phase space                        |     DD                 | [2047356-TN-11-1.pdf](2047356/TN-11-1.pdf) |
 | 3.3 Timestepping                       |     DD                 | [2047356-TN-11-1.pdf](2047356/TN-11-1.pdf) |
-| 4.1 1-D multispecies, select tests     |     BD                 |                                  |
+| 4.1 1-D multispecies, select tests     |     BD                 | [2047356-TN-09-1.pdf](2047356/TN-09-1.pdf) |
 | 4.2 Implement BOUT++                   |     BD                 |                                  |
 | 4.3 DSL adoption                       |     SW                 |     [2047358-TN-01-2.pdf](2047358/TN-01.pdf)                 |
 | 5.1 2-D plasma, select tests           |     DM                 |                                  |
