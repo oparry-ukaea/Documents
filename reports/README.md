@@ -92,9 +92,9 @@ small natural numbers for both this and the version is recommended.
 | 2.3 1-D Nektar++                       |     DM                 |                                  |
 | 2.4 UQ 1 (BOUT++)                      |     SW                 | [2047356-TN-08-1.pdf](2047356/TN-08-1.pdf) |
 | 2.5 UQ 2                               |     SW                 |                                  |
-| 3.1 1-D +velocity, select tests        |     DD                 |                                  |
-| 3.2 Phase space                        |     DD                 |                                  |
-| 3.3 Timestepping                       |     DD                 |                                  |
+| 3.1 1-D +velocity, select tests        |     DD                 | [2047356-TN-11-1.pdf](2047356/TN-11-1.pdf) |
+| 3.2 Phase space                        |     DD                 | [2047356-TN-11-1.pdf](2047356/TN-11-1.pdf) |
+| 3.3 Timestepping                       |     DD                 | [2047356-TN-11-1.pdf](2047356/TN-11-1.pdf) |
 | 4.1 1-D multispecies, select tests     |     BD                 |                                  |
 | 4.2 Implement BOUT++                   |     BD                 |                                  |
 | 4.3 DSL adoption                       |     SW                 |     [2047358-TN-01-2.pdf](2047358/TN-01.pdf)                 |
