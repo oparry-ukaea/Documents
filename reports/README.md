@@ -86,7 +86,7 @@ small natural numbers for both this and the version is recommended.
 | 1.1 2D elliptic, select test cases     |     BD                 | [2047356-TN-02-2.pdf](2047356/TN-02.pdf) |
 | 1.2 Elliptic BOUT++                    |     BD                 |                                  |
 | 1.3 Elliptic Nektar++                  |     DM                 |                                  |
-| 1.4 Evaluate precond                   |     BD                 |                                  |
+| 1.4 Precondition 2D elliptic solvers   |     BD                 | [2047356-TN-06-1.pdf](2047356/TN-06-1.pdf) |
 | 2.1 1-D fluid with UQ, select tests    |     BD                 |                                  |
 | 2.2 1-D BOUT++                         |     BD                 |                                  |
 | 2.3 1-D Nektar++                       |     DM                 |                                  |
