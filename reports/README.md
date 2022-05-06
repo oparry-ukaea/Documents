@@ -160,20 +160,20 @@ small natural numbers for both this and the version is recommended.
 | D2.4 2D drift-kinetic numerics         |     MB                 |                                  |
 | D2.5 Proxyapps final report            |     MB                 |                                  |
 |                                        |                        |                                  |
-| **Call 86**                            |                        |                                  |
+| **Call 86, 2047358**                   |                        |                                  |
 | D1.1 Report h/w                        |     SW                 |                                  |
 | D1.2 Report s/w                        |     GM                 |                                  |
 | D1.3 Exascale I/O                      |     SW                 |                                  |
-| M1 Survey of h/w and s/w               |     SW                 |                                  |
+| M1 Survey of h/w and s/w               |     SW                 | [2047358-TN-01-2.pdf](2047358/TN-01-2.pdf) |
 | D2.1 Testbed repo                      |     SW                 |                                  |
 | D2.2 Assess systems                    |     SW                 |                                  |
-| M2 Select testbeds                     |     SW                 |                                  |
+| M2 Select testbeds                     |     SW                 | [2047358-TN-02-2.pdf](2047358/TN-02-2.pdf) |
 | D3.1 Performance data                  |     PH                 |                                  |
 | D3.2 Portability                       |     PH                 |                                  |
 | D3.3 Recommend approach                |     SW                 |                                  |
-| M3 Future proofing                     |     SW                 |                                  |
+| M3 Future proofing                     |     SW                 | [2047358-TN-03-2.pdf](2047358/TN-03-2.pdf) |
 | D4.1 Report                            |     SW                 |                                  |
-| M4 Best practice                       |     SW                 |                                  |
+| M4 Best practice                       |     SW                 | [2047358-TN-04.pdf](2047358/TN-04.pdf) |
 |                                        |                        |                                  |
 | **2053622   Kings and Imperial**       |                        |                                  |
 | D1.2 2D quad meshes in NekMesh         |     DM                 | [2053622-TN-03-3.pdf](2053622/TN-03-3.pdf) |
@@ -190,6 +190,3 @@ small natural numbers for both this and the version is recommended.
 | **2060049   STFC Y3**                  |                        |                                  |
 | D1.1/D2.1 review of timestepping       |     ST & AD            | [2060049-TN-01.pdf](2060049/TN-01.pdf) |
 | D3.1 particle-fluid coupling           |     AS                 | [2060049-TN-02.pdf](2060049/TN-02.pdf) |
-|                                        |                        |                                  |
-| **2057699   York and Warwick Y3**      |                        |                                  |
-|                                         |                        |                                  |
