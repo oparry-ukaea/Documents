@@ -149,13 +149,13 @@ small natural numbers for both this and the version is recommended.
 | M2.2 1D drift-kinetic periodic 2       |     MB                 |                                  |
 | M2.3 1D std vs. moment                 |     MB                 |                                  |
 | M2.4 1D std walls                      |     MB                 |                                  |
-| M2.5 1D moment walls                   |     MB                 |                                  |
+| M2.5 1D moment walls                   |     MB                 | [2047357-TN-10.pdf](2047357/TN-10.pdf) |
 | M2.6 2D std walls                      |     MB                 |                                  |
 | M2.7 2D moment walls                   |     MB                 |                                  |
 | M2.8 2D model periodic                 |     MB                 |                                  |
 | M2.9 Final report                      |     MB                 |                                  |
 | D2.1 1D drift-kinetic proxyapp         |     MB                 |                                  |
-| D2.2 1D drift-kinetic numerics         |     MB                 |                                  |
+| D2.2 1D drift-kinetic numerics         |     MB                 | [2047357-TN-10.pdf](2047357/TN-10.pdf) |
 | D2.3 2D drift-kinetic proxyapp         |     MB                 |                                  |
 | D2.4 2D drift-kinetic numerics         |     MB                 |                                  |
 | D2.5 Proxyapps final report            |     MB                 |                                  |
