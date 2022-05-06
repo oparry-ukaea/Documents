@@ -188,4 +188,5 @@ small natural numbers for both this and the version is recommended.
 | D3.1 SEAVEA toolkit releases           |     PVC                | [2057701-RP-1.pptx](2057701/RP-1.pptx) |
 |                                        |                        |                                  |
 | **2060049   STFC Y3**                  |                        |                                  |
-| D3.1 particle-fluid coupling           |     AS                 | [2060049-TN-02.pdf](2060049/TN-02.pdf)          |
+| D1.1/D2.1 review of timestepping       |     ST & AD            | [2060049-TN-01.pdf](2060049/TN-01.pdf) |
+| D3.1 particle-fluid coupling           |     AS                 | [2060049-TN-02.pdf](2060049/TN-02.pdf) |
