@@ -184,6 +184,7 @@ small natural numbers for both this and the version is recommended.
 | D3.1 DG performance in Nektar++        |     DM & CC            | [2060042-TN-02-4.pdf](2060042/TN-02-4.pdf) |
 |                                        |                        |                                  |
 | **2057701   UCL Y3**                   |                        |                                  |
+| D1.1 Synthesis of previous outputs     |     SG                 | [2057701-TN-01.pdf](2057701/TN-01.pdf) |
 | D3.1 SEAVEA toolkit releases           |     PVC                | [2057701-RP-1.pptx](2057701/RP-1.pptx) |
 |                                        |                        |                                  |
 | **2060049   STFC Y3**                  |                        |                                  |
