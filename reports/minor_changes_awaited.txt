@@ -1,9 +1,0 @@
-reports/KCL_and_Imperial/TN-01-1.pdf
-reports/York_and_KCL/TN-01.pdf
-reports/York_and_KCL/TN-04-2.pdf
-reports/York_and_KCL/TN-05-2.pdf
-reports/STFC/TN-04.pdf
-reports/Oxford_Physics/TN-04.pdf
-reports/Oxford_Physics/TN-06.pdf
-reports/Oxford_Physics/TN-09.pdf
-reports/Oxford_Physics/TN-11.pdf
