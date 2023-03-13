@@ -12,6 +12,6 @@ ln -s  2057701   UCL_Y3
 ln -s  2060049   STFC_Y3
 ln -s  2057699   York_Y3
 ln -s  2068435   KCL_Y4
-ln -s  20XXXXX   Oxford_Y4
-ln -s  20YYYYY   STFC_Y4
+ln -s  2070839   Oxford_Y4
+ln -s  2068625   STFC_Y4
 ln -s  2067270   York_Y4
