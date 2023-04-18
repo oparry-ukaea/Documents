@@ -1,0 +1,189 @@
+
+@article{ ISI:000259057100021,
+Author = {Merton, S. R. and Pain, C. C. and Smedley-Stevenson, R. P. and Buchan,
+   A. G. and Eaton, M. D.},
+Title = {{Optimal discontinuous finite element methods for the Boltzmann
+   transport equation with arbitrary discretisation in angle}},
+Journal = {{ANNALS OF NUCLEAR ENERGY}},
+Year = {{2008}},
+Volume = {{35}},
+Number = {{9}},
+Pages = {{1741-1759}},
+Month = {{SEP}},
+Abstract = {{This paper describes the development of two optimal discontinuous
+   finite element (FE) Riemann methods and their application to the
+   one-speed Boltzmann transport equation in the steady-state. The
+   proposed methods optimise the amount of dissipation applied in the
+   streamline direction. This dissipation is applied within in element
+   using it novel Riemann FE method, which is based on an analogy between
+   control volume discretisation methods and finite element methods when
+   integration by parts is applied to the transport terms. In
+   one-dimension the optimal finite element solutions match the analytical
+   solution exactly at each outlet node. Both schemes couple elements in
+   space via a Riemann approach. The first of the two schemes is it
+   Petrov-Galerkin (PG) method which introduces dissipation via the
+   equation residual. The second scheme uses a streamline diffusion
+   stabilisation term in the discretisation. These two methods provide a
+   discontinuous Petrov-Galerkin (DPG) scheme that call stabilise ail
+   element across the full range of radiation regimes, obtaining robust
+   solutions with suppressed oscillation. Three basis functions in angle
+   of particle travel have been implemented in ail optimal DPG Riemann
+   solver, which include the P-N (spherical harmonic), S-N (discrete
+   ordinate) and LWN (linear octahedral wavelet) angular expansions. These
+   methods are applied to it series of demanding two-dimensional radiation
+   transport problems. (c) 2008 Elsevier Ltd. All rights reserved.}},
+DOI = {{10.1016/j.anucene.2008.01.023}},
+ISSN = {{0306-4549}},
+Unique-ID = {{ISI:000259057100021}},
+}
+
+@article{ ISI:000255304500008,
+Author = {Chen, Shanqin and Weinan, E. and Liu, Yunxian and Shu, Chi-Wang},
+Title = {{A discontinuous Galerkin implementation of a domain decomposition
+   method for kinetic-hydrodynamic coupling multiscale problems in gas
+   dynamics and device simulations}},
+Journal = {{JOURNAL OF COMPUTATIONAL PHYSICS}},
+Year = {{2007}},
+Volume = {{225}},
+Number = {{2}},
+Pages = {{1314-1330}},
+Month = {{AUG 10}},
+Abstract = {{In this paper we develop a domain decomposition method (DDM), based on
+   the discontinuous Galerkin (DG) and the local discontinuous Galerkin
+   (LDG) methods, for solving multiscale problems involving macro
+   sub-domains, where a macro model is valid, and micro sub-domains, where
+   the macro model is not valid and a more costly micro model must be
+   used. We take two examples, one from compressible gas dynamics where
+   the micro sub-domains are around shocks, contacts and corners of
+   rarefaction fans, and another one from semiconductor device simulations
+   where the micro subdomains are around the jumps in the doping profile.
+   The macro model is taken as the Euler equations for the gas dynamics
+   problem and as a hydrodynamic model and a high field model for the
+   semiconductor device problem. The micro model for both problems is
+   taken as a kinetic equation. We pay special attention to the effective
+   coupling between the macro subdomains and the micro sub-domains, in
+   which we utilize the advantage of the discontinuous Galerkin method in
+   its compactness of the computational stencil. Numerical results
+   demonstrate the effectiveness of our DDM-DG method in solving such
+   multi-scale problems. (c) 2007 Elsevier Inc. All rights reserved.}},
+DOI = {{10.1016/j.jcp.2007.01.025}},
+ISSN = {{0021-9991}},
+Unique-ID = {{ISI:000255304500008}},
+}
+
+@article{ ISI:000242269400014,
+Author = {Ertler, C. and Schuerrer, F.},
+Title = {{Simulation of silicon semiconductor devices by means of a direct
+   Boltzmann-Poisson solver}},
+Journal = {{COMPEL-THE INTERNATIONAL JOURNAL FOR COMPUTATION AND MATHEMATICS IN
+   ELECTRICAL AND ELECTRONIC ENGINEERING}},
+Year = {{2006}},
+Volume = {{25}},
+Number = {{4}},
+Pages = {{979-994}},
+Abstract = {{Purpose - The purpose of this paper is to present a new deterministic
+   solution method to the coupled Boltzmann-Poisson system for simulating
+   semiconductor devices.
+   Design/methodology/approach - A non-parabolic six-valley model allows
+   for the investigation of anisotropy effects. The solution method is
+   based on a discontinuous piecewise polynomial approximation of the
+   carrier distribution function. Integrating the Boltzmann equation over
+   tiny cells of the phase space leads to a system of ordinary
+   differential equations. The Poisson equation is selfconsistently solved
+   by applying a finite element Galerkin approach.
+   Findings - Good agreement with shock-capturing ``WENO solutions{''} is
+   obtained for n(+)-n-n(+) silicon diodes. The anisotropy due to the
+   six-valley model affects considerably macroscopic quantities at the
+   beginning of the transients. The method is also applicable to spatially
+   two-dimensional problems.
+   Research limitations/implications - The presented method is extendable
+   by including full band structure data, although the method is much
+   easier applicable when analytical band structure models can be used.
+   Practical implications - The new model is an efficient tool to acquire
+   transport coefficients for device simulations or to directly simulate
+   one- or two-dimensional submicron devices on a kinetic level.
+   Originality/value - New grounds are broken by introducing a fast finite
+   volume method for solving the Boltzmann equation in the spirit of
+   finding a weak solution. The presented model is a good choice for the
+   simulation of anisotropy effects in silicon semiconductor devices.}},
+DOI = {{10.1108/03321640610684114}},
+ISSN = {{0332-1649}},
+Unique-ID = {{ISI:000242269400014}},
+}
+
+@article{ ISI:000237507000008,
+Author = {Barth, T},
+Title = {{On discontinuous Galerkin approximations of Boltzmann moment systems
+   with Levermore closure}},
+Journal = {{COMPUTER METHODS IN APPLIED MECHANICS AND ENGINEERING}},
+Year = {{2006}},
+Volume = {{195}},
+Number = {{25-28}},
+Pages = {{3311-3330}},
+Abstract = {{This work considers the discontinuous Galerkin (DG) finite element
+   discretization of first-order systems of conservation laws derivable as
+   moments of the kinetic Boltzmann equation with Levermore {[}C.D.
+   Levermore, Moment closure hierarchies for kinetic theories, J. Statist.
+   Phys. 83 (5-6) (1996) 1021-1065] closure. Using standard energy
+   analysis techniques, a new class of energy stable numerical flux
+   functions are devised for the DG discretization of Boltzmann moment
+   systems. Simplified energy stable numerical fluxes are then constructed
+   which replace exact state space integration in the numerical flux with
+   Gauss-Lobatto quadrature. Numerical results for supersonic flow over a
+   cylinder geometry in the continuum and transitional regimes using 5 and
+   10 moment approximations are presented using the newly devised DG
+   discretizations. (c) 2005 Elsevier B.V. All rights reserved.}},
+DOI = {{10.1016/j.cma.2005.06.016}},
+ISSN = {{0045-7825}},
+Unique-ID = {{ISI:000237507000008}},
+}
+
+@incollection{ ISI:000189438700061,
+Author = {Webster, SG and Gobbert, MK and Remacle, JF and Cale, TS},
+Editor = {{Monien, B and Feldmann, R}},
+Title = {{Parallel numerical solution of the Boltzmann equation for atomic layer
+   deposition}},
+Booktitle = {{EURO-PAR 2002 PARALLEL PROCESSING, PROCEEDINGS}},
+Series = {{LECTURE NOTES IN COMPUTER SCIENCE}},
+Year = {{2002}},
+Volume = {{2400}},
+Pages = {{452-456}},
+Abstract = {{Atomic Layer Deposition is one step in the industrial manufacturing of
+   semiconductor chips. It is mathematically modeled by the Boltzmann
+   equation of gas dynamics. Using an expansion in velocity space, the
+   Boltzmann equation is converted to a system of linear hyperbolic
+   equations. The discontinuous Galerkin method is used to solve this
+   system. The speedup becomes near-perfect for the most complex
+   two-dimensional cases. This demonstrates that the code allows for
+   efficient parallel computation of long-time studies, in particular for
+   the three-dimensional model.}},
+ISSN = {{0302-9743}},
+ISBN = {{3-540-44049-6}},
+Unique-ID = {{ISI:000189438700061}},
+}
+
+@article{ ISI:000175596000001,
+Author = {Dedner, A and Vollmoller, P},
+Title = {{An adaptive higher order method for solving the radiation transport
+   equation on unstructured grids}},
+Journal = {{JOURNAL OF COMPUTATIONAL PHYSICS}},
+Year = {{2002}},
+Volume = {{178}},
+Number = {{2}},
+Pages = {{263-289}},
+Month = {{MAY 20}},
+Abstract = {{A new class of solution methods based on a short-characteristics
+   approach embedded in the finite element framework for the solution of
+   the radiation transport equation is developed and tested. The order of
+   convergence and the error to runtime ratio are determined in numerical
+   tests. Furthermore, the efficiency of the scheme is demonstrated in the
+   case of a challenging problem from the field of solar physics. A
+   quantitative comparison with other methods, based either on the
+   characteristics or on the finite element approach, is carried out. This
+   emphasizes the efficiency and accuracy of our method. Two different
+   adaptation mechanisms are studied: grid adaptation and local variation
+   of the order of the scheme. (C) 2002 Elsevier Science (USA).}},
+DOI = {{10.1006/jcph.2002.7001}},
+ISSN = {{0021-9991}},
+Unique-ID = {{ISI:000175596000001}},
+}

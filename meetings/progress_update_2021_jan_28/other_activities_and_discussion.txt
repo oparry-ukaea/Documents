@@ -1,0 +1,15 @@
+Reports on Other Activities and Discussion
+
+Patrick Farrell
+He had attended meeting on Exascale Simulation of Integrated Engineering solutions;
+downloaded and explored Nektar++, Nekmesh & EasyVVUQ, and
+downloaded Paramak, see https://paramak.readthedocs.io/en/main/index.html
+He was using Firedrake to explore anisotropic diffusion problem, p-multigrid doing better than geometric MG, confirmed awareness of overlap with Dave Moxey's task.
+
+Peter Challenor & Tim Dodwell
+Their contract had not formally started, Tim Dodwell indicated that they would like a model problem that involved different fidelities, even different meshings
+Preconditioners for multiscale elliptic problems, interesting relationship with surrogate use.
+Replying to Tim Dodwell subsequently, Ben Dudson referred to a 1-D model approximating the system in the Equations document. Tim Dodwell would like the corresponding 2-D model which Ben indicated was feasible. Wayne Arter indicated that UKAEA was looking at classical Rayleigh-Benard convection using Nektar++, presently considering transition to turbulence in the double-glazing problem variant.
+
+Regarding Nektar++ education and training, Dave Moxey offered to talk about higher order problems, their implementation in Nektar++ with specific application to an implementation of Hasegawa-Mima. Wayne Arter requested material on mass matrix and inter-element coupling and encouraged discussion on Slack involving the postdocs as well as the PIs as to what was required regarding Nektar++ education.
+

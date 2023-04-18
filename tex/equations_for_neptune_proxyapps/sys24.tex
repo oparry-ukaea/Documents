@@ -1,0 +1,61 @@
+The following simple model is after Taitano~et~al~\cite{Ta13Deve,Ch11Ener}
+\begin{eqnarray}
+\frac{\partial f_e}{\partial t} +  v_{ex}\frac{\partial f_e}{\partial  x} +  \frac{q_e}{m_e} {\bf E} \cdot \frac{\partial f_e}{\partial  {\bf v}} &=& 0 \nonumber \\
+\frac{\partial f_i}{\partial t} +  v_{ix}\frac{\partial f_i}{\partial  x} +  \frac{q_i}{m_i} {\bf E} \cdot \frac{\partial f_i}{\partial  {\bf v}} &=& 0  \label{eq:taitano3} \\
+\epsilon_0 \frac{\partial {\bf E}}{\partial t} + \sum_\alpha q_\alpha n {\bf u}_\alpha - \overline{\sum_\alpha q_\alpha n {\bf u}_\alpha} &=&0
+\nonumber
+\end{eqnarray}
+Equations~\ref{eq:taitano3} are the electron and ion Vlasov equations and 
+Ampere's equation respectively.
+The quantities $m_e$, $m_i$, $f_e$, $f_i$, ${\bf v}_e$, ${\bf v}_i$,
+$q_e$, $q_i$, ${\bf E}$, $\epsilon_0$, and~$n{\bf u}_\alpha$ are the
+electron and ion masses, electron and ion distribution functions, electron and ion
+velocities, electron and ion charges, the electric
+field, permeability constant of vacuum, and the momentum of species $\alpha=i,e$, respectively.
+Note that \Eq{taitano3}represents a generalisation of the system in ref~\cite{Ta13Deve},
+where for vector quantities, the $x$-component is always implied, in the usual notation
+the original system is $1d1v$ rather than~$1d3v$ as above, where particles move
+according to
+\begin{eqnarray}
+\frac{dx}{dt} &=& v_{\alpha x} \nonumber \\
+\frac{d {\bf v}_\alpha}{dt} &=& \frac{q_\alpha}{m_\alpha} {\bf E} \label{eq:xvtaitano}
+\end{eqnarray}
+(Motion in $(y,z)$ is neglected, the 3-D electromagnetic version of \Eq{xvtaitano}
+appears in \Sec{sys3-1}).
+
+The $\overline{\sum \cdot}$ term denotes for example a spatially averaged summed
+quantity and is included to enforce Galilean invariance. The solutions~$f_e$ and~$f_i$
+of the Vlasov equations are functions of space variable~$x$, velocity~${\bf v}$, and time.
+Ampere's equation is solved for the self-consistent electric field~${\bf E}$, which is a function of
+space variable~$x$ and time.
+
+The boundary conditions used are periodicity in~$x$, and zero at infinity in~$|{\bf v}|$.
+Initial conditions which might be used for the distribution functions
+are from ref~\cite{Ta13Deve},
+\begin{eqnarray}
+f_0(x,{\bf v},{\bf u}_0,T_0)&=& \frac{n_0(x)}{\sqrt{2\pi k T_0/m}}\exp\left(-\frac{m({\bf v}-{\bf u}_0)^2}{2kT_0}\right)  \label{eq:taitano3ics} \\
+n_0(x)=n(t=0,x)&=&1 +\alpha_n \cos(k_w x ) \nonumber
+\end{eqnarray}
+where $n_0$, ${\bf u}_0$ and  $T_0$ are the 
+initial number density, initial fluid velocity and initial temperature respectively. The
+parameter~$\alpha_n$ is the perturbation amplitude, $k_w$ is its wave vector, and $m$ is the
+species mass. It follows that the (scaled) momentum is given formally as
+\begin{equation}\label{eq:mtmdefn}
+n {\bf u}_\alpha(x) = \int {\bf v} f_\alpha (x,{\bf v},t) d{\bf v}
+\end{equation}
+where $f_\alpha$ is the distribution function for species~$\alpha$ at time~$t$.
+(In practice the integral would be replaced by a sum over particles.)
+
+\emph{Note} that periodic boundary conditions are of limited
+value in practice, and attention should be given to minimal modifications
+of the above  problem where there is
+\begin{enumerate}
+\item a flux of momentum across the domain (inflow
+and outflow boundary conditions)
+\item reflection of particles at the boundaries
+\item a source of plasma within the domain, and outflow boundaries
+\item and where the spatial dimension corresponds to arc length~$s$ along a fieldline
+(implies $n$ replaced by $n/|{\bf B}|$, cf.\  \Sec{sys23plas}).
+\end{enumerate}
+
+

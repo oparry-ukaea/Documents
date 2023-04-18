@@ -1,0 +1,142 @@
+@article{Wang201543,
+title = "Semi-implicit integration factor methods on sparse grids for 
+high-dimensional systems ",
+journal = "Journal of Computational Physics ",
+volume = "292",
+number = "0",
+pages = "43 - 55",
+year = "2015",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/j.jcp.2015.03.033",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999115001801",
+author = "Dongyong Wang and Weitao Chen and Qing Nie",
+keywords = "Reactiondiffusion equations",
+keywords = "Implicit method",
+keywords = "Sparse grids",
+keywords = "High-dimension",
+keywords = "FokkerPlanck equation",
+keywords = "Stiffness ",
+abstract = "Abstract Numerical methods for partial differential equations in 
+high-dimensional spaces are often limited by the curse of dimensionality. 
+Though the sparse grid technique, based on a one-dimensional hierarchical basis 
+through tensor products, is popular for handling challenges such as those 
+associated with spatial discretization, the stability conditions on time step 
+size due to temporal discretization, such as those associated with high-order 
+derivatives in space and stiff reactions, remain. Here, we incorporate the 
+sparse grids with the implicit integration factor method (IIF) that is 
+advantageous in terms of stability conditions for systems containing stiff 
+reactions and diffusions. We combine IIF, in which the reaction is treated 
+implicitly and the diffusion is treated explicitly and exactly, with various 
+sparse grid techniques based on the finite element and finite difference 
+methods and a multi-level combination approach. The overall method is found to 
+be efficient in terms of both storage and computational time for solving a wide 
+range of \{PDEs\} in high dimensions. In particular, the \{IIF\} with the 
+sparse grid combination technique is flexible and effective in solving systems 
+that may include cross-derivatives and non-constant diffusion coefficients. 
+Extensive numerical simulations in both linear and nonlinear systems in high 
+dimensions, along with applications of diffusive logistic equations and 
+FokkerPlanck equations, demonstrate the accuracy, efficiency, and robustness 
+of the new methods, indicating potential broad applications of the sparse 
+grid-based integration factor method. "
+}
+@article{Ren2015176,
+title = "A multi-dimensional high-order discontinuous Galerkin method based on 
+gas kinetic theory for viscous flow computations ",
+journal = "Journal of Computational Physics ",
+volume = "292",
+number = "0",
+pages = "176 - 193",
+year = "2015",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/j.jcp.2015.03.031",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999115001783",
+author = "Xiaodong Ren and Kun Xu and Wei Shyy and Chunwei Gu",
+keywords = "Discontinuous Galerkin",
+keywords = "Gas-kinetic scheme",
+keywords = "NavierStokes equations",
+keywords = "Linear Least Square ",
+abstract = "Abstract This paper presents a high-order discontinuous Galerkin 
+(DG) method based on a multi-dimensional gas kinetic evolution model for 
+viscous flow computations. Generally, the \{DG\} methods for equations with 
+higher order derivatives must transform the equations into a first order system 
+in order to avoid the so-called non-conforming problem. In the traditional 
+\{DG\} framework, the inviscid and viscous fluxes are numerically treated 
+differently. Differently from the traditional \{DG\} approaches, the current 
+method adopts a kinetic evolution model for both inviscid and viscous flux 
+evaluations uniformly. By using a multi-dimensional gas kinetic formulation, we 
+can obtain a spatial and temporal dependent gas distribution function for the 
+flux integration inside the cell and at the cell interface, which is 
+distinguishable from the Gaussian Quadrature point flux evaluation in the 
+traditional \{DG\} method. Besides the initial higher order non-equilibrium 
+states inside each control volume, a Linear Least Square (LLS) method is used 
+for the reconstruction of smooth distributions of macroscopic flow variables 
+around each cell interface in order to construct the corresponding equilibrium 
+state. Instead of separating the space and time integrations and using the 
+multistage RungeKutta time stepping method for time accuracy, the current 
+method integrates the flux function in space and time analytically, which 
+subsequently saves the computational time. Many test cases in two and three 
+dimensions, which include high Mach number compressible viscous and heat 
+conducting flows and the low speed high Reynolds number laminar flows, are 
+presented to demonstrate the performance of the current scheme. "
+}
+@article{Imazawa2015208,
+title = "Meshless method for solving fixed boundary problem of plasma 
+equilibrium ",
+journal = "Journal of Computational Physics ",
+volume = "292",
+number = "0",
+pages = "208 - 214",
+year = "2015",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/j.jcp.2015.03.035",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999115001904",
+author = "Ryota Imazawa and Yasunori Kawano and Kiyoshi Itami",
+keywords = "GradShafranov equation",
+keywords = "Meshless method",
+keywords = "KANSA's method",
+keywords = "RBF-MFS ",
+abstract = "Abstract This study solves the GradShafranov equation with a fixed 
+plasma boundary by utilizing a meshless method for the first time. Previous 
+studies have utilized a finite element method (FEM) to solve an equilibrium 
+inside the fixed separatrix. In order to avoid difficulties of \{FEM\} (such as 
+mesh problem, difficulty of coding, expensive calculation cost), this study 
+focuses on the meshless methods, especially RBF-MFS and KANSA's method to solve 
+the fixed boundary problem. The results showed that \{CPU\} time of the 
+meshless methods was ten to one hundred times shorter than that of \{FEM\} to 
+obtain the same accuracy. "
+}
+@article{Guittet2015215,
+title = "A stable projection method for the incompressible NavierStokes 
+equations on arbitrary geometries and adaptive Quad/Octrees ",
+journal = "Journal of Computational Physics ",
+volume = "292",
+number = "0",
+pages = "215 - 238",
+year = "2015",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/j.jcp.2015.03.024",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999115001710",
+author = "Arthur Guittet and Maxime Theillard and Frdric Gibou",
+keywords = "NavierStokes",
+keywords = "Incompressible",
+keywords = "Viscosity",
+keywords = "Level-set",
+keywords = "Irregular domains",
+keywords = "\{MAC\} grid",
+keywords = "Sharp",
+keywords = "Quad/Octrees",
+keywords = "Adaptive mesh refinement",
+keywords = "Stable projection method ",
+abstract = "Abstract We present a numerical method for solving the 
+incompressible NavierStokes equations on non-graded quadtree and octree meshes 
+and arbitrary geometries. The viscosity is treated implicitly through a finite 
+volume approach based on Voronoi partitions, while the convective term is 
+discretized with a semi-Lagrangian scheme, thus relaxing the restrictions on 
+the time step. A novel stable implementation of the projection step is 
+introduced, making use of the Marker And Cell layout for the data. The solver 
+is validated numerically in two and three spatial dimensions. "
+}

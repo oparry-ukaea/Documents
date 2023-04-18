@@ -1,0 +1,32 @@
+\subsection{Fluid model}\label{sec:fluid1D}
+For a multispecies plasma,
+there is a system of Boltzmann equations to be solved, one for each species, each of form in
+$3$ spatial dimensions
+\begin{equation}\label{eq:mboltz}
+\mathcal{L}_7 f_\alpha = \sum_\beta Q(f_\alpha, f_\beta) +S_\alpha
+\end{equation}
+where $\mathcal{L}_7$ is the  7-D Lie derivative (space, velocity-space and time make up the
+$3+3+1=7$ dimensions, $\alpha,\beta$ are species labels and $Q$ is the Boltzmann collision operator.
+The multispecies equations are derived following Grad~\cite[\S\,6]{zhdanov}
+by substituting in \Eq{mboltz}
+\begin{equation}\label{eq:ifaexpan}
+f_\alpha=\exp(-\lambda H_\alpha) \mathcal{F}_\alpha (x,{\bf v},t)
+\end{equation}
+where the flow of the Lie derivative is given by the Hamiltonian~$H_\alpha$
+and $\mathcal{F}_\alpha$ is a functional of moments of~$f_\alpha$, to include
+(dropping the suffix on~$f$)
+\begin{equation}\label{eq:moments}
+n=\int f d{\bf v},\;\; {\bf u}_0 = \int f {\bf v} d{\bf v},\;\; 
+T=\int f v^2/2 d{\bf v}
+\end{equation}
+The resulting system is linearised and solved by iteration to give the multispecies
+plasma fluid equations in Zhdanov~\cite[\S\,6]{zhdanov}. There are believed to be
+typographical errors in Zhdanov, so cross-checking is needed.
+
+To see Grad's approach applied to classical fluids see
+for example~\cite[\S\,8]{thompson}.
+
+\subsection{Coupling to particles}\label{sec:coupart1D}
+Other, less collisional species are to be treated as particles as in \Sec{sys2-4} and
+coupled via~$S_\alpha$. Mathematical forms for $S_\alpha$ will be guided by 
+the emerging results from particles' method research.

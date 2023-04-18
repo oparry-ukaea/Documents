@@ -1,0 +1,39 @@
+In the Science Plan~\cite{sciplan} the description of work 
+extending beyond Y3 (early 2022) is deliberately vague on the subject of ``gyrokinetics'', as no
+widely accepted model for the tokamak edge appears to be available as of early~Y2,
+and even should one appear, it might not be suitable for use in~Y3 in~\nep.
+
+As listed, the \papp s correspond to Plan~A, which assumes that no suitable gyroaveraged
+model will emerge in time, hence \emph{kinetic} implies Particle-in-Cell~(PIC).
+PIC  approaches, where charge conservation
+is vital to control errors, can anyway usefully be pursued
+for modelling low collisionality plasma species, and should simplify nicely to 
+treat neutral species with long mean-free-paths in tokamak edge problems
+where mass conservation has been discovered to be
+critical. Moreover in the context of classical fluid dynamics, 
+the transition from fluid to particles, or short to long mean-free-path,
+has been well-studied because of the
+application to the space vehicle re-entry problem and related hypersonic situations.
+Thus the hybrid fluid/PIC approach
+might be regarded as a relatively low-risk route to achieving a robust
+numerical algorithm.
+
+Evidently full-orbit PIC has the potential to be extremely inefficient relative to 
+gyroaveraged kinetic theory because of the need to follow gyro-orbits in detail. Hence
+if this can be avoided, either through gyroaveraging or clever numerics or indeed
+a combination of both,
+then Plan~B will see \emph{kinetic} imply gyroaveraged kinetic theory for modelling plasma species
+in the \papp s.
+
+Regarding implementation at the Exascale there is also a
+conservative Plan~A approach which sees the
+use of relatively simple data structures such as scalar and vector arrays to transfer
+data, and consequent use of existing code-coupling technologies.
+Plan~B is an aggressive approach to implementation which sees
+custom data structures allowing for all physical data (particle arrays
+and fluid field vectors) colocated near a point to be
+held close in memory, permitting very tight custom code-coupling. As with the
+\emph{kinetic} options, this Plan~B promises significantly faster solutions than
+the corresponding Plan~A, but its adoption depends on the outcome of research work
+to de-risk.
+

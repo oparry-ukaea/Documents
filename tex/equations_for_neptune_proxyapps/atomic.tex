@@ -1,0 +1,224 @@
+%(Phys) How much Tungsten is transported into the hot core by a transient event?
+%
+%(Phys/EngDes) What amount of noble gas and/or Nitrogen seeding is required to
+%enhance the radiative loss enough to protect the divertor?
+
+
+Often the radiation emitted and absorbed by atoms in different ionisation states 
+must be accounted for.
+There is a compact introduction in Golub and Pasachoff~\cite[\S\,3.3.1]{golubpasachoff}.
+This explains how in principle, given a ``particular mixture of elements at a specified
+temperature \ldots the number of atoms per unit volume of the gas which are in a particular
+ionisation state may be calculated \ldots then for that atom which emission lines are
+emitted"  and so on for all other constituents of the mixture.
+(Temperature refers to a black-body radiation field in which the atoms are assumed to sit.)
+ ``The sum total of all
+these bound-bound emissions, plus the bound-free and free-free emissions" is the spectrum,
+where it is explained that `bound' and `free' describe the state of the electron involved
+in the formation of the line with respect to the atom.
+But ``in practice, carrying out this calculation is \ldots enormously complicated".
+
+The complication follows from the range of competing mechanisms even within atoms
+of one element, namely the bound-bound mechanisms of decay and excitation described in
+ref~\cite[\S\,3.2.1]{golubpasachoff}, and bound-free
+of recombination and photo-emission, because of the different possible degrees of ionisation
+as atomic number~$A$ increases and because the proportion of atoms in each ionisation
+state depends on the proportions in the others. 
+
+
+Ambartsumyan~\cite[\S\,5]{ambartsumyan} explains at greater length the
+calculation in \emph{thermal equilibrium} of the proportion of different ions for each
+element~\cite[\S\,5.2]{ambartsumyan}, then the
+bound-free~/~free-bound coefficients~(\S\,5.3---\S\,5.5) and free-free~(\S\,5.6).
+In \cite[\S\,24.1--24.2]{ambartsumyan} there is a discussion of metastable
+states, which in the astrophysical context are crucial for the formation of forbidden lines in nebulae,
+but may also be important in the context of fusion because these metastable atomic
+states can survive for many seconds at low densities of matter and of radiation.
+By metastable state is meant that no transition to it from lower energy levels
+of the electrons is possible except for the so-called `forbidden', less
+probable electric quadrupole interactions from the quantum-mechanical matrix elements.
+
+The above outlines the main physics issues. From O'Mullane's slides at the 2008~Summer School~\cite{omullane},
+the main difference between astrophysics and fusion
+application seems to be that in the plasma context, if it is used, Saha's ionisation
+formula needs modification by the Saha-Boltzmann
+deviation factors~$b_n$ or `b-factors'~ref~\cite[slide 21]{omullane}.  The Zeeman effect is also neglected,
+although this  might be expected to be important,
+as from its use in sunspot observation~\cite[\S\,5.2]{brayloughhead} spectral line splitting
+by wavelengths of~$0.1$\,nm is expected.
+
+The key observation is from O'Mullane~\cite{omullane}
+that in tokamak modelling, there are two distinct
+uses for atomic data - (1) to calculate source (loss) terms for species
+time evolution equations, and (2) to compute synthetic spectra, ie.\ intensity as a function
+of frequency. The latter~(2) is by far the more involved but it is only critical for diagnosticians
+working with particular apparatus.
+%SH However, it is increasingly being used to develop synthetic diagnostics which are being used to validate simulations.
+Indeed, Golub and Pasachoff~\cite[\S\,3.3.2]{golubpasachoff} go on to 
+argue that for an optically thin plasma, the radiation (in $W/m^3$)  could be 
+expressible as simply as
+\begin{equation} \label{eq:erad}
+\mathcal{E}_R = n_e  n_p  P(T)
+\end{equation}
+where $n_p$ accounts for the number density of the plasma
+ions and $P(T)$ is the emitted power integrated over all wavelengths for a plasma
+with a specified mix of elements. 
+The separate functions used to compute $P(T)$ depend mainly on electron temperature
+with a weak dependence on density. The form of $P(T)$ as a result of the 
+integration over spectrum always seems to be smooth. It would seem to
+be a prime candidate for precomputation as a function of the fractions of
+the major plasma species, and could be approximated very efficiently because
+of the smoothness.
+
+O'Mullane~\cite{omullane} give a more
+detailed result, namely that
+there is a source/sink term for electron energy of form 
+\begin{equation} \label{eq:eesource}
+S^\mathcal{E}=-\mathcal{E}_R=n_e \left( \sum_s \sum_{Z=0}^{Z=Z_0(s)} P^Z n^Z -
+I^Z \left(\C{S}^{Z\rightarrow Z_p}n^Z+\alpha^{Z_p\rightarrow Z}n^{Z_p}\right) \right)
+\end{equation}
+where $Z$ is charge state,
+the suffix~$s$ on the density has been dropped, $Z_m=Z-1$, $Z_p=Z+1$, and
+where $Z_0(s)$ is the number of charge states of species~$s$ included in the model.
+It may be inferred that
+\begin{eqnarray}
+\C{S}^{Z_m\rightarrow Z} \mbox{ or }
+\C{S}^{Z\rightarrow Z_p} &=&\mbox{ionisation coefficient}\\
+\alpha^{Z\rightarrow Z_m} \mbox{ or }
+\alpha^{Z_p\rightarrow Z} &=&\mbox{partial dielectronic recombination rate coefficient}\\
+P^Z &=&\mbox{radiated power per atom of $n^Z$}\\
+I^Z &=&\mbox{power per atom released in dielectronic recombination}
+\end{eqnarray}
+where the coefficients, as elsewhere in this section, are expected to be obtained from the
+Atomic Data and Analysis Structure~ADAS database~\cite {adaswebsite,openadaswebsite}.
+The data requirements for this look relatively modest, assuming the coefficients for
+each species and charge state are smooth functions of temperature only. Thus if say
+$N_T\approx 20$ samples specify these functions 
+and $Z_{sum}=\sum_s Z_0(s)$, then the total number of coefficients required
+could be estimated as~$Z_{sum} \times 3 \times N_T \approx 20 \times 3 \times 10 =600$ where
+if the number of different elements present $N_s=10$, and
+if the average number of charge states $\bar{N}_Z=2$, then $Z_{sum} =N_s \bar{N}_Z \approx 20$.
+In another case of interest, a calculation might include only two or three extra species if one were Tungsten~(W),
+so $N_s=4$ but then $N_Z=22$ for W~alone if $T_e>40$\,eV~\cite{williamswebsite}.
+%\cite[p.\,181]{kayelaby}.
+
+The number densities~$n^Z$ for each charge state may be straightforwardly calculated by
+solving a transport equation for each isotope~$n_s$ and using the Saha-Boltzmann formula modified
+with b-factors to determine the distribution of charge states. (Further, for heavier elements
+a mean atomic mass may be used to avoid separate treatment of isotopic species.)
+Much more serious implications for computation~\cite{omullane},
+arise in the time evolution equations if each charge state is treated separately.
+This may be necessary in a strong electric field because each different ion feels
+a different electromagnetic force.
+An ion of species~$s$ with charge state~$Z$ will acquire a source
+\begin{equation} \label{eq:nzsource}
+S^Z_s=\C{S}^{Z_m\rightarrow Z}n_e n^{Z_m} - \left(\alpha^{Z\rightarrow Z_m}+\C{S}^{Z\rightarrow Z_p}\right) n_e n^Z+
+\alpha^{Z_p\rightarrow Z} n_e n^{Z_p}
+\end{equation}
+where again the suffix~$s$ on the density has been dropped. Thus the demands on atomic data
+are not very different from those for the energy equation, but 
+since the total cost of these additional computations with $Z_0(s)$ extra species will
+scale at least as fast as $Z_{sum}=\sum_s Z_0(s)$ (inter-species coupling may add considerably
+to the computational expense), rendering negligible
+the cost of inputting a few thousand coefficients from disc. In practice a useful
+surrogate is produced by replacing separate ionisation states by `superstages'~(slide~17 of ref~\cite{Su06ADAS}),
+where one superstage corresponds to one electron shell of the atom. However, even the smaller number of $7$~superstages
+required for~W might double or treble the length of a typical computation.
+
+The above is typically as much detail as is sensible to consider under heading~(1).
+If detailed diagnostics under~(2) are required, the  generalised collisional-radiative (GCR) model~\cite{Ba03Diel}
+gives an idea of the computational demands.
+GCR modelling requires each metastable state to be considered separately, since each has a separate finite lifetime.
+%SHdo you mean the plasma transport, e.g. parallel or perpendicular, or do you mean from atomic processes? If the latter, then actually the different metastables can have significantly different mean free paths due to differences in ionisation and recombination rate coefficients. 
+It helps that the transport of each atom in the state is presumably the same, but even so there is a need to
+solve a rate equation for metastable state density at sample points throughout the computational domain
+The source terms are complicated, namely for the metastable state labelled~$\rho$
+\begin{eqnarray} \label{eq:nrhosource}
+S^Z_\rho/n_e&=&\sum_\sigma \C{X}_{\sigma \rightarrow \rho}^{Z\rightarrow Z}n_\sigma
+-\sum_\sigma \C{X}_{\rho \rightarrow \sigma}^{Z\rightarrow Z}n_\rho \\
+&+&\sum_\mu \C{S}_{\mu \rightarrow \rho}^{Z_m\rightarrow Z}n^{Z_m}_\mu
+-\sum_\nu \C{S}_{\rho \rightarrow \nu}^{Z\rightarrow Z_p}n_\rho  \\
+&+&\sum_\nu \alpha_{\nu \rightarrow \rho}^{Z_p\rightarrow Z}n^{Z_p}_\nu
+-\sum_\mu \alpha_{\rho \rightarrow \mu}^{Z\rightarrow Z_m}n_\rho \\
+&+&\sum_\sigma \C{Q}_{\sigma \rightarrow \rho}^{Z\rightarrow Z}n_\sigma
+-\sum_\sigma \C{Q}_{\rho \rightarrow \sigma}^{Z\rightarrow Z}n_\rho 
+\end{eqnarray}
+where the superfix~$Z$ as well as the suffix~$s$ on the density has been dropped
+and the new symbols are
+\begin{eqnarray}
+\C{X}_{\sigma \rightarrow \rho}^{Z\rightarrow Z} &=&\mbox{generalised collisional-radiative (GCR) excitation coefficient} \\
+\C{Q}_{\sigma \rightarrow \rho}^{Z\rightarrow Z} &=&\mbox{parent-metastable cross-coupling coefficient}
+\end{eqnarray}
+\emph{Note that the expressions in both ref~\cite[eq.\ (9)]{Ba03Diel} and ref~\cite[slide 41]{omullane}
+appear to contain typos, and that the meanings of $\C{X}$ and $\C{Q}$ have swapped.}
+Each of the new terms contains approximately~$8M_Z$ coefficients where $M_Z$ is the number of metastable
+states for species~$s$ (which includes the ground state). It may be inferred from refs~\cite{omullane,Su06ADAS}
+that the number of metastable states
+for a given ionisation~$Z$ is relatively small (slide~9 of ref~\cite{Su06ADAS} indicates that all ionisation
+states for Oxygen have $M_Z \leq 4$; slide~19 suggests $M_Z\leq6$ for W when $T_e<100$\,eV).
+%SH This is a bit of an open topic right now, where the number of metastables vary depending on the iso-electronic sequence and the charge of the ion. For some Fe ions, there can be tens of metastables - the open discussion now is how these can be grouped for 2D simulation codes. 
+The coefficients~$\C{X}, \C{S}, \C{Q}$ in \Eq{nrhosource} are functions of electron density as well
+as temperature so may require at least~$100$ sample points to specify, hence the total data can be estimated
+as~$Z_{sum}\times M_Z\times 8M_Z\times 100$.
+However FISPACT-II~\cite{Su17FISP} experience with rate equations indicates the cost of 
+these additional computations with $M_Z$ metastables far exceeds
+the cost of inputting of order ten or so thousand coefficients from disc.
+
+Where the demands of data might become important is in the translation of the $n^Z_\sigma$ into
+spectral lines. First the regular excited states, because they equilibrate on the usual
+atomic timescales which are negligible compared to plasma timescales, are calculated 
+using a purely algebraic relation~\cite[eq.\ (5)]{Ba03Diel},
+\begin{equation} \label{eq:niz}
+n_i^Z/n_e = \sum_\sigma {^X\C{F}_{i\sigma}} n^Z_\sigma
++ \sum_\mu {^I\C{F}_{i\mu}} n^{Z_m}_\mu
++ \sum_\nu {^R\C{F}_{i\nu}} n^{Z_p}_\nu
+\end{equation}
+where $^{X,I,R}\C{F}_{i\sigma}$ are the coefficients of excitation, ionisation and recombination
+for the transition from metastable state~$\sigma$ to regular excited state~$i$, each is a function
+of $n_e$~and~$T_e$ with corresponding storage requirement of order~$100$.
+\Eq{niz}  requires $Z_{sum} \times M_S \times M_Z$ $\C{F}$ coefficients where $M_S$ is the number of states,
+which is potentially infinite, and indeed in practice could be as large as~$\approx 500$,
+necessitating the use of `bundling' of the higher energy states to reduce the number to manageable
+proportions, say~$10$~\cite {Ba03Diel}.
+Next, as explained in the opening paragraph, to each state there corresponds a description of
+its spectrum, which may contain
+many separate lines, each described by its wavelength, relative amplitude and
+a profile shape which may require several further parameters to describe.
+Mitigating the demand for coefficient data, is the fact that the diagnostics need only be
+computed intermittently.
+
+
+%Looking at a 2017 paper by Henderson et al. PPCF 59,055010 which I'll
+%admit does give a significant use case, namely protection of the first wall by
+%enhanced radiation from noble gas and Nitrogen seeding. However,
+
+To treat atomic physics UQ in a later stage of \nep, a
+Monte-Carlo calculation might be considered, involving all the
+different interactions between all the metastable states where the Maxwellian
+assumption is relaxed, posing a multiscale multiphysics problem.
+However, the validity of this approach requires further consideration
+as Henderson et al~\cite{He17Opti} also indicates that even as
+recently as 2017, errors of 30\,\% were present in important coefficients,
+although the discrepancies have now been reduced to approximately~$5$\,\%~\cite{He18Impr}.
+%SH This conclusion was only considering line power coefficients. The errors for the ionisation and recombinations are likely >>5%.
+
+%Regarding (1), it requires a lot less data than (2) because only the total intensity of 
+%spectral line is needed, not its structure.
+%In any event, it seems feasible
+%to replace complicated data with averages, so that the amount of data that needs
+%to be treated can be matched to the available throughput, whilst keeping within say a 10per cent
+%error envelope.
+%
+%It is also worth pointing out that the problem with metastables arises in astrophysics
+%application to both the solar corona and planetary nebulae.
+%
+%
+%With errors of 30per cent around, to say nothing
+%of the fact that the electrons will not be Maxwellian as assumed, to me it is
+%unnecessary for (1) at least initially to account explicitly for the metastable
+%atomic states by means of the rate equations in the Summer School slides, except 
+%by means of an overall fudge factor. 
+%
+%
+%Note that the data needed to describe the emission 
+%by each metastable state are not large as the formulae for line shape are relatively simple.
