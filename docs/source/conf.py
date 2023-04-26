@@ -190,6 +190,8 @@ for pdfpath in glob.glob("../../pdfs/**/*.pdf"):
     f.write(embed_string.format(stub + ".pdf"))
     f.close()
 
+rst_names.sort()
+
 # create the file that we want to embed the pdfs in and start a toctree
 f = open("embeddedpdfs.rst", "w")
 f.write("Technical Reports\n")
@@ -200,6 +202,7 @@ for dirname in sorted(set(numbered_to_descriptive_dirs.values())):
     f.write("    {0}\n".format(dirname))
 f.close()
 # now create an .rst file for each of the toctree entries in numbered_to_descriptive_dirs
+
 for key in numbered_to_descriptive_dirs:
     dirname = numbered_to_descriptive_dirs[key]
     f = open("./" + dirname + ".rst", "w")
