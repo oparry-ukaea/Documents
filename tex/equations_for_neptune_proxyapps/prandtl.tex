@@ -1,0 +1,45 @@
+
+\subsection{Prandtl Numbers}\label{sec:prandtl}
+The above expressions (except for the resistivity) apply strictly only when there
+are separate equations for ion and electron transport, 
+so decisions have to be taken about how to combine the transport coefficients
+to treat the plasma as a single fluid. For the thermal transport, since 
+pressures $p_e\approx p_i$, it is sufficient to add the $\kappa_\alpha$. However, the values for ions and electrons
+are so disparate because $m_p\gg m_e$ that one or other might be neglected, 
+assuming~$B$ is of order unity (in Tesla) and $T_e\approx T_i$, 
+thus $\kappa_{e\|} \gg \kappa_{i\|}$ and hence 
+$\kappa_{\|}\approx \kappa_{e\|}$, since 
+\begin{equation}\label{eq:rbrat}
+\left(\frac{x_i}{x_e}\right)^2 = \frac{2m_e}{Z^2 A m_p} \left(\frac{T_i}{T_e}\right)^3
+\end{equation}
+It also follows that
+\begin{equation}\label{eq:krat}
+\frac{\kappa_{e\perp}}{\kappa_{i\perp}} = 0.078 \left(\frac{T_i}{T_e}\right)^{1/2}
+\frac{1}{\sqrt{A}}
+\end{equation}
+thus $\kappa_{\perp}\approx \kappa_{i\perp}$.
+There is the caveat that if $T_i$ is approximately spatially constant radially,
+then $\kappa_{e\perp}$ might become relevant.
+
+As for viscosity, since the ion momentum is so much greater than the electron momentum, then $\nu\approx\nu_i$.
+
+For interchange motions where flows are perpendicular to the field, take 
+$\kappa=\kappa_{i\perp}$, then on the \emph{Cambridge} definition, the magnetic Prandtl number is
+\begin{equation}\label{eq:zeta}
+\zeta=\frac{\eta}{\kappa_{i\perp}}=\frac{0.765}{\sqrt{2}}\frac{1}{\mu_0}\sqrt{\frac{m_e}{m_p}} \cdot
+\frac{B^2}{Z N\sqrt{A}} \frac{(kT_i)^{1/2}}{(kT_e)^{3/2}}
+\end{equation}
+which evaluates as ($T_\alpha$ in~$eV$, $N$ in units of $10^{18}$\,m$^{-3}$)
+\begin{equation}\label{eq:zetan}
+\zeta=\frac{\eta}{\kappa_{i\perp}}=62\,700 \cdot \frac{B^2}{Z (N/10^{18})\sqrt{A}} \frac{(T_i)^{1/2}}{(T_e)^{3/2}}
+\end{equation}
+It may be argued that it is more appropriate to use the `anomalous'  value of $1\,m^2 s^{-1}$,
+in which case \Eq{resisn} without units gives the `Cambridge'  magnetic Prandtl number.
+
+The usual (viscous) Prandtl number is
+\begin{equation}\label{eq:sigma}
+Pr=\frac{\nu_{i\perp}}{\kappa_{i\perp}}=0.23
+\end{equation}
+Note that P.H.Roberts~\cite{roberts} defines the magnetic Prandtl number
+as $Pr_M=\nu/\eta=Pr/\zeta$, and his definition is more widely used.
+

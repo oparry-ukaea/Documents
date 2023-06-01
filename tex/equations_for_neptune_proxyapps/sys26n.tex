@@ -1,0 +1,154 @@
+\subsection{System 2-6n: Two-fluid Plasma Model}\label{sec:2fluid}
+The model system must be solved coupled to the Maxwell equations
+for the elecromagnetic fields {\bf E} and {\bf B}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+\label{eq:bdot} 
+\nabla \times {\bf E} = - \frac{\partial {\bf B}} {\partial t}
+\end{equation}
+\begin{equation}
+\label{eq:dive} 
+\epsilon_0 \nabla \cdot {\bf E} = \rho_c
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+\label{eq:edot}
+\nabla \times {\bf B} = \mu_0 {\bf j} +\frac{1}{c^2} \frac{\partial {\bf E}} {\partial t}
+\end{equation}
+\begin{equation}
+\label{eq:divb}
+\nabla\cdot {\bf B} = 0   
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where $\epsilon_0$ and $\mu_0$ are the permittivity and permeability 
+respectively of free space. For a two species plasma consisting of ions
+for which $\alpha=i$ and electrons for which $\alpha=e$, the charge density $\rho_c$ and 
+current density {\bf j} are defined as follows
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation}
+\label{eq:j}
+{\bf j} =  n_i q_i {\bf v}_i + n_e q_e {\bf v}_e
+\end{equation}
+\begin{equation}
+\label{eq:rhoc}
+\rho_c =  n_i q_i  + n_e q_e 
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Integrating the Boltzmann equation over velocity space gives
+an equation for the  zeroth moment of $f = f_\alpha $ or number density $n_\alpha  = \int f d{\bf 
+v}$, in terms of the first moment of $f$, fluid velocity ${\bf v}_\alpha  = \int f {\bf v}
+d{\bf v}$, viz.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.6}
+\begin{equation}
+\frac{\partial n_\alpha } {\partial t} + \nabla \cdot (n_\alpha {\bf v}_\alpha ) = S^n_\alpha .
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where $S_\alpha $ is a source term.
+
+A velocity weighted integral of the Boltzmann equation 
+gives an equation for ${\bf v}_\alpha $, viz.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.7}
+\begin{equation}
+\frac{\partial} {\partial t} (m_\alpha n_\alpha {\bf v}_\alpha ) +
+\nabla  \cdot ( {\bf P}_\alpha  +m_\alpha  n_\alpha  {\bf v}_\alpha {\bf v}_\alpha  )
+- q_\alpha  n_\alpha  ({\bf E} + {\bf v} \times {\bf B}) = 
+{\bf F}_\alpha ^{coll},
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+that involves second moments of $f$, namely the pressure tensor
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.8}
+\begin{equation}
+{\bf P}_\alpha  =
+\int m_\alpha  f
+({\bf v} - {\bf u_\alpha })
+({\bf v} - {\bf u_\alpha })
+d{\bf v}
+= p_\alpha  {\bf I} + {\bf \pi}_\alpha ,
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where $p_\alpha $ is the scalar pressure (${\bf I}$ is the unit tensor) and 
+${\bf \pi}_\alpha $ is the stress tensor for species $\alpha$.  Weighting the 
+integral of the Boltzmann equation by the kinetic energy gives the energy equation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.9}
+\begin{equation}
+\frac{\partial}{\partial t} (\frac{3}{2}p_\alpha +\frac{1}{2} m_\alpha n_\alpha {\bf v}_\alpha ^2) + \nabla \cdot
+\left(\left[
+\frac {1}{2} m_\alpha n_\alpha {\bf v}_\alpha ^2 + \frac{5}{2} p_\alpha \right]
+{\bf v}_\alpha  + {\bf \pi}_\alpha  \cdot {\bf v}_\alpha  + {\bf q}_\alpha \right)
+- q_\alpha  n_\alpha  {\bf E} \cdot {\bf v}_\alpha  = \epsilon_\alpha ^{coll},
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where the heat flux ${\bf q}_\alpha $ is a third order moment of $f$.  Evidently, 
+equations involving higher order moments may be constructed, but it is 
+customary to seek a closure at this level.  The usual assumption is 
+that $f$ is close to a Maxwellian distribution at each position, viz.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.10}
+\begin{equation}
+f({\bf v}) \simeq \exp (-
+\frac{1}{2} m{\bf v}^2/[k_BT_\alpha]),
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where $T_\alpha $ is species temperature and $k_B$ is Boltzmann's constant.  It 
+follows that
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.11}
+\begin{equation}
+p_\alpha = n_\alpha k_BT_\alpha
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+and for the collision operator appropriate to interactions between two 
+species $\alpha=i$ and $e$ corresponding to ions and electrons 
+respectively, expressions for ${\bf F}_\alpha^{coll}, \epsilon_\alpha^{coll}, 
+{\bf \pi}_\alpha$ and ${\bf q}_\alpha$ are available from Braginskii (1965), see also Epperlein
+and Haines (1985).  Crudely speaking, the effects of ${\bf \pi}_\alpha$ and ${\bf q}_\alpha$ are
+to introduce diffusion into \Eq{e2.7}  and \Eq{e2.9}, e.g. the term $\nabla \cdot (\kappa_\alpha \nabla
+T_\alpha)$ appears in the  latter.  For all their complexity the Braginskii or classical 
+transport equations for  given ${\bf E}$ and ${\bf B}$, are basically of 
+advection-diffusion type.  It also worth remarking that although  ions and electrons
+are separately close to Maxwellian in a tokamak,  they generally have different
+temperatures.  The equipartition term  (part of $\epsilon_\alpha$) representing
+interspecies collisions that drive $T_i$ towards $T_e$, is often significant  but not
+dominant.
+
+Further simplification is required because the two-fluid equations are 
+stiff in several senses.  Firstly, the momentum equations for ${\bf 
+v}_e$ and ${\bf v}_i$ have timescales in the ratio $m_i/m_e \approx 1836$ even for
+Hydrogen ions, and secondly the electrostatic forces  are relatively enormous.  The
+latter may be seen from Gauss' Law  if the  electrostatic potential is introduced so that
+${\bf E} = - \nabla  \phi$, then the ratio
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.12}
+\begin{equation}
+\frac{\rho_c}{\epsilon_o \nabla \cdot {\bf E}}
+=
+\frac{L^2 \sum_\alpha q_\alpha n_\alpha}{\epsilon_o \Delta \phi_o}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+where $\Delta \phi_o$ is a typical fluctuation level in the potential, 
+assumed to have a length-scale L comparable to device dimensions.  Writing $\sum_\alpha  q_\alpha 
+n_\alpha  = en_o \Delta  n$, \Eq{e2.12} can be reexpressed as
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{eq:e2.13}
+\begin{equation}
+\frac{\rho_c}{\epsilon_o \nabla \cdot {\bf E}} =
+\frac{n_o e^2}{\epsilon_o m_e}
+\frac{L^2 \Delta n}{(e \Delta \phi_o/m_e)} = \omega^2_{pe}
+\frac{L^2 \Delta n}
+{(\frac{1}{2} v_o^2)}.
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The quantity $\omega_{pe}$ is the plasma frequency, which for a reference density $n_o
+=  10^{20} m^{-3}$ is $5.6 \times 10^{11}s^{-1}$.  If the speed $v_o$ is 
+identified with the electron sound speed $v_{the}$ then $\omega_{pe}/v_{the} =
+1/\lambda_D$, where $\lambda_D$ is known as the Debye length, and since clearly
+$\lambda_D << 1$, it follows since all ratios in \Eq{e2.13} must be unity, that tokamak
+plasmas are forced by the electric field to be  quasi-neutral, meaning $\Delta n <<
+1$.  Scaling $\Delta n$  to be of order unity results in a stiffness
+of $L^2/\lambda^2_D$.
+

@@ -33,12 +33,12 @@ The boundary conditions used are periodicity in~$x$, and zero at infinity in~$|{
 Initial conditions which might be used for the distribution functions
 are from ref~\cite{Ta13Deve},
 \begin{eqnarray}
-f_0(x,{\bf v},{\bf u}_0,T_0)&=& \frac{n_0(x)}{\sqrt{2\pi k_B T_0/m}}\exp\left(-\frac{m({\bf v}-{\bf u}_0)^2}{2k_BT_0}\right)  \label{eq:taitano3ics} \\
-n_0(x)=n(t=0,x)&=&1 +\alpha_n \cos(k x ) \nonumber
+f_0(x,{\bf v},{\bf u}_0,T_0)&=& \frac{n_0(x)}{\sqrt{2\pi k T_0/m}}\exp\left(-\frac{m({\bf v}-{\bf u}_0)^2}{2kT_0}\right)  \label{eq:taitano3ics} \\
+n_0(x)=n(t=0,x)&=&1 +\alpha_n \cos(k_w x ) \nonumber
 \end{eqnarray}
 where $n_0$, ${\bf u}_0$ and  $T_0$ are the 
 initial number density, initial fluid velocity and initial temperature respectively. The
-parameter~$\alpha_n$ is the perturbation amplitude, $k$ is its wave vector, and $m$ is the
+parameter~$\alpha_n$ is the perturbation amplitude, $k_w$ is its wave vector, and $m$ is the
 species mass. It follows that the (scaled) momentum is given formally as
 \begin{equation}\label{eq:mtmdefn}
 n {\bf u}_\alpha(x) = \int {\bf v} f_\alpha (x,{\bf v},t) d{\bf v}

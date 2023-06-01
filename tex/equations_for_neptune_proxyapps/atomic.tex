@@ -58,7 +58,7 @@ Indeed, Golub and Pasachoff~\cite[\S\,3.3.2]{golubpasachoff} go on to
 argue that for an optically thin plasma, the radiation (in $W/m^3$)  could be 
 expressible as simply as
 \begin{equation} \label{eq:erad}
-E_R = n_e  n_p  P(T)
+\mathcal{E}_R = n_e  n_p  P(T)
 \end{equation}
 where $n_p$ accounts for the number density of the plasma
 ions and $P(T)$ is the emitted power integrated over all wavelengths for a plasma
@@ -74,8 +74,8 @@ O'Mullane~\cite{omullane} give a more
 detailed result, namely that
 there is a source/sink term for electron energy of form 
 \begin{equation} \label{eq:eesource}
-S_e=-E_R=n_e \sum_s \sum_{Z=0}^{Z=Z_0(s)} P^Z n^Z -
-I^Z \left(\C{S}^{Z\rightarrow Z_p}n^Z+\alpha^{Z_p\rightarrow Z}n^{Z_p}\right)
+S^\mathcal{E}=-\mathcal{E}_R=n_e \left( \sum_s \sum_{Z=0}^{Z=Z_0(s)} P^Z n^Z -
+I^Z \left(\C{S}^{Z\rightarrow Z_p}n^Z+\alpha^{Z_p\rightarrow Z}n^{Z_p}\right) \right)
 \end{equation}
 where $Z$ is charge state,
 the suffix~$s$ on the density has been dropped, $Z_m=Z-1$, $Z_p=Z+1$, and
@@ -112,7 +112,7 @@ This may be necessary in a strong electric field because each different ion feel
 a different electromagnetic force.
 An ion of species~$s$ with charge state~$Z$ will acquire a source
 \begin{equation} \label{eq:nzsource}
-S_s^Z=\C{S}^{Z_m\rightarrow Z}n_e n^{Z_m} - \left(\alpha^{Z\rightarrow Z_m}+\C{S}^{Z\rightarrow Z_p}\right) n_e n^Z+
+S^Z_s=\C{S}^{Z_m\rightarrow Z}n_e n^{Z_m} - \left(\alpha^{Z\rightarrow Z_m}+\C{S}^{Z\rightarrow Z_p}\right) n_e n^Z+
 \alpha^{Z_p\rightarrow Z} n_e n^{Z_p}
 \end{equation}
 where again the suffix~$s$ on the density has been dropped. Thus the demands on atomic data
@@ -134,7 +134,7 @@ It helps that the transport of each atom in the state is presumably the same, bu
 solve a rate equation for metastable state density at sample points throughout the computational domain
 The source terms are complicated, namely for the metastable state labelled~$\rho$
 \begin{eqnarray} \label{eq:nrhosource}
-S_\rho^Z/n_e&=&\sum_\sigma \C{X}_{\sigma \rightarrow \rho}^{Z\rightarrow Z}n_\sigma
+S^Z_\rho/n_e&=&\sum_\sigma \C{X}_{\sigma \rightarrow \rho}^{Z\rightarrow Z}n_\sigma
 -\sum_\sigma \C{X}_{\rho \rightarrow \sigma}^{Z\rightarrow Z}n_\rho \\
 &+&\sum_\mu \C{S}_{\mu \rightarrow \rho}^{Z_m\rightarrow Z}n^{Z_m}_\mu
 -\sum_\nu \C{S}_{\rho \rightarrow \nu}^{Z\rightarrow Z_p}n_\rho  \\
@@ -155,7 +155,7 @@ Each of the new terms contains approximately~$8M_Z$ coefficients where $M_Z$ is 
 states for species~$s$ (which includes the ground state). It may be inferred from refs~\cite{omullane,Su06ADAS}
 that the number of metastable states
 for a given ionisation~$Z$ is relatively small (slide~9 of ref~\cite{Su06ADAS} indicates that all ionisation
-states for Oxygen have $M_z \leq 4$; slide~19 suggests $M_Z\leq6$ for W when $Te<100$\,eV).
+states for Oxygen have $M_Z \leq 4$; slide~19 suggests $M_Z\leq6$ for W when $T_e<100$\,eV).
 %SH This is a bit of an open topic right now, where the number of metastables vary depending on the iso-electronic sequence and the charge of the ion. For some Fe ions, there can be tens of metastables - the open discussion now is how these can be grouped for 2D simulation codes. 
 The coefficients~$\C{X}, \C{S}, \C{Q}$ in \Eq{nrhosource} are functions of electron density as well
 as temperature so may require at least~$100$ sample points to specify, hence the total data can be estimated
