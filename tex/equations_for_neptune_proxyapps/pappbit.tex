@@ -1,0 +1,63 @@
+Rather than attempting to develop a fully 3-D Exascale targeted plasma edge (or 
+boundary) code from day one, project \nep \   will first focus upon the 
+development of ``\papp s"~\cite{proxies}, developed by partners across 
+the project through a series of Grant calls. These must be designed and encoded 
+to pave the way to the fully 3-D, actionable and performant \nep \   code (or 
+codes) outlined in the Science Plan. As such, all \nep \   \papp s must 
+capture the functionality and performance/scalability characteristics of the 
+eventual infrastructure as much as possible. In addition, all of the solutions 
+across the \nep \   programme must eventually be synergistic, leading to an  
+integrated solution for the eventual code(s) -- this will require close 
+cooperation through co-design across all partner organisations. The baseline 
+\papp s for the initial years of the project are described briefly in the 
+Science Plan~\cite{sciplan}, and expanded upon below to give the
+``baseline plan" model equations, geometry and boundary conditions.
+Note, the baseline plan does not preclude additional 
+functionality that any bidder may deem useful (or even essential) to the 
+project. Bidders are encouraged in their response to calls to be creative 
+and ambitious and to describe their own ideas and plans for delivering above 
+and beyond core scope,  provided the aim is 
+to increase impact, quality, reduce risk and/or accelerate delivery (and that 
+deliverables are fully aligned with the goals of the \nep \   Science Plan~\cite{sciplan}).
+
+%For each \papp\ , bidders should describe their approach (including their 
+%initial thoughts around provisional selection for algorithm and library 
+%options), programming language preference etc. (which will be down selected in 
+%negotiation with UKAEA) and should indicate how their solution will in the 
+%eventual \nep \   code deliver:
+%\begin{itemize}
+%\end{itemize}
+%\item[a)] Code sustainability.
+%\item[b)] Easy to deploy, easy to use and easy to develop code.
+%\item[c)] Performance (both strong and weak scaling).
+%\item[d)] Performance portability (targeting multiple candidate Exascale 
+%architectures).
+%\item[e)] Actionable solutions (UQ).
+%\item[f)] Quality, through rigorous Verification and Validation procedures.
+%\item[g)] The ability to generate surrogate models derived from the code (eg.\ 
+%through Model Order Reduction).
+
+At baseline, \papp s target $x86$ (and ideally IBM POWER and ARM 
+CPU) architectures (multi-core and multiple node) for scalability to first 
+generation Exascale hardware. \Papp s might also target other 
+Exascale candidate architectures (eg.\ GPGPU) and/or demonstrate a capability to 
+explore the use of novel hardware as it becomes available to the \exc \   
+project as part of the novel test-bed programme. In order to execute
+efficiently on parallel architectures, \papp s are expected to examine
+use of MPI, OpenMP or some other software technology
+(ideally with a focus upon performance portability).
+
+%If a bidder determines there 
+%is insufficient resource to do so (or if they do not possess the relevant 
+%skills), they should instead indicate that they are willing to work closely 
+%with other \nep \   team members who have demonstrated skills in accelerator 
+%exploitation.
+%In order to target the chosen architecture(s), it will be necessary 
+%indicate whether they intend to deploy MPI and OpenMP or some other 
+%-- including a clear explanation as to why (and be prepared to negotiate with 
+%UKAEA).
+
+Supporting information regarding Braginskii's transport
+coefficients for plasma in a strong magnetic field appears in \Sec{bragin}.
+A description of sources of atomic and molecular radiation is given as an
+annex in \Sec{atomic}.

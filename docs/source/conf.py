@@ -87,7 +87,7 @@ def get_raw_title_from_text(pdftxt):
     return title.strip()
 
 
-pdfpaths_to_nice_titles_dict = get_path_to_title_from_bibtex("../../tex/exc.bib")
+pdfpaths_to_nice_titles_dict = get_path_to_title_from_bibtex("../../tex/bib/exc.bib")
 
 
 def descriptive_title_from_pdf(pdfpath, pdftxt):
