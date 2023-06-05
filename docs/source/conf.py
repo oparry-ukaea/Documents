@@ -155,14 +155,14 @@ def clean_title(title):
 
 numbered_to_descriptive_dirs = {}
 numbered_to_descriptive_dirs["2047352_1"] = "UQ_UCL"
-numbered_to_descriptive_dirs["2057701"] = "UQ_UCL#2"
+numbered_to_descriptive_dirs["2057701"] = "UQ_UCL-2"
 numbered_to_descriptive_dirs["2047352_2"] = "Surrogates_UCL"
 numbered_to_descriptive_dirs["2047353"] = "Precondition_STFC"
-numbered_to_descriptive_dirs["2068625"] = "Precondition_STFC#2"
+numbered_to_descriptive_dirs["2068625"] = "Precondition_STFC-2"
 numbered_to_descriptive_dirs["2047355"] = "PIC_Warwick"
 numbered_to_descriptive_dirs["2047356"] = "Fluids_York_etal"
 numbered_to_descriptive_dirs["2047357"] = "MomentKinetics_Oxford"
-numbered_to_descriptive_dirs["2070839"] = "MomentKinetics_Oxford#2"
+numbered_to_descriptive_dirs["2070839"] = "MomentKinetics_Oxford-2"
 numbered_to_descriptive_dirs["2047358"] = "Software_York_etal"
 numbered_to_descriptive_dirs["2048465"] = "Meshing_Exeter"
 numbered_to_descriptive_dirs["2053622"] = "Nektar++"
