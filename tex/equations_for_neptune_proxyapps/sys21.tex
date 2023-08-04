@@ -1,9 +1,9 @@
 The model for time evolution of the temperature field~$T$ is thermal diffusion,
 which in a plasma gives
 \begin{equation}\label{eq:plas2diff}
-\frac{3}{2} N \frac{\partial T}{\partial t}=\nabla \cdot \kappa \nabla T
+\frac{3}{2} N \frac{\partial T}{\partial t}=\nabla \cdot \mathcal{K}  \nabla T
 \end{equation}
-where the thermal conductivity tensor is $\kappa$.
+where the thermal conductivity tensor is $\mathcal{K}$.
 (Compare the model for a solid
 \begin{equation}\label{eq:solidiff}
 \rho_m c_p \frac{\partial T}{\partial t}=\nabla \cdot k_c \nabla T
@@ -16,28 +16,29 @@ thermal diffusion in a plasma after Braginskii is thus
 \begin{equation}\label{eq:plas2brag}
 \frac{3}{2} N \frac{\partial T}{\partial t}=
 \nabla \cdot \left(
-\kappa_{\parallel} {\bf b} [{\bf b}.\nabla T] +
-\kappa_{\perp} (\nabla T - {\bf b} [{\bf b}.\nabla T])+
-\kappa_{\wedge} {\bf b} \times \nabla T
+\mathcal{K}_{\|} {\bf b} [{\bf b}.\nabla T] +
+\mathcal{K}_{\perp} (\nabla T - {\bf b} [{\bf b}.\nabla T])+
+\mathcal{K}_{\wedge} {\bf b} \times \nabla T
 \right) 
 \end{equation}
 
-Henceforth, the `wedge' transport ie. in due to the term in $\kappa_{\wedge}$
+Henceforth, the `wedge' transport ie. in due to the term in $\mathcal{K}_{\wedge}$
 is neglected for the reason that it may be rearranged to give
 a convection-like term, via the identity 
 \begin{equation}\label{eq:crossxp}
-\nabla \cdot \kappa_\wedge {\bf b} \times \nabla T = \nabla \cdot ({\bf u}_\wedge  T)
+\nabla \cdot \mathcal{K}_\wedge {\bf b} \times \nabla T = \nabla \cdot ({\bf u}_\wedge  T)
 \end{equation}
 where
 \begin{equation}\label{eq:uxp}
-{\bf u}_\wedge = \nabla \times (\kappa_\wedge {\bf b})
+{\bf u}_\wedge = \nabla \times (\mathcal{K}_\wedge {\bf b})
 \end{equation}
-(In any event, if $\kappa_\wedge$ is a function purely of~$T$, and
+(In any event, if $\mathcal{K}_\wedge$ is a function purely of~$T$, and
 $\nabla \cdot {\bf b}=\bf{0}$, then the terms in \Eq{crossxp} vanish.)
 
-Expressions for $\kappa_{\perp}$ and $\kappa_{\parallel}$ for the different species
+Expressions for the thermal diffusivities $\kappa_{\perp}$ and~$\kappa_{\|}$ for
+the different species
 are given in \Sec{coefficient}, where they incorporate  the factor $\frac{3}{2} N$,
-ie.\ $\kappa_{(\perp, \parallel)}/(\frac{3}{2} N) = \kappa_{(\perp , \parallel) e,i}$.
+ie.\ $\kappa_{(\perp , \|) e,i}=\mathcal{K}_{(\perp, \|)}/(\frac{3}{2} N)$.
 
 \subsection{Test Cases}\label{sec:tests}
 The aim of the work is to calculate in a series of calculations that increasingly
@@ -49,7 +50,7 @@ into play in the plasma especially near surfaces.
 \subsubsection{Starting Case}\label{sec:start}
 For the 2-D test case illustrated in \Fig{aniso}, it is suggested that $\kappa_{\perp}=0$
 so that any perpendicular diffusion is numerical in origin. Given this,
-the problem can be analysed using any spatial scale and any convenient~$\kappa_{\parallel}$.
+the problem can be analysed using any spatial scale and any convenient~$\kappa_{\|}$.
 However an order of magnitude estimate for tile dimensions is one metre,
 discharge timescale is one second upwards. For plasma properties
 assume $N=10^{18}$\,m$^{-3}$, $T_i=T_e=10$\,eV, $Z=A=1$, $B=3$\,T and solid temperatures say $500^o$\,C.
@@ -64,7 +65,7 @@ The relative size of this numerical diffusion must be estimated as a function
 of incidence angle~$\theta$, where interest attaches to small $\theta\leq2^o$.
 \begin{figure}
 \centerline{
-\includegraphics[width=8.0cm]{../png/aniso}
+\includegraphics[width=8.0cm]{../png/aniso.png}
 }
 \caption{Sketch of the test configuration, showing fieldlines in direction~${\bf b}$
 and the boundary between anisotropic conductor and perfect insulator.
@@ -82,9 +83,9 @@ describing the magnetic field as a function of position, which will be supplied.
 The magnetic equilibrium may be supplied analytically after Solovev, but the
 usual input is as an .eqdsk file.
 The EQDSK~G format is a ``non-standard" standard for
-solutions $\psi(R,Z), p(\psi), F(\psi)$ of the Grad-Shafranov equation, where
+solutions $\psi(R,Z), p(\psi), I(\psi)$ of the Grad-Shafranov equation, where
 $\psi$ is the magnetic flux and $(R,Z)$ are cylindrical coordinates
-in planes normal to the toroidal direction. The functions~$p$ and~$F$ give the
+in planes normal to the toroidal direction. The functions~$p$ and~$I$ give the
 variation of the pressure and toroidal field respectively.
 The basic standard for EQDSK~G may be found at:
 \url{https://fusion.gat.com/theory/Efitgeqdsk} (which may be password-protected)

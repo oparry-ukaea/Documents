@@ -8,7 +8,7 @@ in the cross-sectional plane of projection.
 
 \begin{figure}
 \centerline{
-\includegraphics[width=8.0cm]{../png/xsect}
+\includegraphics[width=8.0cm]{../png/xsect.png}
 }
 \caption{Sketch of the test configuration, showing tokamak cross-section
 and the boundary of the Last Closed Flux Surface (LCFS).
@@ -21,15 +21,15 @@ The elliptic equations to be considered now follow.
 This elliptic equation is a simplified version
 of the Grad-Shafranov equation, see \cite{Ap18Equi}
 \begin{equation}\label{eq:gs}
-R^2 \nabla \cdot \frac{1}{R^2} \nabla \psi = -2 \mu_0 R J_{\phi}
+R^2 \nabla \cdot \frac{1}{R^2} \nabla \psi = -2 \mu_0 R j_{\phi}
 \end{equation}
 where $\psi$ is the poloidal magnetic flux and $(R,Z)$ are cylindrical coordinates
 in planes normal to the toroidal direction~$\phi$, with the toroidal current
 \begin{equation}\label{eq:jphi}
-J_\phi= R \frac{dp(\psi)}{d\psi}+ \frac{I}{\mu_0 R} \frac{dI(\psi)}{d\psi} + J_{ext}(R,Z)
+j_\phi= R \frac{dp(\psi)}{d\psi}+ \frac{I}{\mu_0 R} \frac{dI(\psi)}{d\psi} + j_{ext}(R,Z)
 \end{equation}
 The functions~$p$ and~$I$ give the variation as functions of~$\psi$
-of the pressure and toroidal field respectively, and $J_{ext}(R,Z)$
+of the pressure and toroidal field respectively, and $j_{ext}(R,Z)$
 may be produced in several ways, of which the commonest is by
 poloidal field circuits, ie.\ localised current sources in cross-section.
 Note that the operator in \Eq{gs} simplifies to
@@ -39,7 +39,7 @@ Note that the operator in \Eq{gs} simplifies to
 which implies that mathematically, $\psi$ satisfies a steady-state 2-D advection-diffusion
 equation corresponding to unit diffusivity in the flow $u_R=1/R$.
 
-To provide the simple test case, take $J_\phi=J_{ext}$ only with localised current sources.
+To provide the simple test case, take $j_\phi=j_{ext}$ only with localised current sources.
 The boundary conditions are $\psi=0$ on the LCFS
 and $\psi \propto 1/\sqrt(R^2+Z^2)$ as $R,\;Z \rightarrow \infty$.
 

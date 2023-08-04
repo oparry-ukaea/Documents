@@ -1,6 +1,6 @@
 %Edit 021 ZZZ to report number nnnn 
 %Edit YYMILE YYMILE to milestone number m.m.m
-%Edit YYTITLE YYTITLE to report title - Words Start with Caps
+%Edit Equations for ExCALIBUR/NEPTUNE Proxyapps YYTITLE to report title - Words Start with Caps
 \documentclass[11pt,twoside,a4paper]{article}
 %%======================================================================
 %% PACKAGES:
@@ -18,6 +18,7 @@
 %\usepackage{ifthen}              % logical branching
 \usepackage{hyperref}            %insert hyper-links
 \usepackage{latexsym}
+%\usepackage{float}
 % uncomment the following to override auto page total
 %\pptotal{20}
 %%======================================================================
@@ -25,7 +26,7 @@
 % ensure sans-serif font used throughout
 \renewcommand{\familydefault}{\sfdefault}
 
-\newcommand{\culhamissueno}{1.00}%<==edit
+\newcommand{\culhamissueno}{1.27}%<==edit
 \newcommand{\culhamshorttitle}{CD/EXCALIBUR-FMS/021}%<==edit
 \newcommand{\Sec}[1]{Section~\ref{sec:#1}}
 \newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
@@ -42,10 +43,12 @@
 \input{../stdefns}
 
 
+
 %%======================================================================
+
 %% REPORT COVER PAGE Information
 
-\newcommand{\culhamtitle}{\LARGE Equations for \nep\ \Papp s}%<==edit
+\newcommand{\culhamtitle}{\LARGE Equations for \exc/\nep \; \Papp s  \\[1.0\baselineskip] Version~\culhamissueno }%<==edit
 
 %%qa box information -- change following as needed
 %%only needed if uncomment approbox
@@ -55,23 +58,35 @@
 \newcommand{\culhamauthora}{Lucian Anton}%<==edit
 \newcommand{\culhamauthorb}{Debasmita Samaddar}%<==edit
 \newcommand{\culhamauthorc}{\culhamcontactname}%<==edit
-\newcommand{\culhamdate}{\today}%<=edit
-\newcommand{\culhamdatea}{\today}%<=edit
-\newcommand{\culhamdateb}{\today}%<=edit
 %\newcommand{\culhamcontacttel}{Telephone: 01235 466498}
 %\newcommand{\culhamcontactemail}{Email: rob.akers@ukaea.uk}
 
-%
-\setlength{\textheight}{290.0mm}
-\setlength{\topmargin}{-20.0mm}
-\setlength{\oddsidemargin}{-10.0mm}
+%\newcommand{\culhamdate}{10 March 2020}%<=edit
+%\newcommand{\culhamdatea}{10 March 2020}%<=edit
+%\newcommand{\culhamdateb}{10 March 2020}%<=edit
+%\newcommand{\culhamdate}{23 December 2021}%<=edit
+%\newcommand{\culhamdatea}{23 December 2021}%<=edit
+%\newcommand{\culhamdateb}{23 December 2021}%<=edit
+%\newcommand{\culhamdate}{26 October 2022}%<=edit
+%\newcommand{\culhamdatea}{26 October 2022}%<=edit
+%\newcommand{\culhamdateb}{26 October 2022}%<=edit
+\newcommand{\culhamdate}{14 March 2023}%<=edit
+\newcommand{\culhamdatea}{14 March 2023}%<=edit
+\newcommand{\culhamdateb}{14 March 2023}%<=edit
+
+% reproduce Rob's page size
+
+\setlength{\textheight}{220.0mm}
+\setlength{\textwidth}{165.0mm}
+\setlength{\topmargin}{0.0mm}
+\setlength{\oddsidemargin}{0.0mm}
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\parindent}{0mm}
 \addtolength{\parskip}{0.5\baselineskip}
 \setlength{\topsep}{0pt}
 \setlength{\itemsep}{0pt}
 
-
+%%======================================================================
 \begin{document}
 
 \begin{titlepage}
@@ -80,8 +95,8 @@
 {\LARGE \culhamtitle } \\[2.0\baselineskip]
 {\textbf{\textsf{Abstract}}}\\
 \input{abst}
-\vfill
-\hspace{-20mm}\includegraphics[width=22.0cm]{../corpics/eqs1}
+\vspace*{-100mm}
+\hspace{-50mm}\includegraphics[width=22.0cm]{../corpics/eqs1}
 \end{titlepage}
 
 \clearpage

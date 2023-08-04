@@ -1,0 +1,43 @@
+name: Build Docs
+on: 
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Sphinx/Doxygen
+        run: |
+          sudo apt update
+          sudo apt install -y libpoppler-cpp-dev python3-pip
+      - name: Install Python Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r docs/requirements.txt # for building the docs
+          pip install ghp-import # only required by this yaml for publishing the docs 
+      - name: Build Deps
+        working-directory: ./tex/equations_for_neptune_proxyapps
+        run: |
+          sudo apt install -y texlive-latex-base texlive-latex-extra poppler-utils
+          bash pub.bash
+      - name: Move Docs
+        working-directory: ./docs/
+        run: |
+          mkdir -p ../pdfs # can change, but must reflect changes in conf.py
+          cp -r ../reports/20* ../pdfs/
+          cp -r ../reports/ukaea_reports ../pdfs/
+          mkdir -p ../pdfs/Equations
+          cp ../tex/equations_for_neptune_proxyapps/CD-EXC*.pdf ../pdfs/Equations/proxyapps_equations.pdf
+      - name: Build Website
+        working-directory: ./docs/
+        run: |
+          make html
+      - name: Run ghp-import
+        run: |
+          ghp-import -n -p -f docs/build/html
+

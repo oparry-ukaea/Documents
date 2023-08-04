@@ -1,41 +1,138 @@
-The following generic transport equation~\cite[\S\,1]{duderstadtmartin} applies to
+The neutrals are represented as super-particles that travel ballistically after introduction
+and are lost when they strike the first wall.  In this context, neutral
+particle may include photons.
+Super-particles have label~$p$, weight~$w_p$ and sample the
+point~$({\bf x}_p, {\bf v}_p)$ in 6-D position and velocity space.
+At introduction, all particle quantities are defined by sampling
+from specified probability distributions.
 
+\subsection{Prerequisites}\label{sec:31prereq}
+\subsubsection{Parameters}\label{sec:31param}
+It is necessary to have parameters describing initial and boundary conditions.
+There must be a means of tying boundary conditions to specific parts
+of the surface and volume geometry. See discussion of definitions
+of objects/classes for \nep \ in web pages.
 
-all particle-based models for the time
-evolution of the density distribution function~$f (x,{\bf v},t)$
-\begin{equation} \label{eq:transport}
-\frac{\partial f}{\partial t}
-+ {\bf v} \cdot \frac{\partial f}{\partial {\bf x}}
-+ {\bf a} \cdot \frac{\partial f}{\partial {\bf v}} 
-= S_C(f)
-=\left(\frac{\partial f}{\partial t}\right)_C + s_{exp}({\bf x},{\bf v},t)
+\subsubsection{Random number generator}\label{sec:RNG}
+It is generally important to test the properties of a random number generator
+to ensure there is an absence of bias, typically by producing histograms of
+the output and comparing with expected curves. If other routines are found to be unsuitable,
+a technique based on the `Mersenne Twister' should give a satisfactory sequence
+of pseudo-random numbers. 
+
+For a range of applications where
+functions or distributions do not vary on very small scales, Quasi-Monte Carlo
+sampling~\cite{niederreiter} may be preferable to Monte Carlo. Note that although the place-name
+Monte-Carlo has a hyphen, the name of the mathematical technique does not by convention.
+For parallel computation, it will generally be best to compute a block of numbers at a time.
+
+\subsubsection{Sampling from a specified distribution}\label{sec:specdist}
+\paragraph{Generally}\label{specdistgen}
+Textbooks such as Kalos and Whitlock~\cite{kaloswhitlock} (notable
+for its treatment of radiation transport in \S\,6)  explain how to
+generate samples of a given distribution $f(x)$ 
+from random numbers uniformly sampled on the unit interval. Suppose that
+$\xi$ is such a random number, then the corresponding value of $x$ is given by
+solution of
+\begin{equation}\label{eq:invdistbn}
+\xi=1-\int_0^x f(x')dx'
 \end{equation}
-where ${\bf a} = d^2 {\bf x}/dt^2$ is the acceleration experienced by a particle
-at position~${\bf x}$ with velocity~${\bf v}$. This represents scalar
-advection in a 6-D space with an explicit source~$s_{exp}({\bf x}, {\bf v},t)$
-and a source due to other inter-particle interactions that is conventionally written
-$(\partial f/\partial t)_C$ when it is localised and usually depends linearly on~$f$.
+\Eq{invdistbn} may be solved explicitly for~$x$ in many important cases
 
-Complete specification of the problem even for $S_C=0$ and a single species of particle
-requires a force law such as that for particles of species~$\alpha$
-with charge~$q_\alpha$ and mass~$m_\alpha$
-\begin{equation}\label{eq:forcelaw}
-{\bf F} = m_\alpha \frac{d^2 {\bf x}}{dt^2} = q_\alpha ({\bf E} + {\bf v} \times {\bf B})
+\paragraph{Gaussian distribution}\label{sec:specdistgaussian}
+This may be sampled using the Box-Muller method~\cite[\S\,3.1]{kaloswhitlock}.
+Given two random numbers $\xi_1$ and $\xi_2$ uniformly sampled on the unit
+interval, then two samples of a Gaussian distribution $f(x) \propto \exp(-x^2/2)$
+are given by
+\begin{eqnarray}\label{eq:gaussamp}
+&&\sqrt{[-2(\ln(1-\xi_1)]} \cos 2\pi \xi_2 \\
+&&\sqrt{[-2(\ln(1-\xi_2)]} \cos 2\pi \xi_1
+\end{eqnarray}
+
+\paragraph{Knudsen cosine}\label{sec:specdistknud}
+Sample by accept-reject from the Knudsen cosine distribution below~\Eq{distknud} to launch
+particle trajectories.
+
+Let $f_{max}$ and $s_{max}$ be the maximum of the distribution function
+in $[0,6v_{th,i,Kn})$ and the associated speed, respectively
+where $v_{th,i,Kn}=\sqrt{2kT_{Kn}/m_{i}})$. Then provide
+pairs of random numbers $R_{f}\in[0,f_{max}]$ and $v_{R}\in[0,6v_{th,i,Kn}]$
+(and other components of velocity similarly sampled for the tangential
+components (but with a negative velocity ranges)). Keep the particle
+with normal speed $v_{R}$ if $R_{f}<f_{n,Kn}(v_{R})$.
+
+\subsection{Sources and sinks of neutrals}\label{sec:31sources}
+\subsubsection{Knudsen distribution}\label{sec:Knudsen}
+As suggested in the TN-07 Neptune report by Parra, Barnes and Hardman~\cite{2047357-TN-07}
+%(\url{https://github.com/ExCALIBUR-NEPTUNE/Documents/blob/main/reports/2047357/TN-07.pdf}
+equations (5.9)-(5.13), the source of neutrals emitted from a wall
+can be described by the Knudsen cosine distribution
+\begin{equation}\label{eq:distknud}
+f_{n,Kn}\left(\boldsymbol{v};\boldsymbol{n}\cdot\boldsymbol{v}>0\right)=\frac{3}{4\pi}\left(\frac{m_{i}}{kT_{Kn}}\right)^{2}\frac{\boldsymbol{n}\cdot\boldsymbol{v}}{\left|v\right|}\exp\left(-\frac{m_{i}v^{2}}{2kT_{Kn}}\right)
 \end{equation}
-and equations for the evolution of the electromagnetic fields~${\bf E}({\bf x},t)$ 
-and ${\bf B}({\bf x},t)$ such as Maxwell's equations, neglecting displacement current.
-For neutral particles, when often ${\bf a}={\bf 0}$, interest attaches to $S_C$
-which for 2-particle interactions is often the Boltzmann operator for 
-different species $Q(f_\alpha, f_\beta)$ where $\alpha,\beta$ are species labels.
+where $\boldsymbol{n}$ is the normal to the wall, the Knudsen distribution
+is used for outgoing neutrals for which $\boldsymbol{n}\cdot\boldsymbol{v}>0$,
+and $kT_{Kn}$ is a parameter that controls the temperature
+of the emitted neutral distribution. The Knudsen cosine distribution appears with a factor of
+a particle flux in Equation~(5.9) of~\cite{2047357-TN-07}, so
+despite the "$f$"~notation, it has different units to the other distributions~$f$.
 
-It will be seen that \Eq{transport} is a statement that the $7-D$ Lie derivative of~$f$
-vanishes, and it is hoped that in the longer term, the properties of the Lie derivative 
-might be exploited.
+%Propose that for simplicity we also use a Knudsen cosine distribution
+%for the neutrals coming from a gas puff, if needed, at least as a
+%starting point.
 
-For current purposes, it is necessary to state a multi-species version of \Eq{transport}
-complete with appropriate source terms to represent the physics thought critical for modelling the
-tokamak edge. Inevitably choice of $S_C$ is a function of lengthscale and timescale.
-On fast timescales in a strong electromagnetic field, the effect of collisions can
-be ignored (collective effects are felt through say the electrostatic field).
+\subsubsection{Volumetric distribution}\label{sec:voldist}
+As a starting point, the source of neutrals should be fixed
+in time and given a prescribed spatial distribution around the edge
+of the simulation domain. A point source, ie.\ delta function in space, 
+would be a valid representation of a `gas valve'. Volumetric sources  consisting
+of eg.\ a Maxwellian at a given temperature) could be considered for testing purposes.
+
+\subsubsection{Recycling}\label{sec:recyc}
+This cannot be properly treated without coupling to a plasma model,
+hence is treated in  \Sec{33recyc}.
+
+\subsubsection{Particle sink}\label{sec:volsink}
+An explicit volume pumping region,
+where neutrals are absorbed when they reach it. This might be
+specified by a set of finite element identifiers~$e$.
+
+\subsection{Boundary condition for neutral particles}\label{sec:bcs}
+The particle simulation domain need not coincide with the simulation domain, 
+since there may be finite elements where a species is treated as a fluid.
+\subsubsection{Perfect Absorption}\label{sec:bcsperf}
+Any particles that reach a domain boundary are deleted.
+\subsubsection{Reflection}\label{sec:bcsrefl}
+These conditions are very useful for testing eg.\ energy conservation. 
+Perfect specular reflection might be needed to handle symmetry. Supposing
+the unit surface normal is~$\boldsymbol{n}$, if the incident velocity is~$\bf{v}_p$,
+then the reflected particle has velocity
+\begin{equation}\label{eq:bcsreflvel}
+\bf{v}_p=\bf{v}_p-2 (\bf{v}_p.\boldsymbol{n}) \boldsymbol{n}
+\end{equation}
+\subsubsection{Periodic boundaries}\label{sec:bcsperio}
+These conditions are very useful for testing purposes, and required for full
+or repeat sections of toroidal geometry. Particles simply leave one end
+of the domain and re-enter at the other. In the case of a rectilinear
+grid, periodic boundary conditions are easily applied by 
+taking the modulus of the coordinate value with respect to the period length.
+\subsubsection{Imperfect reflection}\label{sec:bcsimperf}
+These conditions are probably most appropriate for photons.
+This may be achieved by arranging that a fraction~$(1-R_p)$ of incident
+particles are absorbed.  If the particles are allowed different weights, then
+simply reduce the weight~$w_p$ of each reflected particle by the particle recycling factor~$R_p$
+and its energy consistent with recycling factor~$R_E$.
+Sputtering is the ejection of surface atoms by impact of both
+energetic ions and neutrals. However, the rates of sputtering by
+energetic neutrals are relatively low below~$100$\,eV ~\cite[\S\,9.7]{wesson} and may be neglected
+in an initial investigation.
+%Suggest making the choice in the first instance for ease of implementation.
+
+%\subsection{Numerical algorithm\label{subsec:neutral-bc-numerics}\label}\label{sec:XX}
 
 
+%\subsection{Numerical algorithm}\label{sec:XX}
+%
+%Already part of plasma fluid model. Future `explicit pumping' option
+%would be covered by the boundary conditions for neutral particles,
+%section~\ref{subsec:neutral-bc-numerics}\label.

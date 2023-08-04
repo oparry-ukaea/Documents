@@ -1,11 +1,15 @@
 Braginskii's transport coefficients are widely used in tokamak edge modelling.
 Object-oriented Fortran code to compute the Braginskii coefficients is available
-at \\
-{\tt https://github.com/wayne-arter/smardda-misc.git}.
+at the web-site~\cite{miscwebsite}.\\
+Note that the constant $k$ is introduced such that
+\begin{equation}
+k= k_B\;\;\mbox{or}\;\;k=|e|
+\end{equation}
+where $k_B$ is Boltzmann's constant and $|e|$ is the unit of charge,
+depending whether T is measured in Kelvin or~$eV$, so that~$kT$ is in energy units. 
 
 \subsection{General}\label{sec:general}
-Note that $k_B T(\mbox{units of }K) = |e| T(\mbox{units of }eV)$ where $k_B$ is Boltzmann's constant and $|e|$ is the
-absolute value of the charge on the electron. Otherwise suffix~$B$ denotes a quantity
+Except in Boltzmann's constant~$k_B$, suffix~$B$ denotes a quantity
 from the Plasma Formulary~\cite{NRLpf07}. See also Braginskii's paper~\cite{Br65Tranwarv}.
 The subsequent corrections by Epperlein and Haines, and by Mikhailovski and Tsypin are not relevant to this work.
 
@@ -13,13 +17,13 @@ In a magnetic field, the direction of which is given by unit vector~${\bf b}$,
 Goedbloed and Poedts~\cite{goedbloedpoedts} define three auxilliary vectors for
 a vector~${\bf v}$, viz.
 \begin{equation}\label{eq:vaux}
-{\bf v}_{\parallel}= {\bf b} ({\bf b} \cdot {\bf v}), \;\; {\bf v}_\wedge= {\bf b} \times {\bf v}
+{\bf v}_{\|}= {\bf b} ({\bf b} \cdot {\bf v}), \;\; {\bf v}_\wedge= {\bf b} \times {\bf v}
 \;\;\mbox{and}\;\; {\bf v}_\perp=({\bf b} \times {\bf v} ) \times {\bf b}
 \end{equation}
-If ${\bf v} = (v_1, v_2, v_\parallel)$ and ${\bf b}$ is aligned with the 3-axis
+If ${\bf v} = (v_1, v_2, v_\|)$ and ${\bf b}$ is aligned with the 3-axis
 in a Cartesian coordinate system, then
 \begin{equation}\label{eq:vpt}
-{\bf v}_{\parallel}= (0,0,v_\parallel), \;\; {\bf v}_\wedge= (-v_2,v_1,0)
+{\bf v}_{\|}= (0,0,v_\|), \;\; {\bf v}_\wedge= (-v_2,v_1,0)
 \;\;\mbox{and}\;\; {\bf v}_\perp=(v_1,v_2,0)
 \end{equation}
 It may be shown that a tensor~$\mathcal{T}$ which is symmetric under rotation
@@ -28,18 +32,18 @@ about~${\bf b}$ has the form (in Cartesians)
 \mathcal{T}=
 \begin{pmatrix} \mathcal{T}_\perp & - \mathcal{T}_\wedge & 0 \\
  \mathcal{T}_\wedge &  \mathcal{T}_\perp & 0 \\
- 0 & 0 & \mathcal{T}_\parallel \\
+ 0 & 0 & \mathcal{T}_\| \\
 \end{pmatrix}
 \end{equation}
 so that
 \begin{equation}\label{eq:TV}
-\mathcal{T} \cdot {\bf v} = \mathcal{T}_\parallel {\bf v}_\parallel + \mathcal{T}_\wedge {\bf v}_\wedge + \mathcal{T}_\perp {\bf v}_\perp
+\mathcal{T} \cdot {\bf v} = \mathcal{T}_\| {\bf v}_\| + \mathcal{T}_\wedge {\bf v}_\wedge + \mathcal{T}_\perp {\bf v}_\perp
 \end{equation}
 
 \subsection{Conduction, Viscous and Resistive Coefficients}\label{sec:coefficient}
 The electron parallel thermal conductivity in the Braginskii theory is given as~\cite{NRLpf07}
 \begin{equation}\label{eq:kapbae}
-\kappa^e_{B\|}= 3.2 \frac{Nk_BT_e}{m_e} \tau_e
+\mathcal{K}_{e\|}= 3.2 \frac{NkT_e}{m_e} \tau_e
 \end{equation}
 a formula valid in either cgs or SI units, where $\tau_e$ is 
 the electron relaxation time (measured in seconds), defined below.
@@ -49,7 +53,7 @@ the temperature of species~$\alpha$.
 The perpendicular electron thermal conductivity satisfies
 similarly
 \begin{equation}\label{eq:kapberpe}
-\kappa^e_{B\perp}= 4.7 \frac{Nk_BT_e}{m_e} \tau_e \cdot \frac{1}{(\omega_{ce}\tau_e)^2}
+\mathcal{K}_{e\perp}= 4.7 \frac{NkT_e}{m_e} \tau_e \cdot \frac{1}{(\omega_{ce}\tau_e)^2}
 \end{equation}
 where the electron cyclotron frequency
 \begin{equation}\label{eq:cyce}
@@ -57,10 +61,10 @@ where the electron cyclotron frequency
 \end{equation}
 Equivalent expressions for ions are
 \begin{equation}\label{eq:kapbai}
-\kappa^i_{B\|}= 3.9 \frac{Nk_BT_i}{m_i} \tau_i
+\mathcal{K}_{i\|}= 3.9 \frac{NkT_i}{m_i} \tau_i
 \end{equation}
 \begin{equation}\label{eq:kapberpi}
-\kappa^i_{B\perp}= 2 \frac{Nk_BT_i}{m_i} \tau_i \cdot \frac{1}{(\omega_{ci}\tau_i)^2}
+\mathcal{K}_{i\perp}= 2 \frac{NkT_i}{m_i} \tau_i \cdot \frac{1}{(\omega_{ci}\tau_i)^2}
 \end{equation}
 where the ion cyclotron frequency
 \begin{equation}\label{eq:cyci}
@@ -80,16 +84,16 @@ x_i= \omega_{ci}\tau_i
 
 Kinematic viscosities in the Braginskii theory may be taken as
 \begin{equation}\label{eq:nuparae}
-\nu^e_{\|}= 0.73 Nk_BT_e \tau_e /(N m_e) = 0.73 \frac{k_BT_e}{m_e} \tau_e
+\nu_{e\|}= 0.73 NkT_e \tau_e /(N m_e) = 0.73 \frac{kT_e}{m_e} \tau_e
 \end{equation}
 \begin{equation}\label{eq:nuperpe}
-\nu^e_{\perp}= 0.51 Nk_BT_e \tau_e /(N m_e) \frac{1}{x_e^2}= 0.51 \frac{k_BT_e}{m_e} \tau_e\frac{1}{x_e^2}
+\nu_{e\perp}= 0.51 NkT_e \tau_e /(N m_e) \frac{1}{x_e^2}= 0.51 \frac{kT_e}{m_e} \tau_e\frac{1}{x_e^2}
 \end{equation}
 \begin{equation}\label{eq:nuparai}
-\nu^i_{\|}= 0.96 Nk_BT_i \tau_i /(N m_i) = 0.96 \frac{k_BT_i}{m_i} \tau_i
+\nu_{i\|}= 0.96 NkT_i \tau_i /(N m_i) = 0.96 \frac{kT_i}{m_i} \tau_i
 \end{equation}
 \begin{equation}\label{eq:nuperpi}
-\nu^i_{\perp}= 0.3 Nk_BT_i \tau_i  /(N m_i)\frac{1}{x_i^2} = 0.3 \frac{k_BT_i}{m_i} \tau_i\frac{1}{x_i^2}
+\nu_{i\perp}= 0.3 NkT_i \tau_i  /(N m_i)\frac{1}{x_i^2} = 0.3 \frac{kT_i}{m_i} \tau_i\frac{1}{x_i^2}
 \end{equation}
 
 
@@ -97,14 +101,14 @@ Key quantities in the calculation of all these terms are $\tau_\alpha$, $\alpha=
 The first step in their calculation is to convert their formulas,
 usually given in cgs, to SI units, giving
 \begin{equation}\label{eq:tauesi}
-\tau_e=6 \sqrt{2\pi^3} \frac{\epsilon_0^2\sqrt{m_e}}{e^4} \frac{(k_BT_e)^{3/2}}{Z^2 N \Lambda}
+\tau_e=6 \sqrt{2\pi^3} \frac{\epsilon_0^2\sqrt{m_e}}{e^4} \frac{(kT_e)^{3/2}}{Z^2 N \Lambda}
 =3.44 \times 10^{-7} \frac{(T_e)^{3/2}}{Z^2 (N/10^{18}) \Lambda}
 \end{equation}
 \begin{equation}\label{eq:tauisi}
-\tau_i=12 \sqrt{\pi^3} \frac{\epsilon_0^2\sqrt{m_p}}{e^4} \frac{(k_BT_i)^{3/2} \sqrt{A}}{Z^4 N \Lambda}
+\tau_i=12 \sqrt{\pi^3} \frac{\epsilon_0^2\sqrt{m_p}}{e^4} \frac{(kT_i)^{3/2} \sqrt{A}}{Z^4 N \Lambda}
 =2.09 \times 10^{-5} \frac{(T_i)^{3/2} \sqrt{A}}{Z^4 (N/10^{18}) \Lambda}
 \end{equation}
-where the notation is standard, except possibly the use of $\Lambda$ for
+where the notation is standard with $T_e$ and~$T_i$  measured in~$eV$, except possibly the use of $\Lambda$ for
 the Coulomb logarithm. The above check with expressions in Wesson~\cite[\S\,14]{wesson}.
 Note that $Z^2 \tau_i$ differs from~$\tau_e$ in being larger by  a factor of $\sqrt{2m_i/m_e}\approx 60 \sqrt{A}$
 (also substituting $T_i$ for~$T_e$ is necessary). The factors in~$Z$ are taken from the
@@ -124,26 +128,26 @@ Substituting the explicit expression for $\tau_e$ in \Eqs{kapbae}{kapbai} gives
 respectively, the thermal parallel diffusivities are
 \begin{equation}\label{eq:kappae}
 \kappa_{e\|}= 13 \sqrt{2\pi^3} \frac{1}{\sqrt{m_e}}\frac{\epsilon_0^2}{e^4} \cdot
-\frac{(k_BT_e)^{5/2}}{Z^2 N\Lambda}
+\frac{(kT_e)^{5/2}}{Z^2 N\Lambda}
 \end{equation}
 \begin{equation}\label{eq:kappai}
 \kappa_{i\|}= 16 \sqrt{\pi^3} \frac{1}{\sqrt{m_p}}\frac{\epsilon_0^2}{e^4} \cdot
-\frac{(k_BT_i)^{5/2}}{Z^4 N\Lambda \sqrt{A}}
+\frac{(kT_i)^{5/2}}{Z^4 N\Lambda \sqrt{A}}
 \end{equation}
 and the ratios are
 \begin{equation}\label{eq:xee}
 x_e=\frac {6 \sqrt{2\pi^3}\epsilon_0^2} {\sqrt{m_e}e^3} \cdot
-\frac {(k_BT_e)^{3/2}B} {Z^2 N\Lambda}
+\frac {(kT_e)^{3/2}B} {Z^2 N\Lambda}
 \end{equation}
 \begin{equation}\label{eq:xie}
 x_i=\frac {12 \sqrt{\pi^3}\epsilon_0^2} {\sqrt{m_p}e^3} \cdot
-\frac{(k_BT_i)^{3/2}B} {Z^3 N\Lambda \sqrt{A}}
+\frac{(kT_i)^{3/2}B} {Z^3 N\Lambda \sqrt{A}}
 \end{equation}
 An expression for the perpendicular ion conductivity, maintaining
 the fixed physical factors is of interest
 \begin{equation}\label{eq:kperpie}
 \kappa_{i\perp}=\frac{e^2\sqrt{m_p}}{9 \sqrt{\pi^3}\epsilon_0^2} \cdot
-\frac{Z^2 N\Lambda \sqrt{A}}{(k_BT_i)^{1/2}B^2}
+\frac{Z^2 N\Lambda \sqrt{A}}{(kT_i)^{1/2}B^2}
 \end{equation}
 Assuming $T_i$ is measured in~$eV$, and $N$ in units of $10^{18}$\,m$^{-3}$, then
 \begin{equation}\label{eq:kperpin}
@@ -159,55 +163,11 @@ and
 The plasma resistivity is taken as
 \begin{equation}\label{eq:resis}
 \eta=\eta_B/\mu_0 =\frac{0.51\sqrt{m_e}e^2}{6 \sqrt{2\pi^3}\mu_0\epsilon_0^2} \cdot
-\frac{Z \Lambda}{(k_BT_e)^{3/2}}
+\frac{Z \Lambda}{(kT_e)^{3/2}}
 \end{equation}
 Assuming $T_e$ is measured in~$eV$, then
 \begin{equation}\label{eq:resisn}
 \eta=\eta_B/\mu_0 =41.9\cdot\frac{Z \Lambda}{(T_e)^{3/2}}\;\;m^2 s^{-1}
 \end{equation}
 
-
-\subsection{Prandtl Numbers}\label{sec:prandtl}
-The above expressions (except for the resistivity) apply strictly only when there
-are separate equations for ion and electron transport, 
-so decisions have to be taken about how to combine the transport coefficients
-to treat the plasma as a single fluid. For the thermal transport, since 
-pressures $p_e\approx p_i$, it is sufficient to add the $\kappa_\alpha$. However, the values for ions and electrons
-are so disparate because $m_p\gg m_e$ that one or other might be neglected, 
-assuming~$B$ is of order unity (in Tesla) and $T_e\approx T_i$, 
-thus $\kappa_{e\|} \gg \kappa_{i\|}$ and hence 
-$\kappa_{\|}\approx \kappa_{e\|}$, since 
-\begin{equation}\label{eq:rbrat}
-\left(\frac{x_i}{x_e}\right)^2 = \frac{2m_e}{Z^2 A m_p} \left(\frac{T_i}{T_e}\right)^3
-\end{equation}
-It also follows that
-\begin{equation}\label{eq:krat}
-\frac{\kappa_{e\perp}}{\kappa_{i\perp}} = 0.078 \left(\frac{T_i}{T_e}\right)^{1/2}
-\frac{1}{\sqrt{A}}
-\end{equation}
-thus $\kappa_{\perp}\approx \kappa_{i\perp}$.
-There is the caveat that if $T_i$ is approximately spatially constant radially,
-then $\kappa_{e\perp}$ might become relevant.
-
-As for viscosity, since the ion momentum is so much greater than the electron momentum, then $\nu\approx\nu^i$.
-
-For interchange motions where flows are perpendicular to the field, take 
-$\kappa=\kappa_{i\perp}$, then on the \emph{Cambridge} definition, the magnetic Prandtl number is
-\begin{equation}\label{eq:zeta}
-\zeta=\frac{\eta}{\kappa_{i\perp}}=\frac{0.765}{\sqrt{2}}\frac{1}{\mu_0}\sqrt{\frac{m_e}{m_p}} \cdot
-\frac{B^2}{Z N\sqrt{A}} \frac{(k_BT_i)^{1/2}}{(k_BT_e)^{3/2}}
-\end{equation}
-which evaluates as ($T_\alpha$ in~$eV$, $N$ in units of $10^{18}$\,m$^{-3}$)
-\begin{equation}\label{eq:zetan}
-\zeta=\frac{\eta}{\kappa_{i\perp}}=62\,700 \cdot \frac{B^2}{Z (N/10^{18})\sqrt{A}} \frac{(T_i)^{1/2}}{(T_e)^{3/2}}
-\end{equation}
-It may be argued that it is more appropriate to use the `anomalous'  value of $1\,m^2 s^{-1}$,
-in which case \Eq{resisn} without units gives the `Cambridge'  magnetic Prandtl number.
-
-The usual Prandtl number is
-\begin{equation}\label{eq:sigma}
-\sigma=\frac{\nu_{i\perp}}{\kappa_{i\perp}}=0.23
-\end{equation}
-Note that P.H.Roberts~\cite{roberts} defines the magnetic Prandtl number
-as $\nu/\eta=\sigma/\zeta$, and his definition is more widely used.
-
+\input{prandtl}

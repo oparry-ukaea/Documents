@@ -1,139 +1,152 @@
 \subsection{Plasma Equations}\label{sec:sys23plas}
-It is assumed that the single spatial dimension of the problem
-corresponds to the arc length distance along a fieldline.
+
 Starting from the two-fluid model of Braginskii~~\cite{Br65Tranwarv},
 a set of equations resembling those of classical (compressible) hydrodynamics
 may be derived by summing Braginskii's equations for number density,
-momentum and energy.
-Using the notation of ref~\cite{Ha13Benc}, introducing $T_d=T_i+T_e$,
+momentum and energy~\cite{Ha13Benc}.
+Using the standard notation of \Sec{mathsymb}, introducing $T_d=T_i+T_e$,
 neglecting the stress tensor terms (implicitly setting $\delta p_i=0$),
 and assuming $B$ is independent of time, the resulting system is
 \begin{eqnarray}\label{eq:sysn1}
-U_d \frac{\partial}{\partial t} (N/B)+ 
-\frac{\partial}{\partial s} (N U/B)&=&\frac{L_s S^n}{B} \\
-U_d \frac{\partial}{\partial t} (N U/B)+ 
-\frac{\partial}{\partial s} (N U^2/B)&=&
--\frac{1}{m_i B}\frac{\partial}{\partial s} (P_i + P_e) +\frac{L_s S^u}{m_i B} \label{eq:sysu1}\\
-U_d \frac{\partial}{\partial t}\left( \frac{3}{2}(N kT_d/B)+
-\frac{1}{2} (N U^2/B) \right) &+&\\
-\frac{\partial}{\partial s} \left( \frac{5}{2}(N U kT_d/B) +
-\frac{1}{2} (N U^3/B) \right) &=&
--\frac{1}{m_i B}\frac{\partial}{\partial s} (q_i + q_e) +
-\frac{L_s (S_i^E+S_e^E)}{m_i B} \label{eq:syst1}
+\frac{\partial}{\partial t} (\frac{N}{B})+ 
+\frac{\partial}{\partial s_{\|}} (\frac{N U}{B})&=&\frac{S^n}{B} \\
+\frac{\partial}{\partial t} (\frac{m_i N U}{B})+ 
+\frac{\partial}{\partial s_{\|}} (\frac{m_i N U^2}{B})&=&
+-\frac{1}{B}\frac{\partial}{\partial s_{\|}} (p_i + p_e) +\frac{S^u}{B} \label{eq:sysu1}\\
+\frac{\partial}{\partial t}\left( \frac{3}{2}(\frac{N k T_d}{B})+
+\frac{1}{2} (\frac{m_i N U^2}{B}) \right) &+& \nonumber \\
+\frac{\partial}{\partial s_{\|}} \left( \frac{5}{2}(\frac{N U k T_d}{B}) +
+\frac{1}{2} (\frac{m_i N U^3}{B}) \right) &=&
+-\frac{1}{B}\frac{\partial}{\partial s_{\|}} (q_{i\|} + q_{e\|}) +
+\frac{(S_i^\mathcal{E}+S_e^\mathcal{E})}{m_i B} \label{eq:syst1}
 \end{eqnarray}
-where 
-\begin{equation}\label{eq:hs}
-L_s= \frac{\partial s_{\parallel}}{\partial s}
-\end{equation}
-$U_d =L_s/t_0$ is a speed measuring the importance of the transient term, $s$ parameterises
-distance along the fieldline,
-%temporarily the conduction term in $(q_i + q_e)$ has been retained,
-and some variables from~\cite{Ha13Benc} have been promoted to capitals to 
-indicate that they retain their physical dimensions.
-For the case of a fieldline connecting two walls at $s=\pm L$, 
-\begin{equation}\label{eq:spar}
-s_{\parallel}=L(2s-1)
-\end{equation}
-and so $L_s=2L$.
-The constant $k$ is such that
-\begin{equation}
-k= \frac{k_B}{m_i}\;\;\mbox{or}\;\;k=\frac{|e|}{m_i}
-\end{equation}
-where $k_B$ is Boltzmann's constant and $|e|$ is the unit of charge, depending whether T is measured in Kelvin or~$eV$. 
+%$U_d =L_s/t_0$ is a speed measuring the importance of the transient term,
+where $s_{\|}$ is distance along the fieldline,
+%temporarily the conduction term in $(q_{i\|} + q_{e\|})$ has been retained,
+and all variables retain their physical dimension. (Some variables from~\cite{Ha13Benc}
+have been promoted to capitals to 
+indicate that they retain their physical dimensions.)
+%For the case of a fieldline connecting two walls at~$s_{\|}=\pm L$,
+%suppose dimensionless~$s$, $0\leq s\leq 1)$ parameterises distance
+%\begin{equation}\label{eq:spar}
+%s_{\|}=L(2s-1)
+%\end{equation}
+%It is therefore helpful to make fieldline length dimensionless in terms of the distance
+%(assumed constant)
+%\begin{equation}\label{eq:hs}
+%L_s= \frac{d s_{\|}}{d  s}
+%\end{equation}
+%and so $L_s=2L$.
+%The constant $K_{AM}$ is such that
+%\begin{equation}
+%K_{AM}= \frac{k_B}{m_i}\;\;\mbox{or}\;\;K_{AM}=\frac{|e|}{m_i}=\frac{|e|}{Am_u}
+%\end{equation}
+%where $k_B$ is Boltzmann's constant and $|e|$ is the unit of charge,
+%depending whether T is measured in Kelvin or~$eV$,
+Ion mass is defined as $m_i= Am_u$ where
+$A$ is atomic mass of the ion and $m_u$ is the atomic mass unit. 
+
 Note that in adding Eqs.(3) and~(4) of~\cite{Ha13Benc}, equipartition and collision terms cancel 
 to give \Eq{syst1}. The perfect gas equation of state will be assumed, so that
 \begin{equation}\label{eq:sysp}
-\frac{p_i+p_e}{m_i}=N k T
+p_i+p_e=N k T
 \end{equation}
 
+The thermal conduction fluxes are
+\begin{equation}\label{eq:qei}
+q_{\alpha\|}= -\kappa^\alpha_{\|} \frac{\partial k T_\alpha}{\partial s_{\|}},\;\;\;\alpha=e,\;i
+\end{equation}
+where the $\kappa^\alpha_{\|}$ take Braginskii values, see \Sec{bragin}, thus for usual situation
+in which the electron conduction dominates
+\begin{equation}\label{eq:qeisum}
+q_{i\|} + q_{e\|}= \kappa^e_{\|} \frac{\partial k T_e}{\partial s_{\|}}
+\end{equation}
+and  $T_e$ has be expressed in terms of $T_d$, eg.\ $T_e=T_d/2$ or $T_e=(1-\tau^2)T_d$
+in terms of an arbitrary $0<\tau<1$ that determines the ion temperature. To give an easier test
+problem, the conduction term may be accounted for by augmenting the advective energy flux, $5/2\rightarrow g$.
 
 The boundary conditions are that $|U|=|M_s| C_S$ at $s=0,1$ where the sound speed
 \begin{equation}
-C_S= \sqrt{kT_d}
+C_S= \sqrt{k T_d/m_i}
 \end{equation}
 and $|M_s|$ is the Mach number, since $M_s$ will be allowed to take either sign. Normally $|M_s|=1$
 so that $M_0=-1$ and $M_1$=1 where the subscript corresponds to value of~$s$.
 The combined energy flux at each boundary has
 \begin{equation}
-|Q_{\parallel}|=m_i C_S N (\delta_e kT_e + \delta_i kT_i) \approx
-m_i C_S N \delta kT_d
+|Q_{\|}|=\frac{1}{2}C_S N (\delta_e k T_e + \delta_i k T_i) \approx \frac{1}{2}
+m_i C_S N \delta k T_d
 \end{equation}
 if $\delta \approx \delta_e \approx \delta_i$. For definiteness, $\delta=\frac{1}{2}(\delta_e+\delta_i)$
-will be assumed.
+will be assumed. Values of $\delta_\alpha$ from the literature imply $\delta=4.25$.
+The energy flux factor~$g$ is chosen such that the easier model has the same energy flux.
 
-\subsection{Fluid Equations with Sources}\label{sec:sys23fluid}
-It is convenient to replace the source terms in \Eqr{sysn1}{syst1} by equivalent fluxes
-\begin{eqnarray}\label{eq:sound}
-F^n(s)&=&\int_0^s \frac{S^n}{B} ds_{\parallel}\\
-F^u(s)&=&\int_0^s \frac{S^u}{m_i B} ds_{\parallel} \label{eq:souud}\\
-F^E(s)&=&2\int_0^s\frac{S_i^E+S_e^E}{m_i B} ds_{\parallel} \label{eq:soutd}
-\end{eqnarray}
-and write
-\begin{equation}\label{eq:fQd}
-F^Q(s)=-\frac{1}{m_i B} (q_i + q_e)
-\end{equation}
-The convention with respect to limits of integration is that they are specified in terms
-of parameterised length and to use the
-appropriate relation for $s_{\parallel}(s)$, thus in the case of \Eq{spar}, the
-lower limit of~$0$ corresponds to $s_{\parallel}(s)=-L$.
-%(Note that this approach is not normally pursued because most sources are proportional
-%to density~$N$ and the recombination sources to~$N^2$, ie. there is substantial feedback.
+For mathematical analysis, it is convenient to replace the source terms in \Eqr{sysn1}{syst1}
+with equivalent fluxes, however this is unnecessary for computational purposes.
 The forms the sources take are discussed below in \Sec{sources}. 
-Observing the identity
-\begin{equation}
-\frac{1}{B}\frac{\partial}{\partial s} Bn_B kT_d = \frac{\partial}{\partial s} (n_B kT_d)+ n_B kT_d
-\frac{\partial}{\partial s} (\ln B)
-\end{equation}
-and the frequent appearance of $n_B=N/B$, the governing equations in dimensional form become
-\begin{eqnarray}\label{eq:sysnd}
-U_d \frac{\partial}{\partial t} n_B  + 
-\frac{\partial}{\partial s} (n_B U )&=& \frac{\partial}{\partial s} F^n\\
-U_d \frac{\partial}{\partial t} (n_B U)+ 
-\frac{\partial}{\partial s} (n_B U^2)&=&
--\frac{\partial}{\partial s} (n_B kT_d) +\frac{\partial}{\partial s} F^u \label{eq:sysud}\\
-U_d \frac{\partial}{\partial t}\left( \frac{3}{2}(n_B kT_d)+
-\frac{1}{2} (n_B U^2) \right) &+&\\
-\frac{\partial}{\partial s} \left( \frac{5}{2}(n_B U kT_d) +
-\frac{1}{2} (n_B U^3) \right)  &=&
--\frac{\partial}{\partial s} F^Q +
-\frac{1}{2} \frac{\partial}{\partial s} F^E \label{eq:systd}
-\end{eqnarray}
-where the derivative of $\ln B$ has been neglected. The boundary conditions on $U$ are
-unchanged and
-\begin{equation}\label{eq:Qpd}
-|Q_{\parallel}|=
-m_i C_S n B \delta kT_d
-\end{equation}
-The \Eqr{sysnd}{systd} together with boundary condition \Eq{Qpd} are in units
-such that equivalence may easily be established with those of ref~\cite{Ha13Benc} (by setting
-$U_d=1$ and identifying $s$ with~$s_{\parallel}$).
-To proceed, it may be helpful to make the preceding system of equations dimensionless,
-by scaling $n_B$ with respect to~$N_0/B_0$, $kT_d$ with respect to~$kT_0$,
-$U$ with respect to~$C_0$ and $B$ with respect to~$B_0$.
-If the subscript~$0$ corresponds to the value of a variable at $s=0$, then
-it is convenient to take $C_0=\sqrt{kT_0}$. The resulting system may be deduced
-from the coupled model in \Sec{sys23coupled}.
+
+%\subsection{Fluid Equations with Sources}\label{sec:sys23fluid}
+%\begin{eqnarray}\label{eq:sound}
+%F^n(s)&=&\int_0^s \frac{S^n}{B} ds_{\|}\\
+%F^u(s)&=&\int_0^s \frac{S^u}{m_i B} ds_{\|} \label{eq:souud}\\
+%F^\mathcal{E}(s)&=&2\int_0^s\frac{S_i^\mathcal{E}+S_e^\mathcal{E}}{m_i B} ds_{\|} \label{eq:soutd}
+%\end{eqnarray}
+%and write
+%
+%The convention with respect to limits of integration is that they are specified in terms
+%of parameterised length and to use the
+%appropriate relation for $s_{\|}(s)$, thus in the case of \Eq{spar}, the
+%lower limit of~$0$ corresponds to $s_{\|}(s)=-L$.
+%%(Note that this approach is not normally pursued because most sources are proportional
+%%to density~$N$ and the recombination sources to~$N^2$, ie. there is substantial feedback.
+%Observing the identity
+%\begin{equation}
+%\frac{1}{B}\frac{\partial}{\partial s} Bn_B K_M T_d = \frac{\partial}{\partial s} (n_B K_M T_d)+ n_B K_M T_d
+%\frac{\partial}{\partial s} (\ln B)
+%\end{equation}
+%and the frequent appearance of $n_B=N/B$, the governing equations in dimensional form become
+%\begin{eqnarray}\label{eq:sysnd}
+%\frac{\partial}{\partial t} n_B  + 
+%\frac{\partial}{\partial s_{\|}} (n_B U )&=& \frac{\partial}{\partial s_{\|}} F^n\\
+%\frac{\partial}{\partial t} (n_B U)+ 
+%\frac{\partial}{\partial s_{\|}} (n_B U^2)&=&
+%-\frac{\partial}{\partial s_{\|}} (n_B K_M T_d) +\frac{\partial}{\partial s_{\|}} F^u \label{eq:sysud}\\
+%\frac{\partial}{\partial t}\left( \frac{3}{2}(n_B K_M T_d)+
+%\frac{1}{2} (n_B U^2) \right) &+&\\
+%\frac{\partial}{\partial s_{\|}} \left( \frac{5}{2}(n_B U K_M T_d) +
+%\frac{1}{2} (n_B U^3) \right)  &=&
+%-\frac{\partial}{\partial s_{\|}} F^Q +
+%\frac{1}{2} \frac{\partial}{\partial s_{\|}} F^\mathcal{E} \label{eq:systd}
+%\end{eqnarray}
+%where the derivative of $\ln B$ has been neglected. The boundary conditions on $U$ are
+%unchanged and
+%\begin{equation}\label{eq:Qpd}
+%|Q_{\|}|=
+%m_i C_S n B \delta K_M T_d
+%\end{equation}
+%The \Eqr{sysnd}{systd} together with boundary condition \Eq{Qpd} are in units
+%such that equivalence may easily be established with those of ref~\cite{Ha13Benc} (by 
+%identifying $s$ with~$s_{\|}$).
 
 
 \subsection{Explicit Sources}\label{sec:sources}
-The above work concentrates on the case where the source terms are regarded
+The above work considers the case where the source terms are regarded
 as given, however it is worth describing the form of the additional sources that
 may be at least locally important.
 From ref~\cite{Ha13Benc}, the plasma sources are given by (with the convention that suffix~`n'
 denotes neutral species)
 \begin{eqnarray}
 \label{eq:Sn} S^n&=&N_n N \langle\sigma v\rangle_{ION} - N^2 \langle\sigma v\rangle_{REC} +S^n_{\perp} \\
-\label{eq:Su} S^u&=&N_n N \langle\sigma v\rangle_{ION} U_n - N^2 \langle\sigma v\rangle_{REC} U + N_n N (U_n-U) \langle\sigma v\rangle_{CX} \\
-\label{eq:SE} S^E&=&S^E_i+S^E_e \\
-&=&N_n N \langle\sigma v\rangle_{ION} (\frac{3}{2} k_B T_n + \frac{1}{2} m_n U_n^2 -k_B I_H)\\
-\nonumber &-& N^2 \langle\sigma v\rangle_{REC} (\frac{3}{2} k_B T_i + \frac{1}{2} m_i U^2 )\\
-\nonumber &+&N_n N\langle\sigma v\rangle_{CX} \left(\frac{3}{2} k_B (T_n-T_i)  + \frac{1}{2} m_n (U_n^2-U^2)\right)\\
-\nonumber &-&N_n N k_B Q_H +S^E_{\perp i} +S^E_{\perp e}
+\label{eq:Su} \frac{S^u}{m_i} &=&N_n N \langle\sigma v\rangle_{ION} U_n - N^2 \langle\sigma v\rangle_{REC} U + N_n N (U_n-U) \langle\sigma v\rangle_{CX} \\
+\label{eq:SE} S^\mathcal{E}&=&S^\mathcal{E}_i+S^\mathcal{E}_e \\
+&=&N_n N \langle\sigma v\rangle_{ION} (\frac{3}{2} kT_n + \frac{1}{2} m_n U_n^2 -k I_H)\\
+\nonumber &-& N^2 \langle\sigma v\rangle_{REC} (\frac{3}{2} kT_i + \frac{1}{2} m_i U^2 )\\
+\nonumber &+&N_n N\langle\sigma v\rangle_{CX} \left(\frac{3}{2} k (T_n-T_i)  + \frac{1}{2} m_n (U_n^2-U^2)\right)\\
+\nonumber &-&N_n N k Q_H +S^\mathcal{E}_{\perp i} +S^\mathcal{E}_{\perp e}
  \end{eqnarray}
 Here suffix $\perp$ denotes the effectively given source terms arising from cross-field
 contributions, suffices $ION$,
-$REC$ and $CX$ denote respectively cross-sections~$\langle\sigma v\rangle$ for ionisation,
-recombination and charge-exchange reactions, $I_H$ is the Hydrogen reionisation potential,
+$REC$ and $CX$ denote respectively reaction rates~$\langle\sigma v\rangle$ for ionisation,
+recombination and charge-exchange, $I_H$ is the Hydrogen reionisation potential,
 and $Q_H$ is the cooling rate due to excitation. 
 
 Since the sources appear in the analysis primarily as integrals starting at $s=0$,
@@ -143,111 +156,45 @@ term, due to recombination, but from the cross-section data in ref~\cite{Ha13Ben
 dominate only below~$2$\,eV. All terms in \Eq{Su} are positive near $s=0$ as the two velocities
 reinforce. \Eq{SE} contains two terms which are always negative and an ionisation
 term which is also negative below~$I_H/2\approx7$\,eV, thus for example, the cross-field source
-terms~$S_{\perp i,e}$  must be positive for $S^E>0$.
+terms~$S_{\perp i,e}$  must be positive for $S^\mathcal{E}>0$ in steady state.
 
 The sources of neutrals may be deduced from the ionisation and charge-exchange terms in \Eqr{Sn}{SE}, viz.
 \begin{eqnarray}
-\label{eq:Snn} S^n_n&=&-N_n N \langle\sigma v\rangle_{ION} +S^n_{\perp,n} \\
-\label{eq:Sun} S^u_n&=&-N_n N \langle\sigma v\rangle_{ION} U_n - N_n N (U_n-U) \langle\sigma v\rangle_{CX} S^u_{\perp,n}\\
-\label{eq:SEn} S^E_n&=&
--N_n N \langle\sigma v\rangle_{ION} (\frac{3}{2} k_B T_n + \frac{1}{2} m_n U_n^2 -k_B I_H)\\
-&-&N_n \langle\sigma v\rangle_{CX} \left(\frac{3}{2} k_B (T_n-T_i)  + \frac{1}{2} m_n (U_n^2-U^2)\right)\\
-&+&S^E_{\perp n} 
+\label{eq:Snn} S^n_n&=&-N_n N \langle\sigma v\rangle_{ION} +S^n_{\perp n} \\
+\label{eq:Sun} \frac{S^u_n}{m_n} &=&-N_n N \langle\sigma v\rangle_{ION} U_n - N_n N (U_n-U) \langle\sigma v\rangle_{CX} + S^u_{\perp n} \\
+\label{eq:SEn} S^\mathcal{E}_n&=&
+-N_n N \langle\sigma v\rangle_{ION} (\frac{3}{2} kT_n + \frac{1}{2} m_n U_n^2 -k I_H)\\
+&-&N_n \langle\sigma v\rangle_{CX} \left(\frac{3}{2} k (T_n-T_i)  + \frac{1}{2} m_n (U_n^2-U^2)\right)\\
+&+&S^\mathcal{E}_{\perp n} 
 \end{eqnarray}
-The $S_{\perp,n}$ terms are hard to quantify, but if these are neglected,
+The $S_{\perp n}$ terms are hard to quantify, but if these are neglected,
 it is clear that $S^n_n<0$ and $S^u_n<0$
-is the obverse of the positive plasma sources. Similarly it is likely that $S^E_n<0$ if $S^E>0$
+is the obverse of the positive plasma sources. Similarly it is likely that $S^\mathcal{E}_n<0$ if $S^\mathcal{E}>0$
 
-\subsection{Coupled System}\label{sec:sys23coupled}
-%\subsection{Neutrals}\label{sec:sys23neutrals}
-Working within the flux-tube geometry, the equations for neutral transport
-take the same form as those used for plasma above,
-however the boundary conditions are different.
-They become at $s=0$, supposing that ${\sf T}(0)=\tau^2 T_0$ and masses~$m_n=m_i$, in dimensionless units,
-\begin{eqnarray}
-\label{eq:bcnn} {\sf n}=R_2=\frac{R}{\tau}|M_0| \\
-\label{eq:bcnu} {\sf u}=-\tau \\
-\label{eq:bcnt} {\sf T}=\tau^2 
-\end{eqnarray}
-where ${\sf n}$, ${\sf u}$ and ${\sf T}$ are neutral density, temperature and density made
-dimensionless with respect to the same $N_0$ and $T_0$ as the corresponding plasma quantities,
-and $R$ is the recycling coefficient. Note the usage of a sans-serif font to denote
-dimensionless neutral species quantities, and that ${\sf n}$ does not however include a factor of
-$\tilde{b}=B/B_0$, as the neutral flux is not constrained by the flux tube.
-%Moreover, if ${\sf T}=T_i$, then $T_0$ may be redefined so that $\tau^2=T_i/(T_i+T_e)$.
-
-
-A system explicitly modelling the coupling between plasma and neutrals may be derived by making
-non-dimensionless the sources set out in \Sec{sources}, and assuming $m_n=m_i$, ${\sf T}=T_i=\tau^2 T$,
-giving $5$~equations for the evolution of plasma density, velocity, total temperature,
-neutral density and neutral velocity:
-\begin{eqnarray}\label{eq:syscn}
-\epsilon_r \frac{\partial}{\partial t} n + 
-\frac{\partial}{\partial s} (nu)&=& \sigma_I n {\sf n}+\frac{\partial}{\partial s} f^n\\
-\epsilon_r \frac{\partial}{\partial t} (nu)+ 
-\frac{\partial}{\partial s} (nu^2+nT)&=&
-\sigma_I n {\sf n} {\sf u} + \sigma_c n {\sf n} ({\sf u}-u)+\frac{\partial}{\partial s} f^u \label{eq:syscu}\\
-\epsilon_r \frac{\partial}{\partial t}\left( (g-2) nT+
- nu^2) \right) &+& \nonumber\\
-\frac{\partial}{\partial s} \left( g nuT +
-nu^3 \right) &=& \sigma_I n {\sf n} (3[\tau^2 T -T_H]+{\sf u}^2)
-+\sigma_C n {\sf n} ({\sf u}^2-u^2) \nonumber\\
-&-&\sigma_E n {\sf n}
-+ \frac{\partial}{\partial s} f^E \label{eq:sysct}\\
-\epsilon_r \frac{\partial}{\partial t} {\sf n} + 
-\frac{\partial}{\partial s} ({\sf n} {\sf u})&=& -\sigma_I n {\sf n}\label{eq:syscnn}\\
-\epsilon_r \frac{\partial}{\partial t} (nu)+ 
-\frac{\partial}{\partial s} ({\sf n} {\sf u}^2+{\sf n} \tau^2 T)&=&
--\sigma_I n {\sf n} {\sf u} - \sigma_c n {\sf n} ({\sf u}-u) \label{eq:syscnu}
-\end{eqnarray}
-where $\epsilon_r=L_s/(t_0 C_0)$ with $t_0$ a characteristic timescale. The reaction cross-sections
-are made dimensionless by division by $C_0/(L_s N_0)$($\simeq 3.1 \times 10^{-16}\,m^3 s^{-1}$ for
-representative parameter values), so that
-\begin{eqnarray}\label{eq:csigma}
-\sigma_I &=& \frac{\langle \sigma v \rangle_{ION}}{C_0/L_S N_0}\\
-\sigma_C &=& \frac{\langle \sigma v \rangle_{CX}}{C_0/L_S N_0}\\
-\sigma_E &=& \frac{2 Q_H}{C_0 T_0/L_S N_0}\\
-T_H&=&\frac{2 I_H}{3 T_0} \simeq 9/T_0 \mbox{(in eV)}
-\end{eqnarray}
-where $I_H$ and $Q_H$ are as defined in ref~\cite{Ha13Benc}.
-
-It is of interest to allow a stochastic (`turbulent') contribution to the terms~$f^{n,u,E}$.
-
-
-\subsection{Uncertainty Quantification}\label{sec:sys23UQ}
-%Stochastic sources like in Ben Sloman's report~\cite{Sl15MLMC}.
-Polynomial chaos~(PC) refers to a situation whereby probability
-functions are expanded as Hermite polynomials, and generalised
-Polynomial chaos~(gPC) to expansions using Hermite and other
-polynomial sets~$\{\Psi_j(\xi)\}$~\cite{Xi03Mode}.
-Thus for example, suppose $\theta$ to denote a random event, and the number density field
-to have the following representation in terms of a finite number~$P$ of such modes.
-\begin{equation}\label{eq:TrepgPC}
-n({\bf x},t, \theta) = \sum_{j=0}^P n_j({\bf x},t) \Psi_j \left(\xib(\theta)\right)
+The boundary conditions on the neutrals~\cite[Table\,4]{Ha13Benc} are
+(1) that the flux of neutrals is set by recycling of the plasma, so
+\begin{equation}\label{eq:bcneutflux}
+N_n U_n = - R_p N U
 \end{equation}
-where
-$\{ n_j({\bf x},t)\}$ is the set of deterministic coefficients of the ``random trial basis",
-ie.\ the set~$\{ \Psi_j \left(\xib(\theta)\right) \}$ where $\xib(\theta)$ 
-is a multi-dimensional random variable with a specific 
-probability distribution as a function of the random parameter~$0\leq\theta\leq 1$.
-Note that the $\Psi_j$ are the set of multi-dimensional Hermite polynomials if $\xib$ is a vector.
-Typically but not necessarily the $\xib(\theta)$ will be Gaussians.
-%The Monte-Carlo algorithm can be thought of as a subcase of the above representation
-%corresponding to the collocation procedure where the test basis
-%is~$\Psi_j(\theta)=\delta(\theta-\theta_j)$
-%where $\delta$ is the Kronecker delta function and $\theta_j$
-%refers to an isolated random event~\cite{Xi03Mode}.
-Expressions like~\Eq{TgPC} may be substituted into a governing
-equation of say advection type for~$n$, and the result simplifies because spatial
-operators do not interact with the random variables, then taking the inner product
-with $\Psi_k \left(\xib(\theta)\right)$ yields
-\begin{equation}\label{eq:TgPC}
-\frac{\partial n_k}{\partial t}+  
-\sum_{i=0}^P \sum_{j=0}^P e_{ijk} \frac{\partial u_i n_j}{\partial s}=0
+where $R_p$ is the recycling coefficient.
+and (2) of close to sonic outflow
+\begin{equation}\label{eq:bcneutspeed}
+U_n ={\sf M}_0\sqrt\frac{k T_n}{m_n}
 \end{equation}
-where $e_{ijk}$ is a weighted integral of triple products of $\Psi_i$.
-Hence there are now $P$ equations instead of one for~$n$.
+where ${\sf M}_0$ is the signed Mach number for the neutrals, and $T_n$ is the neutral temperature in the
+volume, which assumed constant throughout a calculation.
 
-There is an alternative treatment by Polynomial Chaos Expansion (PCE) which is non-intrusive
-and therefore preferred. It relies on projecting a set of randomly selected solutions onto
-a Hermite or similar basis, see further description in ref~\cite[end \S\,2.1.1]{y2re313}.
+\subsubsection{Symmetries and Constraints}\label{sec:constraint}
+Solutions that could be used for testing purposes are described in the separate dedicated document.
+Here it is briefly noted that symmetry could be used to test code validity. The model
+supports a solution symmetric about the domain mid-point in density and temperature
+(antisymmetric in flow velocity), provided any applied sources have the corresponding symmetries.
+There are also point relations which must be satisfied at the midpoint.
+
+In steady state, there is the physical, integrated constraint that sources must balance total
+fluxes of plasma and neutral mass across the boundaries.
+Further, in absence of diffusive terms, if the sources vanish at the boundaries
+then steady-state has the additional constraint of boundary conditions
+of zero gradient (Neumann conditions). Care is required though, as this will not generally be
+true since the more realistic representation of the sources in the coupled system
+typically leads to non-zero values at the boundaries.

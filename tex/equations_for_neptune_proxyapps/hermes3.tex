@@ -1,0 +1,124 @@
+%drift-plane-turbulence-te-ti
+With reference to the Hermes web-site~\cite{hermes3website}, the following 2-D time dependent
+model of plasma evolution may be derived, expressed using the agreed notation
+for plasma quantities, see \Sec{mathsymb},
+note in particular that plasma `vorticity' has dimensions of charge density. 
+\begin{eqnarray}
+p &=& \sum_\alpha n_\alpha kT_\alpha \\
+\rho_m &=& \sum_\alpha A_\alpha m_u n_\alpha \\
+c_s &=& \sqrt{\frac{p}{\rho_m}} \\ 
+n_{e} &=& \Sigma_{\alpha\neq e} Z_\alpha n_\alpha = Z_i n_i\\
+\frac{\partial n_e}{\partial t} &=& - \nabla\cdot\left(n_e\mathbf{v}_{E\times 
+B}\right) + \nabla\cdot{\frac{1}{|q_e|}\mathbf{j}_{sh}} - \frac{n_e c_s}{L_\|}  + S^n_e \\ 
+\frac{\partial p_e}{\partial t} &=& - \nabla\cdot\left(p_e\mathbf{v}_{E\times 
+B}\right) - \frac{\delta_e p_e c_s}{L_\|} + S^p_e
++D_{fpe}\nabla \cdot \left( {\kappa_{e\perp}} n_e \nabla_\perp kT_e \right) \\
+\frac{\partial p_{i}}{\partial t} &=& - \nabla\cdot\left(p_{i}\mathbf{v}_{E\times B}\right) 
+- \frac{\delta_i p_{i} c_s}{L_\|} + S^p_i
++D_{fpi}\nabla \cdot \left( {\kappa_{i\perp}} n_i \nabla_\perp kT_i \right) \\
+\\
+\frac{\partial \omega}{\partial t} &=& 
+-\nabla\cdot\left(\omega\mathbf{v}_{E\times B}\right) + \nabla\cdot\left[\left(p_e + 
+p_i\right)\nabla\times\frac{\mathbf{b}}{B}\right] + \nabla\cdot\mathbf{j}_{sh}
++ D_{fvs}\nabla \cdot \nu \nabla_\perp \omega
+\\ 
+& \nabla & \cdot  \left[\frac{m_i}{Z_i |q_e|B^2}\nabla_\perp\left(n_{ref} |q_e|\Phi + \frac{1}{Z_i } p_i \right)\right] = \omega \\
+\nabla\cdot\mathbf{j}_{sh} &=& -\frac{|q_e|n_ec_s}{L_{\|}}  \frac{|q_e|\Phi}{kT_{ref}} \\
+\mathbf{v}_{E\times B} &=&  \frac{\mathbf{B}\times \nabla \Phi}{B^2}
+%\cdot f_{sca}
+\end{eqnarray}
+where it has been assumed that there is a single ion species~$i$.
+(Cases with $Z_i\neq 1$ need checking, so the ion species has to be assumed Hydrogenic $Z_i=1$ for now.)
+%where $f_{sca}$ has the units of $\frac{|q_e|}{m_ic_s}$ (although this may not be the correct scaling).
+The sheath heat transmission coefficients are from Stangeby~\cite[\S\,2.8]{stangeby} (who uses
+the notation `$\gamma_\alpha$')
+\begin{equation}\label{eq:shtc}
+\delta_e=6.5,\;\;\;\delta_i=2.0
+\end{equation}
+
+Notes
+\begin{enumerate}
+\item The system is defined in two space dimensions, so both number~$n_e$ and charge~($\omega$) density
+are defined per \emph{square} metre, and pressure as force per unit \emph{length}.
+\item The dissipative terms with coefficients $\nu$, $\kappa_{e\perp}$ and $\kappa_{i\perp}$ (Braginskii
+functional forms to be used from \Sec{bragin}, enhanced if necessary by numerical multiplication
+factors~$D_{fpe},\;D_{fpi},\;D_{fvs}$) have been added so that Hermes-3 simulations
+may be compared minimising complications due to sub-grid-scale effects.
+\item Thanks to the use of equations for pressure instead of energy density ($\mathcal{E}_\alpha= \frac{3}{2}p_\alpha$,
+$\alpha=e,i$),
+Braginskii values correspond to $D_{fpe}=D_{fpi}=\frac{2}{3}$
+\item Similarly the pressure sources are to be reduced $S^p_\alpha=\frac{2}{3} Q_\alpha$, $\alpha=e,i$.
+\item The same expressions  may be taken for the source terms as those listed in System 2-3 in ~\Sec{sys2-3}
+\item Successive simplifications for the pressure `dissipation' replace
+\begin{eqnarray}
+D_{fpe}\nabla \cdot \left( {\kappa_{e\perp}} n_e \nabla_\perp kT_e \right) &\rightarrow& D_{fpe}\nabla \cdot \left( {\kappa_{e\perp}} \nabla_\perp p_e \right) \\
+D_{fpi}\nabla \cdot \left( {\kappa_{i\perp}} n_i \nabla_\perp kT_i \right) &\rightarrow& D_{fpi}\nabla \cdot \left( {\kappa_{i\perp}} \nabla_\perp p_i \right) 
+\end{eqnarray}
+and then with adjusted numerical multiplication factors~$D^{\kappa}_{fpe},\;D^{\kappa}_{fpi}$:
+\begin{eqnarray}
+D_{fpe}\nabla \cdot \left( {\kappa_{e\perp}} \nabla_\perp p_e \right) &\rightarrow& D^{\kappa}_{fpe}\nabla \cdot \nabla_\perp p_e \\
+D_{fpi}\nabla \cdot \left( {\kappa_{i\perp}} \nabla_\perp p_i \right) &\rightarrow& D^{\kappa}_{fpi}\nabla \cdot \nabla_\perp p_i \\
+\end{eqnarray}
+which are increasingly inaccurate but increasingly easier to implement. 
+\end{enumerate}
+
+\subsection{Dimensionless units}\label{sec:26dim}
+\nep\ will \emph{not} use dimensionless units because of the potential for confusion. However, the Hermes-3
+models are expressed in dimensionless variables, and it is necessary to understand how this has been done.
+A prominent source of confusion is the introduction of purely numerical factors when transforming, for
+which there is one permissible exception namely, as in the Hermes-3 model, where the opportunity has been taken
+to introduce a factor~$N_{ref}$ to reduce number densities
+to more reasonable magnitudes. The key scalings are
+\begin{enumerate}
+\item time in units of~$1/\omega_{ci}$, 
+\item length in units of $c_{s,ref}/\omega_{ci}$, where the speed satisfies $kT_{ref}=m_i c_{s,ref}^2$
+\item electric potential in units of $kT_{ref}/|q_e|$
+\item magnetic field in units of $B_0$ used to define $\omega_{ci}=Z_i |q_e| B_0/m_i$ (remembering $Z_i=1$ in the model).
+\item $n_e,\; p_i,\; p_e,\; \omega$ made dimensionless with respect to an additional factor of $N_{ref} \times$
+the expected scalings of $(\omega_{ci}/c_{s,ref})^2$, $m_i\omega_{ci}^2$, $m_i\omega_{ci}^2$ and
+$|q_e|\cdot (\omega_{ci}/c_{s,ref})^2$ respectively.
+\item consequently dimensional source terms have to be scaled (divided) by $N_{ref} \omega_{ci} \mathrm{Scale}$
+where $\mathrm{Scale}$ is the appropriate factor for the equation from the preceding list.
+\end{enumerate}
+(It is suggested that in keeping with the application to the Exascale, the pure number $N_{ref}=10^{18}$.)
+In the Hermes-3 equations, variable~`$c_s$' becomes the Mach number, variable~`$e$'=-1,
+$L_{\|}$ is in units of $c_{s,ref}/\omega_{ci}$. (Quoted variables
+indicate that they are not \nep\ approved symbols.) The \nep\ website has a section on ``Physical properties of
+the edge plasma" which gives representative values for the units employed above. 
+
+
+\subsection{Boundary conditions}\label{sec:26bcs}
+Boundary conditions employed are typically Neumann or Dirichlet.
+
+\subsection{Initial conditions}\label{sec:26init}
+Initial conditions rely on simple analytic responses to source terms that may be either of
+volume form meaning imposed contributions such as~$S^n_e$ above (representing eg.\ gas-puffing),
+or expressed as inflows, either
+from the hot central plasmas or due to recycling of plasma at the first wall.
+By default the source terms will each have a Maxwellian distribution.
+The presence of large, possibly dominant source terms implies a need to ramp up solutions.
+A two stage process is suggested, whereby first an analytic approximation~$S_{\mathrm{ana}}$
+to the expected source say~$S^n_\alpha$ is specified, so that for $t<t_R$
+\begin{equation}
+S^n_\alpha(t)\approx S^n_\mathrm{num}=\frac{t}{t_R} S_\mathrm{ana}
+\end{equation}
+thereafter introduce a hand-off function $w_H(t-t_R)$ falling linearly from $1$~to~$0$ 
+over a time $t_H$ so that
+\begin{equation}
+S^n_\mathrm{num}=w_H S_\mathrm{ana} +\left(1-w_H\right)S^n_\alpha
+\end{equation}
+where mathematically
+\begin{equation}
+w_H (t')= 1-t'/t_H,\;\;t'=t-t_R
+\end{equation}
+
+\subsection{Kinetic effects}\label{sec:26kin}
+A particle (PIC) model, see \Sec{kin}  may be used to compute models to represent the sheath instead of the 
+terms in $\nabla\cdot\mathbf{j}_{sh}$ above.
+
+As an alternative (or additional)  means of including particle effects, the source terms $S^n_e$,
+$S^p_\alpha,\;\;\alpha=e,i$ may be calculated by Monte-Carlo techniques, see \Sec{sys3-3}
+for treatment of particle interactions.
+(Necessary Monte-Carlo techniques for particle production and motion
+are described in \Sec{sys3-1}.)
+

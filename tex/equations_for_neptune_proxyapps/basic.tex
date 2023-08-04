@@ -1,0 +1,63 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{hyperref}            %insert hyper-links
+%\usepackage{bm}% bold math
+\newcommand{\Sec}[1]{Section~\ref{sec:#1}}
+\newcommand{\Fig}[1]{Figure~\ref{fig:#1}}
+\newcommand{\EQ}[1]{Equation~(\ref{eq:#1})}
+\newcommand{\Eq}[1]{Eq.\ (\ref{eq:#1})}
+\newcommand{\Eqs}[2]{Eqs~(\ref{eq:#1})~and~(\ref{eq:#2})}
+\newcommand{\Eqr}[2]{Eqs~(\ref{eq:#1})--(\ref{eq:#2})}
+\newcommand{\Figs}[2]{Figures~\ref{fig:#1}--~\ref{fig:#2}}
+\def\BB{\mbox{\boldmath $B$}}
+\def\Bb{\mbox{\boldmath $\tilde{B}$}}
+\def\Jb{\mbox{\boldmath $\tilde{J}$}}
+\def\omegab{\mbox{\boldmath $\tilde{\omega}$}}
+\def\vortb{\mbox{\boldmath $\omega$}}
+\def\Deltab{\mbox{\boldmath $\Delta$}}
+\def\ellb{\mbox{\boldmath $\ell$}}
+\def\betab{\mbox{\boldmath ${\beta}$}}
+\usepackage{latexsym}
+
+\begin{document}
+%\tableofcontents
+
+\title{Selected Typesetting / Check single tex file contents}
+\author{Wayne Arter}
+%\address{EURATOM/CCFE Fusion Association, Culham Science Centre, Abingdon, UK. OX14 3DB }
+\date{\today}
+
+%\begin{abstract}
+%\end{abstract}
+
+%\pacs{52.35.-g, 47.55.P-, 02.30.Oz}
+
+\maketitle
+
+\section{Typesetting}\label{sec:contents}
+Ref~\cite{Ri21Polo}
+%\input{hermes}
+%\input{hermes3}
+%----------test--------
+%
+%\input{test}
+%----------examples--------
+%
+%\input{examples}
+%----------components--------
+%
+%\input{components}
+%1~\cite{Ar19Chal-ppt}
+%2~\cite{Wa16}
+
+\section*{References}
+\bibliographystyle{unsrt}
+%PRL
+
+\bibliography{../bib/waynes,../bib/misc,../bib/new,../bib/warv,../bib/neuts,../bib/reac}
+
+\end{document}
