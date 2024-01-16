@@ -67,13 +67,33 @@ def create_fms_bibtex(bib_database):
             if bibtex_number.find("EXCALIBUR-FMS") > 0:
                 bibtex_number = bibtex_number.replace("{", "")
                 bibtex_number = bibtex_number.replace("}", "")
-
-                # assume the format of the NUMBER field is FMS-foo-A.1.2.3
-                split_bibtex_number = bibtex_number.split("-")
-                report_number = split_bibtex_number[-1]
-                new_map[report_number] = item
-
+                bibkey = extract_ukaea_bibkey(bibtex_number)
+                if bibkey is None:
+                    print(
+                        f'WARNING: Failed to compute bibtex key for number "{bibtex_number}'
+                    )
+                else:
+                    new_map[bibkey] = item
     return new_map
+
+
+def extract_ukaea_bibkey(s):
+    """
+    Extracts FMS number and report number from filenames / bibtex NUMBER fields for internal UKAEA reports.
+    Might be simpler to do this with regex...
+    """
+
+    name_components = s.split("-")
+    report_number = name_components[-1]
+    FMS_number = None
+    for comp in name_components:
+        if comp.startswith("FMS"):
+            FMS_number = comp.replace("/", "")
+            break
+    if FMS_number is None:
+        return None
+    else:
+        return (FMS_number, report_number)
 
 
 def find_reports():
@@ -107,11 +127,7 @@ def get_bibtex_key(report):
     basename = os.path.basename(report)
 
     if po == "ukaea_reports":
-
-        no_extension = os.path.splitext(basename)[0]
-        report_number = no_extension.split("-")[-1]
-        bid = report_number
-
+        bid = extract_ukaea_bibkey(os.path.splitext(basename)[0])
     else:
 
         bid = po + "-" + ".".join(basename.split(".")[:-1])
